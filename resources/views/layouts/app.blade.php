@@ -41,6 +41,9 @@ if ($role == 'agent') {
     <link href=" {{ asset('template/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href=" {{ asset('template/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" media="all">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
     <!-- Main CSS-->
     <link href=" {{ asset('template/css/theme.css') }}" rel="stylesheet" media="all">
 
@@ -192,80 +195,49 @@ if ($role == 'agent') {
                                 <i class="fas fa-user"></i>Agents</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="">Add Agents</a>
+                                    <a href="{{ route('addagent') }}">Add</a>
                                 </li>
                                 <li>
-                                    <a href="">List Agents</a>
+                                    <a href="{{ route('allagents') }}">List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-home"></i>Rental & Subsale</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="">Add</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('allrentals') }}">List</a>
+                                </li>
+                                <li>
+                                    <a href="">Month</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li>
-                        <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-building"></i>Projects</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a href="">Add</a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a href="">List</a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="">Month</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="has-sub">
+                        <li>
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
+                                <i class="fas fa-wrench"></i>Configaration</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
+                                    <a href="">Area</a>
                                 </li>
                             </ul>
                         </li>
@@ -307,7 +279,8 @@ if ($role == 'agent') {
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
-
+            <div class="page-content--bgf7">
+            <div class="main-content">
             @yield('content')
                             
                         <div class="row">
@@ -324,12 +297,12 @@ if ($role == 'agent') {
             <!-- END PAGE CONTAINER-->
         </div>
     </div>
-    {{ asset('css/font-face.css') }}
     <!-- Jquery JS-->
     <script src="{{ asset('template/vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->
-    <script src="{{ asset('template/vendor/bootstrap-4.1/popper.min.js') }}"></script>
-    <script src="{{ asset('template/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('template/vendor/bootstrap-4.1/popper.min.js')}}"></script>
+    <script src="{{ asset('template/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+
     <!-- Vendor JS       -->
     <script src="{{ asset('template/vendor/slick/slick.min.js') }}">
     </script>
@@ -344,10 +317,24 @@ if ($role == 'agent') {
     <script src="{{ asset('template/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('template/vendor/chartjs/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('template/vendor/select2/select2.min.js') }}">
+
     </script>
 
     <!-- Main JS-->
     <script src="{{ asset('template/js/main.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"/>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
 
 </body>
 

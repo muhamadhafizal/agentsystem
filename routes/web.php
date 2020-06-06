@@ -22,6 +22,13 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 //admin
 Route::get('/admin', 'AdminController@index')->name('admindashboard');
 
+//rentalsubsale
+Route::get('/rental', 'RentalController@index')->name('allrentals');
+
+//member
+Route::get('/user', 'UserController@index')->name('allagents');
+Route::get('/user/add', 'UserController@addagent')->name('addagent');
+
 //Project admin
 Route::get('/project', 'ProjectController@index')->name('admindashboardproject');
 
