@@ -1,29 +1,83 @@
 @extends('layouts.app')
 
 @section('content')
-            <!-- MAIN CONTENT-->
-                <div class="row">
-                        <div class="col-sm-4">
-                            @if(Session::has('flash_message'))
-                                <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
-                            @endif
-                            @if(Session::has('flash_message_delete'))
-                                <div class="alert alert-danger"><span class="fa fa-check"></span><em> {!! session('flash_message_delete') !!}</em></div>
-                            @endif
-                        </div>
-                        <div class="col-sm-4">
 
+<!-- MAIN CONTENT-->
+	<div class="row">
+	        <H2 align="center" style="width: 12pc; color:grey" >{{$monthname}}</H2>
+	</div>
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row m-t-25">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <h2 style="color: white">RM</h2>
+                                </div>
+                                <div class="text">
+                                    <h2>123</h2>
+                                    <span>Rental</span>
+                                </div>
+                            </div>
+                            <div class="overview-chart">
+
+                            </div>
                         </div>
-                        <div style="left: 290px;" class="col-sm-4">
-                            <a href="{{ route('addrental') }}"><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i></button></a>
-                        </div>
+                    </div>
                 </div>
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row m-t-30">
-                            <div class="col-md-12">
-                                <!-- DATA TABLE-->
-                                <div class="table-responsive m-b-40">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <h2 style="color: white">RM</h2>
+                                </div>
+                                <div class="text">
+                                    <h2> 123</h2>
+                                    <span>Comm Owner</span>
+                                </div>
+                            </div>
+                            <div class="overview-chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <h2 style="color: white">RM</h2>
+                                </div>
+                                <div class="text">
+                                    <h2>123</h2>
+                                    <span>Comm Tenant</span>
+                                </div>
+                            </div>
+                            <div class="overview-chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10">
+
+                </div>
+                <div class="col-sm-2">
+             
+                    <a href=""><button type="button" class="btn btn-light"><i class="fas fa-user"></i>Sales Members</button></a>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+            	<!-- DATA TABLE-->
+                <div class="table-responsive m-b-40">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
@@ -506,7 +560,16 @@
                                 </table>
                                 </div>
                                 <!-- END DATA TABLE-->
-                            </div>
-                        </div>
+            </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                 
+                    </div>
+                    <div class="col-sm-8">
+                    </div>
+                    <div class="col-sm-2">
+                        <a href=""><button type="button" class="btn btn-success">Export to excell</button></a>
+                    </div>
+                </div>
 
 @endsection

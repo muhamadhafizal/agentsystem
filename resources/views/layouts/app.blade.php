@@ -207,13 +207,13 @@ if ($role == 'agent') {
                                 <i class="fas fa-home"></i>Rental & Subsale</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="">Add</a>
+                                    <a href="{{ route('addrental') }}">Add</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('allrentals') }}">List</a>
                                 </li>
                                 <li>
-                                    <a href="">Month</a>
+                                    <a href="{{ route('listmonth') }}">Month</a>
                                 </li>
                             </ul>
                         </li>
@@ -334,6 +334,13 @@ if ($role == 'agent') {
         $(document).ready(function() {
             $('#example').DataTable();
         } );
+    </script>
+
+    <script>
+    $('.date-own').datepicker({
+         minViewMode: 2,
+         format: 'yyyy'
+       });
     </script>
 
 </body>

@@ -24,6 +24,9 @@ Route::get('/admin', 'AdminController@index')->name('admindashboard');
 
 //rentalsubsale
 Route::get('/rental', 'RentalController@index')->name('allrentals');
+Route::get('/rental/add', 'RentalController@addrental')->name('addrental');
+Route::get('/rental/listmoenth', 'RentalController@listmonth')->name('listmonth');
+Route::get('/rental/month/{month}/{year}', 'RentalController@getmonth')->name('getmonth');
 
 //member
 Route::get('/user', 'UserController@index')->name('allagents');
