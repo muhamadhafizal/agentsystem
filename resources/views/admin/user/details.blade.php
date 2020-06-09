@@ -17,6 +17,8 @@
 	                        <div class="card-header">
 	                            <strong>Details</strong>
 	                            <small>Agent</small>
+                                <small>|</small>
+                                <a href="{{ action('UserController@downline', $userarray['id']) }}"><small>downLine</small></a>
 	                        </div>
 	                        <div class="card-body card-block">
 	                        	<form>
@@ -93,9 +95,11 @@
                                     </div>
 	                            </div>
 	                            <div class="form-group">
-	                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>
-	                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-2 col-sm-6">
+                                            <button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>
+                                        </div>
+                                    </div>
 	                            </div>
 	                        </form>
 	                        </div>

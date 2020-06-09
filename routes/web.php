@@ -36,6 +36,7 @@ Route::get('/user/details/{id}', 'UserController@show')->name('detailsagent');
 Route::get('/user/edit/{id}', 'UserController@edit');
 Route::post('/user/update/{id}', 'UserController@update')->name('updateagent');
 Route::get('/user/delete/{id}', 'UserController@destroy');
+Route::get('/user/downline/{id}', 'UserController@downline')->name('downlineagent');
 
 //Project admin
 Route::get('/project', 'ProjectController@index')->name('admindashboardproject');

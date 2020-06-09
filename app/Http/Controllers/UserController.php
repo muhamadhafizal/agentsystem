@@ -336,5 +336,67 @@ class UserController extends Controller
         return Redirect::route('allagents');
 
     }
+
+    public function downline($id){
+
+        $iparray = array();
+        $goponearray = array();
+        $goptwoarray = array();
+        $preleadarray = array();
+        $consultantarray = array();
+        $finalarray = array();
+
+        //ip
+        $iplist = User::where('ip',$id)->get();
+        foreach($iplist as $data){
+            array_push($iparray,$data);
+        }
+        //gop1
+        $goponelist = User::where('gopone',$id)->get();
+        foreach($goponelist as $data){
+            array_push($goponearray,$data);
+        }
+        //gop2
+        $goptwolist = User::where('goptwo',$id)->get();
+        foreach($goptwolist as $data){
+            array_push($goptwoarray,$data);
+        }
+        //lead
+        $leadlist = User::where('lead',$id)->get();
+        //prelead
+        $preleadlist = User::where('prelead',$id)->get();
+
+        $userinfo = $this->getagentdetails($id);
+
+        if($userinfo->level == 'lead'){
+
+            foreach($leadlist as $data){
+                if($data->level == 'prelead'){
+                    array_push($preleadarray,$data);
+                } elseif($data->level == 'consultant'){
+                    array_push($consultantarray,$data);
+                }
+            }
+        }
+        elseif($userinfo->level == 'prelead'){
+            
+            foreach($preleadlist as $data){
+                if($data->level == 'consultant'){
+                    array_push($consultantarray,$data);
+                }
+            }
+        } 
+        
+        $finalarray = [
+            'ip'=> $iparray,
+            'gopone' => $goponearray,
+            'goptwo' => $goptwoarray,
+            'prelead' => $preleadarray,
+            'consultant' => $consultantarray,
+        ];
+
+        return response()->json($finalarray);
+
+    }
 }
 
