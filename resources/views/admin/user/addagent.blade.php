@@ -64,16 +64,18 @@
                                             <label class="form-control-label">Lead</label>
                                             <select name="lead" id="lead" class="form-control">
                                                 <option value=""></option>
-                                                <option value="100">ALI</option>
-                                                <option value="101">ABU</option>
+                                                @foreach($leaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label class="form-control-label">Pre Lead</label>
                                             <select name="prelead" id="prelead" class="form-control">
                                                 <option value=""></option>
-                                                <option value="100">ALI</option>
-                                                <option value="101">ABU</option>
+                                                @foreach($preleaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -84,24 +86,27 @@
                                             <label class="form-control-label">Introducer Program</label>
                                             <select name="ip" id="ip" class="form-control">
                                                 <option value=""></option>
-                                                <option value="100">ALI</option>
-                                                <option value="101">ABU</option>
+                                                @foreach($alluser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label class="form-control-label">GOP 1</label>
                                             <select name="gopone" id="gopone" class="form-control">
                                                 <option value=""></option>
-                                                <option value="100">ALI</option>
-                                                <option value="101">ABU</option>
+                                                @foreach($leaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label class="form-control-label">GOP 2</label>
                                             <select name="goptwo" id="goptwo" class="form-control">
                                                 <option value=""></option>
-                                                <option value="100">ALI</option>
-                                                <option value="101">ABU</option>
+                                                @foreach($leaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
                                             </select>
                                         </div>
                                     </div>

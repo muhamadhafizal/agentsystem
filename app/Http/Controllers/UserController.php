@@ -59,7 +59,12 @@ class UserController extends Controller
         $user = $this->getInfo();
 
         if($user){
-            return view('/admin/user/addagent');
+
+            $alluser = $this->getleveluser('all');
+            $leaduser = $this->getleveluser('lead');
+            $preleaduser = $this->getleveluser('prelead');
+
+            return view('/admin/user/addagent', compact('alluser','leaduser','preleaduser'));
         } else {
             return redirect('/');
         }
@@ -325,7 +330,7 @@ class UserController extends Controller
     public function destroy($id){
 
         $user = $this->getagentdetails($id);
-        $user->delete($data->id);
+        $user->delete($user->id);
 
         \Session::flash('flash_message_delete', 'successfully deleted.');
         return Redirect::route('allagents');

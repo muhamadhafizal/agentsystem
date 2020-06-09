@@ -41,7 +41,7 @@
                                             <td>{{$data->nickname}}</td>
                                             <td>{{$data->contact}}</td>
                                             <td>{{$data->level}}</td>
-                                            <td><a href="{{ route('detailsagent', $data->id) }}"><span class="badge badge-primary">view</span>  | <a onclick="return confirm('Are you sure you want to delete?')" href=""><span class="badge badge-danger">delete</span></a></td>
+                                            <td><a href="{{ route('detailsagent', $data->id) }}"><span class="badge badge-primary">view</span>  | <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('UserController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
