@@ -55,11 +55,24 @@
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Lead</label>
-                                            <input type="text" name="lead" value="{{$userarray['leadname']}}" class="form-control">
+                                            <select name="lead" class="form-control">
+			                                	<option value="{{$userarray['leadid']}}">{{$userarray['leadname']}}</option>
+			                                	@foreach($leaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
+                                                <option value=""></option>
+		                                	</select>
+                                            
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Pre Lead</label>
-                                            <input type="text" name="prelead" value="{{$userarray['preleadname']}}" class="form-control">
+                                            <select name="prelead" class="form-control">
+			                                	<option value="{{$userarray['preleadid']}}">{{$userarray['preleadname']}}</option>
+			                                	@foreach($preleaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
+                                                <option value=""></option>
+		                                	</select>
                                         </div>
                                     </div>
 	                            </div>
@@ -67,15 +80,33 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Introducer Program</label>
-                                            <input type="text" name="ip" value="{{$userarray['ipname']}}" class="form-control">
+                                            <select name="ip" class="form-control">
+			                                	<option value="{{$userarray['ipid']}}">{{$userarray['ipname']}}</option>
+			                                	@foreach($alluser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
+                                                <option value=""></option>
+		                                	</select>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">GOP 1</label>
-                                            <input type="text" name="gopone" value="{{$userarray['goponename']}}" class="form-control">
+                                            <select name="gopone" class="form-control">
+			                                	<option value="{{$userarray['goponeid']}}">{{$userarray['goponename']}}</option>
+			                                	@foreach($leaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
+                                                <option value=""></option>
+		                                	</select>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">GOP 2</label>
-                                            <input type="text" name="goptwo" value="{{$userarray['goptwoname']}}" class="form-control">
+                                            <select name="goptwo" class="form-control">
+			                                	<option value="{{$userarray['goptwoid']}}">{{$userarray['goptwoname']}}</option>
+			                                	@foreach($leaduser as $data)
+			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+												@endforeach
+                                                <option value=""></option>
+		                                	</select>
                                         </div>
                                     </div>
 	                            </div>

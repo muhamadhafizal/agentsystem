@@ -5,6 +5,13 @@
 	    <div class="section__content section__content--p30">
 	        <div class="container-fluid">
             <div class="row">
+	        	    <div class="col-sm-12">
+                        @if(Session::has('flash_message'))
+                         <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
+	        	        @endif
+	        	    </div>
+	        	</div>
+            <div class="row">
 	                <div class="col-lg-12">
 	                    <div class="card">
 	                        <div class="card-header">
@@ -87,7 +94,7 @@
 	                            </div>
 	                            <div class="form-group">
 	                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit</button>
+                                    <button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>
 	                                </div>
 	                            </div>
 	                        </form>

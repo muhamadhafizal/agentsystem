@@ -127,7 +127,7 @@ class UserController extends Controller
 
     }
 
-    public function details($id){
+    public function show($id){
         
         $userarray = array();
         $user = $this->getInfo();
@@ -252,6 +252,10 @@ class UserController extends Controller
                     $leadid = $leaddetails->id;
                     $leadname = $leaddetails->nickname;
                 }
+        
+        $alluser = $this->getleveluser('all');
+        $leaduser = $this->getleveluser('lead');
+        $preleaduser = $this->getleveluser('prelead');
                 
 
                 $userarray = [
@@ -277,56 +281,55 @@ class UserController extends Controller
                     'password' => $userdetails->password,
 
                 ];
-                return view('/admin/user/edit', compact('userarray'));
+                return view('/admin/user/edit', compact('userarray','alluser','leaduser','preleaduser'));
     }
 
-    public function update($id){
+    public function update(Request $request, $id){
         
         $fullname = $request->input('fullname');
         $nickname = $request->input('nickname');
         $ic = $request->input('ic');
         $contact = $request->input('contact');
         $email = $request->input('email');
-        $lead = $request->input('leadid');
-        $prelead = $request->input('preleadid');
+        $lead = $request->input('lead');
+        $prelead = $request->input('prelead');
         $ip = $request->input('ip');
-        $gopone = $request->input('goponeid');
-        $goptwo = $request->input('goptwoid');
+        $gopone = $request->input('gopone');
+        $goptwo = $request->input('goptwo');
         $username = $request->input('username');
         $password = $request->input('password');
 
-        $existuser = User::where('nickname',$nickname)
-                ->orWhere('email',$email)
-                ->orWhere('username', $username)
-                ->orWhere('password', $password)
-                ->first();
-        
-            if($existuser){
-                \Session::flash('flash_message_delete', 'Username / Password / Nickname / Email Already Exist');
-			    return Redirect::route('addagent');
-            } else {
+        $user = $this->getagentdetails($id);
 
-                $user = $this->getagentdetails($id);
+        $user->name = $fullname;
+        $user->nickname = $nickname;
+        $user->ic = $ic;
+        $user->contact = $contact;
+        $user->email = $email;
+        $user->lead = $lead;
+        $user->prelead = $prelead;
+        $user->ip = $ip;
+        $user->gopone = $gopone;
+        $user->goptwo = $goptwo;
+        $user->username = $username;
+        $user->password = $password;
 
-                $user->fullname = $fullname;
-                $user->nickname = $nickname;
-                $user->ic = $ic;
-                $user->contact = $contact;
-                $user->email = $email;
-                $user->lead = $lead;
-                $user->prelead = $prelead;
-                $user->ip = $ip;
-                $user->gopone = $gopone;
-                $user->goptwo = $goptwo;
-                $user->username = $username;
-                $user->password = $password;
-
-                $user->save();
-
-                \Session::flash('flash_message', 'successfully updated.');
-			    return Redirect::route('allagents');
+        $user->save();
 
 
-            }
+        \Session::flash('flash_message', 'successfully updated.');
+        return Redirect::route('detailsagent', compact('id'));
+            
+    }
+
+    public function destroy($id){
+
+        $user = $this->getagentdetails($id);
+        $user->delete($data->id);
+
+        \Session::flash('flash_message_delete', 'successfully deleted.');
+        return Redirect::route('allagents');
+
     }
 }
+
