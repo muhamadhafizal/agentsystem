@@ -31,6 +31,10 @@ Route::get('/rental/month/{month}/{year}', 'RentalController@getmonth')->name('g
 //member
 Route::get('/user', 'UserController@index')->name('allagents');
 Route::get('/user/add', 'UserController@addagent')->name('addagent');
+Route::post('/user/store', 'UserController@store')->name('storeagent');
+Route::get('/user/details/{id}', 'UserController@details')->name('detailsagent');
+Route::get('/user/edit/{id}', 'UserController@edit');
+Route::post('/user/update/{id}', 'UserController@update')->name('updateagent');
 
 //Project admin
 Route::get('/project', 'ProjectController@index')->name('admindashboardproject');

@@ -19,13 +19,13 @@
 	                            <small>Agent</small>
 	                        </div>
 	                        <div class="card-body card-block">
-	                        	<form class="form-horizontal" method="POST" action="">
+	                        	<form class="form-horizontal" method="POST" action="{{ route('storeagent') }}">
 	                        	     {{ csrf_field() }}
 	                            <div class="form-group">
                                     <div class="row">
                                         <div class="col-6">
                                             <label class=" form-control-label">Full Name</label>
-                                            <input type="text" name="name" placeholder="Enter your full name" class="form-control" required>
+                                            <input type="text" name="fullname" placeholder="Enter your full name" class="form-control" required>
                                         </div>
                                         <div class="col-6">
                                             <label class=" form-control-label">Nickname</label>
@@ -64,16 +64,16 @@
                                             <label class="form-control-label">Lead</label>
                                             <select name="lead" id="lead" class="form-control">
                                                 <option value=""></option>
-                                                <option value="ALI">ALI</option>
-                                                <option value="ABU">ABU</option>
+                                                <option value="100">ALI</option>
+                                                <option value="101">ABU</option>
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label class="form-control-label">Pre Lead</label>
                                             <select name="prelead" id="prelead" class="form-control">
                                                 <option value=""></option>
-                                                <option value="ALI">ALI</option>
-                                                <option value="ABU">ABU</option>
+                                                <option value="100">ALI</option>
+                                                <option value="101">ABU</option>
                                             </select>
                                         </div>
                                     </div>
@@ -84,24 +84,24 @@
                                             <label class="form-control-label">Introducer Program</label>
                                             <select name="ip" id="ip" class="form-control">
                                                 <option value=""></option>
-                                                <option value="ALI">ALI</option>
-                                                <option value="ABU">ABU</option>
+                                                <option value="100">ALI</option>
+                                                <option value="101">ABU</option>
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label class="form-control-label">GOP 1</label>
                                             <select name="gopone" id="gopone" class="form-control">
                                                 <option value=""></option>
-                                                <option value="ALI">ALI</option>
-                                                <option value="ABU">ABU</option>
+                                                <option value="100">ALI</option>
+                                                <option value="101">ABU</option>
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label class="form-control-label">GOP 2</label>
                                             <select name="goptwo" id="goptwo" class="form-control">
                                                 <option value=""></option>
-                                                <option value="ALI">ALI</option>
-                                                <option value="ABU">ABU</option>
+                                                <option value="100">ALI</option>
+                                                <option value="101">ABU</option>
                                             </select>
                                         </div>
                                     </div>
