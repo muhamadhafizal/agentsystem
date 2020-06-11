@@ -335,6 +335,26 @@ if ($role == 'agent') {
             $('#example').DataTable();
         } );
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#example1').DataTable();
+        } );
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#example2').DataTable();
+        } );
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#example3').DataTable();
+        } );
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#example4').DataTable();
+        } );
+    </script>
 
     <script>
     $('.date-own').datepicker({

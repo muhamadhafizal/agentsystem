@@ -394,8 +394,10 @@ class UserController extends Controller
             'prelead' => $preleadarray,
             'consultant' => $consultantarray,
         ];
+        $i = 1;
 
-        return response()->json($finalarray);
+        //return response()->json($finalarray);
+        return view('/admin/user/downline', compact('id','i','iparray','goponearray','goptwoarray','preleadarray','consultantarray'));
 
     }
 }

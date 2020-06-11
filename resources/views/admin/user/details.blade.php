@@ -19,6 +19,7 @@
 	                            <small>Agent</small>
                                 <small>|</small>
                                 <a href="{{ action('UserController@downline', $userarray['id']) }}"><small>downLine</small></a>
+                                
 	                        </div>
 	                        <div class="card-body card-block">
 	                        	<form>
