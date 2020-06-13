@@ -1,7 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <form class="form-horizontal" method="POST" action="{{ route('updategop', $userarray['id']) }}">
+                {{ csrf_field() }}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update GOP</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Type</label>
+                            <select name="type" id="type" class="form-control">
+                                <option value="gopone">GOP 1</option>
+                                <option value="goptwo">GOP 2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">GOP</label>
+                            <select name="gopid" id="gopid" class="form-control">
+                                @foreach($leaduser as $data)
+                                <option value="{{$data->id}}">{{$data->nickname}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to update GOP?')" >Update</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <!-- End Modal -->
 	    <div class="section__content section__content--p30">
 	        <div class="container-fluid">
             <div class="row">
@@ -95,13 +129,12 @@
                                         </div>
                                     </div>
 	                            </div>
-	                            <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-2 col-sm-6">
-                                            <button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>
+                                        <div>
+                                        &nbsp&nbsp&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>&nbsp @if($userarray['position'] == 'lead' )<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">update gop</button>@endif
                                         </div>
                                     </div>
-	                            </div>
+                                    
 	                        </form>
 	                        </div>
 	                    </div>

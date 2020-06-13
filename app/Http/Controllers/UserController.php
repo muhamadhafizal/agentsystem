@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use Redirect;
+use DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -183,6 +184,8 @@ class UserController extends Controller
                     $leadid = $leaddetails->id;
                     $leadname = $leaddetails->nickname;
                 }
+
+                $leaduser = User::where('level','lead')->get();
                 
 
                 $userarray = [
@@ -209,7 +212,7 @@ class UserController extends Controller
 
                 ];
                 
-                return view('/admin/user/details', compact('userarray'));
+                return view('/admin/user/details', compact('userarray','leaduser'));
 
             }
 
@@ -299,10 +302,9 @@ class UserController extends Controller
         $lead = $request->input('lead');
         $prelead = $request->input('prelead');
         $ip = $request->input('ip');
-        $gopone = $request->input('gopone');
-        $goptwo = $request->input('goptwo');
         $username = $request->input('username');
         $password = $request->input('password');
+        $position = $request->input('position');
 
         $user = $this->getagentdetails($id);
 
@@ -314,10 +316,9 @@ class UserController extends Controller
         $user->lead = $lead;
         $user->prelead = $prelead;
         $user->ip = $ip;
-        $user->gopone = $gopone;
-        $user->goptwo = $goptwo;
         $user->username = $username;
         $user->password = $password;
+        $user->level = $position;
 
         $user->save();
 
@@ -400,5 +401,30 @@ class UserController extends Controller
         return view('/admin/user/downline', compact('id','i','iparray','goponearray','goptwoarray','preleadarray','consultantarray'));
 
     }
-}
 
+    public function updategop(Request $request,$id){
+        
+        $gopid = $request->input('gopid');
+        $type = $request->input('type');
+        $idtemparray = array();
+
+
+        $user = User::where('lead',$id)->get();
+
+        foreach($user as $data){
+            
+            array_push($idtemparray,$data->id);
+        }
+        array_push($idtemparray,$id);
+        
+        if($type == 'gopone'){
+            User::whereIn('id', $idtemparray)->update(array('gopone' => $gopid));
+        } elseif($type == 'goptwo'){
+            User::whereIn('id', $idtemparray)->update(array('goptwo' => $gopid));
+        }
+        
+        \Session::flash('flas_message', 'successfully update gop');
+        return Redirect::route('detailsagent', compact('id'));
+
+    }
+}
