@@ -44,3 +44,9 @@ Route::get('/project', 'ProjectController@index')->name('admindashboardproject')
 
 //agent
 Route::get('/agent', 'AgentController@index')->name('agentdashboard');
+
+//area
+Route::get('/area', 'AreaController@index')->name('listarea');
+Route::post('/area/add','AreaController@store')->name('addarea');
+Route::get('/area/delete/{id}', 'AreaController@destroy');
+Route::get('/area/details/{id}', 'AreaController@details');

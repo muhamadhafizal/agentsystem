@@ -237,7 +237,7 @@ if ($role == 'agent') {
                                 <i class="fas fa-wrench"></i>Configaration</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="">Area</a>
+                                    <a href="{{ route('listarea') }}">Area</a>
                                 </li>
                             </ul>
                         </li>
