@@ -480,3 +480,14 @@
 
 })(jQuery);
 
+$('#tableId').delegate('.detailBtn', 'click', function() {
+  var id = $(this).data('id');
+  var name = $(this).data('name');
+
+  $areaname = $('#areaname');
+  $areaname.val(name)
+  
+  $areaid = $('#areaid');
+  $areaid.val(id);
+
+});

@@ -45,4 +45,17 @@ class AreaController extends Controller
         return response()->json($areadetails);
 
     }
+
+    public function update(Request $request){
+        $areaname = $request->input('areaname');
+        $areaid = $request->input('areaid');
+
+        $area = Area::find($areaid);
+
+        $area->name = $areaname;
+        $area->save();
+
+        \Session::flash('flash_message', 'successfully updated area'); 
+        return Redirect::route('listarea');
+    }
 }

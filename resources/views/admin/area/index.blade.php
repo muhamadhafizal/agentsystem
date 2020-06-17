@@ -9,12 +9,38 @@
                 {{ csrf_field() }}
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update GOP</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add Area</h5>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Add Area</label>
                             <input class="form-control" type="text" name="area" required>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <!-- End Modal -->
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModalone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <form class="form-horizontal" method="POST" action="{{ route('updatearea') }}">
+                {{ csrf_field() }}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Area</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Update Area</label>
+                            <input class="form-control" id="areaname" type="text" name="areaname">
+                            <input type="hidden" id="areaid" name="areaid">
                         </div>
                         
                     </div>
@@ -57,15 +83,15 @@
                                             <th width="100">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tableId">
                                     @foreach($area as $data)
                                     <tr>
                                         <td>{{$i++}}</td>
                                         <td>{{$data->name}}</td>
-                                        <td><a href=""><span class="badge badge-primary">edit</span></a>  | <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('AreaController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
+                                        <td><a><button class="detailBtn" data-id="{{$data->id}}" data-name="{{$data->name}}" type="button" data-toggle="modal" data-target="#exampleModalone" data-whatever="@mdo"><span class="badge badge-primary">edit</span></button></a> | <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('AreaController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
                                     </tr>
                                     @endforeach
-                                    
+                                   
                                     </tbody>
                                 </table>
                                 </div>

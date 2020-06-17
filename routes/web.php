@@ -50,3 +50,4 @@ Route::get('/area', 'AreaController@index')->name('listarea');
 Route::post('/area/add','AreaController@store')->name('addarea');
 Route::get('/area/delete/{id}', 'AreaController@destroy');
 Route::get('/area/details/{id}', 'AreaController@details');
+Route::post('/area/update/', 'AreaController@update')->name('updatearea');
