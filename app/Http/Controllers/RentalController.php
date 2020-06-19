@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Area;
 use Illuminate\Http\Request;
 
 class RentalController extends Controller
@@ -50,6 +51,18 @@ class RentalController extends Controller
  
     }
 
+    public function getArea(){
+        $area = Area::all();
+        
+        return $area;
+    }
+
+    public function getUser(){
+        $user = User::where('role','agent')->get();
+
+        return $user;
+    }
+
     public function index(){
 
         $user = $this->getInfo();
@@ -65,9 +78,11 @@ class RentalController extends Controller
     public function addrental(){
 
         $user = $this->getInfo();
+        $area = $this->getArea();
+        $alluser = $this->getUser();
 
         if($user){
-            return view('/admin/addrental');
+            return view('/admin/addrental', compact('area','alluser'));
         } else {
             return redirect('/');
         }

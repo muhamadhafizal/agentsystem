@@ -355,13 +355,34 @@ if ($role == 'agent') {
             $('#example4').DataTable();
         } );
     </script>
-
     <script>
     $('.date-own').datepicker({
          minViewMode: 2,
          format: 'yyyy'
        });
     </script>
+    <script>
+        $('#thedate').datepicker({
+            format: 'dd/mm/yy'
+        });
+    </script>
+    <script>
+        $(".myField").keyup(function() {
+            $(".myField").val(this.value.match(/[0-9.0-9]*/));
+            
+        });
+    </script>
+    <script>
+       $("#fee").on('keyup',function(){
+            $fee = ($(this).val());
+            $tempsst = $fee*0.06;
+            $sst = $tempsst.toFixed(2);
+   
+            $("#sst").val($sst);
+       });
+    </script>
+
+    
 </body>
 
 

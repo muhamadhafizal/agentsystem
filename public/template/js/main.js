@@ -491,3 +491,4 @@ $('#tableId').delegate('.detailBtn', 'click', function() {
   $areaid.val(id);
 
 });
+
