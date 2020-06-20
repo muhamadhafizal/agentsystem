@@ -363,7 +363,7 @@ if ($role == 'agent') {
     </script>
     <script>
         $('#thedate').datepicker({
-            format: 'dd/mm/yy'
+            format: 'yyyy-mm-dd'
         });
     </script>
     <script>

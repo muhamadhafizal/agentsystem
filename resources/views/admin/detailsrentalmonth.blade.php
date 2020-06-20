@@ -13,7 +13,7 @@
                         <div class="col-sm-8">
 
                         </div>
-           
+
                 </div>
 	            <div class="row">
 	                <div class="col-lg-12">
@@ -120,7 +120,7 @@
 	                            </div>
 	                            <div class="form-group">
 	                                <div class="col-md-6 col-md-offset-4">
-                                    <a href="{{ route('allrentals') }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('RentalController@edit', ['id' => $rentaldetails->id, 'type' => 'main']) }}'">edit</button>
+                                    <a href="{{ action('RentalController@getmonth',[$month,$year]) }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('RentalController@edit', ['id' => $rentaldetails->id, 'type' => 'month']) }}'">edit</button>
 	                                </div>
 	                            </div>
 	                        </form>

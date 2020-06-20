@@ -28,6 +28,7 @@
                                     <thead>
                                         <tr>
                                             <th width="50">No</th>
+                                            <th>Date</th>
                                             <th>Num</th>
                                             <th>Category</th>
                                             <th>Area</th>
@@ -41,6 +42,7 @@
                                     @foreach($allrental as $data)
                                         <tr>
                                             <td>{{$i++}}</td>
+                                            <td>{{$data->date}}</td>
                                             <td>{{$data->num}}</td>
                                             @if($data->category == '1')
                                             <td>Rental</td>

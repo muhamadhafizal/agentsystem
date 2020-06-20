@@ -101,14 +101,14 @@ class RentalController extends Controller
         }
 
         $gross = $fee - $sst;
-        $percentagent = $gross * $percentcomm;
+        $percentagent = round($gross * $percentcomm, 2);
 
-        $percentip = $percentagent * $percentip;
-        $percentgopone = $percentagent * 0.02;
-        $percentgoptwo = $percentagent * 0.02;
+        $percentip = round($percentagent * $percentip, 2);
+        $percentgopone = round($percentagent * 0.02, 2);
+        $percentgoptwo = round($percentagent * 0.02, 2);
 
-        $percentlead = $percentagent * $temppercentlead;
-        $percentprelead = $percentagent * $temppercentprelead;
+        $percentlead = round($percentagent * $temppercentlead, 2);
+        $percentprelead = round($percentagent * $temppercentprelead, 2);
 
         $total = $sst + $percentagent + $percentip + $percentgopone + $percentgoptwo + $percentlead + $percentprelead;
 
@@ -130,6 +130,7 @@ class RentalController extends Controller
             ->join('users','users.id','=','rentals.agent')
             ->join('areas','areas.id','=','rentals.area')
             ->select('rentals.*','users.nickname as nickname','areas.name as name')
+            ->orderBy('rentals.date','DESC')
             ->get();
             $i = 1;
             return view('/admin/rental', compact('allrental','i'));
@@ -241,7 +242,7 @@ class RentalController extends Controller
 
     }
 
-    public function edit($id){
+    public function edit($id,$type){
 
         $rentaldetails = $this->getrentaldetails($id);
         $area = $this->getArea();
@@ -252,7 +253,8 @@ class RentalController extends Controller
         } else {
             $category = 'Subsale';
         }
-        return view('/admin/editrental', compact('rentaldetails','category','area','alluser'));
+
+        return view('/admin/editrental', compact('rentaldetails','category','area','alluser','type'));
         
 
     }
@@ -270,6 +272,9 @@ class RentalController extends Controller
         $agent = $request->input('agent');
         $category = $request->input('category');
         $status = $request->input('status');
+        $type = $request->input('type');
+
+        echo $type;
 
         $tempresult = $this->getcalculationpercent($agent,$fee,$sst);
        
@@ -299,7 +304,13 @@ class RentalController extends Controller
         $rental->save();
 
         \Session::flash('flash_message', 'successfully updated.');
-        return Redirect::route('detailsrental', compact('id'));
+
+        if($type == 'main'){
+            return Redirect::route('detailsrental', compact('id'));
+        } elseif ($type == 'month'){
+            return Redirect::route('detailsrentalmonth', compact('id'));
+        }
+        
 
     }
 
@@ -334,12 +345,40 @@ class RentalController extends Controller
             
             $monthname = $this->getmonthname($month);
 
-            return view('/admin/monthinfo', compact('monthname'));
+            $allrental = DB::table('rentals')
+            ->join('users','users.id','=','rentals.agent')
+            ->join('areas','areas.id','=','rentals.area')
+            ->select('rentals.*','users.nickname as nickname','areas.name as name')
+            ->whereYear('rentals.date','=',$year)
+            ->whereMonth('rentals.date','=', $month)
+            ->orderBy('rentals.date','DESC')
+            ->get();
+
+            $i = 1;
+
+            return view('/admin/monthinfo', compact('monthname','allrental','i'));
            
 
         } else {
             return redirect('/');
         }
+
+    }
+
+    public function detailsmonth($id){
+
+        $rentaldetails = $this->getrentaldetails($id);
+
+        if($rentaldetails->category == '1'){
+            $category = 'Rental';
+        } else {
+            $category = 'Subsale';
+        }
+
+        $month = date('m', strtotime($rentaldetails->date));
+        $year = date("Y", strtotime($rentaldetails->date));
+
+        return view('/admin/detailsrentalmonth', compact('rentaldetails','category','month','year'));
 
     }
 }
