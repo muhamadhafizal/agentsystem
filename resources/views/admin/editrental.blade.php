@@ -8,28 +8,30 @@
 	                <div class="col-lg-12">
 	                    <div class="card">
 	                        <div class="card-header">
-	                            <strong>Add</strong>
+	                            <strong>Edit</strong>
 	                            <small>Rental</small>
 	                        </div>
 	                        <div class="card-body card-block">
-	                        	<form class="form-horizontal" method="POST" action="{{ route('storerental') }}">
+	                        	<form class="form-horizontal" method="POST" action="{{ route('updaterental', $rentaldetails->id) }}">
 	                        	     {{ csrf_field() }}
 	                            <div class="form-group">
                                     <div class="row">
                                     <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">No</label>
-                                            <input type="text" name="num" placeholder="Enter resit number" class="form-control" required>
+                                            <input type="text" name="num" value="{{ $rentaldetails->num }}" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Date</label>
-                                            <input type="date" id="thedate" name="date" placeholder="Enter date" class="form-control" required>
+                                            <input type="date" id="thedate" name="date" value="{{ $rentaldetails->date }}"  class="form-control" required>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Area</label>
                                             <select name="area" class="form-control">
+                                                <option value="{{ $rentaldetails->area }}">{{ $rentaldetails->name }}</option>
                                                 @foreach($area as $data)
 			                                    <option value="{{$data->id}}">{{$data->name}}</option>
 												@endforeach
+                                                <option value=""></option>
                                             </select>
                                         </div>
                                     </div>
@@ -38,15 +40,15 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Tenant Name</label>
-	                                        <input type="text" name="tenantname" placeholder="Enter tenant name" class="form-control">
+	                                        <input type="text" name="tenantname" value="{{ $rentaldetails->tenantname }}"  class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Tenant Email</label>
-	                                        <input type="email" name="tenantemail" placeholder="Enter tenant email" class="form-control">
+	                                        <input type="email" name="tenantemail" value="{{ $rentaldetails->tenantemail }}" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Tenant Contact</label>
-	                                        <input type="text" name="tenantcontact" placeholder="Enter tenant contact" class="form-control">
+	                                        <input type="text" name="tenantcontact" value="{{ $rentaldetails->tenantcontact }}" class="form-control">
                                         </div>
                                     </div>
 	                            </div>
@@ -54,18 +56,20 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Fee</label>
-	                                        <input type="number" name="fee" id="fee" placeholder="Enter Fee" class="form-control myField" required>
+	                                        <input type="number" name="fee" id="fee" value="{{ $rentaldetails->fee }}" class="form-control myField" required>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">SST</label>
-	                                        <input type="text" name="sst" id="sst"  class="form-control" readonly>
+	                                        <input type="text" name="sst" id="sst" value="{{ $rentaldetails->percentsst }}"  class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Agent</label>
                                             <select name="agent" class="form-control">
+                                                <option value="{{$rentaldetails->agent}}">{{$rentaldetails->nickname}}</option>
                                                 @foreach($alluser as $data)
 			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
 												@endforeach
+                                                <option value=""></option>
                                             </select>
                                         </div>
                                     </div>
@@ -75,6 +79,7 @@
                                         <div class="col-lg-6 col-sm-12">
                                             <label class="form-control-label">Category</label>
                                             <select name="category" class="form-control">
+                                                <option value="{{$rentaldetails->category}}">{{$category}}</option>
                                                 <option value="1">Rental</option>
                                                 <option value="2">Subsale</option>
                                             </select>
@@ -82,6 +87,7 @@
                                         <div class="col-lg-6 col-sm-12">
                                             <label class="form-control-label">Status</label>
                                             <select name="status" class="form-control">
+                                                <option value="{{$rentaldetails->status}}">{{$rentaldetails->status}}</option>
                                                 <option value="process">process</option>
                                                 <option value="success">success</option>
                                                 <option value="cancel">cancel</option>
