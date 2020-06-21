@@ -3,7 +3,7 @@
             <!-- MAIN CONTENT-->
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <form class="form-horizontal" method="POST" action="">
+                        <form >
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="form-group mx-sm-3 mb-2">

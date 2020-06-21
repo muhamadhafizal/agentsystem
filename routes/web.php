@@ -29,8 +29,8 @@ Route::post('/rental/post', 'RentalController@store')->name('storerental');
 Route::get('/rental/details/{id}', 'RentalController@show')->name('detailsrental');
 Route::get('/rental/edit/{id}/{type}', 'RentalController@edit')->name('editrental');
 Route::post('/rental/update/{id}', 'RentalController@update')->name('updaterental');
-Route::get('/rental/delete/{id}', 'RentalController@destroy');
-Route::get('/rental/listmoenth', 'RentalController@listmonth')->name('listmonth');
+Route::get('/rental/delete/{id}/{type}', 'RentalController@destroy');
+Route::get('/rental/listmonth', 'RentalController@listmonth')->name('listmonth');
 Route::get('/rental/month/{month}/{year}', 'RentalController@getmonth')->name('getmonth');
 Route::get('/rental/detailsmonth/{id}', 'RentalController@detailsmonth')->name('detailsrentalmonth');
 

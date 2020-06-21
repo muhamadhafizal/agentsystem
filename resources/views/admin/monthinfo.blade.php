@@ -6,6 +6,19 @@
 	<div class="row">
 	        <H2 align="center" style="width: 12pc; color:grey" >{{$monthname}}</H2>
 	</div>
+    <div class="row">
+            <div class="col-sm-4">
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
+                @endif
+                @if(Session::has('flash_message_delete'))
+                    <div class="alert alert-danger"><span class="fa fa-check"></span><em> {!! session('flash_message_delete') !!}</em></div>
+                @endif
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+    </div>
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row m-t-25">
@@ -104,7 +117,7 @@
                                             @elseif($data->status =="cancel")
                                             <td align="center"><span class="badge badge-danger">{{$data->profitcompany}}</span></td>
                                             @endif
-                                            <td><a href="{{ route('detailsrentalmonth', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('RentalController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
+                                            <td><a href="{{ route('detailsrentalmonth', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('RentalController@destroy', ['id' => $data->id, 'type' => 'month']) }}"><span class="badge badge-danger">delete</span></a></td>
                                         </tr>
                                     @endforeach
                                  

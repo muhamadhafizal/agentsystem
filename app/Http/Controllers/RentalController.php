@@ -314,13 +314,20 @@ class RentalController extends Controller
 
     }
 
-    public function destroy($id){
+    public function destroy($id,$type){
 
         $rental = Rental::find($id);
         $rental->delete($rental->id);
 
-        \Session::flash('flash_message_delete', 'successfully deleted.');
-        return Redirect::route('allrentals');
+        $month = date('m', strtotime($rental->date));
+        $year = date("Y", strtotime($rental->date));
+
+         \Session::flash('flash_message_delete', 'successfully deleted.');
+        if($type == 'month'){
+            return Redirect::route('getmonth', compact('month','year'));
+        } elseif($type == 'main'){
+            return Redirect::route('allrentals');
+        }
 
     }
 

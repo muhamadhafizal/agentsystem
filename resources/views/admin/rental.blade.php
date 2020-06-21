@@ -59,7 +59,7 @@
                                             @elseif($data->status =="cancel")
                                             <td align="center"><span class="badge badge-danger">{{$data->profitcompany}}</span></td>
                                             @endif
-                                            <td><a href="{{ route('detailsrental', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('RentalController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
+                                            <td><a href="{{ route('detailsrental', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('RentalController@destroy', ['id' => $data->id, 'type' => 'main']) }}"><span class="badge badge-danger">delete</span></a></td>
                                         </tr>
                                     @endforeach
                                       
