@@ -131,7 +131,7 @@
 	                            </div>
                                     <div class="row">
                                         <div>
-                                        &nbsp&nbsp&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>&nbsp @if($userarray['position'] == 'lead' )<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">update gop</button>@endif
+                                        &nbsp&nbsp&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ route('allagents') }}'"><i class="fa fa-arrow-left"></i></button>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>&nbsp @if($userarray['position'] == 'lead' )<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">update gop</button>@endif
                                         </div>
                                     </div>
                                     

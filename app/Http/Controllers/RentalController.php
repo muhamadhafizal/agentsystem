@@ -347,6 +347,8 @@ class RentalController extends Controller
     public function getmonth($month = '', $year = ''){
 
         $user = $this->getInfo();
+        $totalprofit = 0;
+        $totalsst = 0;
 
         if($user){
             
@@ -361,9 +363,15 @@ class RentalController extends Controller
             ->orderBy('rentals.date','DESC')
             ->get();
 
+            $rentalcount = count($allrental);
+            foreach ($allrental as $data){
+                $totalprofit = $totalprofit + $data->profitcompany;
+                $totalsst = $totalsst + $data->percentsst;
+            }
+
             $i = 1;
 
-            return view('/admin/monthinfo', compact('monthname','allrental','i'));
+            return view('/admin/monthinfo', compact('monthname','allrental','i','rentalcount','totalprofit','totalsst'));
            
 
         } else {
