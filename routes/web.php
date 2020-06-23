@@ -48,12 +48,18 @@ Route::post('/user/updategop/{id}', 'UserController@updategop')->name('updategop
 //Project admin
 Route::get('/project', 'ProjectController@index')->name('admindashboardproject');
 
-//agent
-Route::get('/agent', 'AgentController@index')->name('agentdashboard');
-
 //area
 Route::get('/area', 'AreaController@index')->name('listarea');
 Route::post('/area/add','AreaController@store')->name('addarea');
 Route::get('/area/delete/{id}', 'AreaController@destroy');
 Route::get('/area/details/{id}', 'AreaController@details');
 Route::post('/area/update/', 'AreaController@update')->name('updatearea');
+
+//rental agent
+Route::get('/agent', 'AgentController@index')->name('agentdashboard');
+Route::get('/agent/rental', 'AgentController@listrental')->name('agentlistrental');
+Route::get('/agent/listmonth', 'AgentController@listmonth')->name('agentlistmonth');
+Route::get('/agent/month/{month}/{year}', 'AgentController@getmonth')->name('agentgetmonth');
+
+//project agent
+Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagentdashboard');

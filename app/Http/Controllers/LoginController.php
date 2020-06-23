@@ -19,11 +19,12 @@ class LoginController extends Controller
             $request->session()->put('username', $username);
 			$request->session()->put('password', $password);
             $request->session()->put('role', $user->role);
+            $request->session()->put('nickname', $user->nickname);
             
             if($user->role == 'admin' || $user->role == 'account'){
-                return Redirect::route('admindashboard');
+                return Redirect::route('admindashboard', compact('user'));
             } else {
-                return Redirect::route('agentdashboard');
+                return Redirect::route('agentdashboard', compact('user'));
             }
             
         } else {
