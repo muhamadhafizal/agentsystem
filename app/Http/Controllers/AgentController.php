@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Rental;
+use DB;
 
 class AgentController extends Controller
 {
@@ -52,6 +53,21 @@ class AgentController extends Controller
  
     }
 
+    public function getrentaldetails($id){
+
+        $rentaldetails = DB::table('rentals')
+            ->join('users','users.id','=','rentals.agent')
+            ->join('areas','areas.id','=','rentals.area')
+            ->select('rentals.*','users.nickname as nickname','areas.name as name')
+            ->where('rentals.id','=',$id)
+            ->first();
+        
+        return $rentaldetails;
+
+    }
+
+    //end get
+
     public function index(){
 
         $user = $this->getInfo();
@@ -89,6 +105,16 @@ class AgentController extends Controller
                         ->orWhereIn('agent',$tempUser)
                         ->orderBy('date','DESC')
                         ->get();
+            
+            $rental = DB::table('rentals')
+                    ->join('users','users.id','=', 'rentals.agent')
+                    ->join('areas','areas.id','=', 'rentals.area')
+                    ->select('rentals.*','users.nickname as nickname','areas.name as name')
+                    ->where('rentals.agent',$user->id)
+                    ->orWhereIn('rentals.agent',$tempUser)
+                    ->orderBy('rentals.date','DESC')
+                    ->get();
+
             $i = 1;
          
             return view('agent/agentlistrental', compact('rental','i'));
@@ -96,6 +122,61 @@ class AgentController extends Controller
 
     }
 
+    public function details($id){
+
+        $user = $this->getInfo();
+
+        if($user == null){
+            return redirect('/');
+        } else {
+
+            $rentaldetails = $this->getrentaldetails($id);
+            
+            $commagent = 0;
+            $contagent = 0;
+
+            $useragent = User::where('id',$rentaldetails->agent)->first();
+            
+            $commagent = $rentaldetails->percentagent;
+            if($user->id == $useragent->ip){
+                $contagent = $contagent + $rentaldetails->percentip;
+            }
+            if($user->id == $useragent->gopone){
+                $contagent = $contagent + $rentaldetails->percentgopone;
+            }
+            if($user->id == $useragent->goptwo){
+                $contagent = $contagent + $rentaldetails->percentgoptwo;
+            }
+            if($user->id == $useragent->lead){
+                $contagent = $contagent + $rentaldetails->percentlead;
+            }
+            if($user->id == $useragent->prelead){
+                $contagent = $contagent + $rentaldetails->percentprelead;
+            }   
+            if($user->id == $useragent->id){
+                $commagent = $commagent + $contagent;
+                $contagent = 0;
+            } 
+
+
+            if($commagent == 0){
+                $commagent = '-';
+            }
+            if($contagent == 0){
+                $contagent = '-';
+            }
+
+            if($rentaldetails->category == '1'){
+                $category  = 'Rental';
+            } else {
+                $category = 'Subsale';
+            }
+
+            return view('agent/agentdetailsrental', compact('rentaldetails','commagent','contagent','category'));
+
+        }
+
+    }
     
 
     public function listmonth(){

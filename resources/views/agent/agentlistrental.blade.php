@@ -17,6 +17,7 @@
                                             <th>Category</th>
                                             <th>Area</th>
                                             <th>Agent</th>
+                                            <th>status</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
@@ -26,10 +27,21 @@
                                         <td>{{$i++}}</td>
                                         <td>{{$data->date}}</td>
                                         <td>{{$data->num}}</td>
-                                        <td>{{$data->category}}</td>
-                                        <td>{{$data->area}}</td>
-                                        <td>{{$data->agent}}</td>
-                                        <td>view</td>
+                                        @if($data->category == '1')
+                                            <td>Rental</td>
+                                        @elseif($data->category == '2')
+                                            <td>Subsale</td>
+                                        @endif
+                                        <td>{{$data->name}}</td>
+                                        <td>{{$data->nickname}}</td>
+                                        @if($data->status == "success")
+                                            <td align="center"><span class="badge badge-success">{{$data->status}}</span></td>
+                                        @elseif($data->status == "process")
+                                            <td align="center"><span class="badge badge-primary">{{$data->status}}</span></td>
+                                        @elseif($data->status =="cancel")
+                                            <td align="center"><span class="badge badge-danger">{{$data->status}}</span></td>
+                                        @endif
+                                        <td><a href="{{ route('agentdetailsrental', $data->id) }}"><span class="badge badge-primary">view</span> </td>
                                     </tr>
                                     @endforeach
                                     </tbody>
