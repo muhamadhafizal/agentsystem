@@ -17,24 +17,21 @@
                                             <th>Category</th>
                                             <th>Area</th>
                                             <th>Agent</th>
-                                            <th>SST</th>
-                                            <th>Profit</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($rental as $data)
                                     <tr>
-                                        <td>1</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
+                                        <td>{{$i++}}</td>
+                                        <td>{{$data->date}}</td>
+                                        <td>{{$data->num}}</td>
+                                        <td>{{$data->category}}</td>
+                                        <td>{{$data->area}}</td>
+                                        <td>{{$data->agent}}</td>
                                         <td>view</td>
                                     </tr>
-                                      
+                                    @endforeach
                                     </tbody>
                                 </table>
                                 </div>

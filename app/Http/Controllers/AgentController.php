@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Rental;
 
 class AgentController extends Controller
 {
@@ -67,13 +68,35 @@ class AgentController extends Controller
 
         $user = $this->getInfo();
 
-        if($user){
-            return view('agent/agentlistrental');
-        } else {
+        if($user == null){
             return redirect('/');
+        } else {
+
+            $listUser = User::select('id')
+                        ->where('lead',$user->id)
+                        ->orWhere('prelead',$user->id)
+                        ->orWhere('gopone',$user->id)
+                        ->orWhere('goptwo',$user->id)
+                        ->get();
+            
+            $tempUser = array();
+
+            foreach($listUser as $data){
+                array_push($tempUser,$data->id);
+            }
+          
+            $rental = Rental::where('agent',$user->id)
+                        ->orWhereIn('agent',$tempUser)
+                        ->orderBy('date','DESC')
+                        ->get();
+            $i = 1;
+         
+            return view('agent/agentlistrental', compact('rental','i'));
         }
 
     }
+
+    
 
     public function listmonth(){
 
