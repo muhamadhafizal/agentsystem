@@ -41,7 +41,7 @@
                                         @elseif($data->status =="cancel")
                                             <td align="center"><span class="badge badge-danger">{{$data->status}}</span></td>
                                         @endif
-                                        <td><a href="{{ route('agentdetailsrental', $data->id) }}"><span class="badge badge-primary">view</span> </td>
+                                        <td><a href="{{ route('agentdetailsrental', ['id'=>$data->id,'type'=>'main']) }}"><span class="badge badge-primary">view</span> </td>
                                     </tr>
                                     @endforeach
                                     </tbody>

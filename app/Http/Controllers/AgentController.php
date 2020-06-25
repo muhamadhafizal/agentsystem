@@ -66,6 +66,25 @@ class AgentController extends Controller
 
     }
 
+    public function getlistuser($user){
+
+        $listUser = User::select('id')
+                        ->where('lead',$user->id)
+                        ->orWhere('prelead',$user->id)
+                        ->orWhere('gopone',$user->id)
+                        ->orWhere('goptwo',$user->id)
+                        ->get();
+        
+        $tempUser = array();
+
+        foreach($listUser as $data){
+            array_push($tempUser,$data->id);
+        }
+        
+        return $tempUser;
+
+    }
+
     //end get
 
     public function index(){
@@ -88,23 +107,7 @@ class AgentController extends Controller
             return redirect('/');
         } else {
 
-            $listUser = User::select('id')
-                        ->where('lead',$user->id)
-                        ->orWhere('prelead',$user->id)
-                        ->orWhere('gopone',$user->id)
-                        ->orWhere('goptwo',$user->id)
-                        ->get();
-            
-            $tempUser = array();
-
-            foreach($listUser as $data){
-                array_push($tempUser,$data->id);
-            }
-          
-            $rental = Rental::where('agent',$user->id)
-                        ->orWhereIn('agent',$tempUser)
-                        ->orderBy('date','DESC')
-                        ->get();
+            $tempUser = $this->getlistuser($user);
             
             $rental = DB::table('rentals')
                     ->join('users','users.id','=', 'rentals.agent')
@@ -122,7 +125,7 @@ class AgentController extends Controller
 
     }
 
-    public function details($id){
+    public function details($id,$type){
 
         $user = $this->getInfo();
 
@@ -172,7 +175,10 @@ class AgentController extends Controller
                 $category = 'Subsale';
             }
 
-            return view('agent/agentdetailsrental', compact('rentaldetails','commagent','contagent','category'));
+            $month = date("m",strtotime($rentaldetails->date));
+            $year = date("Y",strtotime($rentaldetails->date));
+
+            return view('agent/agentdetailsrental', compact('rentaldetails','commagent','contagent','category','type','month','year'));
 
         }
 
@@ -199,11 +205,30 @@ class AgentController extends Controller
             return redirect('/');
         } else {
 
+            $tempUser = $this->getlistuser($user);
+
+            $rental = DB::table('rentals')
+                    ->join('users','users.id','=', 'rentals.agent')
+                    ->join('areas','areas.id','=', 'rentals.area')
+                    ->select('rentals.*','users.nickname as nickname','areas.name as name')
+                    ->whereYear('rentals.date','=',$year)
+                    ->whereMonth('rentals.date','=',$month)
+                    ->where(function ($query) use($user,$tempUser){
+                        $query->where('rentals.agent',$user->id)
+                            ->orWhereIn('rentals.agent',$tempUser);
+                    })
+                    ->orderBy('rentals.date','DESC')
+                    ->get();
+
+    
+            $i = 1;
+
             $monthname = $this->getmonthname($month);
 
-            return view('agent/agentmonthinfo', compact('monthname'));
+            return view('agent/agentmonthinfo', compact('monthname','rental','i'));
 
         }
 
     }
 }
+

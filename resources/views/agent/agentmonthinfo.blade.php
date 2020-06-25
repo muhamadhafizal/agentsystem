@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="text">
                                     <h2>123</h2>
-                                    <span>Company Profit</span>
+                                    <span>Process</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="text">
                                     <h2>123</h2>
-                                    <span>SST</span>
+                                    <span>Success</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -77,25 +77,36 @@
                                             <th>Category</th>
                                             <th>Area</th>
                                             <th>Agent</th>
-                                            <th>SST</th>
-                                            <th>Profit</th>
+                                            <th>status</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
+                                    @foreach($rental as $data)
                                     <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>6</td>
-                                        <td>5</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                        <td>9</td>
+                                        <td>{{$i++}}</td>
+                                        <td>{{$data->date}}</td>
+                                        <td>{{$data->num}}</td>
+                                        @if($data->category == '1')
+                                            <td>Rental</td>
+                                        @elseif($data->category == '2')
+                                            <td>Subsale</td>
+                                        @endif
+                                        <td>{{$data->name}}</td>
+                                        <td>{{$data->nickname}}</td>
+                                        @if($data->status == "success")
+                                            <td align="center"><span class="badge badge-success">{{$data->status}}</span></td>
+                                        @elseif($data->status == "process")
+                                            <td align="center"><span class="badge badge-primary">{{$data->status}}</span></td>
+                                        @elseif($data->status =="cancel")
+                                            <td align="center"><span class="badge badge-danger">{{$data->status}}</span></td>
+                                        @endif
+                                        <td><a href="{{ route('agentdetailsrental', ['id' => $data->id, 'type' => 'month']) }}"><span class="badge badge-primary">view</span> </td>
                                     </tr>
-                                 
+        
+                                    @endforeach    
+
                                     </tbody>
                                 </table>
                                 </div>
@@ -103,7 +114,7 @@
             </div>
                 <div class="row">
                     <div class="col-sm-2">
-                 
+                    <a href="{{ route('agentlistmonth') }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>
                     </div>
                     <div class="col-sm-8">
                     </div>

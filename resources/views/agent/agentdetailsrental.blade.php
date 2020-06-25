@@ -85,8 +85,12 @@
 	                            </div>
 	                            <div class="form-group">
 	                                <div class="col-md-6 col-md-offset-4">
+                                    @if($type == 'main')
                                     <a href="{{ route('agentlistrental') }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>
-	                                </div>
+	                                @elseif($type == 'month')
+                                    <a href="{{ action('AgentController@getmonth',[$month,$year])  }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>
+                                    @endif
+                                    </div>
 	                            </div>
 	                        </form>
 	                        </div>
