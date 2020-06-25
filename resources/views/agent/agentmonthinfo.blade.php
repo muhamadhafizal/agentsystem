@@ -4,7 +4,7 @@
 
 <!-- MAIN CONTENT-->
 	<div class="row">
-	        <H2 align="center" style="width: 12pc; color:grey" >{{$monthname}}</H2>
+	        <H2 align="center" style="width: 12pc; color:white" >{{$monthname}}</H2>
 	</div>
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -69,7 +69,7 @@
             	<!-- DATA TABLE-->
                 <div class="table-responsive m-b-40">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
+                                    <thead style="background-color: #fffafa;f1a1a;">
                                         <tr>
                                             <th width="50">No</th>
                                             <th>Date</th>

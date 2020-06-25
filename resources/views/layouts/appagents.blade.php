@@ -52,7 +52,7 @@ if ($role == 'admin' || $role == 'acount') {
 </head>
 
 <body>
-    <div class="page-wrapper">
+    <div>
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
@@ -177,42 +177,42 @@ if ($role == 'admin' || $role == 'acount') {
                     <img src="{{ asset('template/images/icon/logo.png') }}" alt="Cool Admin" />
                 </a>
             </div>
-            <div class="menu-sidebar__content js-scrollbar1">
+            <div class="menu-sidebar__content js-scrollbar1" style="background-color:#1f1d1d">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('agentdashboard') }}">Rental & Subsale</a>
+                                    <a href="{{ route('agentdashboard') }}" style="color:white">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('projectagentdashboard') }}">Projects</a>
+                                    <a href="{{ route('projectagentdashboard') }}" style="color:white">Projects</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white" style="color:white">
                                 <i class="fas fa-home"></i>Rental & Subsale</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('agentlistrental') }}">List</a>
+                                    <a href="{{ route('agentlistrental') }}" style="color:white">List</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('agentlistmonth') }}">Month</a>
+                                    <a href="{{ route('agentlistmonth') }}" style="color:white">Month</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white">
                                 <i class="fas fa-building"></i>Projects</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="">List</a>
+                                    <a href="" style="color:white">List</a>
                                 </li>
                                 <li>
-                                    <a href="">Month</a>
+                                    <a href="" style="color:white">Month</a>
                                 </li>
                             </ul>
                         </li>
@@ -255,14 +255,12 @@ if ($role == 'admin' || $role == 'acount') {
             </header>
             <!-- HEADER DESKTOP-->
             <div class="page-content--bgf7">
-            <div class="main-content">
-            @yield('content')
-                            
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Multilevel Marketing Software @ 2020 .</p>
-                                </div>
+                <div class="main-content" style="background-color:#302d2d">
+                    @yield('content') 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>Multilevel Marketing Software @ 2020 .</p>
                             </div>
                         </div>
                     </div>

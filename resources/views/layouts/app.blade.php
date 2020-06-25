@@ -50,7 +50,7 @@ if ($role == 'agent') {
 </head>
 
 <body>
-    <div class="page-wrapper">
+    <div>
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
@@ -175,69 +175,69 @@ if ($role == 'agent') {
                     <img src="{{ asset('template/images/icon/logo.png') }}" alt="Cool Admin" />
                 </a>
             </div>
-            <div class="menu-sidebar__content js-scrollbar1">
+            <div class="menu-sidebar__content js-scrollbar1" style="background-color:#1f1d1d">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('admindashboard') }}">Rental & Subsale</a>
+                                    <a href="{{ route('admindashboard') }}" style="color:white">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admindashboardproject') }}">Projects</a>
+                                    <a href="{{ route('admindashboardproject') }}" style="color:white">Projects</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white">
                                 <i class="fas fa-user"></i>Agents</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('addagent') }}">Add</a>
+                                    <a href="{{ route('addagent') }}" style="color:white">Add</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('allagents') }}">List</a>
+                                    <a href="{{ route('allagents') }}" style="color:white">List</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white">
                                 <i class="fas fa-home"></i>Rental & Subsale</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('addrental') }}">Add</a>
+                                    <a href="{{ route('addrental') }}" style="color:white">Add</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('allrentals') }}">List</a>
+                                    <a href="{{ route('allrentals') }}" style="color:white">List</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('listmonth') }}">Month</a>
+                                    <a href="{{ route('listmonth') }}" style="color:white">Month</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white">
                                 <i class="fas fa-building"></i>Projects</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="">Add</a>
+                                    <a href="" style="color:white">Add</a>
                                 </li>
                                 <li>
-                                    <a href="">List</a>
+                                    <a href="" style="color:white">List</a>
                                 </li>
                                 <li>
-                                    <a href="">Month</a>
+                                    <a href="" style="color:white">Month</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="#" style="color:white">
                                 <i class="fas fa-wrench"></i>Configaration</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('listarea') }}">Area</a>
+                                    <a href="{{ route('listarea') }}" style="color:white">Area</a>
                                 </li>
                             </ul>
                         </li>
@@ -280,7 +280,7 @@ if ($role == 'agent') {
             </header>
             <!-- HEADER DESKTOP-->
             <div class="page-content--bgf7">
-            <div class="main-content">
+            <div class="main-content" style="background-color:#302d2d">
             @yield('content')
                             
                         <div class="row">

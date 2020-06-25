@@ -7,7 +7,7 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="form-group mx-sm-3 mb-2">
-                                  <h2 style="color: grey">Year :</h2>
+                                  <h2 style="color: white">Year :</h2>
                                 </div>
                                  <div class="form-group mx-sm-3 mb-2">
                                    <input class="date-own form-control" style="width: 100px;" name="year" readonly="true" placeholder="2020">

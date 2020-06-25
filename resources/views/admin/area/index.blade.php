@@ -76,7 +76,7 @@
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
+                                    <thead style="background-color: #fffafa;f1a1a;">
                                         <tr>
                                             <th width="50">No</th>
                                             <th>Area</th>
