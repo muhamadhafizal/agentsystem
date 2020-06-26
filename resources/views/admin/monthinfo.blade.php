@@ -128,7 +128,7 @@
             </div>
                 <div class="row">
                     <div class="col-sm-2">
-                 
+                    <a href="{{ route('listmonth') }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>
                     </div>
                     <div class="col-sm-8">
                     </div>

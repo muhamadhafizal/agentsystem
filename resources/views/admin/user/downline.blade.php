@@ -9,7 +9,7 @@
 						<div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-								<h3>Prelead</h3>
+								<h3 style="color:white">Prelead</h3>
                                 <div class="table-responsive m-b-40">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -40,7 +40,7 @@
 						<div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-								<h3>Consultant</h3>
+								<h3 style="color:white">Consultant</h3>
                                 <div class="table-responsive m-b-40">
                                 <table id="example1" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -71,7 +71,7 @@
                         <div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-								<h3>List of GOP1</h3>
+								<h3 style="color:white">List of GOP1</h3>
                                 <div class="table-responsive m-b-40">
                                 <table id="example2" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -102,7 +102,7 @@
 						<div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-								<h3>List of GOP2</h3>
+								<h3 style="color:white">List of GOP2</h3>
                                 <div class="table-responsive m-b-40">
                                 <table id="example3" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -132,7 +132,7 @@
 						<div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-								<h3>IP</h3>
+								<h3 style="color:white">IP</h3>
                                 <div class="table-responsive m-b-40">
                                 <table id="example4" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
