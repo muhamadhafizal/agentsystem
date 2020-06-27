@@ -13,7 +13,7 @@
 	                <div class="col-lg-12">
 	                    <div class="card">
 	                        <div class="card-header">
-	                            <strong>Details</strong>
+	                            <strong>Edit</strong>
 	                            <small>Agent</small>
 	                        </div>
 	                        <div class="card-body card-block">

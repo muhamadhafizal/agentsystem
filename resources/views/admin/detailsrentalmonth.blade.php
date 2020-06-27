@@ -61,6 +61,10 @@
 	                            <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">Agent</label>
+                                            <input type="text" class="form-control" name="agent" value="{{ $rentaldetails->nickname }}" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Fee</label>
 	                                        <input type="text" name="fee" id="fee" value="{{ $rentaldetails->fee }}" class="form-control myField" readonly>
                                         </div>
@@ -68,41 +72,45 @@
                                             <label class=" form-control-label">SST</label>
 	                                        <input type="text" name="sst" id="sst" value="{{ $rentaldetails->percentsst }}"  class="form-control" readonly>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class="form-control-label">Agent</label>
-                                            <input type="text" class="form-control" name="agent" value="{{ $rentaldetails->nickname }}" readonly>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class="form-control-label">Total</label>
-                                            <input type="text" class="form-control" name="total" value="{{ $rentaldetails->total }}" readonly>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Profit</label>
-	                                        <input type="text" name="profitcompany" value="{{ $rentaldetails->profitcompany }}" class="form-control myField" readonly>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Agent Percent</label>
 	                                        <input type="text" name="percentagent" value="{{ $rentaldetails->percentagent }}"  class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class="form-control-label">IP</label>
+                                            <input type="text" class="form-control" name="total" value="{{ $rentaldetails->percentip }}" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">GOP 1</label>
+	                                        <input type="text" name="profitcompany" value="{{ $rentaldetails->percentgopone }}" class="form-control myField" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">GOP 2</label>
+	                                        <input type="text" name="profitcompany" value="{{ $rentaldetails->percentgoptwo }}" class="form-control myField" readonly>
                                         </div>
                                     </div>
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class="form-control-label">IP</label>
-                                            <input type="text" class="form-control" name="percentip" value="{{ $rentaldetails->percentip }}" readonly>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class="form-control-label">Lead</label>
+                                            <input type="text" class="form-control" name="percentip" value="{{ $rentaldetails->percentlead }}" readonly>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">GOP 1</label>
-	                                        <input type="text" name="percentgopone" value="{{ $rentaldetails->percentgopone }}" class="form-control myField" readonly>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Prelead</label>
+	                                        <input type="text" name="percentgopone" value="{{ $rentaldetails->percentprelead }}" class="form-control myField" readonly>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">GOP 2</label>
-	                                        <input type="text" name="percentgoptwo" value="{{ $rentaldetails->percentgoptwo }}"  class="form-control" readonly>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Total</label>
+	                                        <input type="text" name="profitcompany" value="{{ $rentaldetails->total }}" class="form-control myField" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Company Profit</label>
+	                                        <input type="text" name="percentgoptwo" value="{{ $rentaldetails->profitcompany }}"  class="form-control" readonly>
                                         </div>
                                     </div>
 	                            </div>
