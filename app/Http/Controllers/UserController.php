@@ -293,6 +293,8 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id){
+
+        $idtemparray = array();
         
         $fullname = $request->input('fullname');
         $nickname = $request->input('nickname');
@@ -307,6 +309,22 @@ class UserController extends Controller
         $position = $request->input('position');
 
         $user = $this->getagentdetails($id);
+
+        if($user->level != $position){
+         
+            if($position == 'lead'){
+                
+                $listteam = User::where('level','consultant')->where('prelead',$id)->get();
+
+                foreach($listteam as $data){
+                    array_push($idtemparray,$data->id);
+                }
+        
+                User::whereIn('id',$idtemparray)->update(array('lead' => $id));
+                
+
+            }
+        }
 
         $user->name = $fullname;
         $user->nickname = $nickname;
@@ -344,7 +362,7 @@ class UserController extends Controller
         $goponearray = array();
         $goptwoarray = array();
         $preleadarray = array();
-        $consultantarray = array();
+        $leadarray = array();
         $finalarray = array();
 
         //ip
@@ -364,41 +382,18 @@ class UserController extends Controller
         }
         //lead
         $leadlist = User::where('lead',$id)->get();
+        foreach($leadlist as $data){
+            array_push($leadarray,$data);
+        }
         //prelead
         $preleadlist = User::where('prelead',$id)->get();
-
-        $userinfo = $this->getagentdetails($id);
-
-        if($userinfo->level == 'lead'){
-
-            foreach($leadlist as $data){
-                if($data->level == 'prelead'){
-                    array_push($preleadarray,$data);
-                } elseif($data->level == 'consultant'){
-                    array_push($consultantarray,$data);
-                }
-            }
+        foreach($preleadlist as $data){
+            array_push($preleadarray, $data);
         }
-        elseif($userinfo->level == 'prelead'){
-            
-            foreach($preleadlist as $data){
-                if($data->level == 'consultant'){
-                    array_push($consultantarray,$data);
-                }
-            }
-        } 
-        
-        $finalarray = [
-            'ip'=> $iparray,
-            'gopone' => $goponearray,
-            'goptwo' => $goptwoarray,
-            'prelead' => $preleadarray,
-            'consultant' => $consultantarray,
-        ];
+      
         $i = 1;
-
-        //return response()->json($finalarray);
-        return view('/admin/user/downline', compact('id','i','iparray','goponearray','goptwoarray','preleadarray','consultantarray'));
+        
+        return view('/admin/user/downline', compact('id','i','iparray','goponearray','goptwoarray','preleadarray','leadarray'));
 
     }
 

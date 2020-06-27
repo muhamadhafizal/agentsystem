@@ -62,7 +62,7 @@
                                             <label class="form-control-label">Lead</label>
                                             <select name="lead" class="form-control">
 			                                	<option value="{{$userarray['leadid']}}">{{$userarray['leadname']}}</option>
-			                                	@foreach($leaduser as $data)
+			                                	@foreach($alluser as $data)
 			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
 												@endforeach
                                                 <option value=""></option>
@@ -73,7 +73,7 @@
                                             <label class="form-control-label">Pre Lead</label>
                                             <select name="prelead" class="form-control">
 			                                	<option value="{{$userarray['preleadid']}}">{{$userarray['preleadname']}}</option>
-			                                	@foreach($preleaduser as $data)
+			                                	@foreach($alluser as $data)
 			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
 												@endforeach
                                                 <option value=""></option>

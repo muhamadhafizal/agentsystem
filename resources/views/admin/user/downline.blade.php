@@ -5,11 +5,11 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
 						<!-- Prelead -->
-						@if($preleadarray)
+						@if($leadarray)
 						<div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-								<h3 style="color:white">Prelead</h3>
+								<h3 style="color:white">Lead</h3>
                                 <div class="table-responsive m-b-40">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -20,7 +20,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-									@foreach($preleadarray as $data)
+									@foreach($leadarray as $data)
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$data->nickname}}</td>
@@ -35,12 +35,12 @@
                             </div>
                         </div>
 						@endif
-						@if($consultantarray)
+						@if($preleadarray)
 						<!-- Consultant -->
 						<div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-								<h3 style="color:white">Consultant</h3>
+								<h3 style="color:white">Prelead</h3>
                                 <div class="table-responsive m-b-40">
                                 <table id="example1" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -51,7 +51,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-									@foreach($consultantarray as $data)
+									@foreach($preleadarray as $data)
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$data->nickname}}</td>

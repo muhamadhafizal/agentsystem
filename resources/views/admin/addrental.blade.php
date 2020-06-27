@@ -9,28 +9,20 @@
 	                    <div class="card">
 	                        <div class="card-header">
 	                            <strong>Add</strong>
-	                            <small>Rental</small>
+	                            <small>Rental / Subsale</small>
 	                        </div>
 	                        <div class="card-body card-block">
 	                        	<form class="form-horizontal" method="POST" action="{{ route('storerental') }}">
 	                        	     {{ csrf_field() }}
 	                            <div class="form-group">
                                     <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
+                                    <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">No</label>
                                             <input type="text" name="num" placeholder="Enter resit number" class="form-control" required>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">Date</label>
                                             <input type="date" id="thedate" name="date" placeholder="Enter date" class="form-control" required>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Area</label>
-                                            <select name="area" class="form-control">
-                                                @foreach($area as $data)
-			                                    <option value="{{$data->id}}">{{$data->name}}</option>
-												@endforeach
-                                            </select>
                                         </div>
                                     </div>
 	                            </div>

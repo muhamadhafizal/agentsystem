@@ -64,7 +64,7 @@
                                             <label class="form-control-label">Lead</label>
                                             <select name="lead" id="lead" class="form-control">
                                                 <option value=""></option>
-                                                @foreach($leaduser as $data)
+                                                @foreach($alluser as $data)
 			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
 												@endforeach
                                             </select>
@@ -73,7 +73,7 @@
                                             <label class="form-control-label">Pre Lead</label>
                                             <select name="prelead" id="prelead" class="form-control">
                                                 <option value=""></option>
-                                                @foreach($preleaduser as $data)
+                                                @foreach($alluser as $data)
 			                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
 												@endforeach
                                             </select>
