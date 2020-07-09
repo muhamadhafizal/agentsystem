@@ -400,26 +400,29 @@ class UserController extends Controller
     public function updategop(Request $request,$id){
         
         $gopid = $request->input('gopid');
-        $type = $request->input('type');
         $idtemparray = array();
 
+        $userdetail = User::find($id);
+        $idgoptwo = $userdetail->goptwo;
 
+
+        //llist of downline
         $user = User::where('lead',$id)->get();
-
+      
         foreach($user as $data){
-            
             array_push($idtemparray,$data->id);
         }
         array_push($idtemparray,$id);
-        
-        if($type == 'gopone'){
-            User::whereIn('id', $idtemparray)->update(array('gopone' => $gopid));
-        } elseif($type == 'goptwo'){
-            User::whereIn('id', $idtemparray)->update(array('goptwo' => $gopid));
-        }
-        
+
+        //update gop1 replace from gop2
+        User::whereIn('id', $idtemparray)->update(array('gopone' => $idgoptwo));
+
+        //update gop2 replace from new gop
+        User::whereIn('id', $idtemparray)->update(array('goptwo' => $gopid));
+
         \Session::flash('flas_message', 'successfully update gop');
         return Redirect::route('detailsagent', compact('id'));
+       
 
     }
 }

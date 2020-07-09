@@ -12,13 +12,6 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Type</label>
-                            <select name="type" id="type" class="form-control">
-                                <option value="gopone">GOP 1</option>
-                                <option value="goptwo">GOP 2</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="recipient-name" class="col-form-label">GOP</label>
                             <select name="gopid" id="gopid" class="form-control">
                                 @foreach($leaduser as $data)
