@@ -169,6 +169,8 @@ class RentalController extends Controller
         $agent = $request->input('agent');
         $category = $request->input('category');
         $status = $request->input('status');
+        $stemduty = $request->input('stemduty');
+        $agreementfee = $request->input('agreementfee');
         
         $agentdetails = User::find($agent);
         
@@ -220,6 +222,8 @@ class RentalController extends Controller
         $rental->percentgoptwo = $percentgoptwo;
         $rental->total = $total;
         $rental->profitcompany = $profitcompany;
+        $rental->stemduty = $stemduty;
+        $rental->agreementfee = $agreementfee;
 
         $rental->save();
 
@@ -272,12 +276,11 @@ class RentalController extends Controller
         $category = $request->input('category');
         $status = $request->input('status');
         $type = $request->input('type');
-
-        echo $type;
+        $stemduty = $request->input('stemduty');
+        $agreementfee = $request->input('agreementfee');
 
         $tempresult = $this->getcalculationpercent($agent,$fee,$sst);
-       
-        $tempresult['percentip'];
+      
         $rental = Rental::find($id);
 
         $rental->num = $num;
@@ -299,6 +302,8 @@ class RentalController extends Controller
         $rental->percentgoptwo = $tempresult['percentgoptwo'];
         $rental->total = $tempresult['total'];
         $rental->profitcompany = $tempresult['profitcompany'];
+        $rental->stemduty = $stemduty;
+        $rental->agreementfee = $agreementfee;
 
         $rental->save();
 
