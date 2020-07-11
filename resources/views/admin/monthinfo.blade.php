@@ -86,9 +86,8 @@
                                         <tr>
                                             <th width="50">No</th>
                                             <th>Date</th>
-                                            <th>Num</th>
+                                            <th>CP Num</th>
                                             <th>Category</th>
-                                            <th>Area</th>
                                             <th>Agent</th>
                                             <th>SST</th>
                                             <th>Profit</th>
@@ -107,7 +106,6 @@
                                             @elseif($data->category == '2')
                                             <td>Subsale</td>
                                             @endif
-                                            <td>{{$data->name}}</td>
                                             <td>{{$data->nickname}}</td>
                                             <td>{{$data->percentsst}}</td>
                                             @if($data->status == "success")

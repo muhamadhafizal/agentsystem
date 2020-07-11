@@ -70,8 +70,7 @@ class RentalController extends Controller
 
         $rentaldetails = DB::table('rentals')
             ->join('users','users.id','=','rentals.agent')
-            ->join('areas','areas.id','=','rentals.area')
-            ->select('rentals.*','users.nickname as nickname','areas.name as name')
+            ->select('rentals.*','users.nickname as nickname')
             ->where('rentals.id','=',$id)
             ->first();
         
@@ -128,11 +127,11 @@ class RentalController extends Controller
         if($user){
             $allrental = DB::table('rentals')
             ->join('users','users.id','=','rentals.agent')
-            ->join('areas','areas.id','=','rentals.area')
-            ->select('rentals.*','users.nickname as nickname','areas.name as name')
+            ->select('rentals.*','users.nickname as nickname')
             ->orderBy('rentals.date','DESC')
             ->get();
             $i = 1;
+            
             return view('/admin/rental', compact('allrental','i'));
         } else {
             return redirect('/');
@@ -232,7 +231,7 @@ class RentalController extends Controller
     public function show($id){
 
         $rentaldetails = $this->getrentaldetails($id);
-
+   
         if($rentaldetails->category == '1'){
             $category  = 'Rental';
         } else {
@@ -356,8 +355,7 @@ class RentalController extends Controller
 
             $allrental = DB::table('rentals')
             ->join('users','users.id','=','rentals.agent')
-            ->join('areas','areas.id','=','rentals.area')
-            ->select('rentals.*','users.nickname as nickname','areas.name as name')
+            ->select('rentals.*','users.nickname as nickname')
             ->whereYear('rentals.date','=',$year)
             ->whereMonth('rentals.date','=', $month)
             ->orderBy('rentals.date','DESC')

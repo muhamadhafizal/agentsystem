@@ -17,8 +17,8 @@
 	                            <div class="form-group">
                                     <div class="row">
                                     <div class="col-lg-6 col-sm-12">
-                                            <label class=" form-control-label">No</label>
-                                            <input type="text" name="num" placeholder="Enter resit number" class="form-control" required>
+                                            <label class=" form-control-label">CP Num</label>
+                                            <input type="text" name="num" placeholder="Enter CP Number" class="form-control" required>
                                         </div>
                                         <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">Date</label>

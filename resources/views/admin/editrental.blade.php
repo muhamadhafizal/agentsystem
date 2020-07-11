@@ -16,23 +16,13 @@
 	                        	     {{ csrf_field() }}
 	                            <div class="form-group">
                                     <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">No</label>
+                                    <div class="col-lg-6 col-sm-12">
+                                            <label class=" form-control-label">CP Num</label>
                                             <input type="text" name="num" value="{{ $rentaldetails->num }}" class="form-control">
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">Date</label>
                                             <input type="date" id="thedate" name="date" value="{{ $rentaldetails->date }}"  class="form-control" required>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Area</label>
-                                            <select name="area" class="form-control">
-                                                <option value="{{ $rentaldetails->area }}">{{ $rentaldetails->name }}</option>
-                                                @foreach($area as $data)
-			                                    <option value="{{$data->id}}">{{$data->name}}</option>
-												@endforeach
-                                                <option value=""></option>
-                                            </select>
                                         </div>
                                     </div>
 	                            </div>
