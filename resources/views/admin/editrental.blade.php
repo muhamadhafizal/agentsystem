@@ -44,26 +44,6 @@
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
-                                            <label class="form-control-label">Stemduty</label>
-                                            <input type="number" name="stemduty" value="{{ $rentaldetails->stemduty }}" class="form-control">
-                                        </div>
-                                        <div class="col-lg-6 col-sm-12">
-                                            <label class="form-control-label">Agreement Fee</label>
-                                            <input type="number" name="agreementfee" value="{{ $rentaldetails->agreementfee }}" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-	                            <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Fee</label>
-	                                        <input type="number" name="fee" id="fee" value="{{ $rentaldetails->fee }}" class="form-control myField" required>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">SST</label>
-	                                        <input type="text" name="sst" id="sst" value="{{ $rentaldetails->percentsst }}"  class="form-control" readonly>
-                                        </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Agent</label>
                                             <select name="agent" class="form-control">
@@ -73,6 +53,34 @@
 												@endforeach
                                                 <option value=""></option>
                                             </select>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">Stemduty</label>
+                                            <input type="number" name="stemduty" value="{{ $rentaldetails->stemduty }}" class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">Agreement Fee</label>
+                                            <input type="number" name="agreementfee" value="{{ $rentaldetails->agreementfee }}" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+	                            <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Total Comm</label>
+	                                        <input type="number" name="fee" id="fee" value="{{ $rentaldetails->fee }}" class="form-control myField" required>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">SST</label>
+	                                        <input type="text" name="sst" id="sst" value="{{ $rentaldetails->percentsst }}"  class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Comm In</label>
+	                                        <input type="number" name="commin" id="commin" value="{{ $rentaldetails->commin }}" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Net Comm</label>
+	                                        <input type="number" name="netcomm" id="netcomm" value="{{ $rentaldetails->netcomm }}" class="form-control" readonly>
                                         </div>
                                     </div>
 	                            </div>

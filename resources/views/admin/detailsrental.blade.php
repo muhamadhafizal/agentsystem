@@ -55,11 +55,15 @@
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">Agent</label>
+                                            <input type="text" class="form-control" name="agent" value="{{ $rentaldetails->nickname }}" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Stemduty</label>
 	                                        <input type="text" name="stemduty" value="{{ $rentaldetails->stemduty }}" class="form-control" readonly>
                                         </div>
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Agreement Fee</label>
 	                                        <input type="email" name="agreementfee" value="{{ $rentaldetails->agreementfee }}" class="form-control" readonly>
                                         </div>
@@ -67,17 +71,21 @@
 	                            </div>
 	                            <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class="form-control-label">Agent</label>
-                                            <input type="text" class="form-control" name="agent" value="{{ $rentaldetails->nickname }}" readonly>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Fee</label>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Total Comm</label>
 	                                        <input type="text" name="fee" id="fee" value="{{ $rentaldetails->fee }}" class="form-control myField" readonly>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">SST</label>
 	                                        <input type="text" name="sst" id="sst" value="{{ $rentaldetails->percentsst }}"  class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Comm In</label>
+	                                        <input type="text" name="fee" id="fee" value="{{ $rentaldetails->commin }}" class="form-control myField" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Net Comm</label>
+	                                        <input type="text" name="fee" id="fee" value="{{ $rentaldetails->netcomm }}" class="form-control myField" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -112,12 +120,12 @@
 	                                        <input type="text" name="percentgopone" value="{{ $rentaldetails->percentprelead }}" class="form-control myField" readonly>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
-                                            <label class=" form-control-label">Total</label>
-	                                        <input type="text" name="profitcompany" value="{{ $rentaldetails->total }}" class="form-control myField" readonly>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Company Profit</label>
 	                                        <input type="text" name="percentgoptwo" value="{{ $rentaldetails->profitcompany }}"  class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Total Payout</label>
+	                                        <input type="text" name="percentgoptwo" value="{{ $rentaldetails->totalpayoutcomm }}"  class="form-control" readonly>
                                         </div>
                                     </div>
 	                            </div>

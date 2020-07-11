@@ -44,18 +44,6 @@
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
-                                            <label class="form-control-label">Stemduty</label>
-                                            <input type="number" name="stemduty" placeholder="Enter stemduty" class="form-control" required>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-12">
-                                            <label class="form-control-label">AgreementFee</label>
-                                            <input type="number" name="agreementfee" placeholder="Enter Agreement Fee" class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
-	                            <div class="form-group">
-                                    <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Agent</label>
                                             <select name="agent" class="form-control">
@@ -65,12 +53,32 @@
                                             </select>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Fee</label>
-	                                        <input type="number" name="fee" id="fee" placeholder="Enter Fee" class="form-control myField" required>
+                                            <label class="form-control-label">Stemduty</label>
+                                            <input type="number" name="stemduty" placeholder="Enter stemduty" class="form-control" required>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">AgreementFee</label>
+                                            <input type="number" name="agreementfee" placeholder="Enter Agreement Fee" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+	                            <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Total Comm</label>
+	                                        <input type="number" name="fee" id="fee" placeholder="Total Comm" class="form-control myField" required>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">SST</label>
 	                                        <input type="text" name="sst" id="sst"  class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Comm In</label>
+	                                        <input type="number" name="commin" id="commin" placeholder="Comm In" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <label class=" form-control-label">Net Comm</label>
+	                                        <input type="number" name="netcomm" id="netcomm" placeholder="Net Comm" class="form-control" readonly>
                                         </div>
                                     </div>
 	                            </div>

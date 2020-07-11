@@ -380,6 +380,18 @@ if ($role == 'agent') {
    
             $("#sst").val($sst);
        });
+
+       $("#commin").on('keyup', function(){
+            $commin = ($(this).val());
+            $sst = ($(sst).val());
+            
+            $tempnetcomm = $commin - $sst;
+            $netcomm = $tempnetcomm.toFixed(2);
+
+            $("#netcomm").val($netcomm);
+            
+       });
+      
     </script>
 
     
