@@ -132,11 +132,19 @@
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Category</label>
                                             <input type="text" class="form-control" name="category" value="{{ $category }}" readonly>
                                         </div>
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
+                                            @if($category == 'Rental')
+                                            <label class="form-control-label">Rental Amount</label>
+                                            @elseif($category == 'Subsale')
+                                            <label class="form-control-label">Purchase Price</label>
+                                            @endif
+                                            <input type="text" class="form-control" name="gdp" value="{{ $rentaldetails->gdp }}" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Status</label>
                                             <input type="text" class="form-control" name="status" value="{{ $rentaldetails->status }}" readonly>
                                         </div>

@@ -182,6 +182,7 @@ class RentalController extends Controller
         $agreementfee = $request->input('agreementfee');
         $commin = $request->input('commin');
         $netcomm = $request->input('netcomm');
+        $gdp = $request->input('gdp');
         
         $agentdetails = User::find($agent);
         
@@ -226,6 +227,7 @@ class RentalController extends Controller
         $rental->commin = $commin;
         $rental->netcomm = $netcomm;
         $rental->totalpayoutcomm = $tempresult['totalpayoutcomm'];
+        $rental->gdp = $gdp;
 
         $rental->save();
 
@@ -282,6 +284,7 @@ class RentalController extends Controller
         $agreementfee = $request->input('agreementfee');
         $commin = $request->input('commin');
         $netcomm = $request->input('netcomm');
+        $gdp = $request->input('gdp');
 
         $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm);
       
@@ -311,6 +314,7 @@ class RentalController extends Controller
         $rental->commin = $commin;
         $rental->netcomm = $netcomm;
         $rental->totalpayoutcomm = $tempresult['totalpayoutcomm'];
+        $rental->gdp = $gdp;
 
         $rental->save();
 

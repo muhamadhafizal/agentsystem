@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label" id="gdp">Rental Amount</label>
-                                            <input type="number" name="commin" name="gdp" placeholder="amount" class="form-control" required>
+                                            <input type="number" name="gdp" placeholder="amount" class="form-control" required>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Status</label>
