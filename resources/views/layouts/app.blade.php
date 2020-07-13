@@ -391,6 +391,19 @@ if ($role == 'agent') {
             $("#netcomm").val($netcomm);
             
        });
+
+       $('#category').change(function(){
+            $result = (this.value);
+            
+            if($result == '1'){
+                $gdp = 'Rental Amount';
+            } else {
+                $gdp = 'Purchase Price';
+            }
+      
+            $("#gdp").text($gdp);
+            
+        });
       
     </script>
 

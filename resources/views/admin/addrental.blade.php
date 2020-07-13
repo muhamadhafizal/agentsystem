@@ -84,14 +84,18 @@
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Category</label>
-                                            <select name="category" class="form-control">
+                                            <select name="category" class="form-control" id="category" onfocus="this.selectedIndex = -1;">
                                                 <option value="1">Rental</option>
                                                 <option value="2">Subsale</option>
                                             </select>
                                         </div>
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label" id="gdp">Rental Amount</label>
+                                            <input type="number" name="commin" name="gdp" placeholder="amount" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Status</label>
                                             <select name="status" class="form-control">
                                                 <option value="process">process</option>
