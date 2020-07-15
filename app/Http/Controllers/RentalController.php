@@ -364,6 +364,8 @@ class RentalController extends Controller
         $user = $this->getInfo();
         $totalprofit = 0;
         $totalsst = 0;
+        $totalgdp = 0;
+        $totalpayoutcomm = 0;
 
         if($user){
             
@@ -377,15 +379,26 @@ class RentalController extends Controller
             ->orderBy('rentals.date','DESC')
             ->get();
 
-            $rentalcount = count($allrental);
-            foreach ($allrental as $data){
+            $cardrental = DB::table('rentals')
+            ->join('users','users.id','=','rentals.agent')
+            ->select('rentals.*','users.nickname as nickname')
+            ->whereYear('rentals.date','=',$year)
+            ->whereMonth('rentals.date','=',$month)
+            ->where('rentals.status','=','success')
+            ->orderBy('rentals.date','DESC')
+            ->get();
+
+            $rentalcount = count($cardrental);
+            foreach ($cardrental as $data){
                 $totalprofit = $totalprofit + $data->profitcompany;
                 $totalsst = $totalsst + $data->percentsst;
+                $totalgdp = $totalgdp + $data->gdp;
+                $totalpayoutcomm = $totalpayoutcomm + $data->totalpayoutcomm;
             }
 
             $i = 1;
 
-            return view('/admin/monthinfo', compact('monthname','allrental','i','rentalcount','totalprofit','totalsst'));
+            return view('/admin/monthinfo', compact('monthname','allrental','i','rentalcount','totalprofit','totalsst','totalgdp','totalpayoutcomm'));
            
 
         } else {

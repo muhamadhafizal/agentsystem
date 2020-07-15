@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="text">
                                     <h2>{{ $rentalcount }}</h2>
-                                    <span>Total</span>
+                                    <span>Cases</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -66,8 +66,44 @@
                                     <h2 style="color: white">RM</h2>
                                 </div>
                                 <div class="text">
+                                    <h2>{{ $totalpayoutcomm }}</h2>
+                                    <span>Total Payout Comm</span>
+                                </div>
+                            </div>
+                            <div class="overview-chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <h2 style="color: white">RM</h2>
+                                </div>
+                                <div class="text">
                                     <h2>{{ $totalsst }}</h2>
                                     <span>SST</span>
+                                </div>
+                            </div>
+                            <div class="overview-chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <h2 style="color: white">RM</h2>
+                                </div>
+                                <div class="text">
+                                    <h2>{{ $totalgdp }}</h2>
+                                    <span>GDP</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
