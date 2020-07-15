@@ -21,6 +21,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 
 //admin
 Route::get('/admin', 'AdminController@index')->name('admindashboard');
+Route::get('/admin/chart/rental', 'AdminController@chartrental');
 
 //rentalsubsale
 Route::get('/rental', 'RentalController@index')->name('allrentals');
