@@ -54,7 +54,7 @@
                             <div class="col-sm-10">
                             </div>
                             <div class="col-sm-2">
-                            <a href=""><button type="button" class="btn btn-success">Export to excell</button></a>
+                            <a href="{{ route('agentexcell') }}"><button type="button" class="btn btn-success">Export to excell</button></a>
                             </div>
                         </div>
 

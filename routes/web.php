@@ -65,3 +65,8 @@ Route::get('/agent/month/{month}/{year}', 'AgentController@getmonth')->name('age
 
 //project agent
 Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagentdashboard');
+
+//excell
+Route::get('/admin/agentexcell', 'ExcelController@agent')->name('agentexcell');
+
+
