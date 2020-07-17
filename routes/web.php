@@ -68,5 +68,6 @@ Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagen
 
 //excell
 Route::get('/admin/agentexcell', 'ExcelController@agent')->name('agentexcell');
+Route::get('/admin/rentalmonthexcell/{month}/{year}', 'ExcelController@excelrentalmonth')->name('rentalmonthexcell');
 
 

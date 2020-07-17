@@ -167,7 +167,7 @@
                     <div class="col-sm-8">
                     </div>
                     <div class="col-sm-2">
-                        <a href=""><button type="button" class="btn btn-success">Export to excell</button></a>
+                        <a href="{{ action('ExcelController@excelrentalmonth', [$month,$year]) }}"><button type="button" class="btn btn-success">Export to excell</button></a>
                     </div>
                 </div>
 

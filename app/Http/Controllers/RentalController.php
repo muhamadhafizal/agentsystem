@@ -398,7 +398,7 @@ class RentalController extends Controller
 
             $i = 1;
 
-            return view('/admin/monthinfo', compact('monthname','allrental','i','rentalcount','totalprofit','totalsst','totalgdp','totalpayoutcomm'));
+            return view('/admin/monthinfo', compact('monthname','allrental','i','rentalcount','totalprofit','totalsst','totalgdp','totalpayoutcomm','month','year'));
            
 
         } else {
