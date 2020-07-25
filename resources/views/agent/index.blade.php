@@ -67,7 +67,7 @@
                     <div class="au-card m-b-30">
                         <div class="au-card-inner">
                             <h3 class="title-2 m-b-40">Rental & Subsale Agent</h3>
-                            <canvas id="singelBarChart"></canvas>
+                            <canvas id="singleBarChartAgent"></canvas>
                         </div>
                     </div>
                 </div>

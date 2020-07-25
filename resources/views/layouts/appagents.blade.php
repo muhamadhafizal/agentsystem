@@ -303,6 +303,15 @@ if ($role == 'admin' || $role == 'acount') {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"/>
 
+    <?php
+    // check to load which javascript file, depend of which page is loaded.
+    $path = $_SERVER['REQUEST_URI'];
+    ?>
+
+    <?php if (strpos($path, '/agent') !== false) {?>
+        <script src="{{ asset('template/js/agentdashboard.js') }}"></script>  
+    <?php  }?>
+
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
