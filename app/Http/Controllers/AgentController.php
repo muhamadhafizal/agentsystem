@@ -111,8 +111,7 @@ class AgentController extends Controller
             
             $rental = DB::table('rentals')
                     ->join('users','users.id','=', 'rentals.agent')
-                    ->join('areas','areas.id','=', 'rentals.area')
-                    ->select('rentals.*','users.nickname as nickname','areas.name as name')
+                    ->select('rentals.*','users.nickname as nickname')
                     ->where('rentals.agent',$user->id)
                     ->orWhereIn('rentals.agent',$tempUser)
                     ->orderBy('rentals.date','DESC')

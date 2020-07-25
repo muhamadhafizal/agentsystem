@@ -15,7 +15,6 @@
                                             <th>Date</th>
                                             <th>Num</th>
                                             <th>Category</th>
-                                            <th>Area</th>
                                             <th>Agent</th>
                                             <th>status</th>
                                             <th>action</th>
@@ -32,7 +31,6 @@
                                         @elseif($data->category == '2')
                                             <td>Subsale</td>
                                         @endif
-                                        <td>{{$data->name}}</td>
                                         <td>{{$data->nickname}}</td>
                                         @if($data->status == "success")
                                             <td align="center"><span class="badge badge-success">{{$data->status}}</span></td>
