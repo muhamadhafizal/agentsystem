@@ -17,8 +17,8 @@
                                     <h2 style="color: white"></h2>
                                 </div>
                                 <div class="text">
-                                    <h2>12</h2>
-                                    <span>Total</span>
+                                    <h2>{{$cases}}</h2>
+                                    <span>Cases</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -35,8 +35,8 @@
                                     <h2 style="color: white">RM</h2>
                                 </div>
                                 <div class="text">
-                                    <h2>123</h2>
-                                    <span>Process</span>
+                                    <h2>{{$totalprocess}}</h2>
+                                    <span>Process Comm</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -53,8 +53,8 @@
                                     <h2 style="color: white">RM</h2>
                                 </div>
                                 <div class="text">
-                                    <h2>123</h2>
-                                    <span>Success</span>
+                                    <h2>{{$totalsuccess}}</h2>
+                                    <span>Success Comm</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
