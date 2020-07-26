@@ -57,8 +57,7 @@ class AgentController extends Controller
 
         $rentaldetails = DB::table('rentals')
             ->join('users','users.id','=','rentals.agent')
-            ->join('areas','areas.id','=','rentals.area')
-            ->select('rentals.*','users.nickname as nickname','areas.name as name')
+            ->select('rentals.*','users.nickname as nickname')
             ->where('rentals.id','=',$id)
             ->first();
         
@@ -208,8 +207,7 @@ class AgentController extends Controller
 
             $rental = DB::table('rentals')
                     ->join('users','users.id','=', 'rentals.agent')
-                    ->join('areas','areas.id','=', 'rentals.area')
-                    ->select('rentals.*','users.nickname as nickname','areas.name as name')
+                    ->select('rentals.*','users.nickname as nickname')
                     ->whereYear('rentals.date','=',$year)
                     ->whereMonth('rentals.date','=',$month)
                     ->where(function ($query) use($user,$tempUser){

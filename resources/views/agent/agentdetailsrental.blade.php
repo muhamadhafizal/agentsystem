@@ -16,18 +16,13 @@
 	                        	     {{ csrf_field() }}
 	                            <div class="form-group">
                                     <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
+                                    <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">No</label>
                                             <input type="text" name="num" value="{{$rentaldetails->num}}" class="form-control" readonly>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">Date</label>
                                             <input type="date" id="thedate" name="date" value="{{$rentaldetails->date}}" class="form-control" readonly>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Area</label>
-                                            <input type="text" name="area" value="{{$rentaldetails->name}}" class="form-control" readonly>
-                                            
                                         </div>
                                     </div>
 	                            </div>
@@ -49,13 +44,17 @@
 	                            </div>
 	                            <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
-                                            <label class=" form-control-label">Fee</label>
-	                                        <input type="text" name="fee" id="fee" value="{{$rentaldetails->fee}}" class="form-control myField" readonly>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Agent</label>
                                             <input type="text" class="form-control" name="agent" value="{{$rentaldetails->nickname}}" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">NetComm</label>
+	                                        <input type="text" name="fee" id="fee" value="{{$rentaldetails->netcomm}}" class="form-control myField" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">SST</label>
+	                                        <input type="text" name="fee" id="fee" value="{{$rentaldetails->percentsst}}" class="form-control myField" readonly>
                                         </div>
                                     </div>
                                 </div>
