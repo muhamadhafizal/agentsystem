@@ -14,7 +14,7 @@
                                     <h2 style="color: white"></h2>
                                 </div>
                                 <div class="text">
-                                    <h2>12</h2>
+                                    <h2>{{$cases}}</h2>
                                     <span>Total</span>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                     <h2 style="color: white">RM</h2>
                                 </div>
                                 <div class="text">
-                                    <h2>123</h2>
+                                    <h2>{{$totalprocess}}</h2>
                                     <span>Process</span>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     <h2 style="color: white">RM</h2>
                                 </div>
                                 <div class="text">
-                                    <h2>123</h2>
+                                    <h2>{{$totalsuccess}}</h2>
                                     <span>Success</span>
                                 </div>
                             </div>

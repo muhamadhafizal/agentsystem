@@ -89,9 +89,70 @@ class AgentController extends Controller
     public function index(){
 
         $user = $this->getInfo();
+        $totalprocess = 0;
+        $totalsuccess = 0;
 
         if($user){
-            return view('agent/index');
+            
+            $year = date("Y");
+
+            $tempUser = $this->getlistuser($user);
+            $rental = DB::table('rentals')
+                    ->join('users','users.id','=', 'rentals.agent')
+                    ->select('rentals.*','users.nickname as nickname')
+                    ->whereYear('rentals.date','=',$year)
+                    ->where(function ($query) use($user,$tempUser){
+                        $query->where('rentals.agent',$user->id)
+                            ->orWhereIn('rentals.agent',$tempUser);
+                    })
+                    ->orderBy('rentals.date','DESC')
+                    ->get();
+
+            //cardcalculation
+            $cases = count($rental);
+
+
+            foreach($rental as $data){
+   
+                $useragent = User::where('id',$data->agent)->first();
+                
+                $commagent = 0;
+                $contagent = 0;
+                $total = 0;
+
+                if($user->id == $data->agent){
+                    $commagent = $data->percentagent;
+                }
+                if($user->id == $useragent->ip){
+                    $contagent = $contagent + $data->percentip;
+                }
+                if($user->id == $useragent->gopone){
+                    $contagent = $contagent + $data->percentgopone; 
+                }
+                if($user->id == $useragent->goptwo){
+                    $contagent = $contagent + $data->percentgoptwo;
+                }
+                if($user->id == $useragent->lead){
+                    $contagent = $contagent + $data->percentlead;
+                }
+                if($user->id == $useragent->prelead){
+                    $contagent = $contagent + $data->percentprelead;
+                }
+
+                $total = $contagent + $commagent;
+
+                if($data->status == 'success'){
+                    $totalsuccess = $totalsuccess + $total;
+                } elseif ($data->status == 'process'){
+                    $totalprocess = $totalprocess + $total;
+                }
+
+            }
+            echo $totalprocess;
+            echo $totalsuccess;
+            echo $cases;
+
+            return view('agent/index', compact('totalprocess','totalsuccess','cases'));
         } else {
             return redirect('/');
         }
@@ -221,11 +282,6 @@ class AgentController extends Controller
 
             //cardcalculation
             $cases = count($rental);
-            
-            //1st get details rental
-            //2nd get agent rental details info
-            //3rd if userid same dengan agent rental calculate agentcomm
-            //4th if ip, gop1, gop2 id same x from agent rental same x dengan userid
 
             foreach($rental as $data){
    
@@ -263,10 +319,6 @@ class AgentController extends Controller
                 }
 
             }
-            echo $totalprocess;
-            echo "\n";
-            echo $totalsuccess;
-          
             
             $i = 1;
             $monthname = $this->getmonthname($month);

@@ -33,8 +33,8 @@
                 labels: ["1", "2", "3", "4", "5", "6", "7","8","9","10","11","12"],
                 datasets: [
                 {
-                    label: "Total GDP",
-                    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    label: "Total Success Comm",
+                    data: [0, 0, 0, 0, 0, 0, 7808.67, 905.22, 0, 0, 0, 0],
                     borderColor: "rgba(0, 123, 255, 0.9)",
                     borderWidth: "0",
                     backgroundColor: "rgba(0, 123, 255, 0.5)"
