@@ -166,14 +166,16 @@ class AgentController extends Controller
         if($user == null){
             return redirect('/');
         } else {
-
-            $tempUser = $this->getlistuser($user);
             
             $rental = DB::table('rentals')
                     ->join('users','users.id','=', 'rentals.agent')
                     ->select('rentals.*','users.nickname as nickname')
                     ->where('rentals.agent',$user->id)
-                    ->orWhereIn('rentals.agent',$tempUser)
+                    ->orWhere('rentals.leadid', $user->id)
+                    ->orWhere('rentals.preleadid', $user->id)
+                    ->orWhere('rentals.ipid', $user->id)
+                    ->orWhere('rentals.goponeid', $user->id)
+                    ->orWhere('rentals.goptwoid', $user->id)
                     ->orderBy('rentals.date','DESC')
                     ->get();
 
@@ -195,37 +197,29 @@ class AgentController extends Controller
             $rentaldetails = $this->getrentaldetails($id);
             
             $commagent = 0;
-            $contagent = 0;
 
-            $useragent = User::where('id',$rentaldetails->agent)->first();
-            
-            $commagent = $rentaldetails->percentagent;
-            if($user->id == $useragent->ip){
-                $contagent = $contagent + $rentaldetails->percentip;
+            if($user->id == $rentaldetails->agent){
+                $commagent = $commagent + $rentaldetails->percentagent;
             }
-            if($user->id == $useragent->gopone){
-                $contagent = $contagent + $rentaldetails->percentgopone;
-            }
-            if($user->id == $useragent->goptwo){
-                $contagent = $contagent + $rentaldetails->percentgoptwo;
-            }
-            if($user->id == $useragent->lead){
-                $contagent = $contagent + $rentaldetails->percentlead;
-            }
-            if($user->id == $useragent->prelead){
-                $contagent = $contagent + $rentaldetails->percentprelead;
-            }   
-            if($user->id == $useragent->id){
-                $commagent = $commagent + $contagent;
-                $contagent = 0;
-            } 
 
-
-            if($commagent == 0){
-                $commagent = '-';
+            if($user->id == $rentaldetails->leadid){
+                $commagent = $commagent + $rentaldetails->percentlead;
             }
-            if($contagent == 0){
-                $contagent = '-';
+
+            if($user->id == $rentaldetails->preleadid){
+                $commagent = $commagent + $rentaldetails->percentprelead;
+            }
+
+            if($user->id == $rentaldetails->ipid){
+                $commagent = $commagent + $rentaldetails->percentip;
+            }
+
+            if($user->id == $rentaldetails->goponeid){
+                $commagent = $commagent + $rentaldetails->percentgopone;
+            }
+
+            if($user->id == $rentaldetails->goptwoid){
+                $commagent = $commagent + $rentaldetails->percentgoptwo;
             }
 
             if($rentaldetails->category == '1'){
@@ -237,7 +231,7 @@ class AgentController extends Controller
             $month = date("m",strtotime($rentaldetails->date));
             $year = date("Y",strtotime($rentaldetails->date));
 
-            return view('agent/agentdetailsrental', compact('rentaldetails','commagent','contagent','category','type','month','year'));
+            return view('agent/agentdetailsrental', compact('rentaldetails','commagent','category','type','month','year'));
 
         }
 
@@ -265,52 +259,56 @@ class AgentController extends Controller
         if($user == null){
             return redirect('/');
         } else {
-
-            $tempUser = $this->getlistuser($user);
-
-            $rental = DB::table('rentals')
-                    ->join('users','users.id','=', 'rentals.agent')
-                    ->select('rentals.*','users.nickname as nickname')
-                    ->whereYear('rentals.date','=',$year)
-                    ->whereMonth('rentals.date','=',$month)
-                    ->where(function ($query) use($user,$tempUser){
-                        $query->where('rentals.agent',$user->id)
-                            ->orWhereIn('rentals.agent',$tempUser);
-                    })
-                    ->orderBy('rentals.date','DESC')
-                    ->get();
+                
+                $rental = DB::table('rentals')
+                        ->join('users','users.id','=', 'rentals.agent')
+                        ->select('rentals.*','users.nickname as nickname')
+                        ->whereYear('rentals.date','=',$year)
+                        ->whereMonth('rentals.date','=',$month)
+                        ->where(function ($query) use($user){
+                            $query->where('rentals.agent',$user->id)
+                                  ->orWhere('rentals.leadid', $user->id)
+                                  ->orWhere('rentals.preleadid', $user->id)
+                                  ->orWhere('rentals.ipid', $user->id)
+                                  ->orWhere('rentals.goponeid', $user->id)
+                                  ->orWhere('rentals.goptwoid', $user->id);
+                        })
+                        ->orderBy('rentals.date','DESC')
+                        ->get();
 
             //cardcalculation
             $cases = count($rental);
 
             foreach($rental as $data){
-   
-                $useragent = User::where('id',$data->agent)->first();
                 
                 $commagent = 0;
-                $contagent = 0;
                 $total = 0;
 
                 if($user->id == $data->agent){
-                    $commagent = $data->percentagent;
+                    $commagent = $commagent + $data->percentagent;
                 }
-                if($user->id == $useragent->ip){
-                    $contagent = $contagent + $data->percentip;
+    
+                if($user->id == $data->leadid){
+                    $commagent = $commagent + $data->percentlead;
                 }
-                if($user->id == $useragent->gopone){
-                    $contagent = $contagent + $data->percentgopone; 
+    
+                if($user->id == $data->preleadid){
+                    $commagent = $commagent + $data->percentprelead;
                 }
-                if($user->id == $useragent->goptwo){
-                    $contagent = $contagent + $data->percentgoptwo;
+    
+                if($user->id == $data->ipid){
+                    $commagent = $commagent + $data->percentip;
                 }
-                if($user->id == $useragent->lead){
-                    $contagent = $contagent + $data->percentlead;
+    
+                if($user->id == $data->goponeid){
+                    $commagent = $commagent + $data->percentgopone;
                 }
-                if($user->id == $useragent->prelead){
-                    $contagent = $contagent + $data->percentprelead;
+    
+                if($user->id == $data->goptwoid){
+                    $commagent = $commagent + $data->percentgoptwo;
                 }
 
-                $total = $contagent + $commagent;
+                $total = $commagent;
 
                 if($data->status == 'success'){
                     $totalsuccess = $totalsuccess + $total;

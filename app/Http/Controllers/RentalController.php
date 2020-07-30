@@ -114,6 +114,13 @@ class RentalController extends Controller
 
         $totalpayoutcomm = $total - $sst;
 
+        //id
+        $goponeid = $agentdetails->gopone;
+        $goptwoid = $agentdetails->goptwo;
+        $ipid = $agentdetails->ip;
+        $leadid = $agentdetails->lead;
+        $preleadid = $agentdetails->prelead;
+
         return ['percentagent'=>$percentagent, 
                 'percentip'=>$percentip,
                 'percentgopone'=>$percentgopone, 
@@ -122,7 +129,13 @@ class RentalController extends Controller
                 'percentprelead'=>$percentprelead, 
                 'total'=>$total, 
                 'profitcompany'=>$profitcompany,
-                'totalpayoutcomm'=>$totalpayoutcomm];
+                'totalpayoutcomm'=>$totalpayoutcomm,
+                'goponeid' => $goponeid,
+                'goptwoid' => $goptwoid,
+                'ipid' => $ipid,
+                'leadid' => $leadid,
+                'preleadid' => $preleadid,
+            ];
    
 
     }
@@ -185,20 +198,6 @@ class RentalController extends Controller
         $gdp = $request->input('gdp');
         
         $agentdetails = User::find($agent);
-        
-        if($agentdetails->level == 'lead'){
-            $percentcomm = 0.9;
-            $percentip = 0.03;
-        } elseif($agentdetails->level == 'prelead'){
-            $percentcomm = 0.8;
-            $percentip = 0.05;
-            $temppercentlead = 0.1;
-        } elseif($agentdetails->level == 'consultant'){
-            $percentcomm = 0.7;
-            $percentip = 0.05;
-            $temppercentlead = 0.1;
-            $temppercentprelead = 0.1;
-        }
 
         $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm);
         
@@ -216,10 +215,15 @@ class RentalController extends Controller
         $rental->percentsst = $sst;
         $rental->percentagent = $tempresult['percentagent'];
         $rental->percentlead = $tempresult['percentlead'];
+        $rental->leadid = $tempresult['leadid'];
         $rental->percentprelead = $tempresult['percentprelead'];
+        $rental->preleadid = $tempresult['preleadid'];
         $rental->percentip = $tempresult['percentip'];
+        $rental->ipid = $tempresult['ipid'];
         $rental->percentgopone = $tempresult['percentgopone'];
+        $rental->goponeid = $tempresult['goponeid'];
         $rental->percentgoptwo = $tempresult['percentgoptwo'];
+        $rental->goptwoid = $tempresult['goptwoid'];
         $rental->total = $tempresult['total'];
         $rental->profitcompany = $tempresult['profitcompany'];
         $rental->stemduty = $stemduty;
@@ -303,10 +307,15 @@ class RentalController extends Controller
         $rental->percentsst = $sst;
         $rental->percentagent = $tempresult['percentagent'];
         $rental->percentlead = $tempresult['percentlead'];
+        $rental->leadid = $tempresult['leadid'];
         $rental->percentprelead = $tempresult['percentprelead'];
+        $rental->preleadid = $tempresult['preleadid'];
         $rental->percentip = $tempresult['percentip'];
+        $rental->ipid = $tempresult['ipid'];
         $rental->percentgopone = $tempresult['percentgopone'];
+        $rental->goponeid = $tempresult['goponeid'];
         $rental->percentgoptwo = $tempresult['percentgoptwo'];
+        $rental->goptwoid = $tempresult['goptwoid'];
         $rental->total = $tempresult['total'];
         $rental->profitcompany = $tempresult['profitcompany'];
         $rental->stemduty = $stemduty;

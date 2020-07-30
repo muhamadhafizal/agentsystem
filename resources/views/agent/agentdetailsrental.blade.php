@@ -60,25 +60,17 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Category</label>
                                             <input type="text" class="form-control" name="category" value="{{$category}}" readonly>
                                         </div>
-                                        <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Status</label>
                                             <input type="text" class="form-control" name="status" value="{{$rentaldetails->status}}" readonly>
                                         </div>
-                                    </div>
-	                            </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
-                                            <label class="form-control-label">Commission Agent</label>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">Commission</label>
                                             <input type="text" class="form-control" value="{{$commagent}}" readonly>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-12">
-                                            <label class=" form-control-label">Contribution Agent</label>
-	                                        <input type="text" value="{{$contagent}}" class="form-control myField" readonly>
                                         </div>
                                     </div>
 	                            </div>
