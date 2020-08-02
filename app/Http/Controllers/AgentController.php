@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Redirect;
 use App\Rental;
 use DB;
 
@@ -51,6 +52,13 @@ class AgentController extends Controller
 
         return $monthname;
  
+    }
+
+    public function getagentdetails($id){
+
+        $userdetails = User::find($id);
+        return $userdetails;
+
     }
 
     public function getrentaldetails($id){
@@ -441,6 +449,223 @@ class AgentController extends Controller
 
 		return response()->json($monthArray);
 
+    }
+
+    public function profile(){
+        $user = $this->getinfo();
+
+        if($user == null){
+            return redirect('/');
+        } else {
+
+            $ipid = null;
+            $ipname = null;
+            $goponeid = null;
+            $goponename = null;
+            $goptwoid = null;
+            $goptwoname = null;
+            $preleadid = null;
+            $preleadname = null;
+            $leadid = null;
+            $leadname = null;
+            
+
+            $userdetails = $this->getagentdetails($user->id);
+
+                $ipdetails = $this->getagentdetails($userdetails->ip);
+                if($ipdetails){
+                    $ipid = $ipdetails->id;
+                    $ipname = $ipdetails->nickname;
+                }
+                $goponedetails = $this->getagentdetails($userdetails->gopone);
+                if($goponedetails){
+                    $goponeid = $goponedetails->id;
+                    $goponename = $goponedetails->nickname;
+                }
+                $goptwodetails = $this->getagentdetails($userdetails->goptwo);
+                if($goptwodetails){
+                    $goptwoid = $goptwodetails->id;
+                    $goptwoname = $goptwodetails->nickname;
+                }
+                $preleaddetails = $this->getagentdetails($userdetails->prelead);
+                if($preleaddetails){
+                    $preleadid = $preleaddetails->id;
+                    $preleadname = $preleaddetails->nickname;
+                }
+                $leaddetails = $this->getagentdetails($userdetails->lead);
+                if($leaddetails){
+                    $leadid = $leaddetails->id;
+                    $leadname = $leaddetails->nickname;
+                }
+
+                $leaduser = User::where('level','lead')->get();
+
+                $userarray = [
+
+                    'id' => $userdetails->id,
+                    'fullname' => $userdetails->name,
+                    'nickname' => $userdetails->nickname,
+                    'ic' => $userdetails->ic,
+                    'contact' => $userdetails->contact,
+                    'email' => $userdetails->email,
+                    'position' => $userdetails->level,
+                    'leadid' => $leadid,
+                    'leadname' => $leadname,
+                    'preleadid' => $preleadid,
+                    'preleadname' => $preleadname,
+                    'ipid' => $ipid,
+                    'ipname' => $ipname,
+                    'goponeid' => $goponeid,
+                    'goponename' => $goponename,
+                    'goptwoid' => $goptwoid,
+                    'goptwoname' => $goptwoname,
+                    'username' => $userdetails->username,
+                    'password' => $userdetails->password,
+
+                ];
+                
+                return view('/agent/profile', compact('userarray','leaduser'));
+
+        }
+    }
+
+    public function editagent($id){
+
+        $user = $this->getinfo();
+
+        $ipid = null;
+        $ipname = null;
+        $goponeid = null;
+        $goponename = null;
+        $goptwoid = null;
+        $goptwoname = null;
+        $preleadid = null;
+        $preleadname = null;
+        $leadid = null;
+        $leadname = null;
+            
+
+        $userdetails = $this->getagentdetails($user->id);
+
+        $ipdetails = $this->getagentdetails($userdetails->ip);
+        if($ipdetails){
+            $ipid = $ipdetails->id;
+            $ipname = $ipdetails->nickname;
+        }
+        $goponedetails = $this->getagentdetails($userdetails->gopone);
+        if($goponedetails){
+             $goponeid = $goponedetails->id;
+             $goponename = $goponedetails->nickname;
+        }
+        $goptwodetails = $this->getagentdetails($userdetails->goptwo);
+        if($goptwodetails){
+              $goptwoid = $goptwodetails->id;
+              $goptwoname = $goptwodetails->nickname;
+        }
+        $preleaddetails = $this->getagentdetails($userdetails->prelead);
+        if($preleaddetails){
+              $preleadid = $preleaddetails->id;
+              $preleadname = $preleaddetails->nickname;
+        }
+        $leaddetails = $this->getagentdetails($userdetails->lead);
+        if($leaddetails){
+               $leadid = $leaddetails->id;
+               $leadname = $leaddetails->nickname;
+        }
+
+        $leaduser = User::where('level','lead')->get();
+
+            $userarray = [
+
+                'id' => $userdetails->id,
+                'fullname' => $userdetails->name,
+                'nickname' => $userdetails->nickname,
+                'ic' => $userdetails->ic,
+                'contact' => $userdetails->contact,
+                'email' => $userdetails->email,
+                'position' => $userdetails->level,
+                'leadid' => $leadid,
+                'leadname' => $leadname,
+                'preleadid' => $preleadid,
+                'preleadname' => $preleadname,
+                'ipid' => $ipid,
+                'ipname' => $ipname,
+                'goponeid' => $goponeid,
+                'goponename' => $goponename,
+                'goptwoid' => $goptwoid,
+                'goptwoname' => $goptwoname,
+                'username' => $userdetails->username,
+                'password' => $userdetails->password,
+
+            ];
+                
+        return view('/agent/editprofile', compact('userarray','leaduser'));
+
+    }
+
+    public function updateagent(Request $request, $id){
+        
+        $fullname = $request->input('fullname');
+        $nickname = $request->input('nickname');
+        $ic = $request->input('ic');
+        $contact = $request->input('contact');
+        $email = $request->input('email');
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        $userdetails = $this->getagentdetails($id);
+        
+        //nickname
+        if($userdetails->nickname != $nickname){
+          
+           $result = User::where('nickname',$nickname)->where('id','!=',$id)->first();
+           if($result == null){
+            
+               $finalnickname = $nickname;
+               \Session::flash('flash_message', 'successfully updated.');
+              
+           } else {
+              
+               $finalnickname = $userdetails->nickname;
+               \Session::flash('flash_message_delete', 'Password / Nickname');
+           }
+         
+
+        } else {
+            $finalnickname = $nickname;
+        }
+
+        //password
+        if($userdetails->password != $password){
+
+            $resultpassword = User::where('password',$password)->where('id','!=',$id)->first();
+            if($resultpassword == null){
+                $finalpassword = $password;
+                \Session::flash('flash_message', 'successfully updated.');
+            } else {
+                $finalpassword = $userdetails->password;
+                \Session::flash('flash_message_delete', 'Password / Nickname');
+            }
+
+        } else {
+            $finalpassword = $password;
+        }
+      
+        //save user
+        $userdetails->name = $fullname;
+        $userdetails->nickname = $finalnickname;
+        $userdetails->ic = $ic;
+        $userdetails->contact = $contact;
+        $userdetails->email = $email;
+        $userdetails->username = $username;
+        $userdetails->password = $finalpassword;
+
+        $userdetails->save();
+
+        $request->session()->put('username', $username);
+        $request->session()->put('password', $finalpassword);
+        
+        return Redirect::route('profile');
     }
 }
 

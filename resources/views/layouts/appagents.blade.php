@@ -241,9 +241,15 @@ if ($role == 'admin' || $role == 'acount') {
                                             <a class="js-acc-btn" href="#">{{$nickname}}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="{{ route('profile') }}">
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                            </div>
                                             <div class="account-dropdown__footer">
-                                            <a href="{{ route('logout') }}">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <a href="{{ route('logout') }}">
+                                                <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
                                     </div>
