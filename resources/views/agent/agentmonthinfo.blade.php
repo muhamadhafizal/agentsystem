@@ -116,9 +116,9 @@
                     </div>
                     <div class="col-sm-8">
                     </div>
-                    <div class="col-sm-2">
+                    <!-- <div class="col-sm-2">
                         <a href=""><button type="button" class="btn btn-success">Export to excell</button></a>
-                    </div>
+                    </div> -->
                 </div>
 
 @endsection

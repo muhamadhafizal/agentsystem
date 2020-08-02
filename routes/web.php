@@ -62,6 +62,7 @@ Route::get('/agent/rental', 'AgentController@listrental')->name('agentlistrental
 Route::get('agent/details/{id}/{type}', 'AgentController@details')->name('agentdetailsrental');
 Route::get('/agent/listmonth', 'AgentController@listmonth')->name('agentlistmonth');
 Route::get('/agent/month/{month}/{year}', 'AgentController@getmonth')->name('agentgetmonth');
+Route::get('/agent/chart/rental', 'AgentController@chartrental');
 
 //project agent
 Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagentdashboard');

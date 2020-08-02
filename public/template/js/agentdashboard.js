@@ -5,23 +5,24 @@
   
     try {
 
-      var url = 'admin/chart/rental';
+      var url = 'agent/chart/rental';
       var rental = [];
       var rentalArr = [];
       var tempRental;
 
-    //   $.get(url, function(response){
+      $.get(url, function(response){
 
-    //     $.each(response, function(i, item){
-    //         tempRental = response[i];
-    //         rental.push(tempRental);
-    //     });
+        $.each(response, function(i, item){
+            tempRental = response[i];
+            rental.push(tempRental);
+        });
     
+        getChartAgentRental(rental);
+      });
     
-    //   });
-    getChartAgentRental();
-
-      function getChartAgentRental(){
+      function getChartAgentRental($value){
+      
+        var tempValue = $value;
 
          // single bar chart
         var ctx = document.getElementById("singleBarChartAgent");
@@ -34,7 +35,7 @@
                 datasets: [
                 {
                     label: "Total Success Comm",
-                    data: [0, 0, 0, 0, 0, 0, 7808.67, 905.22, 0, 0, 0, 0],
+                    data: tempValue,
                     borderColor: "rgba(0, 123, 255, 0.9)",
                     borderWidth: "0",
                     backgroundColor: "rgba(0, 123, 255, 0.5)"
