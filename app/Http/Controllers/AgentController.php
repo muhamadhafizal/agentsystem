@@ -622,12 +622,12 @@ class AgentController extends Controller
            if($result == null){
             
                $finalnickname = $nickname;
-               \Session::flash('flash_message', 'successfully updated.');
+               \Session::flash('flash_message', 'successfully updated');
               
            } else {
               
                $finalnickname = $userdetails->nickname;
-               \Session::flash('flash_message_delete', 'Password / Nickname');
+               \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
            }
          
 
@@ -641,14 +641,29 @@ class AgentController extends Controller
             $resultpassword = User::where('password',$password)->where('id','!=',$id)->first();
             if($resultpassword == null){
                 $finalpassword = $password;
-                \Session::flash('flash_message', 'successfully updated.');
+                \Session::flash('flash_message', 'successfully updated');
             } else {
                 $finalpassword = $userdetails->password;
-                \Session::flash('flash_message_delete', 'Password / Nickname');
+                \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
             }
 
         } else {
             $finalpassword = $password;
+        }
+
+        //username
+        if($userdetails->username != $username){
+
+            $resultusername = User::where('username',$username)->where('id','!=',$id)->first();
+            if($resultusername == null){
+                $finalusername = $username;
+                \Session::flash('flash_message', 'successfully updated');
+            } else {
+                $finalusername = $userdetails->username;
+                \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
+            }
+        } else {
+            $finalusername = $username;
         }
       
         //save user
@@ -657,13 +672,14 @@ class AgentController extends Controller
         $userdetails->ic = $ic;
         $userdetails->contact = $contact;
         $userdetails->email = $email;
-        $userdetails->username = $username;
+        $userdetails->username = $finalusername;
         $userdetails->password = $finalpassword;
 
         $userdetails->save();
 
-        $request->session()->put('username', $username);
-        $request->session()->put('password', $finalpassword);
+        $request->session()->put('username', $userdetails->username);
+        $request->session()->put('password', $userdetails->password);
+        $request->session()->put('nickname', $userdetails->nickname);
         
         return Redirect::route('profile');
     }

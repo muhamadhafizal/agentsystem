@@ -326,22 +326,71 @@ class UserController extends Controller
             }
         }
 
+         //nickname
+         if($user->nickname != $nickname){
+          
+            $result = User::where('nickname',$nickname)->where('id','!=',$id)->first();
+            if($result == null){
+             
+                $finalnickname = $nickname;
+                \Session::flash('flash_message', 'successfully updated');
+               
+            } else {
+               
+                $finalnickname = $user->nickname;
+                \Session::flash('flash_message_delete', 'Error update Password / Nickname is exist');
+            }
+          
+ 
+         } else {
+             $finalnickname = $nickname;
+         }
+ 
+         //password
+         if($user->password != $password){
+ 
+             $resultpassword = User::where('password',$password)->where('id','!=',$id)->first();
+             if($resultpassword == null){
+                 $finalpassword = $password;
+                 \Session::flash('flash_message', 'successfully updated');
+             } else {
+                 $finalpassword = $user->password;
+                 \Session::flash('flash_message_delete', 'Error update Password / Nickname is exist');
+             }
+ 
+         } else {
+             $finalpassword = $password;
+         }
+ 
+         //username
+         if($user->username != $username){
+ 
+             $resultusername = User::where('username',$username)->where('id','!=',$id)->first();
+             if($resultusername == null){
+                 $finalusername = $username;
+                 \Session::flash('flash_message', 'successfully updated');
+             } else {
+                 $finalusername = $user->username;
+                 \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
+             }
+         } else {
+             $finalusername = $username;
+         }
+
         $user->name = $fullname;
-        $user->nickname = $nickname;
+        $user->nickname = $finalnickname;
         $user->ic = $ic;
         $user->contact = $contact;
         $user->email = $email;
         $user->lead = $lead;
         $user->prelead = $prelead;
         $user->ip = $ip;
-        $user->username = $username;
-        $user->password = $password;
+        $user->username = $finalusername;
+        $user->password = $finalpassword;
         $user->level = $position;
 
         $user->save();
 
-
-        \Session::flash('flash_message', 'successfully updated.');
         return Redirect::route('detailsagent', compact('id'));
             
     }

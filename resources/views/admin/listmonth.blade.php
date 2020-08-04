@@ -3,18 +3,6 @@
             <!-- MAIN CONTENT-->
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <form >
-                            {{ csrf_field() }}
-                            <div class="row">
-                                <div class="form-group mx-sm-3 mb-2">
-                                  <h2 style="color: white">Year :</h2>
-                                </div>
-                                 <div class="form-group mx-sm-3 mb-2">
-                                   <input class="date-own form-control" style="width: 100px;" name="year" readonly="true" placeholder="2020">
-                                 </div>
-                                 <button class="btn btn-primary mb-2">Submit</button>
-                            </div>
-                        </form>
                         <div class="row m-t-25">
                             <div class="col-sm-3 col-lg-3">
                                     <div class="overview-item overview-item--c1">

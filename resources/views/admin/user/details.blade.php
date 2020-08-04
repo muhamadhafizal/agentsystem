@@ -36,6 +36,9 @@
                         @if(Session::has('flash_message'))
                          <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
 	        	        @endif
+                        @if(Session::has('flash_message_delete'))
+                         <div class="alert alert-danger"><span class="fa fa-check"></span><em> {!! session('flash_message_delete') !!}</em></div>
+                        @endif
 	        	    </div>
 	        	</div>
             <div class="row">
@@ -118,7 +121,7 @@
                                         </div>
                                         <div class="col-lg-6 col-sm-12">
                                             <label for="country" class=" form-control-label">Password</label>
-	                                    <input type="password" name="password" value="{{$userarray['password']}}" class="form-control" disabled>
+	                                    <input type="text" name="password" value="{{$userarray['password']}}" class="form-control" disabled>
                                         </div>
                                     </div>
 	                            </div>

@@ -5,7 +5,7 @@
 	    <div class="section__content section__content--p30">
 	        <div class="container-fluid">
             <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             @if(Session::has('flash_message'))
                                 <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
                             @endif

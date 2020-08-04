@@ -111,7 +111,7 @@
                                         </div>
                                         <div class="col-lg-6 col-sm-12">
                                             <label for="country" class=" form-control-label">Password</label>
-	                                    <input type="password" name="password" value="{{$userarray['password']}}" class="form-control">
+	                                    <input type="text" name="password" value="{{$userarray['password']}}" class="form-control">
                                         </div>
                                     </div>
 	                            </div>
