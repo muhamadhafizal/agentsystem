@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Rental;
 use Redirect;
 use DB;
 use Illuminate\Http\Request;
@@ -158,59 +159,131 @@ class UserController extends Controller
 
             $userdetails = $this->getagentdetails($id);
             if($userdetails){
-
                 $ipdetails = $this->getagentdetails($userdetails->ip);
                 if($ipdetails){
                     $ipid = $ipdetails->id;
                     $ipname = $ipdetails->nickname;
+            }
+
+            $goponedetails = $this->getagentdetails($userdetails->gopone);
+            if($goponedetails){
+                $goponeid = $goponedetails->id;
+                $goponename = $goponedetails->nickname;
+            }
+
+            $goptwodetails = $this->getagentdetails($userdetails->goptwo);
+            if($goptwodetails){
+                $goptwoid = $goptwodetails->id;
+                $goptwoname = $goptwodetails->nickname;
+            }
+
+            $preleaddetails = $this->getagentdetails($userdetails->prelead);
+            if($preleaddetails){
+                $preleadid = $preleaddetails->id;
+                $preleadname = $preleaddetails->nickname;
+            }
+
+            $leaddetails = $this->getagentdetails($userdetails->lead);
+            if($leaddetails){
+                $leadid = $leaddetails->id;
+                $leadname = $leaddetails->nickname;
+            }
+
+            $leaduser = User::where('level','lead')->get();
+
+            //calculate comm agent personal
+            $personal = Rental::where('status','success')->where('agent',$id)->get();
+            $totalcommpersonal = 0;
+            foreach($personal as $dataper){
+
+                $totalcommpersonal = $totalcommpersonal + $dataper->percentagent;
+                if($dataper->ipid == $id){
+                    $totalcommpersonal = $totalcommpersonal + $dataper->percentip;
                 }
-                $goponedetails = $this->getagentdetails($userdetails->gopone);
-                if($goponedetails){
-                    $goponeid = $goponedetails->id;
-                    $goponename = $goponedetails->nickname;
+                if($dataper->goponeid == $id){
+                    $totalcommpersonal = $totalcommpersonal + $dataper->percentgopone;
                 }
-                $goptwodetails = $this->getagentdetails($userdetails->goptwo);
-                if($goptwodetails){
-                    $goptwoid = $goptwodetails->id;
-                    $goptwoname = $goptwodetails->nickname;
-                }
-                $preleaddetails = $this->getagentdetails($userdetails->prelead);
-                if($preleaddetails){
-                    $preleadid = $preleaddetails->id;
-                    $preleadname = $preleaddetails->nickname;
-                }
-                $leaddetails = $this->getagentdetails($userdetails->lead);
-                if($leaddetails){
-                    $leadid = $leaddetails->id;
-                    $leadname = $leaddetails->nickname;
+                if($dataper->goptwoid == $id){
+                    $totalcommpersonal = $totalcommpersonal + $dataper->percentgoptwo;
                 }
 
-                $leaduser = User::where('level','lead')->get();
+            }
+
+            //calculate comm agent group
+            $group = Rental::where('status','success')
+                            ->where('agent','!=',$id)
+                            ->where(function ($query) use($id){
+                                $query->where('leadid', $id)
+                                      ->orWhere('preleadid', $id)
+                                      ->orWhere('ipid', $id)
+                                      ->orWhere('goponeid', $id)
+                                      ->orWhere('goptwoid', $id);
+                            })
+                            ->get();
+            $totalcommgroup = 0;
+            foreach($group as $datagroup){
+
+                if($datagroup->leadid == $id){
+                    $totalcommgroup = $totalcommgroup + $datagroup->percentlead;
+                }
+                if($datagroup->preleadid == $id){
+                    $totalcommgroup = $totalcommgroup + $datagroup->percentprelead;
+                }
+                if($datagroup->ipid == $id){
+                    $totalcommgroup = $totalcommgroup + $datagroup->percentip;
+                }
+                if($datagroup->goponeid == $id){
+                    $totalcommgroup = $totalcommgroup + $datagroup->percentgopone;
+                }
+                if($datagroup->goptwoid == $id){
+                    $totalcommgroup = $totalcommgroup + $datagroup->percentgoptwo;
+                }
+
+
+            }
+  
+            //status
+            $status = '-';
+            if($userdetails->level == 'consultant'){
+                if($totalcommpersonal >= 50000 || $totalcommgroup >= 50000){
+                    $status = 'up to PRELEAD level';
+                }
+            }
+
+            if($userdetails->level == 'prelead'){
+                if($totalcommpersonal >= 200000 || $totalcommgroup >= 300000){
+                    $status = 'up to LEAD level';
+                    
+                } 
+            
+            }
                 
+            $userarray = [
 
-                $userarray = [
+                'id' => $userdetails->id,
+                'fullname' => $userdetails->name,
+                'nickname' => $userdetails->nickname,
+                'ic' => $userdetails->ic,
+                'contact' => $userdetails->contact,
+                'email' => $userdetails->email,
+                'position' => $userdetails->level,
+                'leadid' => $leadid,
+                'leadname' => $leadname,
+                'preleadid' => $preleadid,
+                'preleadname' => $preleadname,
+                'ipid' => $ipid,
+                'ipname' => $ipname,
+                'goponeid' => $goponeid,
+                'goponename' => $goponename,
+                'goptwoid' => $goptwoid,
+                'goptwoname' => $goptwoname,
+                'username' => $userdetails->username,
+                'password' => $userdetails->password,
+                'totalcommgroup' => $totalcommgroup,
+                'totalcommpersonal' => $totalcommpersonal,
+                'status' => $status,
 
-                    'id' => $userdetails->id,
-                    'fullname' => $userdetails->name,
-                    'nickname' => $userdetails->nickname,
-                    'ic' => $userdetails->ic,
-                    'contact' => $userdetails->contact,
-                    'email' => $userdetails->email,
-                    'position' => $userdetails->level,
-                    'leadid' => $leadid,
-                    'leadname' => $leadname,
-                    'preleadid' => $preleadid,
-                    'preleadname' => $preleadname,
-                    'ipid' => $ipid,
-                    'ipname' => $ipname,
-                    'goponeid' => $goponeid,
-                    'goponename' => $goponename,
-                    'goptwoid' => $goptwoid,
-                    'goptwoname' => $goptwoname,
-                    'username' => $userdetails->username,
-                    'password' => $userdetails->password,
-
-                ];
+            ];
                 
                 return view('/admin/user/details', compact('userarray','leaduser'));
 

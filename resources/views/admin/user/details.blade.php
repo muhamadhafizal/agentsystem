@@ -125,6 +125,22 @@
                                         </div>
                                     </div>
 	                            </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label for="postal-code" class=" form-control-label">Status</label>
+	                                        <input type="text" value="{{$userarray['status']}}" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label for="country" class=" form-control-label">Personal Profit</label>
+	                                    <input type="text" value="{{$userarray['totalcommpersonal']}}" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label for="country" class=" form-control-label">Group Profit</label>
+	                                    <input type="text" value="{{$userarray['totalcommgroup']}}" class="form-control" disabled>
+                                        </div>
+                                    </div>
+	                            </div>
                                     <div class="row">
                                         <div>
                                         &nbsp&nbsp&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ route('allagents') }}'"><i class="fa fa-arrow-left"></i></button>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>&nbsp @if($userarray['position'] == 'lead' )<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">update gop</button>@endif
