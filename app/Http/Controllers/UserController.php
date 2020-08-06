@@ -244,7 +244,8 @@ class UserController extends Controller
 
             //group
             //1st cari dia punya downline (user)
-            $downline = User::where(function ($query) use($id){
+            $downline = User::where('id','!=',$id)
+                              ->where(function ($query) use($id){
                                 $query->where('goptwo',$id)
                                       ->orWhere('gopone',$id)
                                       ->orWhere('lead',$id)
@@ -255,14 +256,46 @@ class UserController extends Controller
             foreach($downline as $data){
                 array_push($arrayid,$data->id);
             }
-
+           
             //2nd find rentalid based on downline
-            $rentaldownline = Rental::whereIn('agent',$arrayid)->get();
-
+            $rentaldownline = Rental::where('status','success')
+                                    ->where(function ($query) use($arrayid){
+                                      $query->whereIn('agent',$arrayid)
+                                            ->orWhereIn('leadid',$arrayid)
+                                            ->orWhereIn('preleadid', $arrayid)
+                                            ->orWhereIn('goponeid', $arrayid)
+                                            ->orWhereIn('goptwoid', $arrayid);
+                                    })
+                                    ->get();
+           
             //3rd totalup only agentpercent
             $finaltotalgroup = 0;
             foreach($rentaldownline as $data){
-                $finaltotalgroup = $finaltotalgroup + $data->percentagent;
+               
+                if(in_array($data->agent,$arrayid)){
+                    $finaltotalgroup = $finaltotalgroup + $data->percentagent;
+
+                }
+
+                if(in_array($data->leadid,$arrayid)){
+                    $finaltotalgroup = $finaltotalgroup + $data->percentlead;
+   
+                }
+
+                if(in_array($data->preleadid,$arrayid)){
+                    $finaltotalgroup = $finaltotalgroup + $data->percentprelead;
+
+                }
+
+                if(in_array($data->goponeid,$arrayid)){
+                    $finaltotalgroup = $finaltotalgroup + $data->percentgopone;
+
+                }
+
+                if(in_array($data->goptwoid,$arrayid)){
+                    $finaltotalgroup = $finaltotalgroup + $data->percentgoptwo;
+                }
+              
             }
 
 
