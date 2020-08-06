@@ -241,17 +241,44 @@ class UserController extends Controller
 
 
             }
+
+            //group
+            //1st cari dia punya downline (user)
+            $downline = User::where(function ($query) use($id){
+                                $query->where('goptwo',$id)
+                                      ->orWhere('gopone',$id)
+                                      ->orWhere('lead',$id)
+                                      ->orWhere('prelead',$id);
+                            })
+                        ->get();
+            $arrayid = array();
+            foreach($downline as $data){
+                array_push($arrayid,$data->id);
+            }
+
+            //2nd find rentalid based on downline
+            $rentaldownline = Rental::whereIn('agent',$arrayid)->get();
+
+            //3rd totalup only agentpercent
+            $finaltotalgroup = 0;
+            foreach($rentaldownline as $data){
+                $finaltotalgroup = $finaltotalgroup + $data->percentagent;
+            }
+
+
+            $finaltotalpersonal = $totalcommpersonal + $totalcommgroup;
+            
   
             //status
             $status = '-';
             if($userdetails->level == 'consultant'){
-                if($totalcommpersonal >= 50000 || $totalcommgroup >= 50000){
+                if($finaltotalpersonal >= 50000){
                     $status = 'up to PRELEAD level';
                 }
             }
 
             if($userdetails->level == 'prelead'){
-                if($totalcommpersonal >= 200000 || $totalcommgroup >= 300000){
+                if($finaltotalpersonal >= 200000 || $finaltotalgroup >= 300000){
                     $status = 'up to LEAD level';
                     
                 } 
@@ -279,8 +306,8 @@ class UserController extends Controller
                 'goptwoname' => $goptwoname,
                 'username' => $userdetails->username,
                 'password' => $userdetails->password,
-                'totalcommgroup' => $totalcommgroup,
-                'totalcommpersonal' => $totalcommpersonal,
+                'totalcommgroup' => $finaltotalgroup,
+                'totalcommpersonal' => $finaltotalpersonal,
                 'status' => $status,
 
             ];
