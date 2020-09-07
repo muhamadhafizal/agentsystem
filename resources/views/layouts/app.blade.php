@@ -232,15 +232,21 @@ if ($role == 'agent') {
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a class="js-arrow" href="#" style="color:white">
-                                <i class="fas fa-wrench"></i>Configaration</a>
+                                <i class="fas fa-file"></i>Document</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('listarea') }}" style="color:white">Area</a>
+                                    <a href="" style="color:white">Receipt</a>
+                                </li>
+                                <li>
+                                    <a href="" style="color:white">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="" style="color:white">Payment Voucher</a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
                     </ul>
                 </nav>
             </div>
