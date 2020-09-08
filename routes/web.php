@@ -74,4 +74,18 @@ Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagen
 Route::get('/admin/agentexcell', 'ExcelController@agent')->name('agentexcell');
 Route::get('/admin/rentalmonthexcell/{month}/{year}', 'ExcelController@excelrentalmonth')->name('rentalmonthexcell');
 
+//Receipt
+Route::get('/admin/receipt', 'ReceiptController@index')->name('listreceipt');
+Route::get('/admin/addreceipt', 'ReceiptController@store')->name('addreceipt');
+Route::get('/admin/receipt/delete/{id}', 'ReceiptController@destroy');
+
+//Invoice
+Route::get('/admin/invoice', 'InvoiceController@index')->name('listinvoice');
+Route::get('/admin/invoice/addinvoice', 'InvoiceController@store')->name('addinvoice');
+Route::get('/admin/invoice/delete/{id}', 'InvoiceController@destroy');
+
+//PaymentVoucher
+Route::get('/admin/voucher', 'VoucherController@index')->name('listvoucher');
+Route::get('/admin/voucher/addvoucher', 'VoucherController@store')->name('addvoucher');
+Route::get('/admin/voucher/delete/{id}', 'VoucherController@destroy');
 

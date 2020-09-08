@@ -237,13 +237,13 @@ if ($role == 'agent') {
                                 <i class="fas fa-file"></i>Document</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="" style="color:white">Receipt</a>
+                                    <a href="{{ route('listreceipt') }}" style="color:white">Receipt</a>
                                 </li>
                                 <li>
-                                    <a href="" style="color:white">Invoice</a>
+                                    <a href="{{ route('listinvoice') }}" style="color:white">Invoice</a>
                                 </li>
                                 <li>
-                                    <a href="" style="color:white">Payment Voucher</a>
+                                    <a href="{{ route('listvoucher') }}" style="color:white">Payment Voucher</a>
                                 </li>
                             </ul>
                         </li>
@@ -420,9 +420,7 @@ if ($role == 'agent') {
             
         });
       
-    </script>
-
-    
+    </script>    
 </body>
 
 
