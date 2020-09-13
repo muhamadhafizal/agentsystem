@@ -56,9 +56,7 @@ if ($role == 'agent') {
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="">
-                            <img src="{{ asset('template/images/icon/logo.png') }}" alt="CoolAdmin" />
-                        </a>
+                        <H4>MW PROPERTIES</H4>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -75,90 +73,67 @@ if ($role == 'agent') {
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="{{ route('admindashboard') }}">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="{{ route('admindashboardproject') }}">Projects</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
+                                <i class="fas fa-user"></i>Agent</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="button.html">Button</a>
+                                    <a href="{{ route('addagent') }}">Add</a>
                                 </li>
                                 <li>
-                                    <a href="badge.html">Badges</a>
+                                    <a href="{{ route('allagents') }}">List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-home"></i>Rental & Subsale</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="{{ route('addrental') }}">Add</a>
                                 </li>
                                 <li>
-                                    <a href="tab.html">Tabs</a>
+                                    <a href="{{ route('allrentals') }}">List</a>
                                 </li>
                                 <li>
-                                    <a href="card.html">Cards</a>
+                                    <a href="{{ route('listmonth') }}">Month</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-building"></i>Projects</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="">Add</a>
                                 </li>
                                 <li>
-                                    <a href="alert.html">Alerts</a>
+                                    <a href="">List</a>
                                 </li>
                                 <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
+                                    <a href="">Month</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-file"></i>Documents</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="{{ route('listreceipt') }}">Receipt</a>
                                 </li>
                                 <li>
-                                    <a href="modal.html">Modals</a>
+                                    <a href="{{ route('listinvoice') }}">Invoice</a>
                                 </li>
                                 <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
+                                    <a href="{{ route('listvoucher') }}">Payment Voucher</a>
                                 </li>
                             </ul>
                         </li>
@@ -171,9 +146,9 @@ if ($role == 'agent') {
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="{{ asset('template/images/icon/logo.png') }}" alt="Cool Admin" />
-                </a>
+                
+                    <H4>MW PROPERTIES</H4>
+             
             </div>
             <div class="menu-sidebar__content js-scrollbar1" style="background-color:#1f1d1d">
                 <nav class="navbar-sidebar">
