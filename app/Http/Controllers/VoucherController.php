@@ -53,6 +53,13 @@ class VoucherController extends Controller
 
         return Redirect::route('listvoucher');
 
+    }
+
+    public function details($id){
+        
+        $details = Voucher::find($id);
+       
+        return view('admin/voucher/details', compact('details'));
 
     }
 }

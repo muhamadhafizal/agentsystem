@@ -78,14 +78,17 @@ Route::get('/admin/rentalmonthexcell/{month}/{year}', 'ExcelController@excelrent
 Route::get('/admin/receipt', 'ReceiptController@index')->name('listreceipt');
 Route::get('/admin/addreceipt', 'ReceiptController@store')->name('addreceipt');
 Route::get('/admin/receipt/delete/{id}', 'ReceiptController@destroy');
+Route::get('/admin/receipt/details/{id}', 'ReceiptController@details')->name('detailsreceipt');
 
 //Invoice
 Route::get('/admin/invoice', 'InvoiceController@index')->name('listinvoice');
 Route::get('/admin/invoice/addinvoice', 'InvoiceController@store')->name('addinvoice');
 Route::get('/admin/invoice/delete/{id}', 'InvoiceController@destroy');
+Route::get('/admin/invoice/details/{id}', 'InvoiceController@details')->name('detailsinvoice');
 
 //PaymentVoucher
 Route::get('/admin/voucher', 'VoucherController@index')->name('listvoucher');
 Route::get('/admin/voucher/addvoucher', 'VoucherController@store')->name('addvoucher');
 Route::get('/admin/voucher/delete/{id}', 'VoucherController@destroy');
+Route::get('/admin/vouvher/details/{id}', 'VoucherController@details')->name('detailsvoucher');
 

@@ -56,4 +56,12 @@ class InvoiceController extends Controller
 
 
     }
+
+    public function details($id){
+
+        $details = Invoice::find($id);
+
+        return view('admin/invoice/details', compact('details'));
+
+    }
 }

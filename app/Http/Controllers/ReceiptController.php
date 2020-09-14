@@ -54,4 +54,12 @@ class ReceiptController extends Controller
 
 
     }
+
+    public function details($id){
+
+        $details = Receipt::find($id);
+
+        return view('admin/receipt/details', compact('details'));
+
+    }
 }

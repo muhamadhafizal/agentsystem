@@ -39,7 +39,7 @@
                                             <td>{{$i++}}</td>
                                             <td>{{$data->created_at->format("d-m-Y")}}</td>
                                             <td>{{$data->invoicenum}}</td>
-                                            <td><a href=""><span class="badge badge-primary">print</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('InvoiceController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
+                                            <td><a href="{{ route('detailsinvoice', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('InvoiceController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
