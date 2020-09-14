@@ -622,12 +622,12 @@ class AgentController extends Controller
            if($result == null){
             
                $finalnickname = $nickname;
-               \Session::flash('flash_message', 'successfully updated');
+            //    \Session::flash('flash_message', 'successfully updated');
               
            } else {
               
                $finalnickname = $userdetails->nickname;
-               \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
+            //    \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
            }
          
 
@@ -636,20 +636,20 @@ class AgentController extends Controller
         }
 
         //password
-        if($userdetails->password != $password){
+        // if($userdetails->password != $password){
 
-            $resultpassword = User::where('password',$password)->where('id','!=',$id)->first();
-            if($resultpassword == null){
-                $finalpassword = $password;
-                \Session::flash('flash_message', 'successfully updated');
-            } else {
-                $finalpassword = $userdetails->password;
-                \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
-            }
+        //     $resultpassword = User::where('password',$password)->where('id','!=',$id)->first();
+        //     if($resultpassword == null){
+        //         $finalpassword = $password;
+        //         \Session::flash('flash_message', 'successfully updated');
+        //     } else {
+        //         $finalpassword = $userdetails->password;
+        //         \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
+        //     }
 
-        } else {
-            $finalpassword = $password;
-        }
+        // } else {
+        //     $finalpassword = $password;
+        // }
 
         //username
         if($userdetails->username != $username){
@@ -657,10 +657,10 @@ class AgentController extends Controller
             $resultusername = User::where('username',$username)->where('id','!=',$id)->first();
             if($resultusername == null){
                 $finalusername = $username;
-                \Session::flash('flash_message', 'successfully updated');
+                //\Session::flash('flash_message', 'successfully updated');
             } else {
                 $finalusername = $userdetails->username;
-                \Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
+                //\Session::flash('flash_message_delete', 'Error update Password / Nickname / Username is exist');
             }
         } else {
             $finalusername = $username;
@@ -673,7 +673,7 @@ class AgentController extends Controller
         $userdetails->contact = $contact;
         $userdetails->email = $email;
         $userdetails->username = $finalusername;
-        $userdetails->password = $finalpassword;
+        $userdetails->password = $password;
 
         $userdetails->save();
 
