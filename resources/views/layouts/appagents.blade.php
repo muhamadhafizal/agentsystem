@@ -24,7 +24,7 @@ if ($role == 'admin' || $role == 'acount') {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>MLM</title>
+    <title>mwproperties</title>
     <!-- Fontfaces CSS-->
     <link href=" {{ asset('template/css/font-face.css') }}" rel="stylesheet" media="all">
     <link href=" {{ asset('template/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
