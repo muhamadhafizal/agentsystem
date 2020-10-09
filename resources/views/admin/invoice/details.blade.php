@@ -29,9 +29,9 @@
 <p style="position:absolute;top:662px;left:566px;white-space:nowrap" class="ft20">SUB&#160;TOTAL</p>
 <p style="position:absolute;top:682px;left:617px;white-space:nowrap" class="ft20">SST</p>
 <p style="position:absolute;top:702px;left:532px;white-space:nowrap" class="ft20">TOTAL&#160;AMOUNT</p>
-<p style="position:absolute;top:662px;left:712px;white-space:nowrap" class="ft20">0</p>
-<p style="position:absolute;top:702px;left:712px;white-space:nowrap" class="ft20">0</p>
-<p style="position:absolute;top:682px;left:713px;white-space:nowrap" class="ft20">-</p>
+<p style="position:absolute;top:662px;left:712px;white-space:nowrap" class="ft20"></p>
+<p style="position:absolute;top:702px;left:712px;white-space:nowrap" class="ft20"></p>
+<p style="position:absolute;top:682px;left:713px;white-space:nowrap" class="ft20"></p>
 <p style="position:absolute;top:282px;left:667px;white-space:nowrap" class="ft20">AMOUNT&#160;(RM)</p>
 <p style="position:absolute;top:282px;left:349px;white-space:nowrap" class="ft20">DESCRIPTION</p>
 <p style="position:absolute;top:102px;left:219px;white-space:nowrap" class="ft21"><b>MW&#160;PROPERTIES&#160;</b></p>
