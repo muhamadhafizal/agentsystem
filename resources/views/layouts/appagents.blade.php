@@ -78,7 +78,7 @@ if ($role == 'admin' || $role == 'acount') {
                                     <a href="{{ route('agentdashboard') }}">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('projectagentdashboard') }}">Projects</a>
+                                    <a href="">Projects</a>
                                 </li>
                             </ul>
                         </li>
@@ -130,7 +130,7 @@ if ($role == 'admin' || $role == 'acount') {
                                     <a href="{{ route('agentdashboard') }}" style="color:white">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('projectagentdashboard') }}" style="color:white">Projects</a>
+                                    <a href="" style="color:white">Projects</a>
                                 </li>
                             </ul>
                         </li>

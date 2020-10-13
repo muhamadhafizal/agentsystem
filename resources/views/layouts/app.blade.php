@@ -76,7 +76,7 @@ if ($role == 'agent') {
                                     <a href="{{ route('admindashboard') }}">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admindashboardproject') }}">Projects</a>
+                                    <a href="">Projects</a>
                                 </li>
                             </ul>
                         </li>
@@ -161,7 +161,7 @@ if ($role == 'agent') {
                                     <a href="{{ route('admindashboard') }}" style="color:white">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admindashboardproject') }}" style="color:white">Projects</a>
+                                    <a href="" style="color:white">Projects</a>
                                 </li>
                             </ul>
                         </li>
