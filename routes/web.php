@@ -48,6 +48,16 @@ Route::post('/user/updategop/{id}', 'UserController@updategop')->name('updategop
 
 //Project admin
 Route::get('/project', 'ProjectController@index')->name('admindashboardproject');
+Route::geT('/project/chart', 'ProjectController@chartproject');
+Route::get('/project/add', 'ProjectController@addproject')->name('addproject');
+Route::post('/project/post', 'ProjectController@store')->name('storeproject');
+Route::get('/project/list', 'ProjectController@list')->name('listproject');
+Route::get('/project/delete/{id}/{type}', 'ProjectController@destroy');
+Route::get('/project/details/{id}/{type}', 'ProjectController@details')->name('detailsproject');
+Route::get('/project/edit/{id}/{type}', 'ProjectController@edit')->name('editproject');
+Route::post('/project/update', 'ProjectController@update')->name('updateproject');
+Route::get('/project/listmonth', 'ProjectController@listmonth')->name('listmonthproject');
+Route::get('/project/month/{month}/{year}', 'ProjectController@getmonth')->name('getmonth');
 
 //area
 Route::get('/area', 'AreaController@index')->name('listarea');
@@ -57,7 +67,7 @@ Route::get('/area/details/{id}', 'AreaController@details');
 Route::post('/area/update/', 'AreaController@update')->name('updatearea');
 
 //rental agent
-Route::get('/agent', 'AgentController@index')->name('agentdashboard');
+Route::get('/agentrental', 'AgentController@index')->name('agentdashboard');
 Route::get('/agent/rental', 'AgentController@listrental')->name('agentlistrental');
 Route::get('agent/details/{id}/{type}', 'AgentController@details')->name('agentdetailsrental');
 Route::get('/agent/listmonth', 'AgentController@listmonth')->name('agentlistmonth');
@@ -73,6 +83,7 @@ Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagen
 //excell
 Route::get('/admin/agentexcell', 'ExcelController@agent')->name('agentexcell');
 Route::get('/admin/rentalmonthexcell/{month}/{year}', 'ExcelController@excelrentalmonth')->name('rentalmonthexcell');
+Route::get('/admin/projectmonthexcell/{month}/{year}', 'ExcelController@excelprojectmonth')->name('projectmonthexcell');
 
 //Receipt
 Route::get('/admin/receipt', 'ReceiptController@index')->name('listreceipt');
@@ -92,3 +103,10 @@ Route::get('/admin/voucher/addvoucher', 'VoucherController@store')->name('addvou
 Route::get('/admin/voucher/delete/{id}', 'VoucherController@destroy');
 Route::get('/admin/vouvher/details/{id}', 'VoucherController@details')->name('detailsvoucher');
 
+//Agentproject
+Route::get('/agentproject', 'AgentprojectController@index')->name('agentprojectdashboard');
+Route::get('/agent/project/list', 'AgentprojectController@list')->name('agentlistproject');
+Route::get('/agent/project/details/{id}/{type}', 'AgentprojectController@details')->name('agentdetailsproject');
+Route::get('/agent/project/listmonth', 'AgentprojectController@listmonth')->name('agentlistmonthproject');
+Route::get('/agent/project/month/{month}/{year}', 'AgentprojectController@getmonth')->name('agentprojectgetmonth');
+Route::get('/agent/chart/project', 'AgentprojectController@chartproject');

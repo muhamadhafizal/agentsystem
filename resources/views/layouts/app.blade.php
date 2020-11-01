@@ -76,7 +76,7 @@ if ($role == 'agent') {
                                     <a href="{{ route('admindashboard') }}">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="">Projects</a>
+                                    <a href="{{ route('admindashboardproject') }}">Projects</a>
                                 </li>
                             </ul>
                         </li>
@@ -112,10 +112,10 @@ if ($role == 'agent') {
                                 <i class="fas fa-building"></i>Projects</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="">Add</a>
+                                    <a href="{{ route('addproject') }}">Add</a>
                                 </li>
                                 <li>
-                                    <a href="">List</a>
+                                    <a href="{{ route('listproject') }}">List</a>
                                 </li>
                                 <li>
                                     <a href="">Month</a>
@@ -161,7 +161,7 @@ if ($role == 'agent') {
                                     <a href="{{ route('admindashboard') }}" style="color:white">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="" style="color:white">Projects</a>
+                                    <a href="{{ route('admindashboardproject') }}" style="color:white">Projects</a>
                                 </li>
                             </ul>
                         </li>
@@ -197,13 +197,13 @@ if ($role == 'agent') {
                                 <i class="fas fa-building"></i>Projects</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="" style="color:white">Add</a>
+                                    <a href="{{ route('addproject') }}" style="color:white">Add</a>
                                 </li>
                                 <li>
-                                    <a href="" style="color:white">List</a>
+                                    <a href="{{ route('listproject') }}" style="color:white">List</a>
                                 </li>
                                 <li>
-                                    <a href="" style="color:white">Month</a>
+                                    <a href="{{ route('listmonthproject') }}" style="color:white">Month</a>
                                 </li>
                             </ul>
                         </li>
@@ -320,6 +320,9 @@ if ($role == 'agent') {
         <script src="{{ asset('template/js/admindashboard.js') }}"></script>  
     <?php  }?>
 
+    <?php if (strpos($path, '/project') !== false) {?>
+        <script src="{{ asset('template/js/adminprojectdashboard.js') }}"></script>
+    <?php }?>
     <script>
         $(document).ready(function() {
             $('#example').DataTable();

@@ -14,8 +14,8 @@
                                     <h2 style="color: white"></h2>
                                 </div>
                                 <div class="text">
-                                    <h2>12</h2>
-                                    <span>Total</span>
+                                    <h2>{{$cases}}</h2>
+                                    <span>Cases</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -32,8 +32,8 @@
                                     <h2 style="color: white">RM</h2>
                                 </div>
                                 <div class="text">
-                                    <h2>123</h2>
-                                    <span>Process</span>
+                                    <h2>{{$processcomm}}</h2>
+                                    <span>Process Comm</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -50,8 +50,8 @@
                                     <h2 style="color: white">RM</h2>
                                 </div>
                                 <div class="text">
-                                    <h2>123</h2>
-                                    <span>Success</span>
+                                    <h2>{{$successcomm}}</h2>
+                                    <span>Success Comm</span>
                                 </div>
                             </div>
                             <div class="overview-chart">
@@ -67,7 +67,7 @@
                     <div class="au-card m-b-30">
                         <div class="au-card-inner">
                             <h3 class="title-2 m-b-40">Project Agent</h3>
-                            <canvas id="singelBarChart"></canvas>
+                            <canvas id="singleBarChartAgentProject"></canvas>
                         </div>
                     </div>
                 </div>

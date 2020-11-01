@@ -108,6 +108,7 @@ class AgentController extends Controller
                     ->join('users','users.id','=', 'rentals.agent')
                     ->select('rentals.*','users.nickname as nickname')
                     ->whereYear('rentals.date','=',$year)
+                    ->where('rentals.status','!=', 'cancel')
                     ->where(function ($query) use($user){
                         $query->where('rentals.agent',$user->id)
                               ->orWhere('rentals.leadid', $user->id)

@@ -78,7 +78,7 @@ if ($role == 'admin' || $role == 'acount') {
                                     <a href="{{ route('agentdashboard') }}">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="">Projects</a>
+                                    <a href="{{ route('agentprojectdashboard') }}">Projects</a>
                                 </li>
                             </ul>
                         </li>
@@ -99,10 +99,10 @@ if ($role == 'admin' || $role == 'acount') {
                                 <i class="fas fa-building"></i>Projects</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="">List</a>
+                                    <a href="{{ route('agentlistproject') }}">List</a>
                                 </li>
                                 <li>
-                                    <a href="">Month</a>
+                                    <a href="{{ route('agentlistmonthproject') }}">Month</a>
                                 </li>
                             </ul>
                         </li>
@@ -130,7 +130,7 @@ if ($role == 'admin' || $role == 'acount') {
                                     <a href="{{ route('agentdashboard') }}" style="color:white">Rental & Subsale</a>
                                 </li>
                                 <li>
-                                    <a href="" style="color:white">Projects</a>
+                                    <a href="{{ route('agentprojectdashboard') }}" style="color:white">Projects</a>
                                 </li>
                             </ul>
                         </li>
@@ -151,10 +151,10 @@ if ($role == 'admin' || $role == 'acount') {
                                 <i class="fas fa-building"></i>Projects</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="" style="color:white">List</a>
+                                    <a href="{{ route('agentlistproject') }}" style="color:white">List</a>
                                 </li>
                                 <li>
-                                    <a href="" style="color:white">Month</a>
+                                    <a href="{{ route('agentlistmonthproject') }}" style="color:white">Month</a>
                                 </li>
                             </ul>
                         </li>
@@ -256,9 +256,14 @@ if ($role == 'admin' || $role == 'acount') {
     $path = $_SERVER['REQUEST_URI'];
     ?>
 
-    <?php if (strpos($path, '/agent') !== false) {?>
+    <?php if (strpos($path, '/agentrental') !== false) {?>
         <script src="{{ asset('template/js/agentdashboard.js') }}"></script>  
     <?php  }?>
+
+    <?php if (strpos($path, '/agentproject') !== false) {?>
+        <script src="{{ asset('template/js/agentprojectdashboard.js') }}"></script>  
+    <?php } ?>
+
 
     <script>
         $(document).ready(function() {

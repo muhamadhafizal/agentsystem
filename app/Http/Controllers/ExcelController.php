@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\UsersExport;
 use App\Exports\RentalExport;
+use App\Exports\ProjectExport;
 
 class ExcelController extends Controller
 {
@@ -19,5 +20,10 @@ class ExcelController extends Controller
         $filename = 'rental'.$month.$year. '.xlsx';
         return Excel::download(new RentalExport($month,$year), $filename);
 
+    }
+
+    public function excelprojectmonth($month='',$year=''){
+        $filename = 'project'.$month.$year.'.xlsx';
+        return Excel::download(new ProjectExport($month,$year),$filename);
     }
 }
