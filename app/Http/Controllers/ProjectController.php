@@ -381,6 +381,7 @@ class ProjectController extends Controller
         $date = $request->input('date');
         $unit = $request->input('unit');
         $purchaser = $request->input('purchaser');
+        $purchasertwo = $request->input('purchasertwo');
         $agentone = $request->input('agentone');
         $agenttwo = $request->input('agenttwo');
         $agentthree = $request->input('agentthree');
@@ -552,6 +553,7 @@ class ProjectController extends Controller
         $project->date = $date;
         $project->unit = $unit;
         $project->purchaser = $purchaser;
+        $project->purchasertwo = $purchasertwo;
         $project->agentone = $agentone;
         $project->agenttwo = $agenttwo;
         $project->agentthree = $agentthree;
@@ -732,6 +734,7 @@ class ProjectController extends Controller
         $detailsproject = Project::find($id);
         $agentarray = array();
         $leaderarray = array();
+        $purchaserarray = array();
 
         $trone = null;
         $trtwo = null;
@@ -805,12 +808,19 @@ class ProjectController extends Controller
             array_push($leaderarray,$detailsfour->nickname);
         } 
 
+        if($detailsproject->purchaser != null){
+            array_push($purchaserarray,$detailsproject->purchaser);
+        }
+        if($detailsproject->purchasertwo != null){
+            array_push($purchaserarray,$detailsproject->purchasertwo);
+        }
+
         $month = date('m', strtotime($detailsproject->date));
         $year = date("Y", strtotime($detailsproject->date));
     
       
 
-        return view('admin/project/detailsproject', compact('detailsproject','agentarray','leaderarray','trone','trtwo','trthree','trfour','month','year','type'));
+        return view('admin/project/detailsproject', compact('detailsproject','agentarray','leaderarray','purchaserarray','trone','trtwo','trthree','trfour','month','year','type'));
     }
 
     public function edit($id,$type){
@@ -931,6 +941,7 @@ class ProjectController extends Controller
         $date = $request->input('date');
         $unit = $request->input('unit');
         $purchaser = $request->input('purchaser');
+        $purchasertwo = $request->input('purchasertwo');
         $agentone = $request->input('agentone');
         $agenttwo = $request->input('agenttwo');
         $agentthree = $request->input('agentthree');
@@ -1053,6 +1064,7 @@ class ProjectController extends Controller
         $project->date = $date;
         $project->unit = $unit;
         $project->purchaser = $purchaser;
+        $project->purchasertwo = $purchasertwo;
         $project->agentone = $agentone;
         $project->agenttwo = $agenttwo;
         $project->agentthree = $agentthree;

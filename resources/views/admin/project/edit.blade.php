@@ -24,8 +24,12 @@
                                                 <input type="text" name="unit" value="{{$detailsproject->unit}}" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                                <label class=" form-control-label">Purchaser</label>
+                                                <label class=" form-control-label">Purchaser 1</label>
                                                 <input type="text" name="purchaser" value="{{$detailsproject->purchaser}}" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                                <label class=" form-control-label">Purchaser 2</label>
+                                                <input type="text" name="purchasertwo" value="{{$detailsproject->purchasertwo}}" class="form-control">
                                     </div>
                                     <div class="form-group">
                                                 <label class="form-control-label">Agent 1</label>
@@ -40,30 +44,30 @@
                                             <label class="form-control-label">Agent 2</label>
                                                 <select name="agenttwo" class="form-control">
                                                 <option value="{{$detailsproject->agentidtwo}}">{{$detailsproject->agentnametwo}}</option>
-                                                    <option value=""></option>
                                                     @foreach($alluser as $data)
                                                     <option value="{{$data->id}}">{{$data->nickname}}</option>
                                                     @endforeach
+                                                    <option value=""></option>
                                                 </select>
                                     </div>
                                     <div class="form-group">
                                             <label class="form-control-label">Agent 3</label>
                                                     <select name="agentthree" class="form-control">
                                                     <option value="{{$detailsproject->agentidthree}}">{{$detailsproject->agentnamethree}}</option>
-                                                        <option value=""></option>
                                                         @foreach($alluser as $data)
                                                         <option value="{{$data->id}}">{{$data->nickname}}</option>
                                                         @endforeach
+                                                        <option value=""></option>
                                                     </select>
                                     </div>
                                     <div class="form-group">
                                             <label class="form-control-label">Agent 4</label>
                                                     <select name="agentfour" class="form-control">
                                                     <option value="{{$detailsproject->agentidfour}}">{{$detailsproject->agentnamefour}}</option>
-                                                        <option value=""></option>
                                                         @foreach($alluser as $data)
                                                         <option value="{{$data->id}}">{{$data->nickname}}</option>
                                                         @endforeach
+                                                        <option value=""></option>
                                                     </select>
                                     </div>
                                     <div class="form-group">
@@ -99,30 +103,30 @@
                                             <label class="form-control-label">Leader 2</label>
                                                 <select name="leadertwo" class="form-control">
                                                 <option value="{{$detailsproject->leadertwo}}">{{$leadernametwo}}</option>
-                                                    <option value=""></option>
                                                     @foreach($alluser as $data)
                                                     <option value="{{$data->id}}">{{$data->nickname}}</option>
                                                     @endforeach
+                                                    <option value=""></option>
                                                 </select>
                                     </div>
                                     <div class="form-group">
                                             <label class="form-control-label">Leader 3</label>
                                                     <select name="leaderthree" class="form-control">
                                                     <option value="{{$detailsproject->leaderthree}}">{{$leadernamethree}}</option>
-                                                        <option value=""></option>
                                                         @foreach($alluser as $data)
                                                         <option value="{{$data->id}}">{{$data->nickname}}</option>
                                                         @endforeach
+                                                        <option value=""></option>
                                                     </select>
                                     </div>
                                     <div class="form-group">
                                             <label class="form-control-label">leader 4</label>
                                                     <select name="leaderfour" class="form-control">
                                                     <option value="{{$detailsproject->leaderfour}}">{{$leadernamefour}}</option>
-                                                        <option value=""></option>
                                                         @foreach($alluser as $data)
                                                         <option value="{{$data->id}}">{{$data->nickname}}</option>
                                                         @endforeach
+                                                        <option value=""></option>
                                                     </select>
                                     </div>
                                     <div class="form-group">

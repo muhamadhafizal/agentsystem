@@ -24,8 +24,12 @@
                                                 <input type="text" name="unit" placeholder="Enter Unit" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                                <label class=" form-control-label">Purchaser</label>
+                                                <label class=" form-control-label">Purchaser 1</label>
                                                 <input type="text" name="purchaser" placeholder="Enter Purchaser" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                                <label class=" form-control-label">Purchaser 2</label>
+                                                <input type="text" name="purchasertwo" placeholder="Enter Purchaser" class="form-control">
                                     </div>
                                     <div class="form-group">
                                                 <label class="form-control-label">Agent 1</label>

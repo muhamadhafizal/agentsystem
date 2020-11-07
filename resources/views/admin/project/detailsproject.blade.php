@@ -48,7 +48,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label class=" form-control-label">Purchaser</label>
-                                    <input type="text" name="purchaser" value="{{$detailsproject->purchaser}}" class="form-control" readonly>
+                                    @foreach($purchaserarray as $data)
+                                        <li>{{$data}}</li>
+                                    @endforeach
                                 </div>
                                 <div class="form-group">
                                     <label class=" form-control-label">Spa Price (RM)</label>
