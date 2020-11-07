@@ -87,6 +87,10 @@
                                                 <input type="number" name="percentpoolfund" value="{{$detailsproject->percentpoolfund}}" step="0.01" class="form-control" required>
                                     </div>
                                     <div class="form-group">
+                                                <label class=" form-control-label">Percent Leader %</label>
+                                                <input type="number" name="percentleader" value="{{$detailsproject->percentleader}}" step="0.01" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
                                                 <label class=" form-control-label">Percent Company %</label>
                                                 <input type="number" name="percentcompany" value="{{$detailsproject->percentcompany}}" step="0.01" class="form-control" required>
                                     </div>

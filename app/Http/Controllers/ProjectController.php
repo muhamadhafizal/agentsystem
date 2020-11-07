@@ -138,7 +138,7 @@ class ProjectController extends Controller
 
     }
 
-    public function getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentcompany){
+    public function getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentleader,$percentcompany){
 
         //netcomm
         $tempnetcomm = $netselling * ($percentcomm/100);
@@ -179,7 +179,7 @@ class ProjectController extends Controller
             $leaderfour = $leadercount + 1;
         }
         
-        $templeadercomm = $netselling * 0.005;
+        $templeadercomm = $netselling * ($percentleader/100);
         $leadercomm = number_format($templeadercomm/$leadercount,2,'.','');
 
         //companycomm
@@ -390,6 +390,7 @@ class ProjectController extends Controller
         $netselling = $request->input('netselling');
         $percentcomm = $request->input('percentcomm');
         $percentpoolfund = $request->input('percentpoolfund');
+        $percentleader = $request->input('percentleader');
         $percentcompany = $request->input('percentcompany');
         $leaderone = $request->input('leaderone');
         $leadertwo = $request->input('leadertwo');
@@ -435,7 +436,7 @@ class ProjectController extends Controller
             $leaderfour = $leadercount + 1;
         }
         
-        $templeadercomm = $netselling * 0.005;
+        $templeadercomm = $netselling * ($percentleader/100);
         $leadercomm = number_format($templeadercomm/$leadercount,2,'.','');
 
         //companycomm
@@ -564,6 +565,7 @@ class ProjectController extends Controller
         $project->netcomm = $netcomm;
         $project->commperperson = $commperperson;
         $project->percentpoolfund = $percentpoolfund;
+        $project->percentleader = $percentleader;
         $project->poolfundcomm = $poolfundcomm;
         $project->leaderone = $leaderone;
         $project->leadertwo = $leadertwo;
@@ -950,6 +952,7 @@ class ProjectController extends Controller
         $netselling = $request->input('netselling');
         $percentcomm = $request->input('percentcomm');
         $percentpoolfund = $request->input('percentpoolfund');
+        $percentleader = $request->input('percentleader');
         $percentcompany = $request->input('percentcompany');
         $leaderone = $request->input('leaderone');
         $leadertwo = $request->input('leadertwo');
@@ -959,7 +962,7 @@ class ProjectController extends Controller
         $type = $request->input('type');
 
         //general
-        $general = $this->getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentcompany);
+        $general = $this->getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentleader,$percentcompany);
         
         //tiering process
         $percentsst = $general['commperperson'] * (0.06);
@@ -1080,6 +1083,7 @@ class ProjectController extends Controller
         $project->leadertwo = $leadertwo;
         $project->leaderthree = $leaderthree;
         $project->leaderfour = $leaderfour;
+        $project->percentleader = $percentleader;
         $project->leadercomm = $general['leadercomm'];
         $project->percentcompany = $percentcompany;
         $project->companycomm = $general['companycomm'];
