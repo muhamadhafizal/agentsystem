@@ -6,7 +6,7 @@
                         <div class="row m-t-25">
                             <div class="col-sm-3 col-lg-3">
                                     <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[1,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[1,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[2,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[2,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[3,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[3,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[4,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[4,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -83,7 +83,7 @@
 
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[5,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[5,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -102,7 +102,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[6,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[6,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -121,7 +121,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[7,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[7,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -140,7 +140,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[8,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[8,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -160,7 +160,7 @@
 
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[9,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[9,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -179,7 +179,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[10,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[10,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -198,7 +198,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[11,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[11,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -217,7 +217,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('ProjectController@getmonth',[12,2020]) }}">
+                                    <a href="{{ action('ProjectController@getmonth',[12,2020,'all']) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">

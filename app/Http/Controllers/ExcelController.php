@@ -22,8 +22,9 @@ class ExcelController extends Controller
 
     }
 
-    public function excelprojectmonth($month='',$year=''){
+    public function excelprojectmonth($month='',$year='',$status=''){
+        
         $filename = 'project'.$month.$year.'.xlsx';
-        return Excel::download(new ProjectExport($month,$year),$filename);
+        return Excel::download(new ProjectExport($month,$year,$status),$filename);
     }
 }

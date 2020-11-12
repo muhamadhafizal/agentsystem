@@ -16,17 +16,20 @@ class ProjectExport implements FromCollection, WithHeadings
 
     protected $month;
     protected $year;
+    protected $status;
 
-    function __construct($month,$year) {
+    function __construct($month,$year,$status) {
             $this->month = $month;
             $this->year = $year;
+            $this->status = $status;
      }
 
     public function collection()
     {
         
+        if($this->status == 'all'){
 
-        $allprojects = DB::table('projects')
+            $allprojects = DB::table('projects')
                         ->select('projects.date',
                                  'projects.unit',
                                  'projects.purchaser',
@@ -52,6 +55,37 @@ class ProjectExport implements FromCollection, WithHeadings
                             ->whereMonth('projects.date','=',$this->month)
                             ->orderBy('projects.date','DESC')
                             ->get();
+
+        } else {
+            $allprojects = DB::table('projects')
+                        ->select('projects.date',
+                                 'projects.unit',
+                                 'projects.purchaser',
+                                 'projects.agentnameone',
+                                 'projects.agentnametwo',
+                                 'projects.agentnamethree',
+                                 'projects.agentnamefour',
+                                 'projects.spaprice',
+                                 'projects.netselling',
+                                 'projects.netcomm',
+                                 'projects.commperperson',
+                                 'projects.poolfundcomm',
+                                 'projects.leaderone',
+                                 'projects.leadertwo',
+                                 'projects.leaderthree',
+                                 'projects.leaderfour',
+                                 'projects.leadercomm',
+                                 'projects.companycomm',
+                                 'projects.theroofcomm',
+                                 'projects.tieringdiff',
+                                 )
+                            ->whereYear('projects.date','=',$this->year)
+                            ->whereMonth('projects.date','=',$this->month)
+                            ->where('projects.status','=',$this->status)
+                            ->orderBy('projects.date','DESC')
+                            ->get();
+        }
+        
 
         if($allprojects){
             $projectarray = [];

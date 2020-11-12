@@ -322,6 +322,7 @@ if ($role == 'agent') {
 
     <?php if (strpos($path, '/project') !== false) {?>
         <script src="{{ asset('template/js/adminprojectdashboard.js') }}"></script>
+        <script src="{{ asset('template/js/statusdashboard.js') }}"></script>
     <?php }?>
     <script>
         $(document).ready(function() {

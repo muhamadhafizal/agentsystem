@@ -722,7 +722,8 @@ class ProjectController extends Controller
 
         \Session::flash('flash_message_delete', 'successfully deleted.');
         if($type == 'month'){
-            return Redirect::route('getmonth', compact('month','year'));
+            $status = 'all';
+            return Redirect::route('getmonth', compact('month','year','status'));
         } else {
             return Redirect::route('listproject');
         }
@@ -1193,7 +1194,7 @@ class ProjectController extends Controller
 
     }
 
-    public function getmonth($month = '', $year = ''){
+    public function getmonth($month = '', $year = '', $status = ''){
 
         $user = $this->getInfo();
         $i = 1;
@@ -1205,6 +1206,12 @@ class ProjectController extends Controller
         $totalpoolfundcomm = 0;
         $totalcompanycomm = 0;
         $totaldiff = 0;
+
+        if($status == null){
+            $finalstatus = 'success';
+        } else {
+            $finalstatus = $status;
+        }
         
 
         if($user){
@@ -1212,10 +1219,36 @@ class ProjectController extends Controller
             $monthname = $this->getmonthname($month); 
 
             //calculation
-            $calprojects = Project::whereMonth('date',$month)
+            if($status == 'all'){
+
+                $calprojects = Project::whereMonth('date',$month)
                                  ->whereYear('date',$year)
-                                 ->where('status','success')
                                  ->get();
+                
+                //allproject
+                $allproject = Project::whereMonth('date',$month)
+                ->whereYear('date',$year)
+                ->orderBy('created_at','DESC')
+                ->get();
+
+
+            } else {
+
+                $calprojects = Project::whereMonth('date',$month)
+                                 ->whereYear('date',$year)
+                                 ->where('status',$status)
+                                 ->get();
+                
+                //allproject
+                $allproject = Project::whereMonth('date',$month)
+                ->whereYear('date',$year)
+                ->where('status',$status)
+                ->orderBy('created_at','DESC')
+                ->get();
+
+
+            }
+            
             
             if($calprojects){
 
@@ -1235,11 +1268,6 @@ class ProjectController extends Controller
 
            
             
-            //allproject
-            $allproject = Project::whereMonth('date',$month)
-                                ->whereYear('date',$year)
-                                ->orderBy('created_at','DESC')
-                                ->get();
            
             foreach($allproject as $data){
 
@@ -1273,7 +1301,7 @@ class ProjectController extends Controller
 
             }
 
-            return view('/admin/project/monthinfo', compact('month','year','monthname','finalArray','i','totalcases','totalnetselling','totalnetcomm','totalpoolfundcomm','totaldiff','totalcompanycomm'));
+            return view('/admin/project/monthinfo', compact('finalstatus','month','year','monthname','finalArray','i','totalcases','totalnetselling','totalnetcomm','totalpoolfundcomm','totaldiff','totalcompanycomm'));
         } else {
             return redirecT('/');
         }
@@ -1354,5 +1382,135 @@ class ProjectController extends Controller
 		return response()->json($monthArray);
 
     }
-}
 
+    public function statusmonth(Request $request){
+        
+        $status = $request->input('status');
+        $month = $request->input('month');
+        $year = $request->input('year');
+
+        return redirect()->route('getmonth', ['month'=>$month,'year'=>$year,'status'=>$status]);
+       
+
+    }
+
+    public function dashboardstatus($status =''){
+
+        $currentYear = date("Y");
+        $monthArray = [];
+
+        $totalJan = 0;
+        $totalFeb = 0;
+        $totalMac = 0;
+        $totalApril = 0;
+        $totalMei = 0;
+        $totalJune = 0;
+        $totalJuly = 0;
+        $totalAugust = 0;
+        $totalSept = 0;
+        $totalOct = 0;
+        $totalNov = 0;
+        $totalDec = 0;
+
+        $calprojects = Project::whereYear('date',$currentYear)
+                            ->where('status',$status)
+                            ->get();
+        
+        if($calprojects){
+
+            foreach($calprojects as $data){
+
+                $tempdate = $data->date;
+                $d = date_parse_from_format("Y-m-d", $tempdate);
+                
+                if ($d["month"] == '1') {
+                    $totalJan = $totalJan + $data->companycomm;
+                } else if ($d["month"] == '2') {
+                    $totalFeb = $totalFeb + $data->companycomm;
+                } else if ($d["month"] == '3') {
+                    $totalMac = $totalMac + $data->companycomm;
+                } else if ($d["month"] == '4') {
+                    $totalApril = $totalApril + $data->companycomm;
+                } else if ($d["month"] == '5') {
+                    $totalMei = $totalMei + $data->companycomm;
+                } else if ($d["month"] == '6') {
+                    $totalJune = $totalJune + $data->companycomm;
+                } else if ($d["month"] == '7') {
+                    $totalJuly = $totalJuly + $data->companycomm;
+                } else if ($d["month"] == '8') {
+                    $totalAugust = $totalAugust + $data->companycomm;
+                } else if ($d["month"] == '9') {
+                    $totalSept = $totalSept + $data->companycomm;
+                } else if ($d["month"] == '10') {
+                    $totalOct = $totalOct + $data->companycomm;
+                } else if ($d["month"] == '11') {
+                    $totalNov = $totalNov + $data->companycomm;
+                } else if ($d["month"] == '12') {
+                    $totalDec = $totalDec + $data->companycomm;
+                }
+
+            }
+        }
+  
+        $monthArray['1'] = number_format($totalJan,2,'.','');
+		$monthArray['2'] = number_format($totalFeb,2,'.','');
+		$monthArray['3'] = number_format($totalMac,2,'.','');
+		$monthArray['4'] = number_format($totalApril,2,'.','');
+		$monthArray['5'] = number_format($totalMei,2,'.','');
+		$monthArray['6'] = number_format($totalJune,2,'.','');
+		$monthArray['7'] = number_format($totalJuly,2,'.','');
+		$monthArray['8'] = number_format($totalAugust,2,'.','');
+		$monthArray['9'] = number_format($totalSept,2,'.','');
+		$monthArray['10'] = number_format($totalOct,2,'.','');
+		$monthArray['11'] = number_format($totalNov,2,'.','');
+		$monthArray['12'] = number_format($totalDec,2,'.','');
+
+		return response()->json($monthArray);
+        
+    }
+
+    public function dashboardcardstatus($status = ''){
+        
+       
+        $totalcases = 0;
+        $totalnetselling = 0;
+        $totalnetcomm = 0;
+        $totalpoolfundcomm = 0;
+        $totalcompanycomm = 0;
+        $totaldiff = 0;
+
+        $currentYear = date("Y");
+        $calprojects = Project::whereYear('date',$currentYear)
+        ->where('status',$status)
+        ->get();
+
+        if($calprojects){
+
+            $totalcases = count($calprojects);
+
+            foreach($calprojects as $data){
+
+            $totalnetselling = $totalnetselling + $data->netselling;
+            $totalpoolfundcomm = $totalpoolfundcomm + $data->poolfundcomm;
+            $totalnetcomm = $totalnetcomm + $data->netcomm;
+            $totalcompanycomm = $totalcompanycomm + $data->companycomm;
+            $totaldiff = $totaldiff + $data->tieringdiff;
+
+            }
+
+        } 
+        
+        $finalarray = [
+            'totalcases' => $totalcases,
+            'totalnetselling' => number_format($totalnetselling,2,'.',''),
+            'totalpoolfundcomm' => number_format($totalpoolfundcomm,2,'.',''),
+            'totalnetcomm' => number_format($totalnetcomm,2,'.',''),
+            'totalcompanycomm' => number_format($totalcompanycomm,2,'.',''),
+            'totaldiff' => number_format($totaldiff,2,'.',''),
+        ];
+
+        return response()->json($finalarray);
+
+
+    }
+}

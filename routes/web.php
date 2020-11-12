@@ -57,7 +57,11 @@ Route::get('/project/details/{id}/{type}', 'ProjectController@details')->name('d
 Route::get('/project/edit/{id}/{type}', 'ProjectController@edit')->name('editproject');
 Route::post('/project/update', 'ProjectController@update')->name('updateproject');
 Route::get('/project/listmonth', 'ProjectController@listmonth')->name('listmonthproject');
-Route::get('/project/month/{month}/{year}', 'ProjectController@getmonth')->name('getmonth');
+Route::get('/project/month/{month}/{year}/{status}', 'ProjectController@getmonth')->name('getmonth');
+Route::post('/project/month/status', 'ProjectController@statusmonth')->name('statusmonth');
+Route::get('/project/dashboard/{status}', 'ProjectController@dashboardstatus');
+Route::get('/project/dashboard/card/{status}', 'ProjectController@dashboardcardstatus');
+
 
 //area
 Route::get('/area', 'AreaController@index')->name('listarea');
@@ -83,7 +87,7 @@ Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagen
 //excell
 Route::get('/admin/agentexcell', 'ExcelController@agent')->name('agentexcell');
 Route::get('/admin/rentalmonthexcell/{month}/{year}', 'ExcelController@excelrentalmonth')->name('rentalmonthexcell');
-Route::get('/admin/projectmonthexcell/{month}/{year}', 'ExcelController@excelprojectmonth')->name('projectmonthexcell');
+Route::get('/admin/projectmonthexcell/{month}/{year}/{status}', 'ExcelController@excelprojectmonth')->name('projectmonthexcell');
 
 //Receipt
 Route::get('/admin/receipt', 'ReceiptController@index')->name('listreceipt');

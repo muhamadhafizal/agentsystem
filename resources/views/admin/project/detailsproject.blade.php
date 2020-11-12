@@ -538,7 +538,7 @@
                                     @if($type == 'main')
                                     <a href="{{ route('listproject') }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('ProjectController@edit', ['id' => $detailsproject->id, 'type' => 'main']) }}'">edit</button>
                                     @else
-                                    <a href="{{ action('ProjectController@getmonth',[$month,$year]) }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('ProjectController@edit', ['id' => $detailsproject->id, 'type'=> 'month']) }}'">edit</button>
+                                    <a href="{{ action('ProjectController@getmonth',[$month,$year,$detailsproject->status]) }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('ProjectController@edit', ['id' => $detailsproject->id, 'type'=> 'month']) }}'">edit</button>
                                     @endif
                                     </div>
                     </div>

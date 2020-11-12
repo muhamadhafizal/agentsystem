@@ -5,6 +5,25 @@
 <!-- MAIN CONTENT-->
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8">
+                            <div class="row">
+                                <div class="form-group mx-sm-3 mb-2">
+                                <h3 style="color: white;"></h3>
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                <select name="status" id="status" class="form-control" readonly="true">
+                                            <option value="success">success</option>
+                                            <option value="process">process</option>
+                                            <option value="cancel">cancel</option>
+                                    </select>
+                                </div>
+                                <button id="statusdashboard" class="btn btn-primary mb-2">Search</button>
+                            </div>
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                </div>
                     <div class="row m-t-25">
                     <div class="col-sm-6 col-lg-4">
                         <div class="overview-item overview-item--c1">
@@ -14,7 +33,7 @@
                                         <h2 style="color: white"></h2>
                                     </div>
                                     <div class="text">
-                                        <h2>{{$totalcases}}</h2>
+                                        <h2 id="totalcases">{{$totalcases}}</h2>
                                         <span>Cases</span>
                                     </div>
                                 </div>
@@ -32,7 +51,7 @@
                                         <h2 style="color: white">RM</h2>
                                     </div>
                                     <div class="text">
-                                        <h2>{{$totalnetselling}}</h2>
+                                        <h2 id="totalnetselling">{{$totalnetselling}}</h2>
                                         <span>NetSelling</span>
                                     </div>
                                 </div>
@@ -50,7 +69,7 @@
                                         <h2 style="color: white">RM</h2>
                                     </div>
                                     <div class="text">
-                                        <h2>{{$totalnetcomm}}</h2>
+                                        <h2 id="totalnetcomm">{{$totalnetcomm}}</h2>
                                         <span>NetComm</span>
                                     </div>
                                 </div>
@@ -68,7 +87,7 @@
                                         <h2 style="color: white">RM</h2>
                                     </div>
                                     <div class="text">
-                                        <h2>{{$totalpoolfundcomm}}</h2>
+                                        <h2 id="totalpoolfundcomm">{{$totalpoolfundcomm}}</h2>
                                         <span>PoolFundComm</span>
                                     </div>
                                 </div>
@@ -86,7 +105,7 @@
                                         <h2 style="color: white">RM</h2>
                                     </div>
                                     <div class="text">
-                                        <h2>{{$totalcompanycomm}}</h2>
+                                        <h2 id="totalcompanycomm">{{$totalcompanycomm}}</h2>
                                         <span>CompanyComm</span>
                                     </div>
                                 </div>
@@ -104,7 +123,7 @@
                                         <h2 style="color: white">RM</h2>
                                     </div>
                                     <div class="text">
-                                        <h2>{{$totaldiff}}</h2>
+                                        <h2 id="totaldiff">{{$totaldiff}}</h2>
                                         <span>Tiering Differencial</span>
                                     </div>
                                 </div>
