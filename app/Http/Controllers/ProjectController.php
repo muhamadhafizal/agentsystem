@@ -138,7 +138,7 @@ class ProjectController extends Controller
 
     }
 
-    public function getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentleader,$percentcompany){
+    public function getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentleader,$percentcompany,$percentpartner){
 
         //netcomm
         $tempnetcomm = $netselling * ($percentcomm/100);
@@ -187,9 +187,14 @@ class ProjectController extends Controller
         $tempcompanycomm = $netselling * ($finalpercencompany/100);
         $companycomm = number_format($tempcompanycomm,2,'.','');
         
-        //theroofcomm
-        $temptheroof = $netselling * 0.003;
-        $theroofcomm = number_format($temptheroof,2,'.','');
+        if($percentpartner){
+            //theroofcomm
+            $temptheroof = $netselling * ($percentpartner/100);
+            $theroofcomm = number_format($temptheroof,2,'.','');
+        } else {
+            $theroofcomm = 0;
+        }
+        
 
         $temparray = [
             'netcomm' => $netcomm,
@@ -392,6 +397,7 @@ class ProjectController extends Controller
         $percentpoolfund = $request->input('percentpoolfund');
         $percentleader = $request->input('percentleader');
         $percentcompany = $request->input('percentcompany');
+        $percentpartner = $request->input('percentpartner');
         $leaderone = $request->input('leaderone');
         $leadertwo = $request->input('leadertwo');
         $leaderthree = $request->input('leaderthree');
@@ -444,9 +450,14 @@ class ProjectController extends Controller
         $tempcompanycomm = $netselling * ($finalpercencompany/100);
         $companycomm = number_format($tempcompanycomm,2,'.','');
         
-        //theroofcomm
-        $temptheroof = $netselling * 0.003;
-        $theroofcomm = number_format($temptheroof,2,'.','');
+        //theroofcomm / partner percent
+        if($percentpartner){
+            $temptheroof = $netselling * ($percentpartner/100);
+            $theroofcomm = number_format($temptheroof,2,'.','');
+        } else {
+            $theroofcomm = 0;
+        }
+        
 
         //status
         $status = 'process';
@@ -574,6 +585,7 @@ class ProjectController extends Controller
         $project->leadercomm = $leadercomm;
         $project->percentcompany = $percentcompany;
         $project->companycomm = $companycomm;
+        $project->percentpartner = $percentpartner;
         $project->theroofcomm = $theroofcomm;
         $project->tieringdiff = $tieringdiff;
         $project->status = $status;
@@ -955,6 +967,7 @@ class ProjectController extends Controller
         $percentpoolfund = $request->input('percentpoolfund');
         $percentleader = $request->input('percentleader');
         $percentcompany = $request->input('percentcompany');
+        $percentpartner = $request->input('percentpartner');
         $leaderone = $request->input('leaderone');
         $leadertwo = $request->input('leadertwo');
         $leaderthree = $request->input('leaderthree');
@@ -963,7 +976,7 @@ class ProjectController extends Controller
         $type = $request->input('type');
 
         //general
-        $general = $this->getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentleader,$percentcompany);
+        $general = $this->getgeneral($netselling,$percentcomm,$agentone,$agenttwo,$agentthree,$agentfour,$percentpoolfund,$leaderone,$leadertwo,$leaderthree,$leaderfour,$percentleader,$percentcompany,$percentpartner);
         
         //tiering process
         $percentsst = $general['commperperson'] * (0.06);
@@ -1088,6 +1101,7 @@ class ProjectController extends Controller
         $project->leadercomm = $general['leadercomm'];
         $project->percentcompany = $percentcompany;
         $project->companycomm = $general['companycomm'];
+        $project->percentpartner = $percentpartner;
         $project->theroofcomm = $general['theroofcomm'];
         $project->tieringdiff = $tieringdiff;
         $project->status = $status;

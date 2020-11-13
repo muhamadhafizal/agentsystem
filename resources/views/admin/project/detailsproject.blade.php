@@ -87,7 +87,7 @@
                                     <input type="text" name="companycomm" value="{{$detailsproject->companycomm}}" class="form-control" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label class=" form-control-label">The Roof (RM)</label>
+                                    <label class=" form-control-label">Partner Property Comm (RM)</label>
                                     <input type="text" name="theroof" value="{{$detailsproject->theroofcomm}}" class="form-control" readonly>
                                 </div>
                                 <div class="form-group">

@@ -186,7 +186,7 @@ class ProjectExport implements FromCollection, WithHeadings
             'Leaderfour',
             'Leadercomm',
             'Companycomm',
-            'Theroofcomm',
+            'Partnercomm',
             'Tieringdiff'
         ];
     }

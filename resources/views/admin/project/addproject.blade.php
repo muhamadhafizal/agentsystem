@@ -91,6 +91,10 @@
                                                 <input type="number" name="percentcompany" placeholder="percent company" step="0.01" class="form-control" required>
                                     </div>
                                     <div class="form-group">
+                                                <label class=" form-control-label">Percent Partner Property (if any) %</label>
+                                                <input type="number" name="percentpartner" placeholder="percent partner property" step="0.01" class="form-control">
+                                    </div>
+                                    <div class="form-group">
                                                 <label class="form-control-label">Leader 1</label>
                                                 <select name="leaderone" class="form-control">
                                                     @foreach($alluser as $data)
