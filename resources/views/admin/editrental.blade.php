@@ -26,6 +26,38 @@
                                         </div>
                                     </div>
 	                            </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Name</label>
+	                                        <input type="text" name="ownername" value="{{ $rentaldetails->ownername }}"  class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Email</label>
+	                                        <input type="email" name="owneremail" value="{{ $rentaldetails->owneremail }}" class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Contact</label>
+	                                        <input type="text" name="ownercontact" value="{{ $rentaldetails->ownercontact }}" class="form-control">
+                                        </div>
+                                    </div>
+	                            </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Tenant Name</label>
+	                                        <input type="text" name="tenantname" value="{{ $rentaldetails->tenantname }}"  class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Tenant Email</label>
+	                                        <input type="email" name="tenantemail" value="{{ $rentaldetails->tenantemail }}" class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Tenant Contact</label>
+	                                        <input type="text" name="tenantcontact" value="{{ $rentaldetails->tenantcontact }}" class="form-control">
+                                        </div>
+                                    </div>
+	                            </div>
 	                            <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">

@@ -186,6 +186,9 @@ class RentalController extends Controller
         $tenantname = $request->input('tenantname');
         $tenantcontact = $request->input('tenantcontact');
         $tenantemail = $request->input('tenantemail');
+        $ownername = $request->input('ownername');
+        $ownercontact = $request->input('ownercontact');
+        $owneremail = $request->input('owneremail');
         $fee = $request->input('fee');
         $sst = $request->input('sst');
         $agent = $request->input('agent');
@@ -209,6 +212,9 @@ class RentalController extends Controller
         $rental->tenantname = $tenantname;
         $rental->tenantemail = $tenantemail;
         $rental->tenantcontact = $tenantcontact;
+        $rental->ownername = $ownername;
+        $rental->ownercontact = $ownercontact;
+        $rental->owneremail = $owneremail;
         $rental->fee = $fee;
         $rental->agent = $agent;
         $rental->status = $status;
@@ -275,6 +281,9 @@ class RentalController extends Controller
         $num = $request->input('num');
         $date = $request->input('date');
         $area = $request->input('area');
+        $ownername = $request->input('ownername');
+        $ownercontact = $request->input('ownercontact');
+        $owneremail = $request->input('owneremail');
         $tenantname = $request->input('tenantname');
         $tenantcontact = $request->input('tenantcontact');
         $tenantemail = $request->input('tenantemail');
@@ -298,6 +307,9 @@ class RentalController extends Controller
         $rental->date = $date;
         $rental->area = $area;
         $rental->category = $category;
+        $rental->ownername = $ownername;
+        $rental->owneremail = $owneremail;
+        $rental->ownercontact = $ownercontact;
         $rental->tenantname = $tenantname;
         $rental->tenantemail = $tenantemail;
         $rental->tenantcontact = $tenantcontact;

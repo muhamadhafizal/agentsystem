@@ -37,6 +37,22 @@
                                         </div>
 
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Name</label>
+	                                        <input type="text" name="ownername" value="{{ $rentaldetails->ownername }}" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Email</label>
+	                                        <input type="email" name="owneremail" value="{{ $rentaldetails->owneremail }}" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Contact</label>
+	                                        <input type="text" name="ownercontact" value="{{ $rentaldetails->ownercontact }}" class="form-control" readonly>
+                                        </div>
+                                    </div>
 	                            </div>
 	                            <div class="form-group">
                                     <div class="row">

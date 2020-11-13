@@ -26,6 +26,22 @@
                                         </div>
                                     </div>
 	                            </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Name</label>
+	                                        <input type="text" name="ownername" placeholder="Enter owner name" class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Email</label>
+	                                        <input type="email" name="owneremail" placeholder="Enter owner email" class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class=" form-control-label">Owner Contact</label>
+	                                        <input type="text" name="ownercontact" placeholder="Enter owner contact" class="form-control">
+                                        </div>
+                                    </div>
+	                            </div>
 	                            <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
