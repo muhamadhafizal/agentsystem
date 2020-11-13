@@ -46,6 +46,18 @@
 	                                    <input type="email" name="email" value="{{$userarray['email']}}" class="form-control">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <label class=" form-control-label">Bank Name</label>
+                                            <input type="text" name="bankname" value="{{$userarray['bankname']}}" class="form-control">
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <label class=" form-control-label">Bank Account Number</label>
+                                            <input type="text" name="bankaccnumber" value="{{$userarray['bankaccnumber']}}" class="form-control">
+                                        </div>
+                                    </div>
 	                            </div>
 	                            <div class="form-group">
                                     <div class="row">

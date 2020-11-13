@@ -509,6 +509,8 @@ class AgentController extends Controller
                     'ic' => $userdetails->ic,
                     'contact' => $userdetails->contact,
                     'email' => $userdetails->email,
+                    'bankname' => $userdetails->bankname,
+                    'bankaccnumber' => $userdetails->bankaccnumber,
                     'position' => $userdetails->level,
                     'leadid' => $leadid,
                     'leadname' => $leadname,
@@ -584,6 +586,8 @@ class AgentController extends Controller
                 'ic' => $userdetails->ic,
                 'contact' => $userdetails->contact,
                 'email' => $userdetails->email,
+                'bankname' => $userdetails->bankname,
+                'bankaccnumber' => $userdetails->bankaccnumber,
                 'position' => $userdetails->level,
                 'leadid' => $leadid,
                 'leadname' => $leadname,
@@ -611,6 +615,8 @@ class AgentController extends Controller
         $ic = $request->input('ic');
         $contact = $request->input('contact');
         $email = $request->input('email');
+        $bankname = $request->input('bankname');
+        $bankaccnumber = $request->input('bankaccnumber');
         $username = $request->input('username');
         $password = $request->input('password');
 
@@ -673,6 +679,8 @@ class AgentController extends Controller
         $userdetails->ic = $ic;
         $userdetails->contact = $contact;
         $userdetails->email = $email;
+        $userdetails->bankname = $bankname;
+        $userdetails->bankaccnumber = $bankaccnumber;
         $userdetails->username = $finalusername;
         $userdetails->password = $password;
 

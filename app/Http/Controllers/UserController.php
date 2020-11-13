@@ -86,6 +86,8 @@ class UserController extends Controller
             $ic = $request->input('ic');
             $contact = $request->input('contact');
             $email = $request->input('email');
+            $bankname = $request->input('bankname');
+            $bankaccnumber = $request->input('bankaccnumber');
             $position = $request->input('position');
             $lead = $request->input('lead');
             $prelead = $request->input('prelead');
@@ -113,6 +115,8 @@ class UserController extends Controller
                 $user->ic = $ic;
                 $user->contact = $contact;
                 $user->email = $email;
+                $user->bankname = $bankname;
+                $user->bankaccnumber = $bankaccnumber;
                 $user->level = $position;
                 $user->lead = $lead;
                 $user->prelead = $prelead;
@@ -326,6 +330,8 @@ class UserController extends Controller
                 'ic' => $userdetails->ic,
                 'contact' => $userdetails->contact,
                 'email' => $userdetails->email,
+                'bankname' => $userdetails->bankname,
+                'bankaccnumber' => $userdetails->bankaccnumber,
                 'position' => $userdetails->level,
                 'leadid' => $leadid,
                 'leadname' => $leadname,
@@ -407,6 +413,8 @@ class UserController extends Controller
                     'ic' => $userdetails->ic,
                     'contact' => $userdetails->contact,
                     'email' => $userdetails->email,
+                    'bankname' => $userdetails->bankname,
+                    'bankaccnumber' => $userdetails->bankaccnumber,
                     'position' => $userdetails->level,
                     'leadid' => $leadid,
                     'leadname' => $leadname,
@@ -434,6 +442,8 @@ class UserController extends Controller
         $ic = $request->input('ic');
         $contact = $request->input('contact');
         $email = $request->input('email');
+        $bankname = $request->input('bankname');
+        $bankaccnumber = $request->input('bankaccnumber');
         $lead = $request->input('lead');
         $prelead = $request->input('prelead');
         $ip = $request->input('ip');
@@ -515,6 +525,8 @@ class UserController extends Controller
         $user->ic = $ic;
         $user->contact = $contact;
         $user->email = $email;
+        $user->bankname = $bankname;
+        $user->bankaccnumber = $bankaccnumber;
         $user->lead = $lead;
         $user->prelead = $prelead;
         $user->ip = $ip;

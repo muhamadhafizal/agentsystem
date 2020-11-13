@@ -48,6 +48,18 @@
 	                                    <input type="email" name="email" placeholder="Enter your email address" class="form-control" required>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <label class=" form-control-label">Bank Name</label>
+                                            <input type="text" name="bankname" placeholder="Enter your bank name" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <label class=" form-control-label">Bank Account Number</label>
+                                            <input type="number" name="bankaccnumber" placeholder="Enter your bank account number" class="form-control" required>
+                                        </div>
+                                    </div>
 	                            </div>
 	                            <div class="form-group">
                                     <div class="row">
