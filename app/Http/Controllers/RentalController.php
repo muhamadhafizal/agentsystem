@@ -444,4 +444,8 @@ class RentalController extends Controller
         return view('/admin/detailsrentalmonth', compact('rentaldetails','category','month','year'));
 
     }
+
+    public function paymentvoucher(){
+        echo 'hello';
+    }
 }

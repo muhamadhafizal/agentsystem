@@ -105,6 +105,9 @@ if ($role == 'agent') {
                                 <li>
                                     <a href="{{ route('listmonth') }}">Month</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('paymentvoucherrentals') }}">Payment Voucher</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="has-sub">
@@ -118,7 +121,10 @@ if ($role == 'agent') {
                                     <a href="{{ route('listproject') }}">List</a>
                                 </li>
                                 <li>
-                                    <a href="">Month</a>
+                                    <a href="{{ route('listmonthproject') }}">Month</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('paymentvoucherproject') }}">Payment Voucher</a>
                                 </li>
                             </ul>
                         </li>
@@ -190,6 +196,9 @@ if ($role == 'agent') {
                                 <li>
                                     <a href="{{ route('listmonth') }}" style="color:white">Month</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('paymentvoucherrentals') }}" style="color:white">Paymeny Voucher</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -204,6 +213,9 @@ if ($role == 'agent') {
                                 </li>
                                 <li>
                                     <a href="{{ route('listmonthproject') }}" style="color:white">Month</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('paymentvoucherproject') }}" style="color:white">Payment Voucher</a>
                                 </li>
                             </ul>
                         </li>
@@ -278,6 +290,9 @@ if ($role == 'agent') {
             <!-- END PAGE CONTAINER-->
         </div>
     </div>
+
+    
+
     <!-- Jquery JS-->
     <script src="{{ asset('template/vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->

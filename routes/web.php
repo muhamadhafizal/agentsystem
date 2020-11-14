@@ -34,6 +34,7 @@ Route::get('/rental/delete/{id}/{type}', 'RentalController@destroy');
 Route::get('/rental/listmonth', 'RentalController@listmonth')->name('listmonth');
 Route::get('/rental/month/{month}/{year}', 'RentalController@getmonth')->name('getmonth');
 Route::get('/rental/detailsmonth/{id}', 'RentalController@detailsmonth')->name('detailsrentalmonth');
+Route::get('/rental/paymentvoucher', 'RentalController@paymentvoucher')->name('paymentvoucherrentals');
 
 //member
 Route::get('/user', 'UserController@index')->name('allagents');
@@ -61,6 +62,10 @@ Route::get('/project/month/{month}/{year}/{status}', 'ProjectController@getmonth
 Route::post('/project/month/status', 'ProjectController@statusmonth')->name('statusmonth');
 Route::get('/project/dashboard/{status}', 'ProjectController@dashboardstatus');
 Route::get('/project/dashboard/card/{status}', 'ProjectController@dashboardcardstatus');
+Route::get('/project/paymentvoucher', 'ProjectController@paymentvoucher')->name('paymentvoucherproject');
+Route::post('/project/paymentvoucher', 'ProjectController@storepaymentvoucher')->name('storevoucherproject');
+Route::get('/project/paymentvoucher/delete/{id}', 'ProjectController@destroyvoucher');
+Route::get('/project/paymentvoucher/detailsprojectvoucher/{id}', 'ProjectController@detailsprojectvoucher')->name('detailsprojectvoucher');
 
 
 //area

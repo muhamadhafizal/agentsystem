@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Projectvoucher;
 use App\Project;
 use Redirect;
+use DB;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Echo_;
 
@@ -1525,6 +1527,70 @@ class ProjectController extends Controller
 
         return response()->json($finalarray);
 
+
+    }
+
+    public function paymentvoucher(){
+
+        $list = Projectvoucher::orderby('created_at','DESC')->get();
+
+        $list = DB::table('projectvouchers')
+                ->join('users','users.id','=','projectvouchers.agentid')
+                ->select('projectvouchers.*','users.nickname as nickname')
+                ->orderBy('projectvouchers.created_at','DESC')
+                ->get();
+
+        $agent = User::where('role','agent')->get();
+
+        $currentdate = date('Y-m-d');
+        $i = 1;
+        
+        return view('admin/project/voucher', compact('list','agent','currentdate','i'));
+
+    }
+
+    public function storepaymentvoucher(Request $request){
+        
+        $agentid = $request->input('agent');
+        $date = $request->input('date');
+        $vouchernumber = $request->input('vouchernumber');
+        $address = $request->input('address');
+
+        $agentdetails = User::find($agentid);
+     
+
+        if($agentdetails){
+
+            $data = new Projectvoucher;
+            $data->agentid = $agentid;
+            $data->date = $date;
+            $data->vouchernumber = $vouchernumber;
+            $data->address = $address;
+            $data->save();
+            \Session::flash('flash_message', 'successfully add voucher');
+            return Redirect::route('paymentvoucherproject');
+
+        } else {
+            return Redirect::route('paymentvoucherproject');
+        }
+
+    }
+
+    public function destroyvoucher($id){
+        $data = Projectvoucher::find($id);
+        $data->delete($data->id);
+        \Session::flash('flash_message_delete','success deleted');
+        return Redirect::route('paymentvoucherproject');
+    }
+
+    public function detailsprojectvoucher($id){
+        
+        $details = Projectvoucher::find($id);
+        $agentinfo = User::where('id',$details->agentid)->first();
+
+        $formatdate = date("d-M-Y", strtotime($details->date));
+        
+        return view('admin/project/voucherdetails', compact('details','agentinfo','formatdate'));
 
     }
 }
