@@ -29,7 +29,7 @@
                                         <tr>
                                             <th width="50">No</th>
                                             <th>Date</th>
-                                            <th>Incoice Number</th>
+                                            <th>Invoice Number</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
