@@ -82,7 +82,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Total Comm</label>
-	                                        <input type="number" name="fee" id="fee" placeholder="Total Comm" class="form-control myField" required>
+	                                        <input type="number" step="0.01" name="fee" id="fee" placeholder="Total Comm" class="form-control myField" required>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">SST</label>
@@ -90,7 +90,7 @@
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Comm In</label>
-	                                        <input type="number" name="commin" id="commin" placeholder="Comm In" class="form-control" required>
+	                                        <input type="number" step="0.01" name="commin" id="commin" placeholder="Comm In" class="form-control" required>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Net Comm</label>
