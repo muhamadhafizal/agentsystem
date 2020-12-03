@@ -33,8 +33,8 @@
 	                                        <input type="text" name="ownername" placeholder="Enter owner name" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Owner Email</label>
-	                                        <input type="email" name="owneremail" placeholder="Enter owner email" class="form-control">
+                                            <label class=" form-control-label">Owner IC</label>
+	                                        <input type="text" name="owneremail" placeholder="Enter owner ic" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Owner Contact</label>
@@ -49,8 +49,8 @@
 	                                        <input type="text" name="tenantname" placeholder="Enter tenant name" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Tenant Email</label>
-	                                        <input type="email" name="tenantemail" placeholder="Enter tenant email" class="form-control">
+                                            <label class=" form-control-label">Tenant IC</label>
+	                                        <input type="text" name="tenantemail" placeholder="Enter tenant ic" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Tenant Contact</label>

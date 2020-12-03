@@ -45,8 +45,8 @@
 	                                        <input type="text" name="ownername" value="{{ $rentaldetails->ownername }}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Owner Email</label>
-	                                        <input type="email" name="owneremail" value="{{ $rentaldetails->owneremail }}" class="form-control" readonly>
+                                            <label class=" form-control-label">Owner IC</label>
+	                                        <input type="text" name="owneremail" value="{{ $rentaldetails->owneremail }}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Owner Contact</label>
@@ -61,8 +61,8 @@
 	                                        <input type="text" name="tenantname" value="{{ $rentaldetails->tenantname }}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Tenant Email</label>
-	                                        <input type="email" name="tenantemail" value="{{ $rentaldetails->tenantemail }}" class="form-control" readonly>
+                                            <label class=" form-control-label">Tenant IC</label>
+	                                        <input type="text" name="tenantemail" value="{{ $rentaldetails->tenantemail }}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Tenant Contact</label>

@@ -33,28 +33,12 @@
 	                                        <input type="text" name="ownername" value="{{ $rentaldetails->ownername }}"  class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Owner Email</label>
-	                                        <input type="email" name="owneremail" value="{{ $rentaldetails->owneremail }}" class="form-control">
+                                            <label class=" form-control-label">Owner IC</label>
+	                                        <input type="text" name="owneremail" value="{{ $rentaldetails->owneremail }}" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Owner Contact</label>
 	                                        <input type="text" name="ownercontact" value="{{ $rentaldetails->ownercontact }}" class="form-control">
-                                        </div>
-                                    </div>
-	                            </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Tenant Name</label>
-	                                        <input type="text" name="tenantname" value="{{ $rentaldetails->tenantname }}"  class="form-control">
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Tenant Email</label>
-	                                        <input type="email" name="tenantemail" value="{{ $rentaldetails->tenantemail }}" class="form-control">
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Tenant Contact</label>
-	                                        <input type="text" name="tenantcontact" value="{{ $rentaldetails->tenantcontact }}" class="form-control">
                                         </div>
                                     </div>
 	                            </div>
@@ -65,8 +49,8 @@
 	                                        <input type="text" name="tenantname" value="{{ $rentaldetails->tenantname }}"  class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Tenant Email</label>
-	                                        <input type="email" name="tenantemail" value="{{ $rentaldetails->tenantemail }}" class="form-control">
+                                            <label class=" form-control-label">Tenant IC</label>
+	                                        <input type="text" name="tenantemail" value="{{ $rentaldetails->tenantemail }}" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Tenant Contact</label>
@@ -100,7 +84,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Total Comm</label>
-	                                        <input type="number" name="fee" id="fee" value="{{ $rentaldetails->fee }}" class="form-control myField" required>
+	                                        <input type="number" step="0.01" name="fee" id="fee" value="{{ $rentaldetails->fee }}" class="form-control myField" required>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">SST</label>
@@ -108,7 +92,7 @@
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Comm In</label>
-	                                        <input type="number" name="commin" id="commin" value="{{ $rentaldetails->commin }}" class="form-control" required>
+	                                        <input type="number" step="0.01" name="commin" id="commin" value="{{ $rentaldetails->commin }}" class="form-control" required>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Net Comm</label>
