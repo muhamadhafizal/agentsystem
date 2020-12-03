@@ -68,7 +68,7 @@
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class="form-control-label">Agent</label>
                                             <select name="agent" class="form-control">
                                                 @foreach($alluser as $data)
@@ -76,13 +76,25 @@
 												@endforeach
                                             </select>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class="form-control-label">Stemduty</label>
                                             <input type="number" name="stemduty" placeholder="Enter stemduty" class="form-control" required>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">AgreementFee</label>
-                                            <input type="number" name="agreementfee" placeholder="Enter Agreement Fee" class="form-control" required>
+                                            <input type="number" id="agreementfee" name="agreementfee" placeholder="Enter Agreement Fee" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">SST AgreementFee</label>
+                                            <input type="number" id="sstagreementfee" name="sstagreementfee" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">AgreementFee After SST</label>
+                                            <input type="number" id="agreementfeeaftersst" name="agreementfeeaftersst" class="form-control" readonly>
                                         </div>
                                     </div>
                                 </div>

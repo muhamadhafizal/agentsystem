@@ -78,7 +78,7 @@ class RentalController extends Controller
 
     }
 
-    public function getcalculationpercent($agent,$fee,$sst,$commin,$netcomm){
+    public function getcalculationpercent($agent,$fee,$sst,$commin,$netcomm, $sstagreementfee){
         
         $temppercentlead = 0;
         $temppercentprelead = 0;
@@ -120,7 +120,7 @@ class RentalController extends Controller
 
         $profitcompany = $commin - $total;
 
-        $totalpayoutcomm = $total - $sst;
+        $totalpayoutcomm = $total - $sst + $sstagreementfee;
 
         //id
         $goponeid = $agentdetails->gopone;
@@ -208,10 +208,12 @@ class RentalController extends Controller
         $commin = $request->input('commin');
         $netcomm = $request->input('netcomm');
         $gdp = $request->input('gdp');
+        $sstagreementfee = $request->input('sstagreementfee');
+        $agreementfeeaftersst = $request->input('agreementfeeaftersst');
         
         $agentdetails = User::find($agent);
 
-        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm);
+        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee);
         
         $rental = new Rental;
         $rental->num = $num;
@@ -248,6 +250,8 @@ class RentalController extends Controller
         $rental->netcomm = $netcomm;
         $rental->totalpayoutcomm = $tempresult['totalpayoutcomm'];
         $rental->gdp = $gdp;
+        $rental->agreementfeeaftersst = $agreementfeeaftersst;
+        $rental->sstagreementfee = $sstagreementfee;
 
         $rental->save();
 
@@ -309,8 +313,10 @@ class RentalController extends Controller
         $commin = $request->input('commin');
         $netcomm = $request->input('netcomm');
         $gdp = $request->input('gdp');
+        $sstagreementfee = $request->input('sstagreementfee');
+        $agreementfeeaftersst = $request->input('agreementfeeaftersst');
 
-        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm);
+        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee);
       
         $rental = Rental::find($id);
 
@@ -348,6 +354,8 @@ class RentalController extends Controller
         $rental->netcomm = $netcomm;
         $rental->totalpayoutcomm = $tempresult['totalpayoutcomm'];
         $rental->gdp = $gdp;
+        $rental->sstagreementfee = $sstagreementfee;
+        $rental->agreementfeeaftersst = $agreementfeeaftersst;
 
         $rental->save();
 

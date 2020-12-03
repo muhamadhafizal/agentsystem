@@ -382,6 +382,17 @@ if ($role == 'agent') {
         });
     </script>
     <script>
+
+       $("#agreementfee").on('keyup',function(){
+            $agreementfee = ($(this).val());
+            $sst = ($agreementfee * 0.06).toFixed(2);
+            $afterdeduct = $agreementfee - $sst;
+
+            $("#sstagreementfee").val($sst);
+            $("#agreementfeeaftersst").val($afterdeduct);
+       });
+
+
        $("#fee").on('keyup',function(){
             $fee = ($(this).val());
             $tempsst = $fee*0.06;

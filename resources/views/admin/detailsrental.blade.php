@@ -79,20 +79,32 @@
 	                            </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class="form-control-label">Agent</label>
                                             <input type="text" class="form-control" name="agent" value="{{ $rentaldetails->nickname }}" readonly>
                                         </div>
-                                        <div class="col-lg-4 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">Stemduty</label>
 	                                        <input type="text" name="stemduty" value="{{ $rentaldetails->stemduty }}" class="form-control" readonly>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Agreement Fee</label>
-	                                        <input type="email" name="agreementfee" value="{{ $rentaldetails->agreementfee }}" class="form-control" readonly>
+                                            <label class="form-control-label">AgreementFee</label>
+                                            <input type="number" id="agreementfee" name="agreementfee" value="{{ $rentaldetails->agreementfee }}" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">SST AgreementFee</label>
+                                            <input type="number" id="sstagreementfee" name="sstagreementfee" value="{{ $rentaldetails->sstagreementfee }}" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <label class="form-control-label">AgreementFee After SST</label>
+                                            <input type="number" id="agreementfeeaftersst" name="agreementfeeaftersst" value="{{ $rentaldetails->agreementfeeaftersst }}" class="form-control" readonly>
                                         </div>
                                     </div>
-	                            </div>
+                                </div>
 	                            <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-12">
