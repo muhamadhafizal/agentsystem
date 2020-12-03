@@ -30,9 +30,8 @@
                                             <th width="50">No</th>
                                             <th>Date</th>
                                             <th>CP Num</th>
-                                            <th>Category</th>
+                                            <th>Address</th>
                                             <th>Agent</th>
-                                            <th>SST</th>
                                             <th>Profit</th>
                                             <th>action</th>
                                         </tr>
@@ -43,13 +42,8 @@
                                             <td>{{$i++}}</td>
                                             <td>{{$data->date}}</td>
                                             <td>{{$data->num}}</td>
-                                            @if($data->category == '1')
-                                            <td>Rental</td>
-                                            @elseif($data->category == '2')
-                                            <td>Subsale</td>
-                                            @endif
+                                            <td>{{$data->address}}</td>
                                             <td>{{$data->nickname}}</td>
-                                            <td>{{$data->percentsst}}</td>
                                             @if($data->status == "success")
                                             <td align="center"><span class="badge badge-success">{{$data->profitcompany}}</span></td>
                                             @elseif($data->status == "process")

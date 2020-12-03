@@ -16,7 +16,7 @@
 	                        	     {{ csrf_field() }}
 	                            <div class="form-group">
                                     <div class="row">
-                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">CP Num</label>
                                             <input type="text" name="num" placeholder="Enter CP Number" class="form-control" required>
                                         </div>
@@ -25,7 +25,15 @@
                                             <input type="date" id="thedate" name="date" placeholder="Enter date" class="form-control" required>
                                         </div>
                                     </div>
-	                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-lg-12">
+                                            <label class=" form-control-label">Address</label>
+                                            <input type="text" name="address" placeholder="Enter Address" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">

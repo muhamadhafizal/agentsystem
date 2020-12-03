@@ -36,7 +36,15 @@
                                             <input type="date" id="thedate" name="date" value="{{ $rentaldetails->date }}" class="form-control" readonly>
                                         </div>
                                     </div>
-	                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-lg-12">
+                                            <label class=" form-control-label">Address</label>
+                                            <input type="text" name="address" value="{{ $rentaldetails->address }}"  class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
