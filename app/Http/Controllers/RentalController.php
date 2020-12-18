@@ -87,13 +87,23 @@ class RentalController extends Controller
 
         $ipuser = User::where('id',$agentdetails->ip)->first();
 
-        if($ipuser->level == 'lead'){
-            $percentip = 0.03;
-        } elseif($ipuser->level == 'prelead'){
-            $percentip = 0.05;
-        } elseif($ipuser->level == 'consultant'){
-            $percentip = 0.05;
+        if($ipuser){
+
+            if($ipuser->level == 'lead'){
+                $percentip = 0.03;
+            } elseif($ipuser->level == 'prelead'){
+                $percentip = 0.05;
+            } elseif($ipuser->level == 'consultant'){
+                $percentip = 0.05;
+            } else {
+                $percentip = 0;
+            }
+
+        } else {
+            $percentip = 0;
         }
+
+        
 
         
         if($agentdetails->level == 'lead'){
