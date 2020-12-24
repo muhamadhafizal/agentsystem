@@ -325,8 +325,6 @@ class RentalController extends Controller
         $gdp = $request->input('gdp');
         $sstagreementfee = $request->input('sstagreementfee');
         $agreementfeeaftersst = $request->input('agreementfeeaftersst');
-        $profitcompany = $request->input('profitcompany');
-        $totalpayoutcomm = $request->input('totalpayoutcomm');
 
         $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee,$agreementfeeaftersst);
       
@@ -359,12 +357,12 @@ class RentalController extends Controller
         $rental->percentgoptwo = $tempresult['percentgoptwo'];
         $rental->goptwoid = $tempresult['goptwoid'];
         $rental->total = $tempresult['total'];
-        $rental->profitcompany = $profitcompany;
+        $rental->profitcompany = $tempresult['profitcompany'];
         $rental->stemduty = $stemduty;
         $rental->agreementfee = $agreementfee;
         $rental->commin = $commin;
         $rental->netcomm = $netcomm;
-        $rental->totalpayoutcomm = $totalpayoutcomm;
+        $rental->totalpayoutcomm = $tempresult['totalpayoutcomm'];
         $rental->gdp = $gdp;
         $rental->sstagreementfee = $sstagreementfee;
         $rental->agreementfeeaftersst = $agreementfeeaftersst;
