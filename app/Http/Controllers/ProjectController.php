@@ -1326,7 +1326,7 @@ class ProjectController extends Controller
 
     public function chartproject(){
 
-        $currentYear = date("Y");
+        $currentYear = date("Y");;
         $monthArray = [];
 
         $totalJan = 0;
@@ -1410,9 +1410,9 @@ class ProjectController extends Controller
 
     }
 
-    public function dashboardstatus($status =''){
+    public function dashboardstatus($year = '',$status =''){
 
-        $currentYear = date("Y");
+        $currentYear = $year;
         $monthArray = [];
 
         $totalJan = 0;
@@ -1485,7 +1485,7 @@ class ProjectController extends Controller
         
     }
 
-    public function dashboardcardstatus($status = ''){
+    public function dashboardcardstatus($year= '',$status = ''){
         
        
         $totalcases = 0;
@@ -1495,7 +1495,7 @@ class ProjectController extends Controller
         $totalcompanycomm = 0;
         $totaldiff = 0;
 
-        $currentYear = date("Y");
+        $currentYear = $year;
         $calprojects = Project::whereYear('date',$currentYear)
         ->where('status',$status)
         ->get();

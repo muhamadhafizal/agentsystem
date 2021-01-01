@@ -4,10 +4,11 @@
     $('#statusdashboard').click(function(){
     
         var status = document.getElementById("status").value;
+        var year = document.getElementById("year").value;
     
+        console.log(year);
     
-    
-        var url1 = '/project/dashboard/'+status;
+        var url1 = '/project/dashboard/'+year+'/'+status;
         var project1 = [];
         var projectArr1 = [];
         var tempProject1;
@@ -80,7 +81,10 @@
         }
 
         //card
-        var a = 'project/dashboard/card/' + status;
+        var a = 'project/dashboard/card/'+year+'/'+status;
+
+        console.log(year);
+        console.log(status);
         
         $.get(a, function(result){
             

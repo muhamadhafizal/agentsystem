@@ -62,8 +62,8 @@ Route::post('/project/update', 'ProjectController@update')->name('updateproject'
 Route::get('/project/listmonth', 'ProjectController@listmonth')->name('listmonthproject');
 Route::get('/project/month/{month}/{year}/{status}', 'ProjectController@getmonth')->name('getmonth');
 Route::post('/project/month/status', 'ProjectController@statusmonth')->name('statusmonth');
-Route::get('/project/dashboard/{status}', 'ProjectController@dashboardstatus');
-Route::get('/project/dashboard/card/{status}', 'ProjectController@dashboardcardstatus');
+Route::get('/project/dashboard/{year}/{status}', 'ProjectController@dashboardstatus');
+Route::get('/project/dashboard/card/{year}/{status}', 'ProjectController@dashboardcardstatus');
 Route::get('/project/paymentvoucher', 'ProjectController@paymentvoucher')->name('paymentvoucherproject');
 Route::post('/project/paymentvoucher', 'ProjectController@storepaymentvoucher')->name('storevoucherproject');
 Route::get('/project/paymentvoucher/delete/{id}', 'ProjectController@destroyvoucher');
