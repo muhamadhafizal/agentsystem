@@ -56,9 +56,119 @@ class AdminController extends Controller
 
     }
 
+    public function indexyear($year){
+
+        $user = $this->getInfo();
+        $totalprofit = 0;
+        $totalsst = 0;
+        $totalgdp = 0;
+        $totalpayoutcomm = 0;
+
+            $year = $year;
+
+            $cardrental = DB::table('rentals')
+            ->join('users','users.id','=','rentals.agent')
+            ->select('rentals.*','users.nickname as nickname')
+            ->whereYear('rentals.date','=',$year)
+            ->where('rentals.status','=','success')
+            ->orderBy('rentals.date','DESC')
+            ->get();
+
+            $rentalcount = count($cardrental);
+            foreach ($cardrental as $data){
+                $totalprofit = $totalprofit + $data->profitcompany;
+                $totalsst = $totalsst + $data->percentsst;
+                $totalgdp = $totalgdp + $data->gdp;
+                $totalpayoutcomm = $totalpayoutcomm + $data->totalpayoutcomm;
+            }
+
+           $finalarray = [
+               'cases' => $rentalcount,
+               'totalprofit' => number_format($totalprofit,2,'.',''),
+               'totalsst' => number_format($totalsst,2,'.',''),
+               'totalgdp' => number_format($totalgdp,2,'.',''),
+               'totalpayoutcomm' => number_format($totalpayoutcomm,2,'.',''),
+           ];
+        
+           return response()->json($finalarray);
+
+    }
+
     public function chartrental(){
 
         $currentYear = date("Y");
+        $monthArray = [];
+
+        $totalJan = 0;
+        $totalFeb = 0;
+        $totalMac = 0;
+        $totalApril = 0;
+        $totalMei = 0;
+        $totalJune = 0;
+        $totalJuly = 0;
+        $totalAugust = 0;
+        $totalSept = 0;
+        $totalOct = 0;
+        $totalNov = 0;
+        $totalDec = 0;
+
+        $tempChart = Rental::whereYear('date','=', $currentYear)
+                ->where('status','=', 'success')
+                ->get();
+
+        foreach($tempChart as $data){
+
+            $tempdate = $data->date;
+            $d = date_parse_from_format("Y-m-d", $tempdate);
+
+            if ($d["month"] == '1') {
+                $totalJan = $totalJan + $data->gdp;
+            } else if ($d["month"] == '2') {
+                $totalFeb = $totalFeb + $data->gdp;
+            } else if ($d["month"] == '3') {
+                $totalMac = $totalMac + $data->gdp;
+            } else if ($d["month"] == '4') {
+                $totalApril = $totalApril + $data->gdp;
+            } else if ($d["month"] == '5') {
+                $totalMei = $totalMei + $data->gdp;
+            } else if ($d["month"] == '6') {
+                $totalJune = $totalJune + $data->gdp;
+            } else if ($d["month"] == '7') {
+                $totalJuly = $totalJuly + $data->gdp;
+            } else if ($d["month"] == '8') {
+                $totalAugust = $totalAugust + $data->gdp;
+            } else if ($d["month"] == '9') {
+                $totalSept = $totalSept + $data->gdp;
+            } else if ($d["month"] == '10') {
+                $totalOct = $totalOct + $data->gdp;
+            } else if ($d["month"] == '11') {
+                $totalNov = $totalNov + $data->gdp;
+            } else if ($d["month"] == '12') {
+                $totalDec = $totalDec + $data->gdp;
+            }
+
+        }
+
+        $monthArray['1'] = $totalJan;
+		$monthArray['2'] = $totalFeb;
+		$monthArray['3'] = $totalMac;
+		$monthArray['4'] = $totalApril;
+		$monthArray['5'] = $totalMei;
+		$monthArray['6'] = $totalJune;
+		$monthArray['7'] = $totalJuly;
+		$monthArray['8'] = $totalAugust;
+		$monthArray['9'] = $totalSept;
+		$monthArray['10'] = $totalOct;
+		$monthArray['11'] = $totalNov;
+		$monthArray['12'] = $totalDec;
+
+		return response()->json($monthArray);
+
+    }
+
+    public function chartrentalyear($year){
+
+        $currentYear = $year;
         $monthArray = [];
 
         $totalJan = 0;
