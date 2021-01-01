@@ -37,6 +37,7 @@ Route::get('/rental/listmonth', 'RentalController@listmonth')->name('listmonth')
 Route::get('/rental/month/{month}/{year}', 'RentalController@getmonth')->name('getmonth');
 Route::get('/rental/detailsmonth/{id}', 'RentalController@detailsmonth')->name('detailsrentalmonth');
 Route::get('/rental/paymentvoucher', 'RentalController@paymentvoucher')->name('paymentvoucherrentals');
+Route::post('/rental/getyear','RentalController@getyearadminrental')->name('getyearadminrental');
 
 //member
 Route::get('/user', 'UserController@index')->name('allagents');

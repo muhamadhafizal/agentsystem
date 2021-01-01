@@ -5,7 +5,7 @@
 <!-- MAIN CONTENT-->
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-        <div class="row">
+            <div class="row">
                 <div class="form-group mx-sm-3 mb-2">
                   <h2 style="color: white">Year :</h2>
                 </div>

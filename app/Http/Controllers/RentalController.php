@@ -478,4 +478,14 @@ class RentalController extends Controller
     public function paymentvoucher(){
         echo 'hello';
     }
+
+    public function getyearadminrental(Request $request){
+        $year = $request->input('year');
+
+        if($year == null){
+            $year = '2020';
+        }
+
+        return view('/admin/listmonthyear', compact('year'));
+    }
 }
