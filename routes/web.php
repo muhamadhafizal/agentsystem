@@ -89,6 +89,7 @@ Route::get('/agent/chart/rental', 'AgentController@chartrental');
 Route::get('/agent/profile', 'AgentController@profile')->name('profile');
 Route::get('/agent/edit/{id}', 'AgentController@editagent')->name('editagent');
 Route::post('/agent/update/{id}', 'AgentController@updateagent')->name('updateprofile');
+Route::post('/agent/getyear','AgentController@getyearagentrental')->name('getyearagentrental');
 
 //project agent
 Route:: get('/agent/project', 'ProjectagentController@index')->name('projectagentdashboard');
@@ -123,3 +124,4 @@ Route::get('/agent/project/details/{id}/{type}', 'AgentprojectController@details
 Route::get('/agent/project/listmonth', 'AgentprojectController@listmonth')->name('agentlistmonthproject');
 Route::get('/agent/project/month/{month}/{year}', 'AgentprojectController@getmonth')->name('agentprojectgetmonth');
 Route::get('/agent/chart/project', 'AgentprojectController@chartproject');
+Route::post('/agent/project/getyear','AgentprojectController@getyearagentproject')->name('getyearagentproject');

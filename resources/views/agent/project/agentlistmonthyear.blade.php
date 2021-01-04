@@ -3,14 +3,14 @@
             <!-- MAIN CONTENT-->
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <form class="form-horizontal" method="POST" action="{{ route('getyearagentrental') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('getyearagentproject') }}">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="form-group mx-sm-3 mb-2">
                                   <h2 style="color: white">Year :</h2>
                                 </div>
                                  <div class="form-group mx-sm-3 mb-2">
-                                   <input class="date-own form-control" style="width: 100px;" name="year" readonly="true" value="2021">
+                                   <input class="date-own form-control" style="width: 100px;" name="year" readonly="true" value="{{$year}}">
                                  </div>
                                  <button class="btn btn-primary mb-2">Submit</button>
                             </div>
@@ -18,7 +18,7 @@
                         <div class="row m-t-25">
                             <div class="col-sm-3 col-lg-3">
                                     <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[1,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[1,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[2,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[2,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[3,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[3,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[4,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[4,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -95,7 +95,7 @@
 
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[5,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[5,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[6,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[6,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -133,7 +133,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[7,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[7,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -152,7 +152,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[8,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[8,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -172,7 +172,7 @@
 
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[9,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[9,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -191,7 +191,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[10,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[10,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -210,7 +210,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[11,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[11,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -229,7 +229,7 @@
                             </div>
                             <div class="col-sm-3 col-lg-3">
                                 <div class="overview-item overview-item--c1">
-                                    <a href="{{ action('AgentController@getmonth',[12,2021]) }}">
+                                    <a href="{{ action('AgentprojectController@getmonth',[12,$year]) }}">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">

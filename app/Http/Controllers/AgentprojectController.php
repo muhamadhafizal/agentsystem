@@ -474,5 +474,15 @@ class AgentprojectController extends Controller
 
     }
 
+    public function getyearagentproject(Request $request){
+        $year = $request->input('year');
+
+        if($year == null){
+            $year = '2020';
+        }
+
+        return view('/agent/project/agentlistmonthyear', compact('year'));
+    }
+
 }
 

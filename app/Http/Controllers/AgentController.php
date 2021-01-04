@@ -692,6 +692,18 @@ class AgentController extends Controller
         
         return Redirect::route('profile');
     }
+
+    public function getyearagentrental(Request $request){
+
+        $year = $request->input('year');
+
+        if($year == null){
+            $year = '2020';
+        }
+
+        return view('/agent/agentlistmonthyear', compact('year'));
+
+    }
 }
 
 
