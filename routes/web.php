@@ -69,6 +69,7 @@ Route::get('/project/paymentvoucher', 'ProjectController@paymentvoucher')->name(
 Route::post('/project/paymentvoucher', 'ProjectController@storepaymentvoucher')->name('storevoucherproject');
 Route::get('/project/paymentvoucher/delete/{id}', 'ProjectController@destroyvoucher');
 Route::get('/project/paymentvoucher/detailsprojectvoucher/{id}', 'ProjectController@detailsprojectvoucher')->name('detailsprojectvoucher');
+Route::post('/project/getyear','ProjectController@getyearadminproject')->name('getyearadminproject');
 
 
 //area

@@ -1593,4 +1593,14 @@ class ProjectController extends Controller
         return view('admin/project/voucherdetails', compact('details','agentinfo','formatdate'));
 
     }
+
+    public function getyearadminproject(Request $request){
+        $year = $request->input('year');
+
+        if($year == null){
+            $year = '2020';
+        }
+
+        return view('/admin/project/listmonthyear', compact('year'));
+    }
 }
