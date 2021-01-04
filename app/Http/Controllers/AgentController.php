@@ -169,6 +169,88 @@ class AgentController extends Controller
 
     }
 
+    public function indexyear($year){
+
+        $user = $this->getInfo();
+        $totalprocess = 0;
+        $totalsuccess = 0;
+
+        if($user){
+            
+            $year = $year;
+
+            $rental = DB::table('rentals')
+                    ->join('users','users.id','=', 'rentals.agent')
+                    ->select('rentals.*','users.nickname as nickname')
+                    ->whereYear('rentals.date','=',$year)
+                    ->where('rentals.status','!=', 'cancel')
+                    ->where(function ($query) use($user){
+                        $query->where('rentals.agent',$user->id)
+                              ->orWhere('rentals.leadid', $user->id)
+                              ->orWhere('rentals.preleadid', $user->id)
+                              ->orWhere('rentals.ipid', $user->id)
+                              ->orWhere('rentals.goponeid', $user->id)
+                              ->orWhere('rentals.goptwoid', $user->id);
+                        })
+                    ->orderBy('rentals.date','DESC')
+                    ->get();
+            
+            //cardcalculation
+            $cases = count($rental);
+
+            foreach($rental as $data){
+                
+                $commagent = 0;
+                $total = 0;
+
+                if($user->id == $data->agent){
+                    $commagent = $commagent + $data->percentagent;
+                }
+    
+                if($user->id == $data->leadid){
+                    $commagent = $commagent + $data->percentlead;
+                }
+    
+                if($user->id == $data->preleadid){
+                    $commagent = $commagent + $data->percentprelead;
+                }
+    
+                if($user->id == $data->ipid){
+                    $commagent = $commagent + $data->percentip;
+                }
+    
+                if($user->id == $data->goponeid){
+                    $commagent = $commagent + $data->percentgopone;
+                }
+    
+                if($user->id == $data->goptwoid){
+                    $commagent = $commagent + $data->percentgoptwo;
+                }
+
+                $total = $commagent;
+
+                if($data->status == 'success'){
+                    $totalsuccess = $totalsuccess + $total;
+                } elseif ($data->status == 'process'){
+                    $totalprocess = $totalprocess + $total;
+                }
+
+            }
+        
+            $finalarray = [
+                'totalprocess' => number_format($totalprocess,2,'.',''),
+                'totalsuccess' => number_format($totalsuccess,2,'.',''),
+                'cases' => $cases,
+            ];
+
+            return response()->json($finalarray);
+
+        } else {
+            return redirect('/');
+        }
+
+    }
+
     public function listrental(){
 
         $user = $this->getInfo();
@@ -334,6 +416,122 @@ class AgentController extends Controller
             return view('agent/agentmonthinfo', compact('monthname','rental','i','totalprocess','totalsuccess','cases'));
 
         }
+
+    }
+
+    public function chartrentalyear($year){
+
+        $user = $this->getInfo();
+        $monthArray = [];
+        $year = $year;
+
+        $totalJan = 0;
+        $totalFeb = 0;
+        $totalMac = 0;
+        $totalApril = 0;
+        $totalMei = 0;
+        $totalJune = 0;
+        $totalJuly = 0;
+        $totalAugust = 0;
+        $totalSept = 0;
+        $totalOct = 0;
+        $totalNov = 0;
+        $totalDec = 0;
+
+        $tempChart = DB::table('rentals')
+                ->join('users','users.id','=', 'rentals.agent')
+                ->select('rentals.*','users.nickname as nickname')
+                ->whereYear('rentals.date','=',$year)
+                ->where('rentals.status','=', 'success')
+                ->where(function ($query) use($user){
+                        $query->where('rentals.agent',$user->id)
+                              ->orWhere('rentals.leadid', $user->id)
+                              ->orWhere('rentals.preleadid', $user->id)
+                              ->orWhere('rentals.ipid', $user->id)
+                              ->orWhere('rentals.goponeid', $user->id)
+                              ->orWhere('rentals.goptwoid', $user->id);
+                        })
+                ->get();
+            
+        foreach($tempChart as $data){
+
+            $tempdate = $data->date;
+            $d = date_parse_from_format("Y-m-d", $tempdate);
+
+            $commagent = 0;
+            $comm = 0;
+
+            if($user->id == $data->agent){
+                $commagent = $commagent + $data->percentagent;
+            }
+    
+            if($user->id == $data->leadid){
+                $commagent = $commagent + $data->percentlead;
+            }
+    
+            if($user->id == $data->preleadid){
+                $commagent = $commagent + $data->percentprelead;
+            }
+    
+            if($user->id == $data->ipid){
+                $commagent = $commagent + $data->percentip;
+            }
+    
+            if($user->id == $data->goponeid){
+                $commagent = $commagent + $data->percentgopone;
+            }
+    
+            if($user->id == $data->goptwoid){
+                $commagent = $commagent + $data->percentgoptwo;
+            }
+
+            $comm = round($commagent, 2);
+
+            if ($d["month"] == '1') {
+                $totalJan = $totalJan + $comm;
+            } else if ($d["month"] == '2') {
+                $totalFeb = $totalFeb + $comm;
+            } else if ($d["month"] == '3') {
+                $totalMac = $totalMac + $comm;
+            } else if ($d["month"] == '4') {
+                $totalApril = $totalApril + $comm;
+            } else if ($d["month"] == '5') {
+                $totalMei = $totalMei + $comm;
+            } else if ($d["month"] == '6') {
+                $totalJune = $totalJune + $comm;
+            } else if ($d["month"] == '7') {
+                $totalJuly = $totalJuly + $comm;
+            } else if ($d["month"] == '8') {
+                $totalAugust = $totalAugust + $comm;
+            } else if ($d["month"] == '9') {
+                $totalSept = $totalSept + $comm;
+            } else if ($d["month"] == '10') {
+                $totalOct = $totalOct + $comm;
+            } else if ($d["month"] == '11') {
+                $totalNov = $totalNov + $comm;
+            } else if ($d["month"] == '12') {
+                $totalDec = $totalDec + $comm;
+            }
+
+        
+            
+
+        }
+
+        $monthArray['1'] = $totalJan;
+		$monthArray['2'] = $totalFeb;
+		$monthArray['3'] = $totalMac;
+		$monthArray['4'] = $totalApril;
+		$monthArray['5'] = $totalMei;
+		$monthArray['6'] = $totalJune;
+		$monthArray['7'] = $totalJuly;
+		$monthArray['8'] = $totalAugust;
+		$monthArray['9'] = $totalSept;
+		$monthArray['10'] = $totalOct;
+		$monthArray['11'] = $totalNov;
+		$monthArray['12'] = $totalDec;
+
+		return response()->json($monthArray);
 
     }
 

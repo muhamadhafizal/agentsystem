@@ -81,11 +81,13 @@ Route::post('/area/update/', 'AreaController@update')->name('updatearea');
 
 //rental agent
 Route::get('/agentrental', 'AgentController@index')->name('agentdashboard');
+Route::get('/agentrental/indexyear/{year}','AgentController@indexyear');
 Route::get('/agent/rental', 'AgentController@listrental')->name('agentlistrental');
 Route::get('agent/details/{id}/{type}', 'AgentController@details')->name('agentdetailsrental');
 Route::get('/agent/listmonth', 'AgentController@listmonth')->name('agentlistmonth');
 Route::get('/agent/month/{month}/{year}', 'AgentController@getmonth')->name('agentgetmonth');
 Route::get('/agent/chart/rental', 'AgentController@chartrental');
+Route::get('/agent/chart/rental/chartyear/{year}', 'AgentController@chartrentalyear');
 Route::get('/agent/profile', 'AgentController@profile')->name('profile');
 Route::get('/agent/edit/{id}', 'AgentController@editagent')->name('editagent');
 Route::post('/agent/update/{id}', 'AgentController@updateagent')->name('updateprofile');
