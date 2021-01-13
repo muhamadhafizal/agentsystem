@@ -74,7 +74,7 @@
                                             <th width="50">No</th>
                                             <th>Date</th>
                                             <th>Num</th>
-                                            <th>Category</th>
+                                            <th>Address</th>
                                             <th>Agent</th>
                                             <th>status</th>
                                             <th>action</th>
@@ -87,11 +87,7 @@
                                         <td>{{$i++}}</td>
                                         <td>{{$data->date}}</td>
                                         <td>{{$data->num}}</td>
-                                        @if($data->category == '1')
-                                            <td>Rental</td>
-                                        @elseif($data->category == '2')
-                                            <td>Subsale</td>
-                                        @endif
+                                        <td>{{$data->address}}</td>
                                         <td>{{$data->nickname}}</td>
                                         @if($data->status == "success")
                                             <td align="center"><span class="badge badge-success">{{$data->status}}</span></td>
