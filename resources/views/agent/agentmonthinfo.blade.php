@@ -76,27 +76,29 @@
                                             <th>Num</th>
                                             <th>Address</th>
                                             <th>Agent</th>
+                                            <th>Comm</th>
                                             <th>status</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                    @foreach($rental as $data)
+                                    @foreach($finalarray as $data)
                                     <tr>
                                         <td>{{$i++}}</td>
-                                        <td>{{$data->date}}</td>
-                                        <td>{{$data->num}}</td>
-                                        <td>{{$data->address}}</td>
-                                        <td>{{$data->nickname}}</td>
-                                        @if($data->status == "success")
-                                            <td align="center"><span class="badge badge-success">{{$data->status}}</span></td>
-                                        @elseif($data->status == "process")
-                                            <td align="center"><span class="badge badge-primary">{{$data->status}}</span></td>
-                                        @elseif($data->status =="cancel")
-                                            <td align="center"><span class="badge badge-danger">{{$data->status}}</span></td>
+                                        <td>{{$data['date']}}</td>
+                                        <td>{{$data['num']}}</td>
+                                        <td>{{$data['address']}}</td>
+                                        <td>{{$data['nickname']}}</td>
+                                        <td>{{$data['commagent']}}</td>
+                                        @if($data['status'] == "success")
+                                            <td align="center"><span class="badge badge-success">{{$data['status']}}</span></td>
+                                        @elseif($data['status'] == "process")
+                                            <td align="center"><span class="badge badge-primary">{{$data['status']}}</span></td>
+                                        @elseif($data['status'] =="cancel")
+                                            <td align="center"><span class="badge badge-danger">{{$data['status']}}</span></td>
                                         @endif
-                                        <td><a href="{{ route('agentdetailsrental', ['id' => $data->id, 'type' => 'month']) }}"><span class="badge badge-primary">view</span> </td>
+                                        <td><a href="{{ route('agentdetailsrental', ['id' => $data['id'], 'type' => 'month']) }}"><span class="badge badge-primary">view</span> </td>
                                     </tr>
         
                                     @endforeach    

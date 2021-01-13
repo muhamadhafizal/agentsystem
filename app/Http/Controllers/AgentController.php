@@ -92,6 +92,40 @@ class AgentController extends Controller
 
     }
 
+    public function getagentcomm($rentalid,$userid){
+        
+            $rentaldetails = $this->getrentaldetails($rentalid);
+            
+            $commagent = 0;
+
+            if($userid == $rentaldetails->agent){
+                $commagent = $commagent + $rentaldetails->percentagent;
+            }
+
+            if($userid == $rentaldetails->leadid){
+                $commagent = $commagent + $rentaldetails->percentlead;
+            }
+
+            if($userid == $rentaldetails->preleadid){
+                $commagent = $commagent + $rentaldetails->percentprelead;
+            }
+
+            if($userid == $rentaldetails->ipid){
+                $commagent = $commagent + $rentaldetails->percentip;
+            }
+
+            if($userid == $rentaldetails->goponeid){
+                $commagent = $commagent + $rentaldetails->percentgopone;
+            }
+
+            if($userid == $rentaldetails->goptwoid){
+                $commagent = $commagent + $rentaldetails->percentgoptwo;
+            }
+
+            return $commagent;
+
+    }
+
     //end get
 
     public function index(){
@@ -254,6 +288,7 @@ class AgentController extends Controller
     public function listrental(){
 
         $user = $this->getInfo();
+        $finalarray = array();
 
         if($user == null){
             return redirect('/');
@@ -270,10 +305,26 @@ class AgentController extends Controller
                     ->orWhere('rentals.goptwoid', $user->id)
                     ->orderBy('rentals.date','DESC')
                     ->get();
+            
+            foreach($rental as $data){
+                 $commagent = $this->getagentcomm($data->id,$user->id);
+
+                 $temparray = [
+                     'id' => $data->id,
+                     'date' => $data->date,
+                     'num' => $data->num,
+                     'address' => $data->address,
+                     'nickname' => $data->nickname,
+                     'commagent' => $commagent,
+                     'status' => $data->status,  
+                 ];
+
+                 array_push($finalarray,$temparray);
+            }
 
             $i = 1;
          
-            return view('agent/agentlistrental', compact('rental','i'));
+            return view('agent/agentlistrental', compact('rental','i','finalarray'));
         }
 
     }
@@ -347,6 +398,7 @@ class AgentController extends Controller
         $user = $this->getInfo();
         $totalprocess = 0;
         $totalsuccess = 0;
+        $finalarray = array();
 
         if($user == null){
             return redirect('/');
@@ -367,6 +419,22 @@ class AgentController extends Controller
                         })
                         ->orderBy('rentals.date','DESC')
                         ->get();
+
+             foreach($rental as $data){
+                 $commagent = $this->getagentcomm($data->id,$user->id);
+
+                 $temparray = [
+                     'id' => $data->id,
+                     'date' => $data->date,
+                     'num' => $data->num,
+                     'address' => $data->address,
+                     'nickname' => $data->nickname,
+                     'commagent' => $commagent,
+                     'status' => $data->status,  
+                 ];
+
+                 array_push($finalarray,$temparray);
+            }
 
             //cardcalculation
             $cases = count($rental);
@@ -413,7 +481,7 @@ class AgentController extends Controller
             $i = 1;
             $monthname = $this->getmonthname($month);
 
-            return view('agent/agentmonthinfo', compact('monthname','rental','i','totalprocess','totalsuccess','cases'));
+            return view('agent/agentmonthinfo', compact('monthname','rental','i','totalprocess','totalsuccess','cases','finalarray'));
 
         }
 
