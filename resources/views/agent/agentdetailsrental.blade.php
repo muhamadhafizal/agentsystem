@@ -16,7 +16,7 @@
 	                        	     {{ csrf_field() }}
 	                            <div class="form-group">
                                     <div class="row">
-                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">No</label>
                                             <input type="text" name="num" value="{{$rentaldetails->num}}" class="form-control" readonly>
                                         </div>
@@ -28,12 +28,20 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
+                                        <div class="col-lg-12 col-sm-12">
+                                            <label class=" form-control-label">Address</label>
+                                            <input type="text" name="address" value="{{$rentaldetails->address}}" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class=" form-control-label">Owner Name</label>
 	                                        <input type="text" name="ownername" value="{{ $rentaldetails->ownername }}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Owner Email</label>
+                                            <label class=" form-control-label">Owner IC Num</label>
 	                                        <input type="email" name="owneremail" value="{{ $rentaldetails->owneremail }}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
@@ -49,7 +57,7 @@
 	                                        <input type="text" name="tenantname" value="{{$rentaldetails->tenantname}}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
-                                            <label class=" form-control-label">Tenant Email</label>
+                                            <label class=" form-control-label">Tenant IC Num</label>
 	                                        <input type="email" name="tenantemail" value="{{$rentaldetails->tenantemail}}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
