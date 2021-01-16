@@ -1,43 +1,166 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
+
 <head>
-<title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ asset('template/voucher/bootstrap/css/bootstrap.min.css') }}">
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
- <br/>
-<style type="text/css">
-<!--
-	p {margin: 0; padding: 0;}	.ft10{font-size:13px;font-family:Times;color:#000000;}
-	.ft11{font-size:13px;font-family:Times;color:#000000;}
-	.ft12{font-size:11px;font-family:Times;color:#000000;}
-	.ft13{font-size:8px;font-family:Times;color:#000000;}
-	.ft14{font-size:13px;line-height:19px;font-family:Times;color:#000000;}
--->
-</style>
+    <style>
+        td,
+        th {
+            border: 1px solid black;
+
+        }
+
+        .noborder {
+            border: none !important;
+        }
+
+        .doubleborder {
+            border-bottom: 5px double black;
+
+        }
+    </style>
+    <title>Vouncher</title>
 </head>
-<body bgcolor="#A0A0A0" vlink="blue" link="blue">
-<div id="page1-div" style="position:relative;width:918px;height:1188px;">
-<img width="918" height="1188" src="{{ asset('voucher/target001.png') }}" alt="background image"/>
 
-<p style="position:absolute;top:185px;left:289px;white-space:nowrap" class="ft10">&#160; &#160; &#160;</p>
-<p style="position:absolute;top:330px;left:573px;white-space:nowrap" class="ft10">DATE:&#160;{{$formatdate}}</p>
-<p style="position:absolute;top:265px;left:121px;white-space:nowrap" class="ft11"><b>Email: mwpropertyconsultancy@gmail.com&#160;&#160;&#160;&#160;Tel:&#160;+607-3507797</b></p>
-<p style="position:absolute;top:185px;left:625px;white-space:nowrap" class="ft12"><b>EJEN&#160;HARTA TANAH</b></p>
-<p style="position:absolute;top:206px;left:121px;white-space:nowrap" class="ft11"><b>MW&#160;PROPERTIES&#160;</b></p>
-<p style="position:absolute;top:210px;left:250px;white-space:nowrap" class="ft13"><b>(JM0936446-H)</b></p>
-<p style="position:absolute;top:207px;left:626px;white-space:nowrap" class="ft12"><b>AE(3)0024&#160;&amp; E0141</b></p>
-<p style="position:absolute;top:225px;left:121px;white-space:nowrap" class="ft14"><b>REGISTERED&#160;ESTATE&#160;AGENCY&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>20-01,&#160;JALAN MOLEK 1/9,&#160;TAMAN MOLEK,&#160;81100&#160;JOHOR&#160;BAHRU.</b></p>
-<p style="position:absolute;top:310px;left:521px;white-space:nowrap" class="ft10">VOUCHER&#160;NO:&#160;{{$voucherno}}</p>
-<p style="position:absolute;top:362px;left:121px;white-space:nowrap; text-transform: uppercase;" class="ft10">ADDRESS:&#160;{{$detailsrental->address}}</p>
-<p style="position:absolute;top:436px;left:121px;white-space:nowrap; text-transform: uppercase;" class="ft10">PAY&#160;TO:&#160; {{$agentinfo->nickname}}</p>
-<p style="position:absolute;top:436px;left:478px;white-space:nowrap" class="ft10">NRIC:{{$agentinfo->ic}}</p>
-<p style="position:absolute;top:473px;left:121px;white-space:nowrap; text-transform: uppercase;" class="ft10">BANK&#160;DETAILS : {{$agentinfo->bankname}} {{$agentinfo->bankaccnumber}}</p>
-<p style="position:absolute;top:522px;left:323px;white-space:nowrap" class="ft10">DESCRIPTION</p>
-<p style="position:absolute;top:522px;left:637px;white-space:nowrap" class="ft10">AMOUNT&#160;(&#160;RM&#160;)</p>
-<p style="position:absolute;top:1058px;left:195px;white-space:nowrap" class="ft10">Issued&#160;By</p>
-<p style="position:absolute;top:1058px;left:398px;white-space:nowrap" class="ft10">Approved&#160;By</p>
-<p style="position:absolute;top:1058px;left:614px;white-space:nowrap" class="ft10">Received&#160;By</p>
-<p style="position:absolute;top:922px;left:499px;white-space:nowrap" class="ft10">TOTAL&#160;AMOUNT</p>
-</div>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-between align-items-start no-gutters">
+            <div class="d-flex flex-column font-weight-bold">
+                <img src="{{ asset('template/images/mw.png')}}" height="108" width="190" alt="">
+                <div>
+                    <span>MW PROPERTIES</span>
+                    <span style="font-size: 12px;">(JM0936446-H)</span>
+                </div>
+                <div class="d-flex flex-column">
+                    <span>
+                        REGISTERED ESTATE AGENCY
+                    </span>
+                    <span>
+                        20-01, JALAN MOLEK 1/9, TAMAN MOLEK, 81100 JOHOR BAHRU.
+                    </span>
+                    <div>
+                        <span class="mr-2">
+                            Email: mwpropertyconsultancy@gmail.com
+                        </span>
+                        <span>
+                            Tel: +607-3507797
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+                <div class="mt-3 mt-md-0  mb-2 mb-md-0 d-flex flex-column justify-content-center align-content-center">
+                    <div class="text-center">
+                        <img src="{{ asset('template/images/ejen.png') }}" height="79" width="87" alt="">
+                    </div>
+                    <div class="font-weight-bold text-uppercase">
+                        <span class="text-nowrap">ejen harta tanah</span>
+                    </div>
+                </div>
+         
+        </div>
+        <div class="mt-2 d-flex justify-content-end no-gutters">
+            <div class="col-12 col-md-5 col-lg-3 d-flex flex-column">
+                <div class="d-flex no-gutters">
+                    <span class="col-6 col-md-6">
+                        VOUCHER NO
+                    </span>
+                    <span class="mr-1">:</span>
+                    <span>
+                        {{$voucherno}}
+                    </span>
+                </div>
+                <div class="d-flex no-gutters">
+                    <span class="col-6 col-md-6">
+                        DATE
+                    </span>
+                    <span class="mr-1">:</span>
+                    <span>
+                        {{$formatdate}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3 d-flex text-uppercase">
+            <span class="">Address : {{$detailsrental->address}}</span>
+        </div>
+        <div class="mt-5 d-flex no-gutters">
+            <div class="col-6 text-uppercase">
+                <span>Pay to : {{$agentinfo->name}}</span>
+            </div>
+            <div class="col-6 text-uppercase">
+                <span>
+                    nric : {{$agentinfo->ic}}
+                </span>
+            </div>
+        </div>
+        <div class="mt-2 mb-3 d-flex text-uppercase">
+            <span>Bank details : {{$agentinfo->bankname}} {{$agentinfo->bankaccnumber}}</span>
+        </div>
+        <div class="table-responsive">
+            <table style="width:100%" class="text-center">
+                <thead>
+                    <tr>
+                        <th width="70%">DESCRIPTION</th>
+                        <th colspan="2">AMOUNT (RM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+					@foreach($commarray as $data)
+                    <tr>
+                        <td>
+                            {{$data['name']}}
+                        </td>
+                        <td>
+                            {{$data['amount']}}
+                        </td>
+                    
+					</tr>
+					@endforeach
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="noborder text-right pr-2 text-uppercase">
+                            Total Amount
+                        </td>
+                        <td class="doubleborder">
+                            {{$totalcomm}}
+                        </td>
+                 
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+        <div style="margin-top: 120px;" class="row justify-content-center">
+            <div class="col-4 col-md-4 d-flex flex-column">
+                <div class="border-top border-dark">
+                </div>
+                <span class="text-center">Issued By</span>
+
+            </div>
+            <div class="mt-md-0 col-4 col-md-4 d-flex flex-column">
+                <div class="border-top border-dark">
+                </div>
+                <span class="text-center">Approved By</span>
+
+            </div>
+            <div class="mt-md-0 col-4 col-md-4 d-flex flex-column">
+                <div class="border-top border-dark">
+                </div>
+                <span class="text-center">Received By</span>
+
+            </div>
+        </div>
+    </div>
 </body>
+<script src="bootstrap/js/jquery-3.5.1.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
 </html>

@@ -559,32 +559,68 @@ class RentalController extends Controller
         if($id == $detailsrental->agent){
             $commagent = $detailsrental->percentagent;
             $totalcomm = $totalcomm + $detailsrental->percentagent;
-            array_push($commarray,$commagent);
+
+            $temparray = [
+                'name' => 'commission agent',
+                'amount' => $commagent,
+            ];
+
+            array_push($commarray,$temparray);
         }
         if($id == $detailsrental->leadid){
             $commlead = $detailsrental->percentlead;
             $totalcomm = $totalcomm + $detailsrental->percentlead;
-            array_push($commarray,$commlead);
+
+            $temparray = [
+                'name' => 'commission leader',
+                'amount' => $commlead,
+            ];
+
+            array_push($commarray,$temparray);
         }
         if($id == $detailsrental->preleadid){
             $commprelead = $detailsrental->percentprelead;
             $totalcomm = $totalcomm + $detailsrental->percentprelead;
-            array_push($commarray,$commprelead);
+
+            $temparray = [
+                'name' => 'commission preleader',
+                'amount' => $commprelead,
+            ];
+
+            array_push($commarray,$temparray);
         }
         if($id == $detailsrental->ipid){
             $commip = $detailsrental->percentip;
             $totalcomm = $totalcomm + $detailsrental->percentip;
-            array_push($commarray,$commip);
+
+            $temparray = [
+                'name' => 'commission ip',
+                'amount' => $commip,
+            ];
+
+            array_push($commarray,$temparray);
         }
         if($id == $detailsrental->goponeid){
             $commgopone = $detailsrental->percentgopone;
             $totalcomm = $totalcomm + $detailsrental->percentgopone;
-            array_push($commarray,$commgopone);
+
+            $temparray = [
+                'name' => 'commission gop one',
+                'amount' => $commgopone,
+            ];
+
+            array_push($commarray,$temparray);
         }
         if($id == $detailsrental->goptwoid){
             $commgoptwo = $detailsrental->percentgoptwo;
             $totalcomm = $totalcomm + $detailsrental->percentgoptwo;
-            array_push($commarray,$commgoptwo);
+
+            $temparray = [
+                'name' => 'commission gop two',
+                'amount' => $commgoptwo,
+            ];
+
+            array_push($commarray,$temparray);
         }
 
         $formatdate = date("d-M-Y", strtotime($detailsrental->date));
@@ -595,6 +631,7 @@ class RentalController extends Controller
         $gennumber = str_pad($tempnumber,4,'0', STR_PAD_LEFT);
 
         $voucherno = 'MW/'.$currentYear.'/'.$gennumber;
+
         
         return view('/admin/voucherrentaldetails', compact('commarray','totalcomm','agentinfo','formatdate','detailsrental','voucherno'));
         
