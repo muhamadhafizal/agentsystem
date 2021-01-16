@@ -7,6 +7,7 @@ use App\Rental;
 use DB;
 use Redirect;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Echo_;
 
 class RentalController extends Controller
 {
@@ -475,10 +476,6 @@ class RentalController extends Controller
 
     }
 
-    public function paymentvoucher(){
-        echo 'hello';
-    }
-
     public function getyearadminrental(Request $request){
         $year = $request->input('year');
 
@@ -488,4 +485,121 @@ class RentalController extends Controller
 
         return view('/admin/listmonthyear', compact('year'));
     }
+
+    public function paymentvoucher($id, $type){
+
+            
+        $agentarray = array();
+        $finalarray = array();
+
+        $details = Rental::find($id);
+
+        array_push($agentarray,$details->agent);
+
+        if(!in_array($details->leadid,$agentarray)){
+            array_push($agentarray,$details->leadid);
+        }
+
+        if(!in_array($details->preleadid,$agentarray)){
+            array_push($agentarray,$details->preleadid);
+        }
+
+        if(!in_array($details->ipid,$agentarray)){
+            array_push($agentarray,$details->ipid);
+        }
+
+        if(!in_array($details->goponeid,$agentarray)){
+            array_push($agentarray,$details->goponeid);
+        }
+
+        if(!in_array($details->goptwoid,$agentarray)){
+            array_push($agentarray,$details->goptwoid);
+        }
+        //print_r($agentarray);
+        foreach($agentarray as $data){
+
+            $userdetails = User::find($data);
+            
+            if($userdetails){
+
+                $temparray = [
+                    'id' => $userdetails->id,
+                    'nickname' => $userdetails->nickname,
+                ];
+    
+                array_push($finalarray,$temparray);
+
+            }
+           
+        }
+
+
+
+        $i = 1;
+        
+        return view('/admin/listpaymentvoucher', compact('finalarray','type','i','id'));
+
+    }
+
+    public function detailspaymentvoucher($id,$caseid,$listid){
+        
+        $detailsrental = Rental::find($caseid);
+        $agentinfo = User::find($id);
+
+        $commarray = array();
+
+        $totalcomm = 0;
+        $commagent = 0;
+        $commlead = 0;
+        $commprelead = 0;
+        $commip = 0;
+        $commgopone = 0;
+        $commgoptwo = 0;
+
+        if($id == $detailsrental->agent){
+            $commagent = $detailsrental->percentagent;
+            $totalcomm = $totalcomm + $detailsrental->percentagent;
+            array_push($commarray,$commagent);
+        }
+        if($id == $detailsrental->leadid){
+            $commlead = $detailsrental->percentlead;
+            $totalcomm = $totalcomm + $detailsrental->percentlead;
+            array_push($commarray,$commlead);
+        }
+        if($id == $detailsrental->preleadid){
+            $commprelead = $detailsrental->percentprelead;
+            $totalcomm = $totalcomm + $detailsrental->percentprelead;
+            array_push($commarray,$commprelead);
+        }
+        if($id == $detailsrental->ipid){
+            $commip = $detailsrental->percentip;
+            $totalcomm = $totalcomm + $detailsrental->percentip;
+            array_push($commarray,$commip);
+        }
+        if($id == $detailsrental->goponeid){
+            $commgopone = $detailsrental->percentgopone;
+            $totalcomm = $totalcomm + $detailsrental->percentgopone;
+            array_push($commarray,$commgopone);
+        }
+        if($id == $detailsrental->goptwoid){
+            $commgoptwo = $detailsrental->percentgoptwo;
+            $totalcomm = $totalcomm + $detailsrental->percentgoptwo;
+            array_push($commarray,$commgoptwo);
+        }
+
+        $formatdate = date("d-M-Y", strtotime($detailsrental->date));
+        $currentYear = date("Y");
+
+    
+        $tempnumber = $detailsrental->id.$listid;
+        $gennumber = str_pad($tempnumber,4,'0', STR_PAD_LEFT);
+
+        $voucherno = 'MW/'.$currentYear.'/'.$gennumber;
+        
+        return view('/admin/voucherrentaldetails', compact('commarray','totalcomm','agentinfo','formatdate','detailsrental','voucherno'));
+        
+
+        
+    }
 }
+

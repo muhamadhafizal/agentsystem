@@ -36,7 +36,8 @@ Route::get('/rental/delete/{id}/{type}', 'RentalController@destroy');
 Route::get('/rental/listmonth', 'RentalController@listmonth')->name('listmonth');
 Route::get('/rental/month/{month}/{year}', 'RentalController@getmonth')->name('getmonth');
 Route::get('/rental/detailsmonth/{id}', 'RentalController@detailsmonth')->name('detailsrentalmonth');
-Route::get('/rental/paymentvoucher', 'RentalController@paymentvoucher')->name('paymentvoucherrentals');
+Route::get('/rental/paymentvoucher/{id}/{type}', 'RentalController@paymentvoucher')->name('paymentvoucherrentals');
+Route::get('/rental/detailspaymentvoucher/{id}/{caseid}/{listid}', 'RentalController@detailspaymentvoucher')->name('paymentvoucherrentaldetails');
 Route::post('/rental/getyear','RentalController@getyearadminrental')->name('getyearadminrental');
 
 //member

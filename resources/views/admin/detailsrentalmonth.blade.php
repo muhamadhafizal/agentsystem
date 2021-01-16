@@ -187,7 +187,7 @@
 	                            </div>
 	                            <div class="form-group">
 	                                <div class="col-md-6 col-md-offset-4">
-                                    <a href="{{ action('RentalController@getmonth',[$month,$year]) }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('RentalController@edit', ['id' => $rentaldetails->id, 'type' => 'month']) }}'">edit</button>
+                                    <a href="{{ action('RentalController@getmonth',[$month,$year]) }}"><button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button></a>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('RentalController@edit', ['id' => $rentaldetails->id, 'type' => 'month']) }}'">edit</button>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('RentalController@paymentvoucher', ['id' => $rentaldetails->id, 'type' => 'month']) }}'">payment voucher</button>
 	                                </div>
 	                            </div>
 	                        </form>

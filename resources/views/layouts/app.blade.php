@@ -105,9 +105,7 @@ if ($role == 'agent') {
                                 <li>
                                     <a href="{{ route('listmonth') }}">Month</a>
                                 </li>
-                                <!-- <li>
-                                    <a href="{{ route('paymentvoucherrentals') }}">Payment Voucher</a>
-                                </li> -->
+                         
                             </ul>
                         </li>
                         <li class="has-sub">
@@ -196,9 +194,7 @@ if ($role == 'agent') {
                                 <li>
                                     <a href="{{ route('listmonth') }}" style="color:white">Month</a>
                                 </li>
-                                <!-- <li>
-                                    <a href="{{ route('paymentvoucherrentals') }}" style="color:white">Paymeny Voucher</a>
-                                </li> -->
+               
                             </ul>
                         </li>
                         <li>
