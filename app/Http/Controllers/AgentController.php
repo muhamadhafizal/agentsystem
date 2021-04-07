@@ -163,7 +163,7 @@ class AgentController extends Controller
                 $total = 0;
 
                 if($user->id == $data->agent){
-                    $commagent = $commagent + $data->percentagent;
+                    $commagent = $commagent + $data->percentagent + $data->agreementfeeaftersst;
                 }
     
                 if($user->id == $data->leadid){
@@ -238,7 +238,7 @@ class AgentController extends Controller
                 $total = 0;
 
                 if($user->id == $data->agent){
-                    $commagent = $commagent + $data->percentagent;
+                    $commagent = $commagent + $data->percentagent + $data->agreementfeeaftersst;
                 }
     
                 if($user->id == $data->leadid){
@@ -445,7 +445,7 @@ class AgentController extends Controller
                 $total = 0;
 
                 if($user->id == $data->agent){
-                    $commagent = $commagent + $data->percentagent;
+                    $commagent = $commagent + $data->percentagent + $data->agreementfeeaftersst;
                 }
     
                 if($user->id == $data->leadid){
