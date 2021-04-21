@@ -381,7 +381,8 @@ if ($role == 'agent') {
 
        $("#agreementfee").on('keyup',function(){
             $agreementfee = ($(this).val());
-            $sst = ($agreementfee * 0.06).toFixed(2);
+            // $sst = ($agreementfee * 0.06).toFixed(2);
+            $sst = 0;
             $afterdeduct = $agreementfee - $sst;
 
             $("#sstagreementfee").val($sst);
