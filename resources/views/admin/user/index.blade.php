@@ -30,6 +30,9 @@
                                             <th width="50">No</th>
                                             <th>Nickname</th>
                                             <th>Contact</th>
+                                            <th>IC</th>
+                                            <th>Bank Name</th>
+                                            <th>Bank Acc</th>
                                             <th>Position</th>
                                             <th>Action</th>
                                         </tr>
@@ -40,6 +43,9 @@
                                             <td>{{$i++}}</td>
                                             <td>{{$data->nickname}}</td>
                                             <td>{{$data->contact}}</td>
+                                            <td>{{$data->ic}}</td>
+                                            <td>{{$data->bankname}}</td>
+                                            <td>{{$data->bankaccnumber}}</td>
                                             <td>{{$data->level}}</td>
                                             <td><a href="{{ route('detailsagent', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('UserController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
                                         </tr>
