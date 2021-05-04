@@ -88,15 +88,15 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">AgreementFee</label>
-                                            <input type="number" id="agreementfee" name="agreementfee" value="{{ $rentaldetails->agreementfee }}" class="form-control">
+                                            <input type="number" id="agreementfee" step="0.001" name="agreementfee" value="{{ $rentaldetails->agreementfee }}" class="form-control">
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">SST AgreementFee</label>
-                                            <input type="number" id="sstagreementfee" name="sstagreementfee" value="{{ $rentaldetails->sstagreementfee }}" class="form-control" readonly>
+                                            <input type="number" id="sstagreementfee" step="0.001" name="sstagreementfee" value="{{ $rentaldetails->sstagreementfee }}" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">AgreementFee After SST</label>
-                                            <input type="number" id="agreementfeeaftersst" name="agreementfeeaftersst" value="{{ $rentaldetails->agreementfeeaftersst }}" class="form-control" readonly>
+                                            <input type="number" id="agreementfeeaftersst" step="0.001" name="agreementfeeaftersst" value="{{ $rentaldetails->agreementfeeaftersst }}" class="form-control" readonly>
                                         </div>
                                     </div>
                                 </div>

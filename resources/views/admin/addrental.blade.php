@@ -86,15 +86,15 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">AgreementFee</label>
-                                            <input type="number" id="agreementfee" name="agreementfee" placeholder="Enter Agreement Fee" class="form-control" required>
+                                            <input type="number" id="agreementfee" step="0.001" name="agreementfee" placeholder="Enter Agreement Fee" class="form-control" required>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">SST AgreementFee</label>
-                                            <input type="number" id="sstagreementfee" name="sstagreementfee" class="form-control" readonly>
+                                            <input type="number" id="sstagreementfee" step="0.001" name="sstagreementfee" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">AgreementFee After SST</label>
-                                            <input type="number" id="agreementfeeaftersst" name="agreementfeeaftersst" class="form-control" readonly>
+                                            <input type="number" id="agreementfeeaftersst" step="0.001" name="agreementfeeaftersst" class="form-control" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">Total Comm</label>
-	                                        <input type="number" step="0.01" name="fee" id="fee" placeholder="Total Comm" class="form-control myField" required>
+	                                        <input type="number" step="0.001" name="fee" id="fee" placeholder="Total Comm" class="form-control myField" required>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <label class=" form-control-label">SST</label>
