@@ -15,6 +15,11 @@
                 <div class="col-lg-2">
                 </div>
 	                <div class="col-lg-8">
+                    <div class="row">
+                    <div class="col-md-6 text-left mb-3">
+                    <a href="{{ route('listreceiptbillion') }}"><button class="btn btn-primary"> back</button></a>
+                    </div>
+                    </div>
 	                    <div class="card">
 	                        <div class="card-header">
 	                            <strong>Add</strong>
