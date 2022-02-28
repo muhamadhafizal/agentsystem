@@ -15,7 +15,7 @@
 
                         </div>
                         <div style="left: 200px;" class="col-sm-4">
-                        <a href="{{ route('addinvoice') }}"><button type="button" class="btn btn-primary">Add Invoice</button></a>
+                        <a href="{{ route('addinvoicebillion') }}"><button type="button" class="btn btn-primary">Add Invoice</button></a>
                         </div>
                 </div>
                 <div class="section__content section__content--p30">
@@ -41,9 +41,9 @@
                                             <td>{{$invoice->date}}</td>
                                             <td>{{$invoice->invoicenum}}</td>
                                             <td>{{$invoice->bill_to}}</td>
-                                            <td><a href="{{ route('detailsinvoice', $invoice->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
-                                                <a href="{{ route('editinvoice', $invoice->id) }}"><span class="badge badge-success">edit</span> | &nbsp 
-                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('InvoiceController@destroy', $invoice->id) }}"><span class="badge badge-danger">delete</span></a>
+                                            <td><a href="{{ route('detailsinvoicebillion', $invoice->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
+                                                <a href="{{ route('editinvoicebillion', $invoice->id) }}"><span class="badge badge-success">edit</span> | &nbsp 
+                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('InvoicebillionController@destroy', $invoice->id) }}"><span class="badge badge-danger">delete</span></a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -19,7 +19,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <o:Author>User</o:Author>
   <o:LastPrinted>2021-09-28T04:45:00Z</o:LastPrinted>
   <o:Created>2020-05-21T05:25:00Z</o:Created>
-  <o:LastSaved>2022-02-06T07:14:49Z</o:LastSaved>
+  <o:LastSaved>2022-02-06T06:59:47Z</o:LastSaved>
 </o:DocumentProperties>
 </xml><![endif]-->
 <style>
@@ -1137,7 +1137,7 @@ td
  {
  mso-style-parent:style16;
  mso-number-format:"_\(* \#\,\#\#0\.00_\)\;_\(* \\\(\#\,\#\#0\.00\\\)\;_\(* \0022-\0022??_\)\;_\(\@_\)";
- text-align:general;
+ text-align:center;
  vertical-align:middle;
  white-space:nowrap;
  background:auto;
@@ -1159,6 +1159,28 @@ td
  {
  mso-style-parent:style16;
  mso-number-format:"_\(* \#\,\#\#0\.00_\)\;_\(* \\\(\#\,\#\#0\.00\\\)\;_\(* \0022-\0022??_\)\;_\(\@_\)";
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Cambria","sans-serif";
+ border-top:1px solid windowtext;
+ border-right:1px solid windowtext;
+ border-bottom:1px solid windowtext;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x60
+ {
+ mso-style-parent:style16;
+ mso-number-format:"_\(* \#\,\#\#0\.00_\)\;_\(* \\\(\#\,\#\#0\.00\\\)\;_\(* \0022-\0022??_\)\;_\(\@_\)";
  text-align:right;
  vertical-align:middle;
  white-space:nowrap;
@@ -1177,7 +1199,7 @@ td
  mso-diagonal-up:none;
  mso-protection:locked visible;
  }
-.x60
+.x61
  {
  mso-style-parent:style16;
  mso-number-format:"_\(* \#\,\#\#0\.00_\)\;_\(* \\\(\#\,\#\#0\.00\\\)\;_\(* \0022-\0022??_\)\;_\(\@_\)";
@@ -1199,7 +1221,7 @@ td
  mso-diagonal-up:none;
  mso-protection:locked visible;
  }
-.x61
+.x62
  {
  mso-style-parent:style16;
  mso-number-format:General;
@@ -1215,7 +1237,7 @@ td
  font-family:"Cambria","sans-serif";
  mso-protection:locked visible;
  }
-.x62
+.x63
  {
  mso-style-parent:style0;
  mso-number-format:General;
@@ -1255,6 +1277,7 @@ td
   <x:VerticalResolution>600</x:VerticalResolution>
  </x:Print>
  <x:Selected/>
+ <x:TopRowVisible>8</x:TopRowVisible>
 </x:WorksheetOptions>
    </x:ExcelWorksheet>
   </x:ExcelWorksheets>
@@ -1269,6 +1292,7 @@ td
 </xml><![endif]-->
 </head>
 <body link='blue' vlink='purple' >
+
 <div>
 <br><br><br>
 </div>
@@ -1285,21 +1309,19 @@ td
 			<div id="invoice">
 				<div class="row">
 					<div class="col-10">
-						<table border='0' cellpadding='0' cellspacing='0' width='834' style='border-collapse: 
-						collapse;table-layout:fixed;width:625pt'>
+
+					<table border='0' cellpadding='0' cellspacing='0' width='1036' style='border-collapse: 
+						collapse;table-layout:fixed;width:777pt'>
 						<col width='53' style='mso-width-source:userset;width:39.75pt'>
 						<col class='x20' width='102' style='mso-width-source:userset;background:none;width:76.5pt'>
-						<col class='x20' width='78' span='3' style='mso-width-source:userset;background:none;width:58.5pt'>
-						<col class='x20' width='102' style='mso-width-source:userset;background:none;width:76.5pt'>
-						<col class='x20' width='79' style='mso-width-source:userset;background:none;width:59.25pt'>
-						<col class='x20' width='1' style='mso-width-source:userset;background:none;width:0.75pt'>
-						<col class='x20' width='110' style='mso-width-source:userset;background:none;width:82.5pt'>
-						<col class='x20' width='90' style='mso-width-source:userset;background:none;width:67.5pt'>
+						<col class='x20' width='95' span='2' style='mso-width-source:userset;background:none;width:71.25pt'>
+						<col class='x20' width='102' span='4' style='mso-width-source:userset;background:none;width:76.5pt'>
+						<col class='x20' width='110' span='2' style='mso-width-source:userset;background:none;width:82.5pt'>
 						<col width='63' style='width:47.25pt'>
 						<tr height='20' style='mso-height-source:userset;height:15pt'>
 						<td height='20' width='53' style='height:15pt;width:39.75pt;'></td>
-						<td height='20' class='x20' width='102' style='text-align: left;height:15pt;width:76.5pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:4;margin-left:1px;margin-top:1px;width:181px;height:119px'><img width='181' height='119' src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIARgCeQMBIgACEQEDEQH/xAAvAAEAAwEBAAAAAAAAAAAAAAAAAgMEAQUBAQEBAQEAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAAL2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOwFEZQFAFEMXUrs1DmeNLNoOjQVRaKAAAAAAAAAAAAAAAAAAAAAAAAAAAV2ZMXurz/QzRzpnLoxXcd6h3wBVj9HBw1rsya+kZNdRl3+dt52wd8x7CzINAAAAAAAAAAAAAABTFyhleoF6gXqBeoF6gXqBeoF6gXqJ1YNAOVSsw87XQ4721W198U07cPHfoqbu2A0ZtMcsO/z9XHd9c49sY7e0cN+hxDvjsygo5TleoReoF6gXqBeoF6gXqBeoF6gXqLq6NAAAAAAAAAAAAAABCOWBRl9Hz+G9V2XV1yw7qIq2ed6Gb0dsgYl+Tzb2W1W98Rweji56vlk3WdHWAAAAAAAAAAAAAAAAAAAAAAAAAAAIGUxoya8/O0b8ejNs52PXOHRX3z71ud9GApg3187PpuKbuRm1RlAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMSREgBQjEkenQBQAjEnOgUAR7HUZAUAQlHUJHRQjEkRIAUIxJyJNwdFCMSc6BRyMTIExQAjEnOgUAAz6M+LK6m4yas8824dcsmvJzt1tVupk1Z541cOuUZZcLLoyqjmjDjW5CfTIVj1ZdfLTLrwm5GXTIGDfg38tcrtdMhoy6svO2XU3WZdFPc6vHXKi9Ece3Fy1tqudMhoz6M+K0Z9AG5VTdTx1rrsdc86A4Z9OHVz1C2TeQ0AAZ9GfF7bVcZdXSBsya8nO3Tr4V6smyA6xi25OV1dqt3GXVmzZ3QnqBpj05tPHXKdTcDcCMGzHv5ahM65CmXVl52d1Ir05NsB1gHMW3Fx1uHbIDPoz4rRn0AblVF9PHWiXXXIUBDJuc7k147s24dsgAM+iOVd0ZAaAMmuGLG2MrMGuTNkOkc6jHr7DNlTd2wNAMeuMud6OkACMG+EsVXKWp0aMuqOLXdGVmHTNmyHSAcxbYc7YNwKZ9EcqdEZAaVU6o87OqyGpPpSMhRfzkZ9EkBsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/8QAAv/aAAwDAQACAAMAAAAh88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888428y8404x98w8888888888888888888888888888sYys883oA/8u8888888888888888//AP8A/wD/AP8A/wD988D1X9f89eLJa283/wD/AP8A/wD/AP8A/wC/PPPPPPPPPPPPPPKoMrGWvLLYUTfPPPPPPPPPPPPPPPPPPPPPPPPPPPJfI5pH/vH/AK/fzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz7DbzLjbzzbrzjDrzjjzzrjbzrTDzrbzTTzjLrzzzw5Tz21TzsuT7wAb6oKfz8NDzGLPyjzzwBa4TvzzzxQfz1Evy/fr3xKJypHLz+XvzwLzyjzz1BThI7zzzlXzzavXy6RvzgLzyoXnzoPXzw9bymHzVX7q1fzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz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" name='Picture 1' alt='WhatsApp Image 2022-01-25 at 20.12.00'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td height='20' class='x20' width='102' style='height:15pt;width:76.5pt;'></td></tr></table></span></td>
-						<td colspan='9' class='x20' width='679' style='mso-ignore:colspan;'></td>
+						<td height='20' class='x20' width='102' style='text-align: left;height:15pt;width:76.5pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:4;margin-left:1px;margin-top:1px;width:192px;height:119px'><img width='192' height='119' src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIARgCeQMBIgACEQEDEQH/xAAvAAEAAwEBAAAAAAAAAAAAAAAAAgMEAQUBAQEBAQEAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAAL2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOwFEZQFAFEMXUrs1DmeNLNoOjQVRaKAAAAAAAAAAAAAAAAAAAAAAAAAAAV2ZMXurz/QzRzpnLoxXcd6h3wBVj9HBw1rsya+kZNdRl3+dt52wd8x7CzINAAAAAAAAAAAAAABTFyhleoF6gXqBeoF6gXqBeoF6gXqJ1YNAOVSsw87XQ4721W198U07cPHfoqbu2A0ZtMcsO/z9XHd9c49sY7e0cN+hxDvjsygo5TleoReoF6gXqBeoF6gXqBeoF6gXqLq6NAAAAAAAAAAAAAABCOWBRl9Hz+G9V2XV1yw7qIq2ed6Gb0dsgYl+Tzb2W1W98Rweji56vlk3WdHWAAAAAAAAAAAAAAAAAAAAAAAAAAAIGUxoya8/O0b8ejNs52PXOHRX3z71ud9GApg3187PpuKbuRm1RlAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMSREgBQjEkenQBQAjEnOgUAR7HUZAUAQlHUJHRQjEkRIAUIxJyJNwdFCMSc6BRyMTIExQAjEnOgUAAz6M+LK6m4yas8824dcsmvJzt1tVupk1Z541cOuUZZcLLoyqjmjDjW5CfTIVj1ZdfLTLrwm5GXTIGDfg38tcrtdMhoy6svO2XU3WZdFPc6vHXKi9Ece3Fy1tqudMhoz6M+K0Z9AG5VTdTx1rrsdc86A4Z9OHVz1C2TeQ0AAZ9GfF7bVcZdXSBsya8nO3Tr4V6smyA6xi25OV1dqt3GXVmzZ3QnqBpj05tPHXKdTcDcCMGzHv5ahM65CmXVl52d1Ir05NsB1gHMW3Fx1uHbIDPoz4rRn0AblVF9PHWiXXXIUBDJuc7k147s24dsgAM+iOVd0ZAaAMmuGLG2MrMGuTNkOkc6jHr7DNlTd2wNAMeuMud6OkACMG+EsVXKWp0aMuqOLXdGVmHTNmyHSAcxbYc7YNwKZ9EcqdEZAaVU6o87OqyGpPpSMhRfzkZ9EkBsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/8QAAv/aAAwDAQACAAMAAAAh88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888428y8404x98w8888888888888888888888888888sYys883oA/8u8888888888888888//AP8A/wD/AP8A/wD988D1X9f89eLJa283/wD/AP8A/wD/AP8A/wC/PPPPPPPPPPPPPPKoMrGWvLLYUTfPPPPPPPPPPPPPPPPPPPPPPPPPPPJfI5pH/vH/AK/fzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz7DbzLjbzzbrzjDrzjjzzrjbzrTDzrbzTTzjLrzzzw5Tz21TzsuT7wAb6oKfz8NDzGLPyjzzwBa4TvzzzxQfz1Evy/fr3xKJypHLz+XvzwLzyjzz1BThI7zzzlXzzavXy6RvzgLzyoXnzoPXzw9bymHzVX7q1fzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz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" name='Picture 1' alt='WhatsApp Image 2022-01-25 at 20.12.00'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td height='20' class='x20' width='102' style='height:15pt;width:76.5pt;'></td></tr></table></span></td>
+						<td colspan='9' class='x20' width='881' style='mso-ignore:colspan;'></td>
 						</tr>
 						<tr height='20' style='mso-height-source:userset;height:15pt'>
 						<td colspan='11' height='20' style='mso-ignore:colspan;height:15pt;'></td>
@@ -1347,19 +1369,26 @@ td
 						<tr height='21' class='x17' style='mso-height-source:userset;height:16pt'>
 						<td colspan='11' height='21' class='x17' style='mso-ignore:colspan;height:16pt;'></td>
 						</tr>
+						<tr height='21' class='x17' style='mso-height-source:userset;height:16pt'>
+						<td colspan='11' height='21' class='x17' style='mso-ignore:colspan;height:16pt;'></td>
+						</tr>
+						<tr height='21' class='x17' style='mso-height-source:userset;height:16pt'>
+						<td colspan='11' height='21' class='x17' style='mso-ignore:colspan;height:16pt;'></td>
+						</tr>
 						<tr height='20' class='x18' style='mso-height-source:userset;height:15pt'>
 						<td height='20' class='x18' style='height:15pt;'></td>
-						<td class='x20'>ADDRESS: {{$details->address}}&nbsp;</td>
+						<td class='x20'>ADDRESS:&nbsp;</td>
 						<td colspan='6' class='x24'></td>
 						<td class='x33'><div style='float:right'>DATE:</div></td>
-						<td class='x34'>&nbsp{{$dateform}}</td>
+						<td class='x34'>XX FEB 2022</td>
 						<td class='x18'></td>
 						</tr>
 						<tr height='20' class='x18' style='mso-height-source:userset;height:15pt'>
 						<td colspan='2' height='20' class='x18' style='mso-ignore:colspan;height:15pt;'></td>
 						<td colspan='6' class='x24'></td>
 						<td class='x35'><div style='float:right'>VOUCHER NO:</div></td>
-						<td colspan='2' class='x36' style='mso-ignore:colspan;'>{{$details->vouchernum}}</td>
+						<td class='x36'>MW2022XXXX</td>
+						<td class='x18'></td>
 						</tr>
 						<tr height='20' class='x18' style='mso-height-source:userset;height:15pt'>
 						<td colspan='2' height='20' class='x18' style='mso-ignore:colspan;height:15pt;'></td>
@@ -1372,8 +1401,8 @@ td
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
 						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='5' class='x24'>PAY TO: {{$details->pay_to}}&nbsp;</td>
-						<td colspan='4' class='x46'>NRIC: {{$details->nric}}</td>
+						<td colspan='5' class='x24'>PAY TO:&nbsp;</td>
+						<td colspan='4' class='x46'>NRIC:</td>
 						<td height='22' class='x19' width='63' style='text-align: left;height:17pt;width:47.25pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:3;margin-left:0px;margin-top:0px;width:32px;height:35px'><img width='32' height='35' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAjCAYAAAD17ghaAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABtJREFUWIXtwTEBAAAAwqD1T20MH6AAAAAAOBsRowAB9A5ZHAAAAABJRU5ErkJggg==" name='AutoShape 1' alt='Displaying IMG_0459.JPG'></span><span style='mso-ignore:vglayout;position:absolute;z-index:2;margin-left:0px;margin-top:0px;width:32px;height:32px'><img width='32' height='32' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABpJREFUWIXtwQEBAAAAgiD/r25IQAEAAADvBhAgAAFHAaCIAAAAAElFTkSuQmCC" name='AutoShape 1' alt='Displaying IMG_0459.JPG'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td height='22' class='x19' width='63' style='height:17pt;width:47.25pt;'></td></tr></table></span></td>
 						</tr>
 						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
@@ -1381,8 +1410,11 @@ td
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
 						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x27'>BANK DETAILS: {{$details->bank_details}}</td>
+						<td colspan='7' class='x27'>BANK DETAILS:</td>
 						<td colspan='3' class='x38' style='mso-ignore:colspan;'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td colspan='11' height='22' class='x19' style='mso-ignore:colspan;height:17pt;'></td>
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
 						<td colspan='11' height='22' class='x19' style='mso-ignore:colspan;height:17pt;'></td>
@@ -1395,106 +1427,8 @@ td
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
 						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x50' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[0]->description}}</td>
-						<td class='x39'>&nbsp{{$descriptionarray[0]->amount}}</td>
-						<td class='x40'>&nbsp</td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td colspan='7' class='x50' style='border-bottom:1px solid windowtext;'></td>
 						<td class='x39'></td>
-						<td class='x40'></td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[1]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[1]->amount}}</td>
-						<td class='x40'>&nbsp</td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
-						<td class='x41'></td>
-						<td class='x40'></td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[2]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[2]->amount}}</td>
-						<td class='x40'>&nbsp</td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
-						<td class='x41'></td>
-						<td class='x40'></td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[3]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[3]->amount}}</td>
-						<td class='x40'>&nbsp</td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
-						<td class='x41'></td>
-						<td class='x40'></td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[4]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[4]->amount}}</td>
-						<td class='x40'>&nbsp</td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'></td>
-						<td class='x41'></td>
-						<td class='x40'></td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[5]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[5]->amount}}</td>
-						<td class='x40'>&nbsp</td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
-						<td class='x41'></td>
-						<td class='x40'></td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[6]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[6]->amount}}</td>
-						<td class='x40'>&nbsp</td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
-						<td class='x41'></td>
-						<td class='x40'></td>
-						<td class='x19'></td>
-						</tr>
-						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
-						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x50' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[7]->description}}</td>
-						<td class='x39'>&nbsp{{$descriptionarray[7]->amount}}</td>
 						<td class='x40'></td>
 						<td class='x19'></td>
 						</tr>
@@ -1507,8 +1441,36 @@ td
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
 						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[8]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[8]->amount}}</td>
+						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
 						<td class='x40'></td>
 						<td class='x19'></td>
 						</tr>
@@ -1521,9 +1483,135 @@ td
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
 						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'>&nbsp{{$descriptionarray[9]->description}}</td>
-						<td class='x41'>&nbsp{{$descriptionarray[9]->amount}}</td>
-						<td class='x40'>&nbsp</td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x50' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x39'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x39'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x54' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x52' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x40'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x42'></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
+						<td height='22' class='x19' style='height:17pt;'></td>
+						<td colspan='7' class='x56' style='border-right:1px solid windowtext;border-bottom:1px solid windowtext;'></td>
+						<td class='x41'></td>
+						<td class='x42'></td>
 						<td class='x19'></td>
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
@@ -1535,8 +1623,8 @@ td
 						</tr>
 						<tr height='22' class='x19' style='mso-height-source:userset;height:17pt'>
 						<td height='22' class='x19' style='height:17pt;'></td>
-						<td colspan='7' class='x59' style='border-right:1px solid windowtext;'><div style='float:right'>TOTAL AMOUNT</div></td>
-						<td class='x43'>&nbsp {{$totalamount}}</td>
+						<td colspan='7' class='x60' style='border-right:1px solid windowtext;'><div style='float:right'>TOTAL AMOUNT</div></td>
+						<td class='x43'></td>
 						<td class='x44'></td>
 						<td class='x19'></td>
 						</tr>
@@ -1547,7 +1635,17 @@ td
 						</tr>
 						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
 						<td height='12' class='x19' style='height:9pt;'></td>
-						<td colspan='9' class='x61'><div style='display:block;overflow:hidden'></div></td>
+						<td colspan='9' class='x26'><div style='display:block;overflow:hidden'></div></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
+						<td height='12' class='x19' style='height:9pt;'></td>
+						<td colspan='9' class='x62'><div style='display:block;overflow:hidden'></div></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
+						<td height='12' class='x19' style='height:9pt;'></td>
+						<td colspan='9' class='x62'><div style='display:block;overflow:hidden'></div></td>
 						<td class='x19'></td>
 						</tr>
 						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
@@ -1562,12 +1660,27 @@ td
 						</tr>
 						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
 						<td height='12' class='x19' style='height:9pt;'></td>
-						<td colspan='9' class='x61'><div style='display:block;overflow:hidden'></div></td>
+						<td colspan='9' class='x62'><div style='display:block;overflow:hidden'></div></td>
 						<td class='x19'></td>
 						</tr>
 						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
 						<td height='12' class='x19' style='height:9pt;'></td>
-						<td colspan='9' class='x62' style='border-bottom:1px solid windowtext;'><div style='display:block;overflow:hidden'></div></td>
+						<td colspan='9' class='x26'><div style='display:block;overflow:hidden'></div></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
+						<td height='12' class='x19' style='height:9pt;'></td>
+						<td colspan='9' class='x26'><div style='display:block;overflow:hidden'></div></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
+						<td height='12' class='x19' style='height:9pt;'></td>
+						<td colspan='9' class='x62'><div style='display:block;overflow:hidden'></div></td>
+						<td class='x19'></td>
+						</tr>
+						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
+						<td height='12' class='x19' style='height:9pt;'></td>
+						<td colspan='9' class='x63' style='border-bottom:1px solid windowtext;'><div style='display:block;overflow:hidden'></div></td>
 						<td class='x19'></td>
 						</tr>
 						<tr height='12' class='x19' style='mso-height-source:userset;height:9pt'>
@@ -1635,23 +1748,19 @@ td
 						<tr height='0' style='display:none'>
 						<td width='53' style='width:39.75pt'; ></td>
 						<td width='102' style='width:76.5pt'; ></td>
-						<td width='234' colspan='3' style='width:175.5pt'; mso-ignore:colspan;></td>
-						<td width='102' style='width:76.5pt'; ></td>
-						<td width='79' style='width:59.25pt'; ></td>
-						<td width='1' style='width:0.75pt'; ></td>
-						<td width='110' style='width:82.5pt'; ></td>
-						<td width='90' style='width:67.5pt'; ></td>
+						<td width='190' colspan='2' style='width:142.5pt'; mso-ignore:colspan;></td>
+						<td width='408' colspan='4' style='width:306pt'; mso-ignore:colspan;></td>
+						<td width='220' colspan='2' style='width:165pt'; mso-ignore:colspan;></td>
 						<td width='63' style='width:47.25pt'; ></td>
 						</tr>
 						<![endif]>
-						</table>
+					</table>
 					</div>
 				</div>
 			</div>
 		</div>
  	</div>
 </div>
-
 </body>
 
 </html>

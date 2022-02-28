@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appagents')
 
 @section('content')
       <!-- MAIN CONTENT-->
@@ -15,7 +15,7 @@
 
                         </div>
                         <div style="left: 200px;" class="col-sm-4">
-                        <a href="{{ route('addinvoice') }}"><button type="button" class="btn btn-primary">Add Invoice</button></a>
+                        <a href="{{ route('addpayment') }}"><button type="button" class="btn btn-primary">Add CP</button></a>
                         </div>
                 </div>
                 <div class="section__content section__content--p30">
@@ -28,22 +28,23 @@
                                     <thead style="background-color: #fffafa;f1a1a;">
                                         <tr>
                                             <th width="50">No</th>
-                                            <th>Date</th>
-                                            <th>Invoice Number</th>
-                                            <th>Bill To</th>
+                                            <th>CP Num</th>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Amount</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($invoices as $invoice)
+                                    @foreach($payments as $payment)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{$invoice->date}}</td>
-                                            <td>{{$invoice->invoicenum}}</td>
-                                            <td>{{$invoice->bill_to}}</td>
-                                            <td><a href="{{ route('detailsinvoice', $invoice->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
-                                                <a href="{{ route('editinvoice', $invoice->id) }}"><span class="badge badge-success">edit</span> | &nbsp 
-                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('InvoiceController@destroy', $invoice->id) }}"><span class="badge badge-danger">delete</span></a>
+                                            <td>{{$payment->cp_num}}</td>
+                                            <td>{{$payment->name}}</td>
+                                            <td>{{$payment->contact}}</td>
+                                            <td>{{$payment->amount}}</td>
+                                            <td><a href="{{ route('detailspayment', $payment->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
+                                                <a href="{{ route('editpayment', $payment->id) }}"><span class="badge badge-success">edit</span> 
                                             </td>
                                         </tr>
                                     @endforeach

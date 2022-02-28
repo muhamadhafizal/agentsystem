@@ -106,6 +106,18 @@ if ($role == 'admin' || $role == 'acount') {
                                 </li>
                             </ul>
                         </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-file"></i>Option Form</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="{{ route('agentlistpayment') }}">Confirmation On Payment</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('agentlistletter') }}">Letter Offer Exclusive Real Estate Agency</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -155,6 +167,18 @@ if ($role == 'admin' || $role == 'acount') {
                                 </li>
                                 <li>
                                     <a href="{{ route('agentlistmonthproject') }}" style="color:white">Month</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="js-arrow" href="#" style="color:white">
+                                <i class="fas fa-file"></i>Option Form</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{ route('agentlistpayment') }}" style="color:white">Confirmation On Payment</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('agentlistletter') }}" style="color:white">Letter Offer Exclusive Real Estate Agency</a>
                                 </li>
                             </ul>
                         </li>

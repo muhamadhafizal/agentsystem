@@ -1,24 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Voucherbillion;
 use Illuminate\Http\Request;
-use App\Voucher;
 use Redirect;
 
-class VoucherController extends Controller
+class VoucherbillionController extends Controller
 {
     public function index(){
 
-        $voucher = Voucher::orderby('created_at','desc')->get();
+        $voucher = Voucherbillion::orderby('created_at','desc')->get();
         $i = 1;
 
-        return view('admin/voucher/index', compact('voucher','i'));
+        return view('admin/billion/voucher/index', compact('voucher','i'));
+
     }
 
     public function add(){
 
-        return view('admin/voucher/add');
+        return view('admin/billion/voucher/add');
     }
 
     public function store(Request $request){
@@ -126,8 +126,7 @@ class VoucherController extends Controller
        
         $desc = json_encode($descriptionarray);
 
-        $voucher = new Voucher;
-        $voucher->num = '1';
+        $voucher = new Voucherbillion;
         $voucher->vouchernum = $vouchernum;
         $voucher->pay_to = $pay_to;
         $voucher->bank_details = $bank_details;
@@ -138,53 +137,32 @@ class VoucherController extends Controller
         $voucher->save();
 
         \Session::flash('flash_message', 'successfully add new voucher');
-        return Redirect::route('listvoucher');
+        return Redirect::route('listvoucherbillion');
 
     }
 
     public function destroy($id){
 
-        $voucher = Voucher::find($id);
+        $voucher = Voucherbillion::find($id);
         $voucher->delete($voucher->id);
         \Session::flash('flash_message_delete','success deleted voucher');
 
-        return Redirect::route('listvoucher');
-
-    }
-
-    public function details($id){
-        
-        $details = Voucher::find($id);
-        $dateform = date("d M Y", strtotime($details->date));
-
-        $descriptionarray = json_decode($details->description);
-
-        $totalamount = 0;
-
-       
-        for($x=0; $x<10; $x++){
-
-            $totalamount = $totalamount + $descriptionarray[$x]->amount;
-
-        }
-       
-        return view('admin/voucher/details', compact('details','descriptionarray','dateform','totalamount'));
+        return Redirect::route('listvoucherbillion');
 
     }
 
     public function edit($id){
 
-        $details = Voucher::find($id);
+        $details = Voucherbillion::find($id);
 
         $descriptionarray = json_decode($details->description);
 
-        //dd($descriptionarray[0]->description);
-
-        return view('admin/voucher/edit', compact('details','descriptionarray'));
+        return view('admin/billion/voucher/edit', compact('details','descriptionarray'));
 
     }
 
     public function update(Request $request){
+
 
         $voucherid = $request->input('voucher_id');
         
@@ -290,7 +268,8 @@ class VoucherController extends Controller
        
         $desc = json_encode($descriptionarray);
 
-        $voucher = Voucher::find($voucherid);
+
+        $voucher = Voucherbillion::find($voucherid);
         $voucher->vouchernum = $vouchernum;
         $voucher->pay_to = $pay_to;
         $voucher->bank_details = $bank_details;
@@ -303,8 +282,27 @@ class VoucherController extends Controller
         $id = $voucherid;
 
         \Session::flash('flash_message', 'successfully update voucher');
-        return Redirect::route('editvoucher', compact('id'));
+        return Redirect::route('editvoucherbillion', compact('id'));
 
+    }
+
+    public function details($id){
+        
+        $details = Voucherbillion::find($id);
+        $dateform = date("d M Y", strtotime($details->date));
+
+        $descriptionarray = json_decode($details->description);
+
+        $totalamount = 0;
+
+       
+        for($x=0; $x<10; $x++){
+
+            $totalamount = $totalamount + $descriptionarray[$x]->amount;
+
+        }
+       
+        return view('admin/billion/voucher/details', compact('details','descriptionarray','dateform','totalamount'));
 
     }
 }

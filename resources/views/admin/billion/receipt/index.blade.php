@@ -15,7 +15,7 @@
 
                         </div>
                         <div style="left: 200px;" class="col-sm-4">
-                        <a href="{{ route('addinvoice') }}"><button type="button" class="btn btn-primary">Add Invoice</button></a>
+                        <a href="{{ route('billionaddreceipt') }}"><button type="button" class="btn btn-primary">Add Receipt</button></a>
                         </div>
                 </div>
                 <div class="section__content section__content--p30">
@@ -29,21 +29,23 @@
                                         <tr>
                                             <th width="50">No</th>
                                             <th>Date</th>
-                                            <th>Invoice Number</th>
-                                            <th>Bill To</th>
+                                            <th>Receipt Number</th>
+                                            <th>Received From</th>
+                                            <th>Amount</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($invoices as $invoice)
+                                    @foreach($receipts as $receipt)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{$invoice->date}}</td>
-                                            <td>{{$invoice->invoicenum}}</td>
-                                            <td>{{$invoice->bill_to}}</td>
-                                            <td><a href="{{ route('detailsinvoice', $invoice->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
-                                                <a href="{{ route('editinvoice', $invoice->id) }}"><span class="badge badge-success">edit</span> | &nbsp 
-                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('InvoiceController@destroy', $invoice->id) }}"><span class="badge badge-danger">delete</span></a>
+                                            <td>{{$receipt->date}}</td>
+                                            <td>{{$receipt->receiptnum}}</td>
+                                            <td>{{$receipt->received_from}}</td>
+                                            <td>{{$receipt->amount_paid}}</td>
+                                            <td><a href="{{ route('detailsreceiptbillion', $receipt->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
+                                                <a href="{{ route('editreceiptbillion', $receipt->id) }}"><span class="badge badge-success">edit</span></a> |
+                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('ReceiptbillionController@destroy', $receipt->id) }}"><span class="badge badge-danger">delete</span></a>
                                             </td>
                                         </tr>
                                     @endforeach

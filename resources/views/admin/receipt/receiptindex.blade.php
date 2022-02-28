@@ -30,16 +30,23 @@
                                             <th width="50">No</th>
                                             <th>Date</th>
                                             <th>Receipt Number</th>
+                                            <th>Received From</th>
+                                            <th>Amount</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($receipt as $data)
+                                    @foreach($receipts as $receipt)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{$data->created_at->format("d-m-Y")}}</td>
-                                            <td>{{$data->receiptnum}}</td>
-                                            <td><a href="{{ route('detailsreceipt', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('ReceiptController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
+                                            <td>{{$receipt->date}}</td>
+                                            <td>{{$receipt->receiptnum}}</td>
+                                            <td>{{$receipt->received_from}}</td>
+                                            <td>{{$receipt->amount_paid}}</td>
+                                            <td><a href="{{ route('detailsreceipt', $receipt->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
+                                                <a href="{{ route('editreceipt', $receipt->id) }}"><span class="badge badge-success">edit</span></a> |
+                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('ReceiptController@destroy', $receipt->id) }}"><span class="badge badge-danger">delete</span></a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

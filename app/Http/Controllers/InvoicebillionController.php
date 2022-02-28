@@ -1,25 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Invoice;
+use App\Invoicebillion;
 use Redirect;
+use Illuminate\Http\Request;
 
-class InvoiceController extends Controller
+class InvoicebillionController extends Controller
 {
     public function index(){
 
-        $invoices = Invoice::orderby('created_at','DESC')->get();
+        $invoices = Invoicebillion::orderby('created_at','DESC')->get();
         $i = 1;
 
-        return view('admin/invoice/index', compact('invoices','i'));
-
+        return view('admin/billion/invoice/index', compact('invoices','i'));
     }
 
     public function add(){
 
-        return view('admin/invoice/add');
+        return view('admin/billion/invoice/add');
     }
 
     public function store(Request $request){
@@ -38,7 +36,7 @@ class InvoiceController extends Controller
             $sst = 0;
         }
 
-        $invoice = new Invoice;
+        $invoice = new Invoicebillion;
         $invoice->bill_to = $bill_to;
         $invoice->date = $date;
         $invoice->invoicenum = $invoicenum;
@@ -48,53 +46,71 @@ class InvoiceController extends Controller
         $invoice->half_month_agent = $half_month_agent;
         $invoice->agreement_stemping = $agreement_stamping;
         $invoice->sst = $sst;
-        $invoice->num = 1;
         $invoice->save();
 
          \Session::flash('flash_message', 'successfully save invoice');
-        return Redirect::route('listinvoice');
-        
-        // $getlast = Invoice::latest('created_at','desc')->first();
-
-        // if($getlast){
-
-        //     $num = $getlast->num+1;
-
-        // } else {
-
-        //     $num = 1;
-           
-        // }
-
-        // $numpad =  str_pad($num, 4, "0", STR_PAD_LEFT); 
-
-        // $currentyear = date('Y');
-        // $invoicenum = 'MW/'. $currentyear .'/'.$numpad;
-  
-        // $invoice = new Invoice;
-        // $invoice->num = $num;
-        // $invoice->invoicenum = $invoicenum;
-        // $invoice->save();
-
-        // \Session::flash('flash_message', 'successfully generate new invoice number');
-        // return Redirect::route('listinvoice');
-
+        return Redirect::route('listinvoicebillion');
     }
 
     public function destroy($id){
-
-        $invoice = Invoice::find($id);
+        
+        $invoice = Invoicebillion::find($id);
         $invoice->delete($invoice->id);
         \Session::flash('flash_message_delete','success deleted invoice');
 
-        return Redirect::route('listinvoice');
+        return Redirect::route('listinvoicebillion');
 
+    }
+
+    public function edit($id){
+
+        $invoice = Invoicebillion::find($id);
+
+        return view('admin/billion/invoice/edit', compact('invoice'));
+
+    }
+
+    public function update(Request $request){
+        
+        $invoice_id = $request->input('invoice_id');
+
+        $bill_to = $request->input('bill_to');
+        $date = $request->input('date');
+        $invoicenum = $request->input('invoicenum');
+        $two_month_security = $request->input('two_month_security');
+        $half_month_utility = $request->input('half_month_utility');
+        $one_month_advance = $request->input('one_month_advance');
+        $half_month_agent = $request->input('half_month_agent');
+        $agreement_stamping = $request->input('agreement_stamping');
+        $sst = $request->input('sst');
+
+        if($sst == null){
+            $sst = 0;
+        }
+
+        $invoice = Invoicebillion::find($invoice_id);
+        $invoice->bill_to = $bill_to;
+        $invoice->date = $date;
+        $invoice->invoicenum = $invoicenum;
+        $invoice->two_month_security = $two_month_security;
+        $invoice->half_month_utility = $half_month_utility;
+        $invoice->one_month_advance = $one_month_advance;
+        $invoice->half_month_agent = $half_month_agent;
+        $invoice->agreement_stemping = $agreement_stamping;
+        $invoice->sst = $sst;
+        $invoice->save();
+
+        $id = $invoice_id;
+
+        \Session::flash('flash_message', 'successfully update invoice');
+        return Redirect::route('editinvoicebillion', compact('id'));
 
     }
 
     public function details($id){
+        
 
-        $details = Invoice::find($id);
+        $details = Invoicebillion::find($id);
         $dateform = date("d M Y", strtotime($details->date));
 
         $subtotal = $details->two_month_security + $details->half_month_utility + $details->one_month_advance + $details->half_month_agent + $details->agreement_stemping;
@@ -123,54 +139,7 @@ class InvoiceController extends Controller
         ];
 
         //dd($invoicearray);
-        return view('admin/invoice/details', compact('invoicearray'));
-
-    }
-
-    public function edit($id){
-
-        $invoice = Invoice::find($id);
-
-        return view('admin/invoice/edit', compact('invoice'));
-
-    }
-
-    public function update(Request $request){
-        
-        $invoice_id = $request->input('invoice_id');
-
-        $bill_to = $request->input('bill_to');
-        $date = $request->input('date');
-        $invoicenum = $request->input('invoicenum');
-        $two_month_security = $request->input('two_month_security');
-        $half_month_utility = $request->input('half_month_utility');
-        $one_month_advance = $request->input('one_month_advance');
-        $half_month_agent = $request->input('half_month_agent');
-        $agreement_stamping = $request->input('agreement_stamping');
-        $sst = $request->input('sst');
-
-        if($sst == null){
-            $sst = 0;
-        }
-
-        $invoice = Invoice::find($invoice_id);
-        $invoice->bill_to = $bill_to;
-        $invoice->date = $date;
-        $invoice->invoicenum = $invoicenum;
-        $invoice->two_month_security = $two_month_security;
-        $invoice->half_month_utility = $half_month_utility;
-        $invoice->one_month_advance = $one_month_advance;
-        $invoice->half_month_agent = $half_month_agent;
-        $invoice->agreement_stemping = $agreement_stamping;
-        $invoice->num = 1;
-        $invoice->sst = $sst;
-        $invoice->save();
-
-        $id = $invoice_id;
-
-        \Session::flash('flash_message', 'successfully update invoice');
-        return Redirect::route('editinvoice', compact('id'));
-        
+        return view('admin/billion/invoice/details', compact('invoicearray'));
 
     }
 }

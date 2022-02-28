@@ -15,7 +15,7 @@
 
                         </div>
                         <div style="left: 200px;" class="col-sm-4">
-                        <a href="{{ route('addinvoice') }}"><button type="button" class="btn btn-primary">Add Invoice</button></a>
+                        <a href="{{ route('addvoucherbillion') }}"><button type="button" class="btn btn-primary">Add Voucher</button></a>
                         </div>
                 </div>
                 <div class="section__content section__content--p30">
@@ -29,22 +29,21 @@
                                         <tr>
                                             <th width="50">No</th>
                                             <th>Date</th>
-                                            <th>Invoice Number</th>
-                                            <th>Bill To</th>
+                                            <th>Voucher Number</th>
+                                            <th>Pay To</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($invoices as $invoice)
+                                    @foreach($voucher as $data)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{$invoice->date}}</td>
-                                            <td>{{$invoice->invoicenum}}</td>
-                                            <td>{{$invoice->bill_to}}</td>
-                                            <td><a href="{{ route('detailsinvoice', $invoice->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
-                                                <a href="{{ route('editinvoice', $invoice->id) }}"><span class="badge badge-success">edit</span> | &nbsp 
-                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('InvoiceController@destroy', $invoice->id) }}"><span class="badge badge-danger">delete</span></a>
-                                            </td>
+                                            <td>{{$data->created_at->format("d-m-Y")}}</td>
+                                            <td>{{$data->vouchernum}}</td>
+                                            <td>{{$data->pay_to}}</td>
+                                            <td><a href="{{ route('detailsvoucherbillion', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
+                                                <a href="{{ route('editvoucherbillion', $data->id) }}"><span class="badge badge-success">edit</span>  | &nbsp 
+                                                <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('VoucherbillionController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

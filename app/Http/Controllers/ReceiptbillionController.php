@@ -1,28 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Receipt;
+use App\Receiptbillion;
 use Redirect;
-class ReceiptController extends Controller
+use Illuminate\Http\Request;
+
+class ReceiptbillionController extends Controller
 {
     public function index(){
 
-       
-        $receipts = Receipt::orderby('created_at','desc')->get();
+        $receipts = Receiptbillion::orderby('created_at','desc')->get();
         $i = 1;
 
-        return view('admin/receipt/receiptindex', compact('receipts','i'));
+        return view('admin/billion/receipt/index', compact('receipts','i'));
     }
 
     public function add(){
 
-        return view('admin/receipt/receiptadd');
+        return view('admin/billion/receipt/add');
     }
 
     public function store(Request $request){
-        
+
         $sst_no = $request->input('sst_no');
         $receiptnum = $request->input('receiptnum');
         $date = $request->input('date');
@@ -32,7 +31,7 @@ class ReceiptController extends Controller
         $being_payment = $request->input('being_payment');
         $address = $request->input('address');
 
-        $receipt = new Receipt;
+        $receipt = new Receiptbillion;
         $receipt->sst_no = $sst_no;
         $receipt->receiptnum = $receiptnum;
         $receipt->date = $date;
@@ -41,80 +40,28 @@ class ReceiptController extends Controller
         $receipt->amount_paid = $amount_paid;
         $receipt->being_payment = $being_payment;
         $receipt->address = $address;
-        $receipt->num = '001';
         $receipt->save();
 
         \Session::flash('flash_message', 'successfully save receipt');
-        return Redirect::route('listreceipt');
-
-
-        // $getlast = Receipt::latest('created_at','desc')->first();
-
-        // if($getlast){
-
-        //     $num = $getlast->num+1;
-
-        // } else {
-
-        //     $num = 1;
-           
-        // }
-
-        // $numpad =  str_pad($num, 4, "0", STR_PAD_LEFT); 
-
-        // $currentyear = date('Y');
-        // $receiptnum = 'MW/'. $currentyear .'/'.$numpad;
-  
-        // $receipt = new Receipt;
-        // $receipt->num = $num;
-        // $receipt->receiptnum = $receiptnum;
-        // $receipt->save();
-
-        
+        return Redirect::route('listreceiptbillion');
 
     }
 
     public function destroy($id){
-
-        $receipt = Receipt::find($id);
+        
+        $receipt = Receiptbillion::find($id);
         $receipt->delete($receipt->id);
         \Session::flash('flash_message_delete','success deleted receipt');
 
-        return Redirect::route('listreceipt');
-
-
-    }
-
-  
-
-    public function details($id){
-
-        $details = Receipt::find($id);
-        $dateform = date("d M Y", strtotime($details->date));
-    
-
-        $receiptarray = [
-            'id' => $details->id,
-            'sst_no' => $details->sst_no,
-            'receiptnum' => $details->receiptnum,
-            'date' => $dateform,
-            'payment_method' => $details->payment_method,
-            'received_from' => $details->received_from,
-            'amount_paid' => $details->amount_paid,
-            'being_payment' => $details->being_payment,
-            'address' => $details->address,
-
-        ];
-       
-        return view('admin/receipt/details', compact('receiptarray'));
+        return Redirect::route('listreceiptbillion');
 
     }
 
     public function edit($id){
         
-        $receipt = Receipt::find($id);
+        $receipt = Receiptbillion::find($id);
 
-        return view('admin/receipt/edit', compact('receipt'));
+        return view('admin/billion/receipt/edit', compact('receipt'));
 
     }
 
@@ -130,7 +77,7 @@ class ReceiptController extends Controller
         $being_payment = $request->input('being_payment');
         $address = $request->input('address');
 
-        $receipt = Receipt::find($receipt_id);
+        $receipt = Receiptbillion::find($receipt_id);
         $receipt->sst_no = $sst_no;
         $receipt->receiptnum = $receiptnum;
         $receipt->date = $date;
@@ -139,15 +86,33 @@ class ReceiptController extends Controller
         $receipt->amount_paid = $amount_paid;
         $receipt->being_payment = $being_payment;
         $receipt->address = $address;
-        $receipt->num = '001';
         $receipt->save();
 
         $id = $receipt_id;
 
         \Session::flash('flash_message', 'successfully update receipt');
-        return Redirect::route('editreceipt', compact('id'));
+        return Redirect::route('editreceiptbillion', compact('id'));
 
-        
+    }
+
+    public function details($id){
+
+        $details = Receiptbillion::find($id);
+        $dateform = date("d M Y", strtotime($details->date));
+    
+        $receiptarray = [
+            'id' => $details->id,
+            'receiptnum' => $details->receiptnum,
+            'date' => $dateform,
+            'payment_method' => $details->payment_method,
+            'received_from' => $details->received_from,
+            'amount_paid' => $details->amount_paid,
+            'being_payment' => $details->being_payment,
+            'address' => $details->address,
+
+        ];
+
+        return view('admin/billion/receipt/details', compact('receiptarray'));
 
     }
 }

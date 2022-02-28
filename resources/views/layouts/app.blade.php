@@ -141,6 +141,7 @@ if ($role == 'agent') {
                                 </li>
                             </ul>
                         </li>
+                        
                     </ul>
                 </div>
             </nav>
@@ -227,6 +228,33 @@ if ($role == 'agent') {
                                 </li>
                                 <li>
                                     <a href="{{ route('listvoucher') }}" style="color:white">Payment Voucher</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="js-arrow" href="#" style="color:white">
+                                <i class="fas fa-file"></i>Simple Billion </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{ route('listreceiptbillion') }}" style="color:white">Receipt</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('listinvoicebillion') }}" style="color:white">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('listvoucherbillion') }}" style="color:white">Payment Voucher</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="js-arrow" href="#" style="color:white">
+                                <i class="fas fa-file-pdf-o"></i>Option Form</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{ route('adminlistpayment') }}" style="color:white">Confirmation On Payment</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('adminlistletter') }}" style="color:white">Letter Offer Exclusive Real Estate Agency</a>
                                 </li>
                             </ul>
                         </li>
