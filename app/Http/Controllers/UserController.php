@@ -28,11 +28,25 @@ class UserController extends Controller
 
     }
 
+   
+
     public function getleveluser($type){
 
         if($type == 'all' ){
+
             $user = User::where('role','agent')->get();
-        } else {
+
+        } else if ($type == 'lead'){
+
+            $user = User::where('role','agent')
+                    ->where(function ($query){
+                        $query->where('level','lead')
+                        ->orWhere('level','fullcomm');
+            })
+            ->get();
+
+        }
+        else {
             $user = User::where('role','agent')->where('level',$type)->get();
         }
 
@@ -193,7 +207,8 @@ class UserController extends Controller
                 $leadname = $leaddetails->nickname;
             }
 
-            $leaduser = User::where('level','lead')->get();
+            //$leaduser = User::where('level','lead')->get();
+            $leaduser = $this->getleveluser('lead');
 
             //calculate comm agent personal
             $personal = Rental::where('status','success')->where('agent',$id)->get();

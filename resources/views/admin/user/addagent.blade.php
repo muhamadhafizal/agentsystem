@@ -67,6 +67,7 @@
                                             <label class="form-control-label">Position</label>
                                             <select name="position" id="position" class="form-control">
                                                 <option value=""></option>
+                                                <option value="fullcomm">fullcomm</option>
                                                 <option value="lead">Lead</option>
                                                 <option value="prelead">PreLead</option>
                                                 <option value="consultant">Consultant</option>

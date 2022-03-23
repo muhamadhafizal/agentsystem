@@ -1,0 +1,5 @@
+Bom
+Bomyolov3model-tiny18000.cfg
+Bomyolov3model-tiny18000_last.weights
+/var/www/html/apigrid/storage/app/two.txt
+/var/www/html/apigrid/public/photo/Bom94384

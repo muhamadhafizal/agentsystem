@@ -122,6 +122,14 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <label class=" form-control-label">Admin Fee (RM) (If Applicable)</label>
+	                                        <input type="number" step="0.01" name="adminfee" value="{{ $rentaldetails->adminfee }}"  class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label class="form-control-label">Category</label>
                                             <select name="category" class="form-control" id="category" onfocus="this.selectedIndex = -1;">

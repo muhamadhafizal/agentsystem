@@ -59,7 +59,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Vendor Authorized</label>
+                                                <label class=" form-control-label">Property Address</label>
                                                 <input type="text" name="authorized" value="{{$letter->authorized}}" class="form-control">
                                             </div>
                                         </div>

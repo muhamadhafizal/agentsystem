@@ -79,18 +79,28 @@ class RentalController extends Controller
 
     }
 
-    public function getcalculationpercent($agent,$fee,$sst,$commin,$netcomm, $sstagreementfee, $agreementfeeaftersst){
+    public function getcalculationpercent($agent,$fee,$sst,$commin,$netcomm, $sstagreementfee, $agreementfeeaftersst,$amountadminfee){
+
+        $agentdetails = User::find($agent);
+         
+        //id
+         $goponeid = $agentdetails->gopone;
+         $goptwoid = $agentdetails->goptwo;
+         $ipid = $agentdetails->ip;
+         $leadid = $agentdetails->lead;
+         $preleadid = $agentdetails->prelead;
         
+
+        if($agentdetails->level != 'fullcomm'){
+            
         $temppercentlead = 0;
         $temppercentprelead = 0;
 
-        $agentdetails = User::find($agent);
-
         $ipuser = User::where('id',$agentdetails->ip)->first();
-
+ 
         if($ipuser){
 
-            if($ipuser->level == 'lead'){
+            if($ipuser->level == 'lead' || $ipuser->level == 'fullcomm'){
                 $percentip = 0.03;
             } elseif($ipuser->level == 'prelead'){
                 $percentip = 0.05;
@@ -117,10 +127,13 @@ class RentalController extends Controller
             $temppercentlead = 0.1;
             $temppercentprelead = 0.1;
         }
+
+        
         
         $percentagent = round($netcomm * $percentcomm, 2);
-
+        
         $percentip = round($percentagent * $percentip, 2);
+        
         $percentgopone = round($percentagent * 0.02, 2);
         $percentgoptwo = round($percentagent * 0.02, 2);
 
@@ -132,13 +145,6 @@ class RentalController extends Controller
         $profitcompany = $commin - $total;
 
         $totalpayoutcomm = $total - $sst + $agreementfeeaftersst;
-
-        //id
-        $goponeid = $agentdetails->gopone;
-        $goptwoid = $agentdetails->goptwo;
-        $ipid = $agentdetails->ip;
-        $leadid = $agentdetails->lead;
-        $preleadid = $agentdetails->prelead;
 
         return ['percentagent'=>$percentagent, 
                 'percentip'=>$percentip,
@@ -155,6 +161,37 @@ class RentalController extends Controller
                 'leadid' => $leadid,
                 'preleadid' => $preleadid,
             ];
+        } else {
+
+            $percentagent = $netcomm;
+            $percentip = 0.0;
+            $percentgopone = 0.0;
+            $percentgoptwo = 0.0;
+            $percentlead = 0.0;
+            $percentprelead = 0.0;
+
+            $total = $sst + $percentagent + $percentip + $percentgopone + $percentgoptwo + $percentlead + $percentprelead;
+            $profitcompany = $amountadminfee;
+            $totalpayoutcomm = $percentagent - $sst - $amountadminfee + $agreementfeeaftersst;
+
+            return ['percentagent'=>$percentagent, 
+                'percentip'=>$percentip,
+                'percentgopone'=>$percentgopone, 
+                'percentgoptwo'=>$percentgoptwo, 
+                'percentlead'=>$percentlead, 
+                'percentprelead'=>$percentprelead, 
+                'total'=>$total, 
+                'profitcompany'=>$profitcompany,
+                'totalpayoutcomm'=>$totalpayoutcomm,
+                'goponeid' => $goponeid,
+                'goptwoid' => $goptwoid,
+                'ipid' => $ipid,
+                'leadid' => $leadid,
+                'preleadid' => $preleadid,
+            ];
+
+
+        }
    
 
     }
@@ -221,10 +258,17 @@ class RentalController extends Controller
         $gdp = $request->input('gdp');
         $sstagreementfee = $request->input('sstagreementfee');
         $agreementfeeaftersst = $request->input('agreementfeeaftersst');
+        $adminfee = $request->input('adminfee');
         
         $agentdetails = User::find($agent);
 
-        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee,$agreementfeeaftersst);
+        if($adminfee != null){
+            $amountadminfee = $adminfee;
+        } else {
+            $amountadminfee = 0;
+        }
+
+        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee,$agreementfeeaftersst,$amountadminfee);
         
         $rental = new Rental;
         $rental->num = $num;
@@ -263,6 +307,7 @@ class RentalController extends Controller
         $rental->gdp = $gdp;
         $rental->agreementfeeaftersst = $agreementfeeaftersst;
         $rental->sstagreementfee = $sstagreementfee;
+        $rental->adminfee = $amountadminfee;
 
         $rental->save();
 
@@ -280,6 +325,8 @@ class RentalController extends Controller
         } else {
             $category = 'Subsale';
         }
+
+       
         return view('/admin/detailsrental', compact('rentaldetails','category'));
 
     }
@@ -326,8 +373,15 @@ class RentalController extends Controller
         $gdp = $request->input('gdp');
         $sstagreementfee = $request->input('sstagreementfee');
         $agreementfeeaftersst = $request->input('agreementfeeaftersst');
+        $adminfee = $request->input('adminfee');
 
-        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee,$agreementfeeaftersst);
+        if($adminfee != null){
+            $amountadminfee = $adminfee;
+        } else {
+            $amountadminfee = 0;
+        }
+
+        $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee,$agreementfeeaftersst,$amountadminfee);
       
         $rental = Rental::find($id);
 
