@@ -256,6 +256,12 @@ if ($role == 'agent') {
                                 <li>
                                     <a href="{{ route('adminlistletter') }}" style="color:white">Letter Offer Exclusive Real Estate Agency</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('adminlistotp') }}" style="color:white">OTP</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('adminlistotl') }}" style="color:white">OTL</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

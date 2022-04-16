@@ -28,6 +28,7 @@ class AdminController extends Controller
         $totalsst = 0;
         $totalgdp = 0;
         $totalpayoutcomm = 0;
+        $agreementsst = 0;
 
         if($user){
 
@@ -47,9 +48,10 @@ class AdminController extends Controller
                 $totalsst = $totalsst + $data->percentsst;
                 $totalgdp = $totalgdp + $data->gdp;
                 $totalpayoutcomm = $totalpayoutcomm + $data->totalpayoutcomm;
+                $agreementsst = $agreementsst + $data->sstagreementfee;
             }
-
-            return view('admin/index', compact('rentalcount','totalprofit','totalsst','totalgdp','totalpayoutcomm'));
+            
+            return view('admin/index', compact('rentalcount','totalprofit','totalsst','totalgdp','totalpayoutcomm','agreementsst'));
         } else {
             return redirect('/');
         }
@@ -63,6 +65,7 @@ class AdminController extends Controller
         $totalsst = 0;
         $totalgdp = 0;
         $totalpayoutcomm = 0;
+        $agreementsst = 0;
 
             $year = $year;
 
@@ -80,6 +83,7 @@ class AdminController extends Controller
                 $totalsst = $totalsst + $data->percentsst;
                 $totalgdp = $totalgdp + $data->gdp;
                 $totalpayoutcomm = $totalpayoutcomm + $data->totalpayoutcomm;
+                $agreementsst = $agreementsst + $data->sstagreementfee;
             }
 
            $finalarray = [
@@ -88,6 +92,7 @@ class AdminController extends Controller
                'totalsst' => number_format($totalsst,2,'.',''),
                'totalgdp' => number_format($totalgdp,2,'.',''),
                'totalpayoutcomm' => number_format($totalpayoutcomm,2,'.',''),
+               'agreementsst' => number_format($agreementsst,2,'.',''),
            ];
         
            return response()->json($finalarray);

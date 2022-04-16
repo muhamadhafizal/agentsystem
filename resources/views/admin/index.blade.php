@@ -10,7 +10,7 @@
                   <h2 style="color: white">Year :</h2>
                 </div>
                  <div class="form-group mx-sm-3 mb-2">
-                   <input class="date-own form-control" style="width: 100px;" type="number" id="yearchart" readonly="true" value="2021">
+                   <input class="date-own form-control" style="width: 100px;" type="number" id="yearchart" readonly="true" value="2022">
                  </div>
                  <button id ="year" class="btn btn-primary mb-2">Submit</button>
             </div>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-6">
+                <div class="col-sm-6 col-lg-4">
                     <div class="overview-item overview-item--c1">
                         <div class="overview__inner">
                             <div class="overview-box clearfix">
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-6">
+                <div class="col-sm-6 col-lg-4">
                     <div class="overview-item overview-item--c1">
                         <div class="overview__inner">
                             <div class="overview-box clearfix">
@@ -96,7 +96,25 @@
                                 </div>
                                 <div class="text">
                                     <h2 id="totalgdp">{{$totalgdp}}</h2>
-                                    <span>GDP</span>
+                                    <span>Total Comm</span>
+                                </div>
+                            </div>
+                            <div class="overview-chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <h2 style="color: white">RM</h2>
+                                </div>
+                                <div class="text">
+                                    <h2 id="totalagreementsst">{{$agreementsst}}</h2>
+                                    <span>SST Agreement Fee</span>
                                 </div>
                             </div>
                             <div class="overview-chart">

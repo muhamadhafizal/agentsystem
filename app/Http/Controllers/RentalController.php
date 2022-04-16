@@ -472,6 +472,7 @@ class RentalController extends Controller
         $totalsst = 0;
         $totalgdp = 0;
         $totalpayoutcomm = 0;
+        $agreementsst = 0;
 
         if($user){
             
@@ -500,11 +501,12 @@ class RentalController extends Controller
                 $totalsst = $totalsst + $data->percentsst;
                 $totalgdp = $totalgdp + $data->gdp;
                 $totalpayoutcomm = $totalpayoutcomm + $data->totalpayoutcomm;
+                $agreementsst = $agreementsst + $data->sstagreementfee;
             }
 
             $i = 1;
 
-            return view('/admin/monthinfo', compact('monthname','allrental','i','rentalcount','totalprofit','totalsst','totalgdp','totalpayoutcomm','month','year'));
+            return view('/admin/monthinfo', compact('monthname','allrental','i','rentalcount','totalprofit','totalsst','totalgdp','totalpayoutcomm','month','year','agreementsst'));
            
 
         } else {

@@ -49,6 +49,7 @@ if ($role == 'admin' || $role == 'acount') {
     <!-- Main CSS-->
     <link href=" {{ asset('template/css/theme.css') }}" rel="stylesheet" media="all">
 
+
 </head>
 
 <body>
@@ -116,6 +117,12 @@ if ($role == 'admin' || $role == 'acount') {
                                 <li>
                                     <a href="{{ route('agentlistletter') }}">Letter Offer Exclusive Real Estate Agency</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('agentlistotp') }}">OTP</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('agentlistotl') }}">OTL</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -179,6 +186,12 @@ if ($role == 'admin' || $role == 'acount') {
                                 </li>
                                 <li>
                                     <a href="{{ route('agentlistletter') }}" style="color:white">Letter Offer Exclusive Real Estate Agency</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('agentlistotp') }}" style="color:white">OTP</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('agentlistotl') }}" style="color:white">OTL</a>
                                 </li>
                             </ul>
                         </li>

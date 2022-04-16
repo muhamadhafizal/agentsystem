@@ -195,3 +195,31 @@ Route::get('/admin/letter/list', 'AdminletterController@indexletter')->name('adm
 Route::get('/admin/letter/details/{id}', 'AdminletterController@detailletter')->name('admindetailsletter');
 Route::get('/admin/letter/edit/{id}', 'AdminletterController@editletter')->name('admineditletter');
 Route::post('/admin/letter/update', 'AdminletterController@updateletter')->name('adminupdateletter');
+
+//AgentOTP
+Route::get('/agent/otp/list', 'PurchaseController@index')->name('agentlistotp');
+Route::get('/agent/otp/add', 'PurchaseController@add')->name('addotp');
+Route::post('/agent/otp/store', 'PurchaseController@store')->name('storeotp');
+Route::get('/agent/otp/details/{id}', 'PurchaseController@details')->name('detailsotp');
+Route::get('/agent/otp/edit/{id}', 'PurchaseController@edit')->name('editotp');
+Route::post('/agent/otp/update', 'PurchaseController@update')->name('updateotp');
+
+//AgentOTL
+Route::get('/agent/otl/list', 'OfferController@index')->name('agentlistotl');
+Route::get('/agent/otl/add', 'OfferController@add')->name('addotl');
+Route::post('/agent/otl/store', 'OfferController@store')->name('storeotl');
+Route::get('/agent/otl/details/{id}', 'OfferController@details')->name('detailsotl');
+Route::get('/agent/otl/edit/{id}', 'OfferController@edit')->name('editotl');
+Route::post('/agent/otl/update', 'OfferController@update')->name('updateotl');
+
+//AdminOTP
+Route::get('/admin/otp/list', 'AdminletterController@indexotp')->name('adminlistotp');
+Route::get('/admin/otp/details/{id}', 'AdminletterController@detailsotp')->name('admindetailsotp');
+Route::get('/admin/otp/edit/{id}', 'AdminletterController@editotp')->name('admineditotp');
+Route::post('/admin/otp/update', 'AdminletterController@updateotp')->name('adminupdateotp');
+
+//AdminOTL
+Route::get('/admin/otl/list', 'AdminletterController@indexotl')->name('adminlistotl');
+Route::get('/admin/otl/details/{id}','AdminletterController@detailsotl')->name('admindetailsotl');
+Route::get('/admin/otl/edit/{id}', 'AdminletterController@editotl')->name('admineditotl');
+Route::post('/admin/otl/update', 'AdminletterController@updateotl')->name('adminupdateotl');

@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-6">
+                <div class="col-sm-6 col-lg-4">
                     <div class="overview-item overview-item--c1">
                         <div class="overview__inner">
                             <div class="overview-box clearfix">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-6">
+                <div class="col-sm-6 col-lg-4">
                     <div class="overview-item overview-item--c1">
                         <div class="overview__inner">
                             <div class="overview-box clearfix">
@@ -103,7 +103,25 @@
                                 </div>
                                 <div class="text">
                                     <h2>{{ $totalgdp }}</h2>
-                                    <span>GDP</span>
+                                    <span>Total Comm</span>
+                                </div>
+                            </div>
+                            <div class="overview-chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <h2 style="color: white">RM</h2>
+                                </div>
+                                <div class="text">
+                                    <h2>{{ $agreementsst }}</h2>
+                                    <span>SST Agreement Fee</span>
                                 </div>
                             </div>
                             <div class="overview-chart">

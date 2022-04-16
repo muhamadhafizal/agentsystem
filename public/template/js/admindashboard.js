@@ -177,12 +177,16 @@ $('#year').click(function(){
     $totalpayoutcomm = response.totalpayoutcomm;
     $totalprofit = response.totalprofit;
     $totalsst = response.totalsst;
+    $agreementsst = response.agreementsst;
+
+    console.log($agreementsst);
 
     document.getElementById("cases").innerHTML = $cases;
     document.getElementById("totalgdp").innerHTML = $totalgdp;
     document.getElementById("totalpayoutcomm").innerHTML = $totalpayoutcomm;
     document.getElementById("totalprofit").innerHTML = $totalprofit;
     document.getElementById("totalsst").innerHTML = $totalsst;
+    document.getElementById("totalagreementsst").innerHTML = $agreementsst;
 
 	})
 
