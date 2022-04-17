@@ -2,7 +2,22 @@
 
 @section('content')
       <!-- MAIN CONTENT-->
+      <div class="row">
+                        <div class="col-sm-6">
+                            @if(Session::has('flash_message'))
+                                <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
+                            @endif
+                            @if(Session::has('flash_message_delete'))
+                                <div class="alert alert-danger"><span class="fa fa-check"></span><em> {!! session('flash_message_delete') !!}</em></div>
+                            @endif
+                        </div>
+                        <div class="col-sm-2">
 
+                        </div>
+                        <div style="left: 200px;" class="col-sm-4">
+                        <a href="{{ route('adminaddletter') }}"><button type="button" class="btn btn-primary">Add EA</button></a>
+                        </div>
+                </div>
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row m-t-30">

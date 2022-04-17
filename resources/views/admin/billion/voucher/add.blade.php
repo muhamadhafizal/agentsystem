@@ -32,7 +32,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">VOUCHER NO</label>
-                                                <input type="text" name="vouchernum" placeholder="MW/2022/XXXX" class="form-control" required>
+                                                <input type="text" name="vouchernum" placeholder="SB/2022/XXXX" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>

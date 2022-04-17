@@ -52,8 +52,10 @@ class AdminletterController extends Controller
     public function editpayment($id){
         //dd($id);
         $payment = Payment::find($id);
-    
-        return view('admin/payment/edit', compact('payment'));
+        $agentpayment = User::find($payment->agent_id);
+        $agents = User::where('role','agent')->get();
+
+        return view('admin/payment/edit', compact('payment','agentpayment','agents'));
 
     }
 
@@ -65,6 +67,7 @@ class AdminletterController extends Controller
         $email = $request->input('email');
         $contact = $request->input('contact');
         $amount = $request->input('amount');
+        $agent = $request->input('agent');
 
         $payment = Payment::find($payment_id);
         $payment->name = $name;
@@ -72,6 +75,7 @@ class AdminletterController extends Controller
         $payment->email = $email;
         $payment->contact = $contact;
         $payment->amount = $amount;
+        $payment->agent_id = $agent;
         $payment->save();
 
         $id = $payment_id;
@@ -112,7 +116,8 @@ class AdminletterController extends Controller
     public function detailletter($id){
 
         $letter = Letter::find($id);
-        $userinfo = User::find($letter->id);
+        $userinfo = User::find($letter->agent_id);
+  
 
         return view('/admin/letter/detail', compact('userinfo','letter'));
 
@@ -121,8 +126,10 @@ class AdminletterController extends Controller
     public function editletter($id){
 
         $letter = Letter::find($id);
+        $agentpayment = User::find($letter->agent_id);
+        $agents = User::where('role','agent')->get();
 
-        return view('admin/letter/edit', compact('letter'));
+        return view('admin/letter/edit', compact('letter','agentpayment','agents'));
 
     }
 
@@ -138,6 +145,7 @@ class AdminletterController extends Controller
         $agencyfee = $request->input('agencyfee');
         $startdate = $request->input('startdate');
         $enddate = $request->input('enddate');
+        $agent = $request->input('agent');
 
 
         $letter = Letter::find($letter_id);
@@ -150,6 +158,7 @@ class AdminletterController extends Controller
         $letter->agencyfee = $agencyfee;
         $letter->startdate = $startdate;
         $letter->enddate = $enddate;
+        $letter->agent_id = $agent;
 
         $letter->save();
 
@@ -236,6 +245,7 @@ class AdminletterController extends Controller
         $agent_tenant = $request->input('agent_tenant');
         $others_tenant_name = $request->input('others_tenant_name');
         $others_tenant_ic = $request->input('others_tenant_ic');
+        $stakeholder = $request->input('stakeholder');
 
         $purchase = Purchase::find($otp_id);
         $purchase->date_offer = $date_offer;
@@ -254,6 +264,7 @@ class AdminletterController extends Controller
         $purchase->agenttenant_id = $agent_tenant;
         $purchase->others_tenant_name = $others_tenant_name;
         $purchase->others_tenant_ic = $others_tenant_ic;
+        $purchase->stakeholder = $stakeholder;
         $purchase->save();
 
         $id = $otp_id;
@@ -396,6 +407,260 @@ class AdminletterController extends Controller
 
         \Session::flash('flash_message', 'successfully update otl');
         return Redirect::route('admineditotl', compact('id'));
+
+    }
+
+    public function addpayment(){
+
+        $agents = User::where('role','agent')->get();
+
+        return view('admin/payment/add', compact('agents'));
+    }
+
+    public function storepayment(Request $request){
+
+
+        $agent = $request->input('agent');
+        $name = $request->input('name');
+        $nric = $request->input('nric');
+        $email = $request->input('email');
+        $contact = $request->input('contact');
+        $amount = $request->input('amount');
+
+        $user = User::find($agent);
+
+        //cp number
+        $payments = Payment::all();
+        $total = count($payments);
+
+        $temp_cp_num = $total + 1;
+
+        $cp_num = str_pad($temp_cp_num, 4, '0', STR_PAD_LEFT);
+
+        if($user){
+
+            $payment = new Payment;
+            $payment->agent_id = $user->id;
+            $payment->cp_num = $cp_num;
+            $payment->name = $name;
+            $payment->ic = $nric;
+            $payment->email = $email;
+            $payment->contact = $contact;
+            $payment->amount = $amount;
+
+            $payment->save();
+
+            \Session::flash('flash_message', 'successfully save confirmation on payment');
+            
+        }
+
+        return Redirect::route('adminlistpayment');
+
+    }
+
+    public function addletter(){
+    
+        $agents = User::where('role','agent')->get();
+
+        return view('admin/letter/add', compact('agents'));
+
+    }
+
+    public function storeletter(Request $request){
+
+        $agent = $request->input('agent');
+        $name = $request->input('name');
+        $ic = $request->input('ic');
+        $contact = $request->input('contact');
+        $date = $request->input('date');
+        $authorized = $request->input('authorized');
+        $sellingprice = $request->input('sellingprice');
+        $agencyfee = $request->input('agencyfee');
+        $startdate = $request->input('startdate');
+        $enddate = $request->input('enddate');
+
+        $userinfo = User::find($agent);
+
+        if($userinfo){
+
+            $letter = new Letter;
+            $letter->name = $name;
+            $letter->ic = $ic;
+            $letter->contact = $contact;
+            $letter->date = $date;
+            $letter->authorized = $authorized;
+            $letter->sellingprice = $sellingprice;
+            $letter->agencyfee = $agencyfee;
+            $letter->startdate = $startdate;
+            $letter->enddate = $enddate;
+            $letter->agent_id = $userinfo->id;
+            $letter->save();
+
+            \Session::flash('flash_message', 'successfully save confirmation on letter');
+
+        }
+
+        return Redirect::route('adminlistletter');
+
+
+    }
+
+    public function addotp(){
+
+        $alluser = User::where('role','agent')->get();
+        return view('admin/otp/add', compact('alluser'));
+    }
+
+    public function storeotp(Request $request){
+
+        $agentinfo = User::where('role','admin')->first();
+
+        $otp_num = $request->input('otp_num');
+        $date_offer = $request->input('date_offer');
+        $sales_property = $request->input('sales_property');
+        $deposit = $request->input('deposit');
+        $purchase_price = $request->input('purchase_price');
+        $condition_one = $request->input('condition_one');
+        $condition_two = $request->input('condition_two');
+        $vendor_name = $request->input('vendor_name');
+        $vendor_ic = $request->input('vendor_ic');
+        $purchaser_name = $request->input('purchaser_name');
+        $purchaser_ic = $request->input('purchaser_ic');
+        $agent_vendor = $request->input('agent_vendor');
+        $others_vendor_name = $request->input('others_vendor_name');
+        $others_vendor_ic = $request->input('others_vendor_ic');
+        $agent_tenant = $request->input('agent_tenant');
+        $others_tenant_name = $request->input('others_tenant_name');
+        $others_tenant_ic = $request->input('others_tenant_ic');
+        $stakeholder = $request->input('stakeholder');
+
+         //otp number
+         $purchases = Purchase::all();
+         $total = count($purchases);
+ 
+         $temp_cp_num = $total + 1;
+ 
+         $otp_num = str_pad($temp_cp_num, 4, '0', STR_PAD_LEFT);
+
+        $purchase = new Purchase;
+        $purchase->otp_num = $otp_num;
+        $purchase->date_offer = $date_offer;
+        $purchase->sales_property = $sales_property;
+        $purchase->deposit = $deposit;
+        $purchase->purchase_price = $purchase_price;
+        $purchase->condition_one = $condition_one;
+        $purchase->condition_two = $condition_two;
+        $purchase->vendor_name = $vendor_name;
+        $purchase->vendor_ic = $vendor_ic;
+        $purchase->purchaser_name = $purchaser_name;
+        $purchase->purchaser_ic = $purchaser_ic;
+        $purchase->agentvendor_id = $agent_vendor;
+        $purchase->others_vendor_name = $others_vendor_name;
+        $purchase->others_vendor_ic = $others_vendor_ic;
+        $purchase->agenttenant_id = $agent_tenant;
+        $purchase->others_tenant_name = $others_tenant_name;
+        $purchase->others_tenant_ic = $others_tenant_ic;
+        $purchase->agent_id = $agentinfo->id;
+        $purchase->status = 0;
+        $purchase->stakeholder = $stakeholder;
+        $purchase->save();
+
+        \Session::flash('flash_message', 'successfully save otp');
+        return Redirect::route('adminlistotp');
+
+    }
+
+    public function addotl(){
+
+        $alluser = User::where('role','agent')->get();
+        return view('admin/otl/add', compact('alluser'));
+
+    }
+
+    public function storeotl(Request $request){
+
+        $agentinfo = User::where('role','admin')->first();
+        $date_of_agreement = $request->input('date_of_agreement');
+        $property_address = $request->input('property_address');
+        $date_of_commencement = $request->input('date_of_commencement');
+        $tenancy_period = $request->input('tenancy_period');
+        $renewal_term = $request->input('renewal_term');
+        $monthly_rental = $request->input('monthly_rental');
+        $advance_rental = $request->input('advance_rental');
+        $security_deposit = $request->input('security_deposit');
+        $utility_deposit = $request->input('utility_deposit');
+        $agreement_fee = $request->input('agreement_fee');
+        $stamp_duty = $request->input('stamp_duty');
+        $type = $request->input('type');
+        $cheque_no = $request->input('cheque_no');
+        $pay_before = $request->input('pay_before');
+        $vendor_name = $request->input('vendor_name');
+        $vendor_ic = $request->input('vendor_ic');
+        $vendor_contact = $request->input('vendor_contact');
+        $vendor_email = $request->input('vendor_email');
+        $tenant_name = $request->input('tenant_name');
+        $tenant_ic = $request->input('tenant_ic');
+        $tenant_contact = $request->input('tenant_contact');
+        $tenant_email = $request->input('tenant_email');
+        $agent_vendor = $request->input('agent_vendor');
+        $others_vendor_name = $request->input('others_vendor_name');
+        $others_vendor_ic = $request->input('others_vendor_ic');
+        $agent_tenant = $request->input('agent_tenant');
+        $others_tenant_name = $request->input('others_tenant_name');
+        $others_tenant_ic = $request->input('others_tenant_ic');
+        $total = $request->input('total');
+        $deduct_deposit = $request->input('deduct_deposit');
+        $deduct_agreement = $request->input('deduct_agreement');
+        $balance_to_paid = $request->input('balance_to_paid');
+
+        //otl number
+        $offers = Offer::all();
+        $total = count($offers);
+
+        $temp_cp_num = $total + 1;
+
+        $otl_num = str_pad($temp_cp_num, 4, '0', STR_PAD_LEFT);
+
+        $offer = new Offer;
+        $offer->agent_id = $agentinfo->id;
+        $offer->status = 0;
+        $offer->otl_no = $otl_num;
+        $offer->date_of_agreement = $date_of_agreement;
+        $offer->property_address = $property_address;
+        $offer->date_of_commencement = $date_of_commencement;
+        $offer->tenancy_period = $tenancy_period;
+        $offer->renewal_term = $renewal_term;
+        $offer->monthly_rental = $monthly_rental;
+        $offer->advance_rental = $advance_rental;
+        $offer->security_deposit = $security_deposit;
+        $offer->utility_deposit = $utility_deposit;
+        $offer->agreement_fee = $agreement_fee;
+        $offer->stamp_duty = $stamp_duty;
+        $offer->type = $type;
+        $offer->cheque_no = $cheque_no;
+        $offer->pay_before = $pay_before;
+        $offer->vendor_name = $vendor_name;
+        $offer->vendor_ic = $vendor_ic;
+        $offer->vendor_contact = $vendor_contact;
+        $offer->vendor_email = $vendor_email;
+        $offer->tenant_name = $tenant_name;
+        $offer->tenant_ic = $tenant_ic;
+        $offer->tenant_contact = $tenant_contact;
+        $offer->tenant_email = $tenant_email;
+        $offer->agentvendor_id = $agent_vendor;
+        $offer->agenttenant_id = $agent_tenant;
+        $offer->others_vendor_name = $others_vendor_name;
+        $offer->others_vendor_ic = $others_vendor_ic;
+        $offer->others_tenant_name = $others_tenant_name;
+        $offer->others_tenant_ic = $others_tenant_ic;
+        $offer->total = $total;
+        $offer->deduct_deposit = $deduct_deposit;
+        $offer->deduct_agreement = $deduct_agreement;
+        $offer->balance_to_paid = $balance_to_paid;
+        $offer->save();
+
+        \Session::flash('flash_message', 'successfully save otp');
+        return Redirect::route('adminlistotl');
 
     }
 }

@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Sales Property : </label>
+                                                <label class=" form-control-label">Property Address : </label>
                                                 <input type="text" name="sales_property" value="{{$details->sales_property}}" class="form-control">
                                             </div>
                                         </div>
@@ -51,8 +51,16 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
+                                                <label class=" form-control-label">Stakeholder : </label>
+                                                <input type="text" name="stakeholder" value="{{$details->stakeholder}}" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Deposit : </label>
-                                                <input type="number" name="deposit" value="{{$details->deposit}}" step="0.001" class="form-control">
+                                                <input type="text" name="deposit" value="{{number_format($details->deposit,2)}}" step="0.001" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -60,14 +68,14 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchase Price : </label>
-                                                <input type="number" name="purchase_price" value="{{$details->purchase_price}}" step="0.001" class="form-control">
+                                                <input type="text" name="purchase_price" value="{{number_format($details->purchase_price,2)}}" step="0.001" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Condition: </label>
+                                                <label class=" form-control-label">Special Condition: </label>
                                                 <input type="text" name="condition_one" value="{{$details->condition_one}}" class="form-control">
                                             </div>
                                         </div>

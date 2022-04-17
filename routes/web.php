@@ -189,12 +189,16 @@ Route::get('/admin/payment/list', 'AdminletterController@indexpayment')->name('a
 Route::get('/admin/payment/details/{id}', 'AdminletterController@detailpayment')->name('admindetailspayment');
 Route::get('/admin/payment/edit/{id}', 'AdminletterController@editpayment')->name('admineditpayment');
 Route::post('/admin/payment/update', 'AdminletterController@updatepayment')->name('adminupdatepayment');
+Route::get('/admin/payment/add', 'AdminletterController@addpayment')->name('adminaddpayment');
+Route::post('/admin/payment/store', 'AdminletterController@storepayment')->name('adminstorepayment');
 
 //Adminletter
 Route::get('/admin/letter/list', 'AdminletterController@indexletter')->name('adminlistletter');
 Route::get('/admin/letter/details/{id}', 'AdminletterController@detailletter')->name('admindetailsletter');
 Route::get('/admin/letter/edit/{id}', 'AdminletterController@editletter')->name('admineditletter');
 Route::post('/admin/letter/update', 'AdminletterController@updateletter')->name('adminupdateletter');
+Route::get('/admin/letter/add', 'AdminletterController@addletter')->name('adminaddletter');
+Route::post('/admin/letter/store', 'AdminletterController@storeletter')->name('adminstoreletter');
 
 //AgentOTP
 Route::get('/agent/otp/list', 'PurchaseController@index')->name('agentlistotp');
@@ -217,9 +221,13 @@ Route::get('/admin/otp/list', 'AdminletterController@indexotp')->name('adminlist
 Route::get('/admin/otp/details/{id}', 'AdminletterController@detailsotp')->name('admindetailsotp');
 Route::get('/admin/otp/edit/{id}', 'AdminletterController@editotp')->name('admineditotp');
 Route::post('/admin/otp/update', 'AdminletterController@updateotp')->name('adminupdateotp');
+Route::get('/admin/otp/add', 'AdminletterController@addotp')->name('adminaddotp');
+Route::post('/admin/otp/store', 'AdminletterController@storeotp')->name('adminstoreotp');
 
 //AdminOTL
 Route::get('/admin/otl/list', 'AdminletterController@indexotl')->name('adminlistotl');
 Route::get('/admin/otl/details/{id}','AdminletterController@detailsotl')->name('admindetailsotl');
 Route::get('/admin/otl/edit/{id}', 'AdminletterController@editotl')->name('admineditotl');
 Route::post('/admin/otl/update', 'AdminletterController@updateotl')->name('adminupdateotl');
+Route::get('admin/otl/add', 'AdminletterController@addotl')->name('adminaddotl');
+Route::post('admin/otl/store', 'AdminletterController@storeotl')->name('adminstoreotl');

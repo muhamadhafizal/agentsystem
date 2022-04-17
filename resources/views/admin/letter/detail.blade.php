@@ -12,7 +12,7 @@
     <div class="container justify-content-center">
         <div class="row">
             <div class="col-md-6 text-left mb-3">
-                <a href="{{ route('adminlistpayment') }}"><button class="btn btn-primary"> back</button></a>
+                <a href="{{ route('adminlistletter') }}"><button class="btn btn-primary"> back</button></a>
             </div>
             <div class="col-md-6 text-right mb-3">
         	    <button class="btn btn-primary" id="download"> download pdf</button>

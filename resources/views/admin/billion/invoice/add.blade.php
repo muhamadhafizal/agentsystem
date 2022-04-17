@@ -48,7 +48,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-sm-12">
                                             <label class=" form-control-label">INVOICE NO</label>
-                                            <input type="text" name="invoicenum" placeholder="MW/2022/XXXX" class="form-control" required>
+                                            <input type="text" name="invoicenum" placeholder="SB/2022/XXXX" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>

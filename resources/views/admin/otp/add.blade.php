@@ -6,8 +6,8 @@
 	        <div class="container-fluid">
 	        	<div class="row">
 	        	    <div class="col-sm-12">
-	        	        @if(Session::has('flash_message'))
-	        	            <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
+	        	        @if(Session::has('flash_message_delete'))
+	        	            <div class="alert alert-danger"><span class="fa fa-warning"></span><em> {!! session('flash_message_delete') !!}</em></div>
 	        	        @endif
 	        	    </div>
 	        	</div>
@@ -26,17 +26,17 @@
 	                <div class="col-lg-8">
 	                    <div class="card">
 	                        <div class="card-header">
-	                            <strong>Edit</strong>
+	                            <strong>Add</strong>
 	                            <small>OTP</small>
 	                        </div>
-                            <form class="form-horizontal" method="POST" action="{{ route('adminupdateotp') }}">
+                            <form class="form-horizontal" method="POST" action="{{ route('adminstoreotp') }}">
 	                        	     {{ csrf_field() }}
                                 <div class="card-body card-block">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Date Of This Offer : </label>
-                                                <input type="date" name="date_offer" value="{{$details->date_offer}}"  class="form-control">
+                                                <input type="date" name="date_offer" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Property Address : </label>
-                                                <input type="text" name="sales_property" value="{{$details->sales_property}}" class="form-control">
+                                                <input type="text" name="sales_property" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Stakeholder : </label>
-                                                <input type="text" name="stakeholder" value="{{$details->stakeholder}}" class="form-control">
+                                                <input type="text" name="stakeholder" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Deposit : </label>
-                                                <input type="text" name="deposit" value="{{number_format($details->deposit,2)}}" step="0.001" class="form-control">
+                                                <input type="number" name="deposit" step="0.001" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchase Price : </label>
-                                                <input type="text" name="purchase_price" value="{{number_format($details->purchase_price,2)}}" step="0.001" class="form-control">
+                                                <input type="number" name="purchase_price" step="0.001" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Special Condition: </label>
-                                                <input type="text" name="condition_one" value="{{$details->condition_one}}" class="form-control">
+                                                <input type="text" name="condition_one" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Vendor Name : </label>
-                                                <input type="text" name="vendor_name" value="{{$details->vendor_name}}" class="form-control">
+                                                <input type="text" name="vendor_name" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Vendor IC : </label>
-                                                <input type="text" name="vendor_ic" value="{{$details->vendor_ic}}" class="form-control">
+                                                <input type="text" name="vendor_ic" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchaser Name : </label>
-                                                <input type="text" name="purchaser_name" value="{{$details->purchaser_name}}" class="form-control">
+                                                <input type="text" name="purchaser_name" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchaser IC : </label>
-                                                <input type="text" name="purchaser_ic" value="{{$details->purchaser_ic}}" class="form-control">
+                                                <input type="text" name="purchaser_ic" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +117,6 @@
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class="form-control-label">Agent Vendor</label>
                                                 <select name="agent_vendor" class="form-control">
-                                                <option value="{{$details->agentvendor_id}}">{{$vendor_name}}</option>
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
                                                     <option value="{{$data->id}}">{{$data->nickname}}</option>
@@ -130,11 +129,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">(if applicable) Outside Vendor Name : </label>
-                                                <input type="text" name="others_vendor_name" value="{{$details->others_vendor_name}}" class="form-control">
+                                                <input type="text" name="others_vendor_name" class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">(if applicable) Outside Vendor IC : </label>
-                                                <input type="text" name="others_vendor_ic" value="{{$details->others_vendor_ic}}" class="form-control">
+                                                <input type="text" name="others_vendor_ic" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +142,6 @@
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class="form-control-label">Agent Tenant</label>
                                                 <select name="agent_tenant" class="form-control">
-                                                  <option value="{{$details->agenttenant_id}}">{{$tenant_name}}</option>
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
                                                     <option value="{{$data->id}}">{{$data->nickname}}</option>
@@ -156,15 +154,14 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">(if applicable) Outside Tenant Name :  </label>
-                                                <input type="text" name="others_tenant_name" value="{{$details->others_tenant_name}}" class="form-control">
+                                                <input type="text" name="others_tenant_name" class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">(if applicable) Outside Tenant IC : </label>
-                                                <input type="text" name="others_tenant_ic" value="{{$details->others_tenant_ic}}" class="form-control">
+                                                <input type="text" name="others_tenant_ic" class="form-control">
                                             </div>
                                         </div>
-                                    </div>   
-                                    <input type="hidden" name="otp_id" value="{{$details->id}}">                   
+                                    </div>                      
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6 col-md-offset-4">

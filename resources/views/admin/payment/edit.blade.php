@@ -72,6 +72,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12">
+                                                <label class="form-control-label">Agent</label>
+                                                <select name="agent" class="form-control">
+                                                    <option value="{{$agentpayment->id}}">{{$agentpayment->nickname}}</option>
+                                                    @foreach($agents as $data)
+                                                    <option value="{{$data->id}}">{{$data->nickname}}</option>
+                                                    @endforeach
+                                                    <option value="0"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div> 
                                 
                                    <input type="hidden" name="payment_id" value="{{$payment->id}}">
                                     <div class="form-group">

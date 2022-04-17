@@ -100,19 +100,19 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">In consideration of the sum of <b>RM {{$details->deposit}}</b>  (hereinafter called “the earnest deposit”) paid to the vendor or </p>
+                            <p style="font-size:11px">In consideration of the sum of <b>RM {{number_format($details->deposit,2)}}</b>  (hereinafter called “the earnest deposit”) paid to the vendor or </p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">stakeholder by <b>{{$details->purchaser_name}}</b>,  hereby both parties agreed to  give this letter offer  to purchase   </p>
+                            <p style="font-size:11px">stakeholder by <b>{{$details->stakeholder}}</b>,  hereby both parties agreed to  give this letter offer  to purchase   </p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">for the abovementioned property at the total purchase price of <b>RM{{$details->purchase_price}}</b>.</p>
+                            <p style="font-size:11px">for the abovementioned property at the total purchase price of <b>RM{{number_format($details->purchase_price,2)}}</b>.</p>
                         </div>
                     </div>
                     <div class="row" style="height:3px"></div>
@@ -213,7 +213,7 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">&nbsp&nbsp&nbsp(a)Upon the execution of the Sales and Purchase Agreement ,a total sum <b>RM{{$details->deposit}}</b>  including </p>
+                            <p style="font-size:11px">&nbsp&nbsp&nbsp(a)Upon the execution of the Sales and Purchase Agreement ,a total sum <b>RM{{number_format($details->deposit,2)}}</b>  including </p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
