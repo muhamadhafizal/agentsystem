@@ -60,7 +60,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Deposit : </label>
-                                                <input type="text" name="deposit" value="{{number_format($details->deposit,2)}}" step="0.001" class="form-control">
+                                                <input type="number" name="deposit" value="{{$details->deposit}}" step="0.001" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchase Price : </label>
-                                                <input type="text" name="purchase_price" value="{{number_format($details->purchase_price,2)}}" step="0.001" class="form-control">
+                                                <input type="number" name="purchase_price" value="{{$details->purchase_price}}" step="0.001" class="form-control">
                                             </div>
                                         </div>
                                     </div>
