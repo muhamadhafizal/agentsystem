@@ -254,10 +254,10 @@
                         </div>
                     </div>
                     <div class="row" style="height:10px"></div>
-                    <div class="row" style="line-height:10%">
+                    <div class="row" style="line-height:60%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">Others Condition: {{$details->condition_one}}</p>
+                            <p style="font-size:11px"><b>Others Condition</b>: {{$details->condition_one}}</p>
                         </div>
                     </div>
                     <div class="row" style="height:10px"></div>

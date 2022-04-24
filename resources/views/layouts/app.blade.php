@@ -141,7 +141,39 @@ if ($role == 'agent') {
                                 </li>
                             </ul>
                         </li>
-                        
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-file"></i>Simple Billion</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="{{ route('listreceiptbillion') }}">Receipt</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('listinvoicebillion') }}">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('listvoucherbillion') }}">Payment Voucher</a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-file-pdf-o"></i>Option Form</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="{{ route('adminlistpayment') }}">Confirmation On Payment</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('adminlistletter') }}">Letter Offer Exclusive Real Estate Agency</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('adminlistotp') }}">OTP</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('adminlistotl') }}">OTL</a>
+                                </li>
+                            </ul>
+                        </li>  
                     </ul>
                 </div>
             </nav>
