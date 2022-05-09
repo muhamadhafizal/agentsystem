@@ -76,7 +76,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Special Condition: </label>
-                                                <input type="text" name="condition_one" value="{{$details->condition_one}}" class="form-control">
+                                                <textarea class="form-control" name="condition_one" cols="5" rows="5">{{$details->condition_one}}</textarea>
                                             </div>
                                         </div>
                                     </div>

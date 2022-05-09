@@ -106,13 +106,13 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">stakeholder by <b>{{$details->stakeholder}}</b>,  hereby both parties agreed to  give this letter offer  to purchase   </p>
+                            <p style="font-size:11px">stakeholder by <b>{{$details->stakeholder}}</b>,  hereby both parties agreed to  give this </p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">for the abovementioned property at the total purchase price of <b>RM{{number_format($details->purchase_price,2)}}</b>.</p>
+                            <p style="font-size:11px">letter offer  to purchase for the abovementioned property at the total purchase price of <b>RM{{number_format($details->purchase_price,2)}}</b>.</p>
                         </div>
                     </div>
                     <div class="row" style="height:3px"></div>
