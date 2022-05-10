@@ -70,6 +70,7 @@ class PurchaseController extends Controller
         $others_tenant_name = $request->input('others_tenant_name');
         $others_tenant_ic = $request->input('others_tenant_ic');
         $stakeholder = $request->input('stakeholder');
+        $amount_paid = $request->input('amount_paid');
 
          //otp number
          $purchases = Purchase::all();
@@ -100,6 +101,7 @@ class PurchaseController extends Controller
         $purchase->agent_id = $agentinfo->id;
         $purchase->status = 0;
         $purchase->stakeholder = $stakeholder;
+        $purchase->amount_paid = $amount_paid;
         $purchase->save();
 
         \Session::flash('flash_message', 'successfully save otp');
@@ -176,6 +178,7 @@ class PurchaseController extends Controller
         $others_tenant_name = $request->input('others_tenant_name');
         $others_tenant_ic = $request->input('others_tenant_ic');
         $stakeholder = $request->input('stakeholder');
+        $amount_paid = $request->input('amount_paid');
 
         $purchase = Purchase::find($otp_id);
         $purchase->date_offer = $date_offer;
@@ -195,6 +198,7 @@ class PurchaseController extends Controller
         $purchase->others_tenant_name = $others_tenant_name;
         $purchase->others_tenant_ic = $others_tenant_ic;
         $purchase->stakeholder = $stakeholder;
+        $purchase->amount_paid = $amount_paid;
         $purchase->save();
 
         $id = $otp_id;

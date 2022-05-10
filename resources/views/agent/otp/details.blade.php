@@ -213,7 +213,7 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">&nbsp&nbsp&nbsp(a)Upon the execution of the Sales and Purchase Agreement ,a total sum <b>RM{{number_format($details->deposit,2)}}</b>  including </p>
+                            <p style="font-size:11px">&nbsp&nbsp&nbsp(a)Upon the execution of the Sales and Purchase Agreement ,a total sum <b>RM{{number_format($details->amount_paid,2)}}</b>  including </p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
