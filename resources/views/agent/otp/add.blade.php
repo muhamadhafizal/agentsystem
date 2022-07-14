@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Amount Paid : </label>
+                                                <label class=" form-control-label">Signing SPA (RM) : </label>
                                                 <input type="number" name="amount_paid" step="0.001" class="form-control">
                                             </div>
                                         </div>
@@ -136,11 +136,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Vendor Name : </label>
+                                                <label class=" form-control-label">Other Agent Name : </label>
                                                 <input type="text" name="others_vendor_name" class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Vendor IC : </label>
+                                                <label class=" form-control-label">Other Agent IC : </label>
                                                 <input type="text" name="others_vendor_ic" class="form-control">
                                             </div>
                                         </div>

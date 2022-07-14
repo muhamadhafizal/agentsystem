@@ -321,10 +321,10 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-5">
-                            <p style="font-size:10px">Signed By The Vendor</p>
+                            <p style="font-size:10px">Signed By The Landlord</p>
                         </div>
                         <div class="col-5">
-                            <p style="font-size:10px">Signed By The Purchaser</p>
+                            <p style="font-size:10px">Signed By The Tenant</p>
                         </div>
                     </div>
                     <br>
