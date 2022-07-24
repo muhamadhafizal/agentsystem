@@ -46,6 +46,7 @@ class PaymentController extends Controller
         $email = $request->input('email');
         $contact = $request->input('contact');
         $amount = $request->input('amount');
+        $address = $request->input('address');
 
         //cp number
         $payments = Payment::all();
@@ -65,6 +66,7 @@ class PaymentController extends Controller
             $payment->email = $email;
             $payment->contact = $contact;
             $payment->amount = $amount;
+            $payment->address = $address;
 
             $payment->save();
 
@@ -105,6 +107,7 @@ class PaymentController extends Controller
         $email = $request->input('email');
         $contact = $request->input('contact');
         $amount = $request->input('amount');
+        $address = $request->input('address');
 
         $payment = Payment::find($payment_id);
         $payment->name = $name;
@@ -112,6 +115,7 @@ class PaymentController extends Controller
         $payment->email = $email;
         $payment->contact = $contact;
         $payment->amount = $amount;
+        $payment->address = $address;
         $payment->save();
 
         $id = $payment_id;

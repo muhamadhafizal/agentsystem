@@ -67,6 +67,14 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
+                                                <label class=" form-control-label">Tenant / Owner Address </label>
+                                                <textarea class="form-control" name="address" cols="2" rows="2">{{$payment->address}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Amount</label>
                                                 <input type="number" name="amount" value="{{$payment->amount}}" step="0.001" class="form-control" required>
                                             </div>

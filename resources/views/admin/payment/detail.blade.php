@@ -98,6 +98,12 @@
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-6">
+                            <p style="font-size:14px">Address : {{$payment->address}}</p>
+                        </div>
+                    </div>
+                    <div class="row" style="height:25px">
+                        <div class="col-1"></div>
+                        <div class="col-6">
                             <p style="font-size:14px">To : MW Properties</p>
                         </div>
                     </div>

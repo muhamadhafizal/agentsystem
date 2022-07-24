@@ -68,6 +68,7 @@ class AdminletterController extends Controller
         $contact = $request->input('contact');
         $amount = $request->input('amount');
         $agent = $request->input('agent');
+        $address = $request->input('address');
 
         $payment = Payment::find($payment_id);
         $payment->name = $name;
@@ -76,6 +77,7 @@ class AdminletterController extends Controller
         $payment->contact = $contact;
         $payment->amount = $amount;
         $payment->agent_id = $agent;
+        $payment->address = $address;
         $payment->save();
 
         $id = $payment_id;
@@ -428,6 +430,7 @@ class AdminletterController extends Controller
         $email = $request->input('email');
         $contact = $request->input('contact');
         $amount = $request->input('amount');
+        $address = $request->input('address');
 
         $user = User::find($agent);
 
@@ -449,6 +452,7 @@ class AdminletterController extends Controller
             $payment->email = $email;
             $payment->contact = $contact;
             $payment->amount = $amount;
+            $payment->address = $address;
 
             $payment->save();
 
