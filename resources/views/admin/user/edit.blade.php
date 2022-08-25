@@ -128,8 +128,22 @@
                                         </div>
                                     </div>
 	                            </div>
+                                <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12">
+                                                <label class="form-control-label">Status</label>
+                                                <select name="status" class="form-control">
+                                                <option value="{{$userarray['status']}}">{{$userarray['defstatus']}}</option>
+                                                <option value="0">active</option>
+                                                <option value="1">resign</option>      
+                                                </select>
+                                            </div>
+                                        </div>
+                                </div> 
+
 	                            <div class="form-group">
 	                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="button" class="btn btn-primary" onclick="window.location='{{ route('detailsagent', $userarray['id']) }}'"><i class="fa fa-arrow-left"></i></button>
                                     <button type="submit" class="btn btn-primary">
 	                                        Submit
 	                                    </button>

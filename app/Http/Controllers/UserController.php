@@ -57,13 +57,37 @@ class UserController extends Controller
     public function index(){
 
         $user = $this->getInfo();
+        $userarray = array();
 
         if($user){
 
             $alluser = User::where('role','agent')->get();
             $i = 1;
 
-            return view('/admin/user/index',compact('alluser', 'i'));
+            foreach($alluser as $user){
+
+                if($user->status == 0){
+                    $status = 'active';
+                } else {
+                    $status = 'resign';
+                }
+
+                $temparray = [
+                    'id' => $user->id,
+                    'nickname' => $user->nickname,
+                    'contact' => $user->contact,
+                    'ic' => $user->ic,
+                    'bankname' => $user->bankname,
+                    'bankaccnumber' => $user->bankaccnumber,
+                    'level' => $user->level,
+                    'status' => $status,
+                ];
+
+                array_push($userarray,$temparray);
+
+            }
+
+            return view('/admin/user/index',compact('alluser', 'i','userarray'));
         } else {
             return redirect('/');
         }
@@ -336,6 +360,12 @@ class UserController extends Controller
                 } 
             
             }
+
+            if($userdetails->status == 0){
+                $defstatus = 'active';
+            } else {
+                $defstatus = 'resign';
+            }
                 
             $userarray = [
 
@@ -363,6 +393,7 @@ class UserController extends Controller
                 'totalcommgroup' => $finaltotalgroup,
                 'totalcommpersonal' => $finaltotalpersonal,
                 'status' => $status,
+                'defstatus' => $defstatus,
 
             ];
                 
@@ -418,6 +449,12 @@ class UserController extends Controller
         $alluser = $this->getleveluser('all');
         $leaduser = $this->getleveluser('lead');
         $preleaduser = $this->getleveluser('prelead');
+
+        if($userdetails->status == 0){
+            $defstatus = 'active';
+        } else {
+            $defstatus = 'resign';
+        }
                 
 
                 $userarray = [
@@ -443,6 +480,8 @@ class UserController extends Controller
                     'goptwoname' => $goptwoname,
                     'username' => $userdetails->username,
                     'password' => $userdetails->password,
+                    'status' => $userdetails->status,
+                    'defstatus' => $defstatus,
 
                 ];
                 return view('/admin/user/edit', compact('userarray','alluser','leaduser','preleaduser'));
@@ -465,6 +504,7 @@ class UserController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
         $position = $request->input('position');
+        $status = $request->input('status');
 
         $user = $this->getagentdetails($id);
 
@@ -548,7 +588,7 @@ class UserController extends Controller
         $user->username = $finalusername;
         $user->password = $finalpassword;
         $user->level = $position;
-
+        $user->status = $status;
         $user->save();
 
         return Redirect::route('detailsagent', compact('id'));

@@ -173,10 +173,31 @@ class AdminletterController extends Controller
 
     public function indexotp(){
 
-        $purchases = Purchase::where('status',0)->orderby('created_at','desc')->get();
+        $purchases = Purchase::orderby('created_at','desc')->get();
         $i = 1;
+        $purchasesarray = array();
 
-        return view('admin/otp/index', compact('purchases','i'));
+        foreach($purchases as $purchase){
+
+            if($purchase->status == 0){
+                $status = 'success';
+            } else{
+                $status = 'cancel';
+            }
+
+            $temparray = [
+                'id' => $purchase->id,
+                'otp_num' => $purchase->otp_num,
+                'date_offer' => $purchase->date_offer,
+                'sales_property' => $purchase->sales_property,
+                'status' => $status,
+            ];
+
+            array_push($purchasesarray,$temparray);
+
+        }
+
+        return view('admin/otp/index', compact('purchases','i','purchasesarray'));
 
     }
 
@@ -223,8 +244,14 @@ class AdminletterController extends Controller
             $tenant_name = $details_tenant->nickname;
         }
 
+        if($details->status == 0){
+            $status = 'success';
+        } else {
+            $status = 'cancel';
+        }
+
         $alluser = User::where('role','agent')->get();
-        return view('admin/otp/edit', compact('alluser','details','vendor_name','tenant_name'));
+        return view('admin/otp/edit', compact('alluser','details','vendor_name','tenant_name','status'));
 
     }
 
@@ -249,6 +276,11 @@ class AdminletterController extends Controller
         $others_tenant_ic = $request->input('others_tenant_ic');
         $stakeholder = $request->input('stakeholder');
         $amount_paid = $request->input('amount_paid');
+        $status = $request->input('status');
+
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTP form noted save, please choose agent vendor / agent purchaser');
+        } else {
 
         $purchase = Purchase::find($otp_id);
         $purchase->date_offer = $date_offer;
@@ -269,21 +301,45 @@ class AdminletterController extends Controller
         $purchase->others_tenant_ic = $others_tenant_ic;
         $purchase->stakeholder = $stakeholder;
         $purchase->amount_paid = $amount_paid;
+        $purchase->status = $status;
         $purchase->save();
 
+        \Session::flash('flash_message', 'successfully update OTP');
+        
+        }
         $id = $otp_id;
-
-        \Session::flash('flash_message', 'successfully update otp');
         return Redirect::route('admineditotp', compact('id'));
 
     }
 
     public function indexotl(){
 
-        $offers = Offer::where('status',0)->orderby('created_at','desc')->get();
+        $offers = Offer::orderby('created_at','desc')->get();
         $i = 1;
+        $offersarray = array();
 
-        return view('admin/otl/index', compact('offers','i'));
+        foreach($offers as $offer){
+
+            if($offer->status == 0){
+                $status = 'success';
+            } else {
+                $status = 'cancel';
+            }
+
+            $temparray = [
+
+                'id' => $offer->id,
+                'otl_no' => $offer->otl_no,
+                'date_of_agreement' => $offer->date_of_agreement,
+                'property_address' => $offer->property_address,
+                'status' => $status,
+            ];
+
+            array_push($offersarray,$temparray);
+
+        }
+
+        return view('admin/otl/index', compact('offers','i','offersarray'));
 
     }
 
@@ -309,8 +365,17 @@ class AdminletterController extends Controller
             $tenantic = $details->others_tenant_ic;
         }
       
+        $startdatecommencement = date("d/m/Y", strtotime($details->date_of_commencement));
 
-        return view('admin/otl/details', compact('details','vendorname','vendoric','tenantname','tenantic'));
+        if($details->end_date_of_commencement){
+            $enddatecommencement = date("d/m/Y", strtotime($details->end_date_of_commencement));
+        } else {
+            $enddatecommencement = ' ';
+        }
+        
+
+    
+        return view('admin/otl/details', compact('details','vendorname','vendoric','tenantname','tenantic','startdatecommencement','enddatecommencement'));
 
     }
 
@@ -332,7 +397,13 @@ class AdminletterController extends Controller
         }
 
         $alluser = User::where('role','agent')->get();
-        return view('admin/otl/edit', compact('alluser','details','vendor_name','tenant_name'));
+
+        if($details->status == 0){
+            $status = 'success';
+        } else {
+            $status = 'cancel';
+        }
+        return view('admin/otl/edit', compact('alluser','details','vendor_name','tenant_name','status'));
 
     }
 
@@ -340,6 +411,7 @@ class AdminletterController extends Controller
 
         $otl_id = $request->input('otl_id');
         $date_of_agreement = $request->input('date_of_agreement');
+        $end_date_of_commencement = $request->input('end_date_of_commencement');
         $property_address = $request->input('property_address');
         $date_of_commencement = $request->input('date_of_commencement');
         $tenancy_period = $request->input('tenancy_period');
@@ -371,11 +443,17 @@ class AdminletterController extends Controller
         $deduct_deposit = $request->input('deduct_deposit');
         $deduct_agreement = $request->input('deduct_agreement');
         $balance_to_paid = $request->input('balance_to_paid');
+        $status = $request->input('status');
+        
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTL form noted save, please choose agent landlord / agent tenant');
+        } else {
 
         $offer = Offer::find($otl_id);
         $offer->date_of_agreement = $date_of_agreement;
         $offer->property_address = $property_address;
         $offer->date_of_commencement = $date_of_commencement;
+        $offer->end_date_of_commencement = $end_date_of_commencement;
         $offer->tenancy_period = $tenancy_period;
         $offer->renewal_term = $renewal_term;
         $offer->monthly_rental = $monthly_rental;
@@ -405,11 +483,12 @@ class AdminletterController extends Controller
         $offer->deduct_deposit = $deduct_deposit;
         $offer->deduct_agreement = $deduct_agreement;
         $offer->balance_to_paid = $balance_to_paid;
+        $offer->status = $status;
         $offer->save();
 
-        $id = $otl_id;
-
         \Session::flash('flash_message', 'successfully update otl');
+        }
+        $id = $otl_id;
         return Redirect::route('admineditotl', compact('id'));
 
     }
@@ -541,6 +620,11 @@ class AdminletterController extends Controller
         $stakeholder = $request->input('stakeholder');
         $amount_paid = $request->input('amount_paid');
 
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTP form noted save, please choose agent vendor / agent purchaser');
+            return Redirect::route('adminaddotp');
+        } else {
+
          //otp number
          $purchases = Purchase::all();
          $total = count($purchases);
@@ -575,6 +659,8 @@ class AdminletterController extends Controller
 
         \Session::flash('flash_message', 'successfully save otp');
         return Redirect::route('adminlistotp');
+        
+        }
 
     }
 
@@ -591,6 +677,7 @@ class AdminletterController extends Controller
         $date_of_agreement = $request->input('date_of_agreement');
         $property_address = $request->input('property_address');
         $date_of_commencement = $request->input('date_of_commencement');
+        $end_date_of_commencement = $request->input('end_date_of_commencement');
         $tenancy_period = $request->input('tenancy_period');
         $renewal_term = $request->input('renewal_term');
         $monthly_rental = $request->input('monthly_rental');
@@ -621,6 +708,11 @@ class AdminletterController extends Controller
         $deduct_agreement = $request->input('deduct_agreement');
         $balance_to_paid = $request->input('balance_to_paid');
 
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTL form noted save, please choose agent landlord / agent tenant');
+            return Redirect::route('adminaddotl');
+        } else {
+ 
         //otl number
         $offers = Offer::all();
         $total = count($offers);
@@ -636,6 +728,7 @@ class AdminletterController extends Controller
         $offer->date_of_agreement = $date_of_agreement;
         $offer->property_address = $property_address;
         $offer->date_of_commencement = $date_of_commencement;
+        $offer->end_date_of_commencement = $end_date_of_commencement;
         $offer->tenancy_period = $tenancy_period;
         $offer->renewal_term = $renewal_term;
         $offer->monthly_rental = $monthly_rental;
@@ -669,6 +762,6 @@ class AdminletterController extends Controller
 
         \Session::flash('flash_message', 'successfully save otp');
         return Redirect::route('adminlistotl');
-
+        }
     }
 }

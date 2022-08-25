@@ -34,20 +34,26 @@
                                             <th>Bank Name</th>
                                             <th>Bank Acc</th>
                                             <th>Position</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($alluser as $data)
+                                    @foreach($userarray as $data)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{$data->nickname}}</td>
-                                            <td>{{$data->contact}}</td>
-                                            <td>{{$data->ic}}</td>
-                                            <td>{{$data->bankname}}</td>
-                                            <td>{{$data->bankaccnumber}}</td>
-                                            <td>{{$data->level}}</td>
-                                            <td><a href="{{ route('detailsagent', $data->id) }}"><span class="badge badge-primary">view</span>  | &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('UserController@destroy', $data->id) }}"><span class="badge badge-danger">delete</span></a></td>
+                                            <td>{{$data['nickname']}}</td>
+                                            <td>{{$data['contact']}}</td>
+                                            <td>{{$data['ic']}}</td>
+                                            <td>{{$data['bankname']}}</td>
+                                            <td>{{$data['bankaccnumber']}}</td>
+                                            <td>{{$data['level']}}</td>
+                                            @if($data['status'] == "active")
+                                                <td align="center"><span class="badge badge-success">{{$data['status']}}</span></td>
+                                            @elseif($data['status'] == "resign")
+                                                <td align="center"><span class="badge badge-danger">{{$data['status']}}</span></td>
+                                            @endif
+                                            <td><a href="{{ route('detailsagent', $data['id']) }}"><span class="badge badge-primary">view</span></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

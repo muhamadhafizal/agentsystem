@@ -36,7 +36,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Date Of This Offer : </label>
-                                                <input type="date" name="date_offer" class="form-control">
+                                                <input type="date" name="date_offer" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Property Address : </label>
-                                                <input type="text" name="sales_property" class="form-control">
+                                                <input type="text" name="sales_property" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Stakeholder : </label>
-                                                <input type="text" name="stakeholder" class="form-control">
+                                                <input type="text" name="stakeholder" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Deposit : </label>
-                                                <input type="number" name="deposit" step="0.001" class="form-control">
+                                                <input type="number" name="deposit" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchase Price : </label>
-                                                <input type="number" name="purchase_price" step="0.001" class="form-control">
+                                                <input type="number" name="purchase_price" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Signing SPA (RM) : </label>
-                                                <input type="number" name="amount_paid" step="0.001" class="form-control">
+                                                <input type="number" name="amount_paid" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Special Condition: </label>
-                                                <textarea class="form-control" name="condition_one" cols="5" rows="5"></textarea>
+                                                <textarea class="form-control" name="condition_one" cols="5" rows="5" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Vendor Name : </label>
-                                                <input type="text" name="vendor_name" class="form-control">
+                                                <input type="text" name="vendor_name" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchaser Name : </label>
-                                                <input type="text" name="purchaser_name" class="form-control">
+                                                <input type="text" name="purchaser_name" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Vendor</label>
+                                                <label class="form-control-label">Agent Vendor :</label>
                                                 <select name="agent_vendor" class="form-control">
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
@@ -136,11 +136,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Other Agent Name : </label>
+                                                <label class=" form-control-label">Cobroke Agent Vendor Name : </label>
                                                 <input type="text" name="others_vendor_name" class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Other Agent IC : </label>
+                                                <label class=" form-control-label">Cobroke Agent Vendor IC : </label>
                                                 <input type="text" name="others_vendor_ic" class="form-control">
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Tenant</label>
+                                                <label class="form-control-label">Agent Purchaser :</label>
                                                 <select name="agent_tenant" class="form-control">
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
@@ -161,11 +161,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Tenant Name :  </label>
+                                                <label class=" form-control-label">Cobroke Agent Purchaser Name :  </label>
                                                 <input type="text" name="others_tenant_name" class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Tenant IC : </label>
+                                                <label class=" form-control-label">Cobroke Agent Purchaser IC : </label>
                                                 <input type="text" name="others_tenant_ic" class="form-control">
                                             </div>
                                         </div>

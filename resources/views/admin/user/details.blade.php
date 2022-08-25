@@ -153,6 +153,14 @@
                                         </div>
                                     </div>
 	                            </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-sm-12">
+                                            <label class="form-control-label">Status</label>
+                                            <input type="text" name="status" value="{{$userarray['defstatus']}}" class="form-control" disabled>
+                                        </div>
+                                    </div>
+	                            </div>
                                     <div class="row">
                                         <div>
                                         &nbsp&nbsp&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ route('allagents') }}'"><i class="fa fa-arrow-left"></i></button>&nbsp<button type="button" class="btn btn-primary" onclick="window.location='{{ action('UserController@edit', $userarray['id']) }}'">Edit Info</button>&nbsp @if($userarray['position'] == 'lead' ||$userarray['position'] == 'fullcomm' )<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">update gop</button>@endif

@@ -9,6 +9,9 @@
 	        	        @if(Session::has('flash_message'))
 	        	            <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
 	        	        @endif
+                        @if(Session::has('flash_message_delete'))
+                                <div class="alert alert-danger"><span class="fa fa-check"></span><em> {!! session('flash_message_delete') !!}</em></div>
+                        @endif
 	        	    </div>
 	        	</div>
 	            <div class="row">
@@ -36,7 +39,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Date Of Agreement : </label>
-                                                <input type="date" name="date_of_agreement" class="form-control">
+                                                <input type="date" name="date_of_agreement" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -44,15 +47,19 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">RE: Property known as : </label>
-                                                <input type="text" name="property_address" class="form-control">
+                                                <input type="text" name="property_address" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Date Of Commencement : </label>
-                                                <input type="date" name="date_of_commencement" class="form-control">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label class=" form-control-label"> Start Date Of Commencement : </label>
+                                                <input type="date" name="date_of_commencement" class="form-control" required>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label class=" form-control-label"> End Date Of Commencement : </label>
+                                                <input type="date" name="end_date_of_commencement" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -60,11 +67,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Tenancy Period : </label>
-                                                <input type="text" name="tenancy_period" class="form-control">
+                                                <input type="text" name="tenancy_period" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Renewal Term : </label>
-                                                <input type="text" name="renewal_term" class="form-control">
+                                                <input type="text" name="renewal_term" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -72,11 +79,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Monthly Rental as agreed : </label>
-                                                <input type="number" name="monthly_rental" step="0.001" class="form-control">
+                                                <input type="number" name="monthly_rental" step="0.001" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Advance Rental of the month: </label>
-                                                <input type="number" name="advance_rental" step="0.001" class="form-control">
+                                                <input type="number" name="advance_rental" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -84,11 +91,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Security Deposit: </label>
-                                                <input type="number" name="security_deposit" step="0.001" class="form-control">
+                                                <input type="number" name="security_deposit" step="0.001" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Utility Deposit: </label>
-                                                <input type="number" name="utility_deposit" step="0.001" class="form-control">
+                                                <input type="number" name="utility_deposit" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -96,11 +103,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Tenancy Agreement Fee: </label>
-                                                <input type="number" name="agreement_fee" step="0.001" class="form-control">
+                                                <input type="number" name="agreement_fee" step="0.001" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Stamp Duty + Runner Fee: </label>
-                                                <input type="number" name="stamp_duty" step="0.001" class="form-control">
+                                                <input type="number" name="stamp_duty" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +115,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Total: </label>
-                                                <input type="number" name="total" step="0.001" class="form-control">
+                                                <input type="number" name="total" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -116,11 +123,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Deduct Earnest Deposit Paid : </label>
-                                                <input type="number" name="deduct_deposit" step="0.001" class="form-control">
+                                                <input type="number" name="deduct_deposit" step="0.001" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Deduct Agreement and Stamping Fee : </label>
-                                                <input type="number" name="deduct_agreement" step="0.001" class="form-control">
+                                                <input type="number" name="deduct_agreement" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +135,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Balance To Paid to vendor: </label>
-                                                <input type="number" name="balance_to_paid" step="0.001" class="form-control">
+                                                <input type="number" name="balance_to_paid" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +158,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Pay Before : </label>
-                                                <input type="date" name="pay_before" class="form-control">
+                                                <input type="date" name="pay_before" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +166,7 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Vendor Name : </label>
-                                                <input type="text" name="vendor_name" class="form-control">
+                                                <input type="text" name="vendor_name" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Vendor IC : </label>
@@ -183,7 +190,7 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Tenant Name : </label>
-                                                <input type="text" name="tenant_name" class="form-control">
+                                                <input type="text" name="tenant_name" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Tenant IC : </label>
@@ -206,7 +213,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Vendor</label>
+                                                <label class="form-control-label">Agent Landlord : </label>
                                                 <select name="agent_vendor" class="form-control">
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
@@ -219,11 +226,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Other Agent Name : </label>
+                                                <label class=" form-control-label">Cobroke Agent Landlord Name : </label>
                                                 <input type="text" name="others_vendor_name" class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Other Agent IC : </label>
+                                                <label class=" form-control-label">Cobroke Agent Landlord IC : </label>
                                                 <input type="text" name="others_vendor_ic" class="form-control">
                                             </div>
                                         </div>
@@ -231,7 +238,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Tenant</label>
+                                                <label class="form-control-label">Agent Tenant : </label>
                                                 <select name="agent_tenant" class="form-control">
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
@@ -244,11 +251,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Tenant Name :  </label>
+                                                <label class=" form-control-label">Cobroke Agent Tenant Name :  </label>
                                                 <input type="text" name="others_tenant_name" class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Tenant IC : </label>
+                                                <label class=" form-control-label">Cobroke Agent Tenant IC : </label>
                                                 <input type="text" name="others_tenant_ic" class="form-control">
                                             </div>
                                         </div>

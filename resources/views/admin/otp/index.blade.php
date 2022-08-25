@@ -31,18 +31,24 @@
                                             <th>OTP Num</th>
                                             <th>Date Offer</th>
                                             <th>Sales Property</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>  
-                                        @foreach($purchases as $purchase)
+                                        @foreach($purchasesarray as $purchase)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{$purchase->otp_num}}</td>
-                                            <td>{{$purchase->date_offer}}</td>
-                                            <td>{{$purchase->sales_property}}</td>
-                                            <td><a href="{{ route('admindetailsotp', $purchase->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
-                                                <a href="{{ route('admineditotp', $purchase->id) }}"><span class="badge badge-success">edit</span> 
+                                            <td>{{$purchase['otp_num']}}</td>
+                                            <td>{{$purchase['date_offer']}}</td>
+                                            <td>{{$purchase['sales_property']}}</td>
+                                            @if($purchase['status'] == "success")
+                                                <td align="center"><span class="badge badge-success">{{$purchase['status']}}</span></td>
+                                            @elseif($purchase['status'] == "cancel")
+                                                <td align="center"><span class="badge badge-danger">{{$purchase['status']}}</span></td>
+                                            @endif
+                                            <td><a href="{{ route('admindetailsotp', $purchase['id']) }}"><span class="badge badge-primary">view</span>  | &nbsp 
+                                                <a href="{{ route('admineditotp', $purchase['id']) }}"><span class="badge badge-success">edit</span> 
                                             </td>
                                         </tr>
                                         @endforeach

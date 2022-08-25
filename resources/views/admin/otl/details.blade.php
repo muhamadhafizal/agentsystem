@@ -159,7 +159,7 @@
                     <div class="row" style="height:15px">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px;">&nbsp&nbsp&nbsp a)Date of Commencement :<b>{{$details->date_of_commencement}} </b></p>
+                            <p style="font-size:11px;">&nbsp&nbsp&nbsp a)Date of Commencement :<b>{{$startdatecommencement}} - {{$enddatecommencement}} </b></p>
                         </div>
                     </div> 
                     <div class="row" style="height:15px">

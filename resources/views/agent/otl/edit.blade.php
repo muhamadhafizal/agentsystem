@@ -9,6 +9,9 @@
 	        	        @if(Session::has('flash_message'))
 	        	            <div class="alert alert-success"><span class="fa fa-check"></span><em> {!! session('flash_message') !!}</em></div>
 	        	        @endif
+                        @if(Session::has('flash_message_delete'))
+                                <div class="alert alert-danger"><span class="fa fa-check"></span><em> {!! session('flash_message_delete') !!}</em></div>
+                        @endif
 	        	    </div>
 	        	</div>
 	            <div class="row">
@@ -50,9 +53,13 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Date Of Commencement : </label>
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label class=" form-control-label">Start Date Of Commencement : </label>
                                                 <input type="date" name="date_of_commencement" value="{{$details->date_of_commencement}}"  class="form-control">
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label class=" form-control-label">End Date Of Commencement : </label>
+                                                <input type="date" name="end_date_of_commencement" value="{{$details->end_date_of_commencement}}"  class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -207,7 +214,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Vendor</label>
+                                                <label class="form-control-label">Agent Landlord :</label>
                                                 <select name="agent_vendor" class="form-control">
                                                 <option value="{{$details->agentvendor_id}}">{{$vendor_name}}</option>
                                                     <option value="0"></option>
@@ -221,11 +228,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Other Agent Name : </label>
+                                                <label class=" form-control-label">Cobroke Agent Landlord Name : </label>
                                                 <input type="text" name="others_vendor_name" value="{{$details->others_vendor_name}}"  class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Other Agent IC : </label>
+                                                <label class=" form-control-label">Cobroke Agent Landlord IC : </label>
                                                 <input type="text" name="others_vendor_ic" value="{{$details->others_vendor_ic}}"  class="form-control">
                                             </div>
                                         </div>
@@ -233,9 +240,9 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Tenant</label>
+                                                <label class="form-control-label">Agent Tenant :</label>
                                                 <select name="agent_tenant" class="form-control">
-                                                <option value="{{$details->agentvendor_id}}">{{$tenant_name}}</option>
+                                                <option value="{{$details->agenttenant_id}}">{{$tenant_name}}</option>
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
                                                     <option value="{{$data->id}}">{{$data->nickname}}</option>
@@ -247,11 +254,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Tenant Name :  </label>
+                                                <label class=" form-control-label">Cobroke Agent Tenant Name :  </label>
                                                 <input type="text" name="others_tenant_name" value="{{$details->others_tenant_name}}"  class="form-control">
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">(if applicable) Outside Tenant IC : </label>
+                                                <label class=" form-control-label">Cobroke Agent Tenant IC :  </label>
                                                 <input type="text" name="others_tenant_ic" value="{{$details->others_tenant_ic}}"  class="form-control">
                                             </div>
                                         </div>

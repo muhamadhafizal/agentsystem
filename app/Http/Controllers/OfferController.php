@@ -52,6 +52,7 @@ class OfferController extends Controller
         $date_of_agreement = $request->input('date_of_agreement');
         $property_address = $request->input('property_address');
         $date_of_commencement = $request->input('date_of_commencement');
+        $end_date_of_commencement = $request->input('end_date_of_commencement');
         $tenancy_period = $request->input('tenancy_period');
         $renewal_term = $request->input('renewal_term');
         $monthly_rental = $request->input('monthly_rental');
@@ -82,6 +83,11 @@ class OfferController extends Controller
         $deduct_agreement = $request->input('deduct_agreement');
         $balance_to_paid = $request->input('balance_to_paid');
 
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTL form noted save, please choose agent landlord / agent tenant');
+            return Redirect::route('addotl');
+        } else {
+
         //otl number
         $offers = Offer::all();
         $total = count($offers);
@@ -97,6 +103,7 @@ class OfferController extends Controller
         $offer->date_of_agreement = $date_of_agreement;
         $offer->property_address = $property_address;
         $offer->date_of_commencement = $date_of_commencement;
+        $offer->end_date_of_commencement = $end_date_of_commencement;
         $offer->tenancy_period = $tenancy_period;
         $offer->renewal_term = $renewal_term;
         $offer->monthly_rental = $monthly_rental;
@@ -130,6 +137,7 @@ class OfferController extends Controller
 
         \Session::flash('flash_message', 'successfully save otp');
         return Redirect::route('agentlistotl');
+        }
 
     }
 
@@ -154,9 +162,17 @@ class OfferController extends Controller
             $tenantname = $details->others_tenant_name;
             $tenantic = $details->others_tenant_ic;
         }
+
+        $startdatecommencement = date("d/m/Y", strtotime($details->date_of_commencement));
+
+        if($details->end_date_of_commencement){
+            $enddatecommencement = date("d/m/Y", strtotime($details->end_date_of_commencement));
+        } else {
+            $enddatecommencement = ' ';
+        }
       
 
-        return view('agent/otl/details', compact('details','vendorname','vendoric','tenantname','tenantic'));
+        return view('agent/otl/details', compact('details','vendorname','vendoric','tenantname','tenantic','startdatecommencement','enddatecommencement'));
     }
 
     public function edit($id){
@@ -187,6 +203,7 @@ class OfferController extends Controller
         $date_of_agreement = $request->input('date_of_agreement');
         $property_address = $request->input('property_address');
         $date_of_commencement = $request->input('date_of_commencement');
+        $end_date_of_commencement = $request->input('end_date_of_commencement');
         $tenancy_period = $request->input('tenancy_period');
         $renewal_term = $request->input('renewal_term');
         $monthly_rental = $request->input('monthly_rental');
@@ -217,10 +234,15 @@ class OfferController extends Controller
         $deduct_agreement = $request->input('deduct_agreement');
         $balance_to_paid = $request->input('balance_to_paid');
 
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTL form noted save, please choose agent landlord / agent tenant');
+        } else {
+
         $offer = Offer::find($otl_id);
         $offer->date_of_agreement = $date_of_agreement;
         $offer->property_address = $property_address;
         $offer->date_of_commencement = $date_of_commencement;
+        $offer->end_date_of_commencement = $end_date_of_commencement;
         $offer->tenancy_period = $tenancy_period;
         $offer->renewal_term = $renewal_term;
         $offer->monthly_rental = $monthly_rental;
@@ -252,9 +274,9 @@ class OfferController extends Controller
         $offer->balance_to_paid = $balance_to_paid;
         $offer->save();
 
-        $id = $otl_id;
-
         \Session::flash('flash_message', 'successfully update otl');
+        }
+        $id = $otl_id;
         return Redirect::route('editotl', compact('id'));
 
     }

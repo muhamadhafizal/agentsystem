@@ -31,18 +31,24 @@
                                             <th>OTL Num</th>
                                             <th>Date Of Agreement</th>
                                             <th>Address</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($offers as $offer)
+                                        @foreach($offersarray as $offer)
                                             <tr>
                                                 <td>{{$i++}}</td>
-                                                <td>{{$offer->otl_no}}</td>
-                                                <td>{{$offer->date_of_agreement}}</td>
-                                                <td>{{$offer->property_address}}</td>
-                                                <td><a href="{{ route('admindetailsotl', $offer->id) }}"><span class="badge badge-primary">view</span>  | &nbsp 
-                                                    <a href="{{ route('admineditotl', $offer->id) }}"><span class="badge badge-success">edit</span> 
+                                                <td>{{$offer['otl_no']}}</td>
+                                                <td>{{$offer['date_of_agreement']}}</td>
+                                                <td>{{$offer['property_address']}}</td>
+                                                @if($offer['status'] == "success")
+                                                <td align="center"><span class="badge badge-success">{{$offer['status']}}</span></td>
+                                                @elseif($offer['status'] == "cancel")
+                                                <td align="center"><span class="badge badge-danger">{{$offer['status']}}</span></td>
+                                                @endif
+                                                <td><a href="{{ route('admindetailsotl', $offer['id']) }}"><span class="badge badge-primary">view</span>  | &nbsp 
+                                                    <a href="{{ route('admineditotl', $offer['id']) }}"><span class="badge badge-success">edit</span> 
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -12,7 +12,7 @@ class LoginController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
 
-        $user = User::where('username',$username)->where('password',$password)->first();
+        $user = User::where('username',$username)->where('password',$password)->where('status',0)->first();
 
         if($user){
 
@@ -28,7 +28,7 @@ class LoginController extends Controller
             }
             
         } else {
-            return \Redirect::to('/')->with('status', 'Invalid Username Or Password');
+            return \Redirect::to('/')->with('status', 'Invalid Username Or Password Or Inactive');
         }
 
     }

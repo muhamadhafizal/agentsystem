@@ -72,6 +72,11 @@ class PurchaseController extends Controller
         $stakeholder = $request->input('stakeholder');
         $amount_paid = $request->input('amount_paid');
 
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTP form noted save, please choose agent vendor / agent purchaser');
+            return Redirect::route('addotp');
+        } else {
+
          //otp number
          $purchases = Purchase::all();
          $total = count($purchases);
@@ -106,6 +111,7 @@ class PurchaseController extends Controller
 
         \Session::flash('flash_message', 'successfully save otp');
         return Redirect::route('agentlistotp');
+        }
 
 
     }
@@ -180,6 +186,10 @@ class PurchaseController extends Controller
         $stakeholder = $request->input('stakeholder');
         $amount_paid = $request->input('amount_paid');
 
+        if($agent_vendor == 0 && $agent_tenant == 0){
+            \Session::flash('flash_message_delete', 'OTP form noted save, please choose agent vendor / agent purchaser');
+        } else {
+
         $purchase = Purchase::find($otp_id);
         $purchase->date_offer = $date_offer;
         $purchase->sales_property = $sales_property;
@@ -201,9 +211,9 @@ class PurchaseController extends Controller
         $purchase->amount_paid = $amount_paid;
         $purchase->save();
 
-        $id = $otp_id;
-
         \Session::flash('flash_message', 'successfully update otp');
+        }
+        $id = $otp_id;
         return Redirect::route('editotp', compact('id'));
 
     }
