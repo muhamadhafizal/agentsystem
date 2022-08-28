@@ -170,7 +170,7 @@
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Vendor IC : </label>
-                                                <input type="text" name="vendor_ic" class="form-control">
+                                                <input type="text" name="vendor_ic" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -178,11 +178,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Vendor Contact : </label>
-                                                <input type="text" name="vendor_contact" class="form-control">
+                                                <input type="text" name="vendor_contact" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Vendor Email : </label>
-                                                <input type="email" name="vendor_email" class="form-control">
+                                                <input type="email" name="vendor_email" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -194,7 +194,7 @@
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Tenant IC : </label>
-                                                <input type="text" name="tenant_ic" class="form-control">
+                                                <input type="text" name="tenant_ic" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -202,11 +202,11 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Tenant Contact : </label>
-                                                <input type="text" name="tenant_contact" class="form-control">
+                                                <input type="text" name="tenant_contact" class="form-control" required>
                                             </div>
                                             <div class="col-lg-6 col-sm-6">
                                                 <label class=" form-control-label">Tenant Email : </label>
-                                                <input type="text" name="tenant_email" class="form-control">
+                                                <input type="text" name="tenant_email" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>

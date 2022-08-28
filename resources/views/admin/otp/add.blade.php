@@ -100,7 +100,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Vendor IC : </label>
-                                                <input type="text" name="vendor_ic" class="form-control">
+                                                <input type="text" name="vendor_ic" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                                 <label class=" form-control-label">Purchaser IC : </label>
-                                                <input type="text" name="purchaser_ic" class="form-control">
+                                                <input type="text" name="purchaser_ic" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
