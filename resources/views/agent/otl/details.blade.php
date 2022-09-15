@@ -111,18 +111,6 @@
                     <div class="row" style="height:15px">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px;">Contact no : <b>{{$details->tenant_contact}}</b></p>
-                        </div>
-                    </div> 
-                    <div class="row" style="height:15px">
-                        <div class="col-1"></div>
-                        <div class="col-9">
-                            <p style="font-size:11px;">Mailing address :<b>{{$details->tenant_email}} </b></p>
-                        </div>
-                    </div> 
-                    <div class="row" style="height:15px">
-                        <div class="col-1"></div>
-                        <div class="col-9">
                             <p style="font-size:11px;">Between </p>
                         </div>
                     </div> 
@@ -138,18 +126,6 @@
                             <p style="font-size:11px;">NRIC no :<b> {{$details->vendor_ic}}</b></p>
                         </div>
                     </div> 
-                    <div class="row" style="height:15px">
-                        <div class="col-1"></div>
-                        <div class="col-9">
-                            <p style="font-size:11px;">Contact no  : <b>{{$details->vendor_contact}}</b></p>
-                        </div>
-                    </div> 
-                    <div class="row" style="height:15px">
-                        <div class="col-1"></div>
-                        <div class="col-9">
-                            <p style="font-size:11px;">Mailing address  :<b>{{$details->vendor_email}} </b></p>
-                        </div>
-                    </div>
                     <div class="row" style="height:15px">
                         <div class="col-1"></div>
                         <div class="col-9">
