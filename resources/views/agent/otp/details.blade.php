@@ -144,7 +144,7 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">the vendor and thereafter neither party shall have any claims against the other or at all shall be forfeited to.</p>
+                        <p style="font-size:11px">shall be forfeited to the vendor and thereafter neither party shall have any claims against *the other or at all.</p>
                         </div>
                     </div>
                     <div class="row" style="height:3px"></div>
@@ -169,21 +169,30 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px"> any claims against the other at all. If the purchaser fail to produce the said letter of rejection or</p>
+                            <p style="font-size:11px"> any claims against the other at all.</p>
+                        </div>
+                    </div>
+                    <div class="row" style="height:3px"></div>
+                    <div class="row" style="line-height:10%">
+                        <div class="col-1"></div>
+                        <div class="col-9">
+                            <p style="font-size:11px"> In the event the said purchaser fail to produce the said letter of rejection or canceled this option to purchase </p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">cancelled this option to purchase after loan   approved, the earnest deposit shall be forfeited to</p>
+                            <p style="font-size:11px">before or after loan approved, the earnest deposit shall be forfeited to the vendor and neither party shall</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px">the vendor and neither party shall have any claims against the other at all.</p>
+                            <p style="font-size:11px"> have any claims against the other at all.</p>
                         </div>
                     </div>
+
+
                     <div class="row" style="height:3px"></div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
@@ -253,14 +262,12 @@
                             <p style="font-size:11px"><b>Position </b>(subject to existing tenancy agreement )</p>
                         </div>
                     </div>
-                    <div class="row" style="height:10px"></div>
                     <div class="row" style="line-height:60%">
                         <div class="col-1"></div>
                         <div class="col-9">
                             <p style="font-size:11px"><b>Others Condition</b>: {{$details->condition_one}}</p>
                         </div>
                     </div>
-                    <div class="row" style="height:10px"></div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-5">
