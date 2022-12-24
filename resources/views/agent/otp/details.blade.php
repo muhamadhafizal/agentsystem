@@ -47,44 +47,44 @@
                             <b>MW PROPERTIES</b> <p style="font-size:10px; display:inline">(AE(3)0024) REGISTERED ESTATE AGENT</p>
                         </div>
                     </div>
-                    <div class="row" style="height:15px">
+                    <div class="row" style="height:11px">
                         <div class="col-1"></div>
                         <div class="col-6">
                             <p style="font-size:10px">BLOCK A 04-10 PUSAT PERDAGANGAN EKOFLORA</p>
                         </div>
                     </div>
-                    <div class="row" style="height:15px">
+                    <div class="row" style="height:11px">
                         <div class="col-1"></div>
                         <div class="col-6">
                             <p style="font-size:10px">JALAN EKOFLORA 7/3 TAMAN EKOFLORA</p>
                         </div>
                     </div>
-                    <div class="row" style="height:15px">
+                    <div class="row" style="height:11px">
                         <div class="col-1"></div>
                         <div class="col-6">
                             <p style="font-size:10px">81100 JOHOR BAHRU JOHOR</p>
                         </div>
                     </div>
-                    <div class="row" style="height:15px">
+                    <div class="row" style="height:5px">
                         <div class="col-1"></div>
                         <div class="col-6">
                             <p style="font-size:10px">Email: mwproperty.jb@gmail.com &nbsp&nbsp Tel: +607-3611599 </p>
                         </div>
                     </div>
                     <br>
-                    <div class="row" style="height:25px">
+                    <div class="row" style="height:15px">
                         <div class="col-3"></div>
                         <div class="col-6">
                         <p style="font-size:14px"><b>LETTER OFFER TO PURCHASE</b></p>
                         </div>
                     </div>                  
-                    <div class="row" style="height:25px">
+                    <div class="row" style="height:15px">
                         <div class="col-9"></div>
                         <div class="col-3">
                             <p style="font-size:11px">OTP NO:{{$details->otp_num}}</p>
                         </div>
                     </div>  
-                    <div class="row" style="height:15px">
+                    <div class="row" style="height:10px">
                         <div class="col-1"></div>
                         <div class="col-9">
                             <p style="font-size:11px; font-weight:bold">Date Of This Offer : {{$details->date_offer}} </p>
@@ -268,7 +268,7 @@
                             <p style="font-size:11px"><b>Others Condition</b>: {{$details->condition_one}}</p>
                         </div>
                     </div>
-                    <div class="row" style="line-height:10%">
+                    <div class="row" style="line-height:5%">
                         <div class="col-1"></div>
                         <div class="col-5">
                             <p style="font-size:10px">Signed By The Vendor</p>
@@ -278,7 +278,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row" style="line-height:10%">
+                    <div class="row" style="line-height:5%">
                         <div class="col-1"></div>
                         <div class="col-5">
                             <p style="font-size:10px">----------------------------</p>
@@ -287,7 +287,7 @@
                             <p style="font-size:10px">----------------------------</p>
                         </div>
                     </div>
-                    <div class="row" style="line-height:10%">
+                    <div class="row">
                         <div class="col-1"></div>
                         <div class="col-5">
                             <p style="font-size:10px">Name : {{$details->vendor_name}}  </p>
@@ -296,7 +296,7 @@
                             <p style="font-size:10px">Name : {{$details->purchaser_name}}</p>
                         </div>
                     </div>
-                    <div class="row" style="line-height:2%">
+                    <div class="row">
                         <div class="col-1"></div>
                         <div class="col-5">
                             <p style="font-size:10px">NRIC : {{$details->vendor_ic}} </p>
@@ -334,7 +334,7 @@
                             <p style="font-size:10px">Name : {{$tenantname}}</p>
                         </div>
                     </div>
-                    <div class="row" style="line-height:2%">
+                    <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-5">
                             <p style="font-size:10px">NRIC : {{$vendoric}}</p>
