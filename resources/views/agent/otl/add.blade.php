@@ -112,12 +112,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Total: </label>
-                                                <input type="number" name="total" step="0.001" class="form-control" required>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                     <div class="form-group">
                                         <div class="row">

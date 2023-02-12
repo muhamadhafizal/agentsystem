@@ -171,8 +171,10 @@ class OfferController extends Controller
             $enddatecommencement = ' ';
         }
       
+        //totalotl
+        $totalotl = $details->monthly_rental + $details->advance_rental + $details->security_deposit + $details->utility_deposit + $details->agreement_fee + $details->stamp_duty;
 
-        return view('agent/otl/details', compact('details','vendorname','vendoric','tenantname','tenantic','startdatecommencement','enddatecommencement'));
+        return view('agent/otl/details', compact('details','vendorname','vendoric','tenantname','tenantic','startdatecommencement','enddatecommencement','totalotl'));
     }
 
     public function edit($id){

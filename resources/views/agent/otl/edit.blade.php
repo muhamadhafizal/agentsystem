@@ -114,8 +114,8 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Total: </label>
-                                                <input type="number" name="total" step="0.001" value="{{$details->total}}"  class="form-control">
+                                         
+                                                <input type="hidden" name="total" step="0.001" value="0"  class="form-control">
                                             </div>
                                         </div>
                                     </div>

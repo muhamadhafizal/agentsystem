@@ -26,19 +26,9 @@
                             <img src="{{ asset('mwlogo.jpg') }}">
                         </div>
                         <div class="col-2 pull-right">
-                            <img src="{{ asset('property.png') }}" width="60" height="60">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9"></div>
-                        <div class="col-2 pull-right" style="font-size:12px">
-                           EJEN HARTA TANAH
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9"></div>
-                        <div class="col-2 pull-right" style="font-size:12px">
-                           A0053 & E0141
+                            <img src="{{ asset('property.png') }}" width="50" height="50">
+                            <p style="font-size:11px">  EJEN HARTA TANAH </p>
+                            <p style="font-size:11px; margin:-15px -2px"> A0053 & E0141 </p>
                         </div>
                     </div>
                     <div class="row">
@@ -133,17 +123,11 @@
                     </div>
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
-                        <div class="col-2">
-                            <p style="font-size:12px">I/We : </p>
+                        <div class="col-4">
+                            <p style="font-size:12px">I/We : <u>{{$payment->name}} </u> </p>
                         </div>
-                        <div class="col-2">
-                            <p style="font-size:12px; -webkit-text-decoration-line: underline; text-decoration-line: underline;">{{$payment->name}} </p>
-                        </div>
-                        <div class="col-2">
-                            <p style="font-size:12px">NRIC:</p>
-                        </div>
-                        <div class="col-2">
-                            <p style="font-size:12px; -webkit-text-decoration-line: underline; text-decoration-line: underline;">{{$payment->ic}} </p>
+                        <div class="col-4">
+                            <p style="font-size:12px">NRIC: <u>{{$payment->ic}}</u> </p>
                         </div>
                     </div>
                     <div class="row" style="height:25px">

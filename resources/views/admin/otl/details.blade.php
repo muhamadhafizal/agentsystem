@@ -26,19 +26,9 @@
                             <img src="{{ asset('mwlogo.jpg') }}">
                         </div>
                         <div class="col-2 pull-right">
-                            <img src="{{ asset('property.png') }}" width="60" height="60">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9"></div>
-                        <div class="col-2 pull-right" style="font-size:11px">
-                           EJEN HARTA TANAH
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9"></div>
-                        <div class="col-2 pull-right" style="font-size:11px">
-                           A0053 & E0141
+                            <img src="{{ asset('property.png') }}" width="50" height="50">
+                            <p style="font-size:11px">  EJEN HARTA TANAH </p>
+                            <p style="font-size:11px; margin:-15px -2px"> A0053 & E0141 </p>
                         </div>
                     </div>
                     <div class="row">
@@ -195,7 +185,7 @@
                     <div class="row" style="height:15px">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:11px;">TOTAL &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <b>RM{{$details->total}}</b></p>
+                            <p style="font-size:11px;">TOTAL &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <b>RM{{$totalotl}}</b></p>
                         </div>
                     </div> 
                     <div class="row" style="height:15px">
