@@ -70,49 +70,49 @@
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-6">
-                            <p style="font-size:14px">Name : {{$payment->name}}</p>
+                            <p style="font-size:11px">Name : {{$payment->name}}</p>
                         </div>
                     </div>
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-6">
-                            <p style="font-size:14px">NRIC No : {{$payment->ic}}</p>
+                            <p style="font-size:11px">NRIC No : {{$payment->ic}}</p>
                         </div>
                     </div>
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-6">
-                            <p style="font-size:14px">Email : {{$payment->email}}</p>
+                            <p style="font-size:11px">Email : {{$payment->email}}</p>
                         </div>
                     </div>
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-6">
-                            <p style="font-size:14px">Address : {{$payment->address}}</p>
+                            <p style="font-size:11px">Address : {{$payment->address}}</p>
                         </div>
                     </div>
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-6">
-                            <p style="font-size:14px">To : MW Properties</p>
+                            <p style="font-size:11px">To : MW Properties</p>
                         </div>
                     </div>
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-7">
-                            <p style="font-size:12px">Office Address: BLOCK A 04-10 PUSAT PERDAGANGAN EKOFLORA, JALAN EKOFLORA 7/3 TAMAN EKOFLORA,81100, JOHOR BAHRU JOHOR</p>
+                            <p style="font-size:10px">Office Address: BLOCK A 04-10 PUSAT PERDAGANGAN EKOFLORA, JALAN EKOFLORA 7/3 TAMAN EKOFLORA,81100, JOHOR BAHRU JOHOR</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:250%">
                         <div class="col-1"></div>
                         <div class="col-7">
-                            <p style="font-size:12px;">Office Contact: (+6) 07-3611599</p>
+                            <p style="font-size:10px;">Office Contact: (+6) 07-3611599</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-6">
-                            <p style="font-size:14px">Dear Sir/Madam,</p>
+                            <p style="font-size:11px">Dear Sir/Madam,</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:250%">
@@ -124,108 +124,108 @@
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-4">
-                            <p style="font-size:12px">I/We : <u>{{$payment->name}} </u> </p>
+                            <p style="font-size:10px">I/We : <u>{{$payment->name}} </u> </p>
                         </div>
                         <div class="col-4">
-                            <p style="font-size:12px">NRIC: <u>{{$payment->ic}}</u> </p>
+                            <p style="font-size:10px">NRIC: <u>{{$payment->ic}}</u> </p>
                         </div>
                     </div>
                     <div class="row" style="height:25px">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">hereby undertake to pay you a sum of <b>RM {{$payment->amount}}</b> only (hereinafter know as "the said Payment") for your</p>
+                            <p style="font-size:10px">hereby undertake to pay you a sum of <b>RM {{$payment->amount}}</b> only (hereinafter know as "the said Payment") for your</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">professional services rendered in securing the said of purchase/ to lease for the property upon the</p>
+                            <p style="font-size:10px">professional services rendered in securing the said of purchase/ to lease for the property upon the</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">execution of the Sale and Purchase Agreement/ Tenancy Agreement.</p>
+                            <p style="font-size:10px">execution of the Sale and Purchase Agreement/ Tenancy Agreement.</p>
                         </div>
                     </div>
                     <br>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">I/We hereby agreed that in the event that before the execution of the Sale and Purchase Agreement/</p>
+                            <p style="font-size:10px">I/We hereby agreed that in the event that before the execution of the Sale and Purchase Agreement/</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px"> Tenancy Agreement, the deal is aborted/ terminated due to me/ us or the Vendor/ Landlord, I / we</p>
+                            <p style="font-size:10px"> Tenancy Agreement, the deal is aborted/ terminated due to me/ us or the Vendor/ Landlord, I / we</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px"> shall equally share with forfeited amount with agency as they had done part of their job.</p>
+                            <p style="font-size:10px"> shall equally share with forfeited amount with agency as they had done part of their job.</p>
                         </div>
                     </div>
                     <br>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">I/We hereby agreed that in the event that after the execution of the Sale and Purchase Agreement/</p>
+                            <p style="font-size:10px">I/We hereby agreed that in the event that after the execution of the Sale and Purchase Agreement/</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px"> Tenancy Agreement, the deal is aborted/ terminated due to me/ us or the Vendor/ Landlord, your</p>
+                            <p style="font-size:10px"> Tenancy Agreement, the deal is aborted/ terminated due to me/ us or the Vendor/ Landlord, your</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px"> said Payment already earned shall not be affected and will not be required to be refunded.</p>
+                            <p style="font-size:10px"> said Payment already earned shall not be affected and will not be required to be refunded.</p>
                         </div>
                     </div>
                     <br>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">I/We further confirm that the company shall be at their liberty to commence legal proceedings against</p>
+                            <p style="font-size:10px">I/We further confirm that the company shall be at their liberty to commence legal proceedings against</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px"> me/us in the event I/we default or fail to perform any of the terms and conditions hereof.</p>
+                            <p style="font-size:10px"> me/us in the event I/we default or fail to perform any of the terms and conditions hereof.</p>
                         </div>
                     </div>
                     <br>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">I/We shall not hold the Agent/ the Agency responsible for any losses, damages or expenses incurred as</p>
+                            <p style="font-size:10px">I/We shall not hold the Agent/ the Agency responsible for any losses, damages or expenses incurred as</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px"> a result of complying with my/our instruction and authorization hereof. Further, I/We shall keep the Agent</p>
+                            <p style="font-size:10px"> a result of complying with my/our instruction and authorization hereof. Further, I/We shall keep the Agent</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-9">
-                            <p style="font-size:12px">/ his Agency indemnified against any claim arising here from.</p>
+                            <p style="font-size:10px">/ his Agency indemnified against any claim arising here from.</p>
                         </div>
                     </div>
                     <br>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-5">
-                            <p style="font-size:12px">Yours faithfully,</p>
+                            <p style="font-size:10px">Yours faithfully,</p>
                         </div>
                         <div class="col-5">
-                            <p style="font-size:12px">In the presence of (witness)</p>
+                            <p style="font-size:10px">In the presence of (witness)</p>
                         </div>
                     </div>
                     <br>
@@ -233,46 +233,46 @@
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-5">
-                            <p style="font-size:12px">----------------------------</p>
+                            <p style="font-size:10px">----------------------------</p>
                         </div>
                         <div class="col-5">
-                            <p style="font-size:12px">----------------------------</p>
-                        </div>
-                    </div>
-                    <div class="row" style="line-height:10%">
-                        <div class="col-1"></div>
-                        <div class="col-5">
-                            <p style="font-size:12px">Name : {{$payment->name}}</p>
-                        </div>
-                        <div class="col-5">
-                            <p style="font-size:12px">Name : {{$agentdetails->nickname}}</p>
+                            <p style="font-size:10px">----------------------------</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-5">
-                            <p style="font-size:12px">NRIC : {{$payment->ic}}</p>
+                            <p style="font-size:10px">Name : {{$payment->name}}</p>
                         </div>
                         <div class="col-5">
-                            <p style="font-size:12px">NRIC : {{$agentdetails->ic}}</p>
-                        </div>
-                    </div>
-                    <div class="row" style="line-height:10%">
-                        <div class="col-1"></div>
-                        <div class="col-5">
-                            <p style="font-size:12px">Contact : {{$payment->contact}}</p>
-                        </div>
-                        <div class="col-5">
-                            <p style="font-size:12px">Contact : {{$agentdetails->contact}}</p>
+                            <p style="font-size:10px">Name : {{$agentdetails->nickname}}</p>
                         </div>
                     </div>
                     <div class="row" style="line-height:10%">
                         <div class="col-1"></div>
                         <div class="col-5">
-                            <p style="font-size:12px">Date : {{$payment->created_at}}</p>
+                            <p style="font-size:10px">NRIC : {{$payment->ic}}</p>
                         </div>
                         <div class="col-5">
-                            <p style="font-size:12px">Date : {{$payment->created_at}}</p>
+                            <p style="font-size:10px">NRIC : {{$agentdetails->ic}}</p>
+                        </div>
+                    </div>
+                    <div class="row" style="line-height:10%">
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            <p style="font-size:10px">Contact : {{$payment->contact}}</p>
+                        </div>
+                        <div class="col-5">
+                            <p style="font-size:10px">Contact : {{$agentdetails->contact}}</p>
+                        </div>
+                    </div>
+                    <div class="row" style="line-height:10%">
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            <p style="font-size:10px">Date : {{$payment->created_at}}</p>
+                        </div>
+                        <div class="col-5">
+                            <p style="font-size:10px">Date : {{$payment->created_at}}</p>
                         </div>
                     </div>
                     <br>
