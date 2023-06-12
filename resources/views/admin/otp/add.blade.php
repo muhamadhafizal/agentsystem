@@ -59,7 +59,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Deposit : </label>
+                                                <label class=" form-control-label">Deposit Paid To : </label>
                                                 <input type="number" name="deposit" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Signing SPA (RM): </label>
+                                                <label class=" form-control-label">SPA Deposit (RM): </label>
                                                 <input type="number" name="amount_paid" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
@@ -123,7 +123,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Vendor :</label>
+                                                <label class="form-control-label">Agent MW Vendor :</label>
                                                 <select name="agent_vendor" class="form-control">
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)
@@ -148,7 +148,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent Purchaser :</label>
+                                                <label class="form-control-label">Agent MW Purchaser :</label>
                                                 <select name="agent_tenant" class="form-control">
                                                     <option value="0"></option>
                                                     @foreach($alluser as $data)

@@ -35,7 +35,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Tenant / Owner Name</label>
+                                                <label class=" form-control-label">Customer Name :</label>
                                                 <input type="text" name="name"  class="form-control" required>
                                             </div>
                                         </div>
@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Tenant / Owner NRIC</label>
+                                                <label class=" form-control-label">Customer NRIC :</label>
                                                 <input type="text" name="nric" class="form-control" required>
                                             </div>
                                         </div>
@@ -51,7 +51,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Tenant / Owner Email</label>
+                                                <label class=" form-control-label">Customer Email :</label>
                                                 <input type="email" name="email" class="form-control">
                                             </div>
                                         </div>
@@ -59,7 +59,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Tenant / Owner Contact</label>
+                                                <label class=" form-control-label">Customer Contact :</label>
                                                 <input type="text" name="contact" class="form-control">
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Tenant / Owner Address </label>
+                                                <label class=" form-control-label">Customer Mailing Address :</label>
                                                 <textarea class="form-control" name="address" cols="2" rows="2"></textarea>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class=" form-control-label">Amount</label>
+                                                <label class=" form-control-label">Amount :</label>
                                                 <input type="number" name="amount" step="0.001" class="form-control" required>
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12">
-                                                <label class="form-control-label">Agent</label>
+                                                <label class="form-control-label">Agent :</label>
                                                 <select name="agent" class="form-control">
                                                     <option value="0"></option>
                                                     @foreach($agents as $data)
