@@ -42,7 +42,7 @@ class OfferController extends Controller
 
     public function add(){
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status','0')->get();
         return view('agent/otl/add', compact('alluser'));
     }
 
@@ -194,7 +194,7 @@ class OfferController extends Controller
             $tenant_name = $details_tenant->nickname;
         }
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status','0')->get();
         return view('agent/otl/edit', compact('alluser','details','vendor_name','tenant_name'));
 
     }

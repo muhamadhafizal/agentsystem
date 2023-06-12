@@ -53,7 +53,7 @@ class AdminletterController extends Controller
         //dd($id);
         $payment = Payment::find($id);
         $agentpayment = User::find($payment->agent_id);
-        $agents = User::where('role','agent')->get();
+        $agents = User::where('role','agent')->where('status',0)->get();
 
         return view('admin/payment/edit', compact('payment','agentpayment','agents'));
 
@@ -129,7 +129,7 @@ class AdminletterController extends Controller
 
         $letter = Letter::find($id);
         $agentpayment = User::find($letter->agent_id);
-        $agents = User::where('role','agent')->get();
+        $agents = User::where('role','agent')->where('status',0)->get();
 
         return view('admin/letter/edit', compact('letter','agentpayment','agents'));
 
@@ -250,7 +250,7 @@ class AdminletterController extends Controller
             $status = 'cancel';
         }
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status',0)->get();
         return view('admin/otp/edit', compact('alluser','details','vendor_name','tenant_name','status'));
 
     }
@@ -397,7 +397,7 @@ class AdminletterController extends Controller
             $tenant_name = $details_tenant->nickname;
         }
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status',0)->get();
 
         if($details->status == 0){
             $status = 'success';
@@ -496,7 +496,7 @@ class AdminletterController extends Controller
 
     public function addpayment(){
 
-        $agents = User::where('role','agent')->get();
+        $agents = User::where('role','agent')->where('status',0)->get();
 
         return view('admin/payment/add', compact('agents'));
     }
@@ -546,7 +546,7 @@ class AdminletterController extends Controller
 
     public function addletter(){
     
-        $agents = User::where('role','agent')->get();
+        $agents = User::where('role','agent')->where('status',0)->get();
 
         return view('admin/letter/add', compact('agents'));
 
@@ -593,7 +593,7 @@ class AdminletterController extends Controller
 
     public function addotp(){
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status',0)->get();
         return view('admin/otp/add', compact('alluser'));
     }
 
@@ -667,7 +667,7 @@ class AdminletterController extends Controller
 
     public function addotl(){
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status',0)->get();
         return view('admin/otl/add', compact('alluser'));
 
     }

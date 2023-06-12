@@ -43,7 +43,7 @@ class PurchaseController extends Controller
 
     public function add(){
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status','0')->get();
         return view('agent/otp/add', compact('alluser'));
 
     }
@@ -159,7 +159,7 @@ class PurchaseController extends Controller
             $tenant_name = $details_tenant->nickname;
         }
 
-        $alluser = User::where('role','agent')->get();
+        $alluser = User::where('role','agent')->where('status','0')->get();
         return view('agent/otp/edit', compact('alluser','details','vendor_name','tenant_name'));
 
     }

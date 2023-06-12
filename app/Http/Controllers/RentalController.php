@@ -62,7 +62,7 @@ class RentalController extends Controller
     }
 
     public function getUser(){
-        $user = User::where('role','agent')->get();
+        $user = User::where('role','agent')->where('status',0)->get();
 
         return $user;
     }

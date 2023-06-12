@@ -53,7 +53,9 @@
                                             @elseif($data['status'] == "resign")
                                                 <td align="center"><span class="badge badge-danger">{{$data['status']}}</span></td>
                                             @endif
-                                            <td><a href="{{ route('detailsagent', $data['id']) }}"><span class="badge badge-primary">view</span></td>
+                                            <td><a href="{{ route('detailsagent', $data['id']) }}"><span class="badge badge-primary">view</span> |
+                                                &nbsp <a onclick="return confirm('Are you sure you want to delete?')" href="{{ action('UserController@destroy', ['id' => $data['id']]) }}"><span class="badge badge-danger">delete</span></a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

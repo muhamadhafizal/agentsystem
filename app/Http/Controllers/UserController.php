@@ -61,7 +61,7 @@ class UserController extends Controller
 
         if($user){
 
-            $alluser = User::where('role','agent')->get();
+            $alluser = User::where('role','agent')->where('status','!=','2')->get();
             $i = 1;
 
             foreach($alluser as $user){
@@ -598,7 +598,8 @@ class UserController extends Controller
     public function destroy($id){
 
         $user = $this->getagentdetails($id);
-        $user->delete($user->id);
+        $user->status = '2';
+        $user->save();
 
         \Session::flash('flash_message_delete', 'successfully deleted.');
         return Redirect::route('allagents');
