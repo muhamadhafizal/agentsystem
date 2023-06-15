@@ -71,7 +71,7 @@
                     </div>
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> All the 50% sum of forfeited or liquidated damages should be pay to MW PROPERTIES as their agreement fee. </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> All the 50% of the sum forfeited or liquidated damaged should paid to the MW Properties as their agency fee. </div>
                         <div class="col-2"></div> 
                     </div>
                     <div class="row">
