@@ -208,7 +208,7 @@
                     <div class="row">
                         <div class="col-1"></div>        
                         <div class="col-6" style="font-size:11px; padding-left : 60px"> NRIC : {{$details->vendor_ic}}</div>
-                        <div class="col-3" style="font-size:11px; padding-left : 15px"> NRIC : {{$details->tenant_name}}</div>
+                        <div class="col-3" style="font-size:11px; padding-left : 15px"> NRIC : {{$details->tenant_ic}}</div>
                         <div class="col-2"></div> 
                     </div>
                     <div class="row">
