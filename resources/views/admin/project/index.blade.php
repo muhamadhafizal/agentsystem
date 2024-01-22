@@ -19,7 +19,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group mx-sm-3 mb-2">
-                                    <input class="date-own form-control" style="width: 100px;" type="number" id="year" readonly="true" value="2021">
+                                    <input class="date-own form-control" style="width: 100px;" type="number" id="year" readonly="true" value="2024">
                                 </div>
                                 <button id="statusdashboard" class="btn btn-primary mb-2">Search</button>
                             </div>

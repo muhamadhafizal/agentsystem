@@ -341,7 +341,7 @@ if ($role == 'agent') {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Multilevel Marketing Software @ 2020 .</p>
+                                    <p>Multilevel Marketing Software @ 2024 .</p>
                                 </div>
                             </div>
                         </div>

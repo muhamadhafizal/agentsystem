@@ -28,7 +28,7 @@
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Voucher Number:</label>
-            <input type="text" name="vouchernumber" placeholder="MW/2020/XXXX" class="form-control" >
+            <input type="text" name="vouchernumber" placeholder="MW/2024/XXXX" class="form-control" >
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Address:</label>

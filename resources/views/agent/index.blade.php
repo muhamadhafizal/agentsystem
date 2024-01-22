@@ -9,7 +9,7 @@
                         <h2 style="color: white">Year :</h2>
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
-                        <input class="date-own form-control" style="width: 100px;" type="number" id="yearchartagent" readonly="true" value="2021">
+                        <input class="date-own form-control" style="width: 100px;" type="number" id="yearchartagent" readonly="true" value="2024">
                         </div>
                         <button id ="yearagent" class="btn btn-primary mb-2">Submit</button>
                     </div>
