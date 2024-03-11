@@ -91,7 +91,7 @@
                     <br>
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> I/We hereby agreed that in the event that before the execution of the Sale and Purchase Agreement/ Tenancy Agreement, the deal is aborted/ terminated due to me/ us or the Vendor/ Landlord, I / we shall equally share with forfeited amount with agency as they had done part of their job. </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> I/We hereby agreed that in the event that before the execution of the Sale and Purchase Agreement/ Tenancy Agreement, the deal is aborted/ terminated due to purchaser/ us or the Vendor/ Landlord, I / we shall equally share with forfeited amount with agency as they had done part of their job. </div>
                         <div class="col-2"></div> 
                     </div> 
                     <br>

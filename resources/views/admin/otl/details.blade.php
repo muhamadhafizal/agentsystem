@@ -188,7 +188,7 @@
                     <br>
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-6" style="font-size:11px; text-align:justify; padding-left : 60px"> <b> Signed By Landlor  </b></div>
+                        <div class="col-6" style="font-size:11px; text-align:justify; padding-left : 60px"> <b> Signed By Landlord  </b></div>
                         <div class="col-3" style="font-size:11px; text-align:justify; padding-left : 15px"> <b> Signed By Tenant  </b></div>
                         <div class="col-2"></div> 
                     </div>
