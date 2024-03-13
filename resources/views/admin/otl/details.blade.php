@@ -64,7 +64,7 @@
                     </div> 
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> Vendor (s) name :<b>{{$details->vendor_name}}</b> </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> Landlord name :<b>{{$details->vendor_name}}</b> </div>
                         <div class="col-2"></div> 
                     </div> 
                     <div class="row">
@@ -144,19 +144,19 @@
                     </div> 
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Balance To Paid to vendor : <b>RM{{$details->balance_to_paid}}</b> </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Balance To Paid to Landlord : <b>RM{{$details->balance_to_paid}}</b> </div>
                         <div class="col-2"></div> 
                     </div> 
                     @if($details->type == 'cash')
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> I/ We attach here with the sum of  <b>RM{{$details->monthly_rental}}</b> Cash payable to vendor or MW PROPERTIES as stakeholder being earnest deposit. </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> I/ We attach here with the sum of  <b>RM{{$details->monthly_rental}}</b> Cash payable to landlord or MW PROPERTIES as stakeholder being earnest deposit. </div>
                         <div class="col-2"></div> 
                     </div> 
                     @else
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> I/ We attach here with the sum of  <b>RM{{$details->monthly_rental}}</b> Cheque No <b>{{$details->cheque_no}}</b> payable to vendor or MW PROPERTIES as stakeholder being earnest deposit. </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> I/ We attach here with the sum of  <b>RM{{$details->monthly_rental}}</b> Cheque No <b>{{$details->cheque_no}}</b> payable to landlord or MW PROPERTIES as stakeholder being earnest deposit. </div>
                         <div class="col-2"></div> 
                     </div> 
                     @endif
@@ -172,17 +172,17 @@
                     </div> 
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> In the event the vendor(s) rejects this offer, the said deposit is to be refunded to the said tenant(s) free of interest. </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> In the event the landlord rejects this offer, the said deposit is to be refunded to the said tenant(s) free of interest. </div>
                         <div class="col-2"></div> 
                     </div> 
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> In the event  the said tenant  abort this transaction after accepting this offer  and  the earnest deposit  will be as liquidated damages to the said vendor and the portion of liquidated damaged shall share equally with Agency. </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> In the event  the said tenant  abort this transaction after accepting this offer  and  the earnest deposit  will be as liquidated damages to the said landlord and the portion of liquidated damaged shall share equally with Agency. </div>
                         <div class="col-2"></div> 
                     </div>  
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> In the event  the said vendor abort this transaction after accepting this offer ,the said vendor should pay back the earnest deposit and another sum same as Earnest deposit  as liquidated damages to the said tenant and the portion of liquidated damaged shall share equally with Agency. </div>
+                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> In the event  the said landlord abort this transaction after accepting this offer ,the said landlord should pay back the earnest deposit and another sum same as Earnest deposit  as liquidated damages to the said tenant and the portion of liquidated damaged shall share equally with Agency. </div>
                         <div class="col-2"></div> 
                     </div> 
                     <br>
