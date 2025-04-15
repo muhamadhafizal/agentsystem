@@ -101,18 +101,6 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Tenancy Agreement Fee: </label>
-                                                <input type="number" name="agreement_fee" value="{{$details->agreement_fee}}"  step="0.001" class="form-control">
-                                            </div>
-                                            <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Stamp Duty + Runner Fee: </label>
-                                                <input type="number" name="stamp_duty" value="{{$details->stamp_duty}}"  step="0.001" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
                                             <div class="col-lg-12 col-sm-12">
                                          
                                                 <input type="hidden" name="total" step="0.001" value="0"  class="form-control">

@@ -100,18 +100,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Tenancy Agreement Fee: </label>
-                                                <input type="number" name="agreement_fee" step="0.001" class="form-control" required>
-                                            </div>
-                                            <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Stamp Duty + Runner Fee: </label>
-                                                <input type="number" name="stamp_duty" step="0.001" class="form-control" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                       
                                     </div>
                                     <div class="form-group">

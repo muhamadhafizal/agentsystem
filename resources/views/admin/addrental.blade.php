@@ -22,7 +22,7 @@
                                         </div>
                                         <div class="col-lg-6 col-sm-12">
                                             <label class=" form-control-label">Date</label>
-                                            <input type="date" id="thedate" name="date" placeholder="Enter date" class="form-control" required>
+                                            <input type="date" id="date" name="date" placeholder="Enter date" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>

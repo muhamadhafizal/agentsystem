@@ -119,16 +119,6 @@
                     </div> 
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> 5)Tenancy Agreement fee &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <b>RM{{$details->agreement_fee}}</b> </div>
-                        <div class="col-2"></div> 
-                    </div> 
-                    <div class="row">
-                        <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> 6)Stamp Duty + Runner fee &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <b>RM{{$details->stamp_duty}}</b> </div>
-                        <div class="col-2"></div> 
-                    </div> 
-                    <div class="row">
-                        <div class="col-1"></div>        
                         <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> TOTAL &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <b>RM{{$totalotl}}</b> </div>
                         <div class="col-2"></div> 
                     </div> 

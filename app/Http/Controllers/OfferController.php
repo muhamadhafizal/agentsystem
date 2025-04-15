@@ -110,8 +110,8 @@ class OfferController extends Controller
         $offer->advance_rental = $advance_rental;
         $offer->security_deposit = $security_deposit;
         $offer->utility_deposit = $utility_deposit;
-        $offer->agreement_fee = $agreement_fee;
-        $offer->stamp_duty = $stamp_duty;
+        $offer->agreement_fee = 0;
+        $offer->stamp_duty = 0;
         $offer->type = $type;
         $offer->cheque_no = $cheque_no;
         $offer->pay_before = $pay_before;
@@ -172,7 +172,7 @@ class OfferController extends Controller
         }
       
         //totalotl
-        $totalotl = $details->advance_rental + $details->security_deposit + $details->utility_deposit + $details->agreement_fee + $details->stamp_duty;
+        $totalotl = $details->advance_rental + $details->security_deposit + $details->utility_deposit;
 
         return view('agent/otl/details', compact('details','vendorname','vendoric','tenantname','tenantic','startdatecommencement','enddatecommencement','totalotl'));
     }
@@ -251,8 +251,8 @@ class OfferController extends Controller
         $offer->advance_rental = $advance_rental;
         $offer->security_deposit = $security_deposit;
         $offer->utility_deposit = $utility_deposit;
-        $offer->agreement_fee = $agreement_fee;
-        $offer->stamp_duty = $stamp_duty;
+        $offer->agreement_fee = 0;
+        $offer->stamp_duty = 0;
         $offer->type = $type;
         $offer->cheque_no = $cheque_no;
         $offer->pay_before = $pay_before;

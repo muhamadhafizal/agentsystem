@@ -433,11 +433,6 @@ if ($role == 'agent') {
        });
     </script>
     <script>
-        $('#thedate').datepicker({
-            format: 'yyyy-mm-dd'
-        });
-    </script>
-    <script>
         $(".myField").keyup(function() {
             $(".myField").val(this.value.match(/[0-9.0-9]*/));
             
@@ -458,7 +453,14 @@ if ($role == 'agent') {
 
        $("#fee").on('keyup',function(){
             $fee = ($(this).val());
-            $tempsst = $fee*0.06;
+            $date = ($(date).val());
+            
+            $percentsst = 0.08;
+            if($date < "2024-03-01"){
+                $percentsst = 0.06;
+            }
+
+            $tempsst = $fee*$percentsst;
             $sst = $tempsst.toFixed(2);
    
             $("#sst").val($sst);

@@ -268,6 +268,14 @@ class RentalController extends Controller
             $amountadminfee = 0;
         }
 
+        //sst
+        $sstpercent = 0.08;
+        if($date < '2024-03-01'){
+            $sstpercent = 0.06;
+        }
+        $sst = $fee * $sstpercent;
+        $netcomm = $commin - $sst;
+
         $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee,$agreementfeeaftersst,$amountadminfee);
         
         $rental = new Rental;
@@ -380,6 +388,14 @@ class RentalController extends Controller
         } else {
             $amountadminfee = 0;
         }
+
+        //sst
+        $sstpercent = 0.08;
+        if($date < '2024-03-01'){
+            $sstpercent = 0.06;
+        }
+        $sst = $fee * $sstpercent;
+        $netcomm = $commin - $sst;
 
         $tempresult = $this->getcalculationpercent($agent,$fee,$sst,$commin,$netcomm,$sstagreementfee,$agreementfeeaftersst,$amountadminfee);
       
