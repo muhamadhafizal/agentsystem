@@ -113,10 +113,6 @@
                                                 <label class=" form-control-label">Deduct Earnest Deposit Paid : </label>
                                                 <input type="number" name="deduct_deposit" value="{{$details->deduct_deposit}}"  step="0.001" class="form-control">
                                             </div>
-                                            <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Deduct Agreement and Stamping Fee : </label>
-                                                <input type="number" name="deduct_agreement" value="{{$details->deduct_agreement}}"  step="0.001" class="form-control">
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">

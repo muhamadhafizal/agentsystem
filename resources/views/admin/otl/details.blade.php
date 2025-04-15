@@ -129,11 +129,6 @@
                     </div> 
                     <div class="row">
                         <div class="col-1"></div>        
-                        <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (-)Deduct  Agreement and Stamping Fee : <b>RM{{$details->deduct_agreement}}</b> </div>
-                        <div class="col-2"></div> 
-                    </div> 
-                    <div class="row">
-                        <div class="col-1"></div>        
                         <div class="col-9" style="font-size:11px; text-align:justify; padding-left : 60px"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Balance To Paid to Landlord : <b>RM{{$details->balance_to_paid}}</b> </div>
                         <div class="col-2"></div> 
                     </div> 

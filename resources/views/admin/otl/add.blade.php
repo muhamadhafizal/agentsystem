@@ -108,10 +108,6 @@
                                                 <label class=" form-control-label">Deduct Earnest Deposit Paid : </label>
                                                 <input type="number" name="deduct_deposit" step="0.001" class="form-control" required>
                                             </div>
-                                            <div class="col-lg-6 col-sm-6">
-                                                <label class=" form-control-label">Deduct Agreement and Stamping Fee : </label>
-                                                <input type="number" name="deduct_agreement" step="0.001" class="form-control" required>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -131,7 +131,7 @@ class OfferController extends Controller
         $offer->others_tenant_ic = $others_tenant_ic;
         $offer->total = $total;
         $offer->deduct_deposit = $deduct_deposit;
-        $offer->deduct_agreement = $deduct_agreement;
+        $offer->deduct_agreement = 0;
         $offer->balance_to_paid = $balance_to_paid;
         $offer->save();
 
@@ -272,7 +272,7 @@ class OfferController extends Controller
         $offer->others_tenant_ic = $others_tenant_ic;
         $offer->total = $total;
         $offer->deduct_deposit = $deduct_deposit;
-        $offer->deduct_agreement = $deduct_agreement;
+        $offer->deduct_agreement = 0;
         $offer->balance_to_paid = $balance_to_paid;
         $offer->save();
 
